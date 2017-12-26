@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ngc7293&#39;s blog</title>
-    <link>/</link>
+    <link>http://gqhappy.xyz/</link>
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gqhappy.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
