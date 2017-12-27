@@ -13,7 +13,7 @@
     
   
   
-  <meta name="twitter:title" content="frist day"/>
+  <meta name="twitter:title" content="网络以及C&#43;&#43;debug拾遗"/>
   <meta name="twitter:description" content="tommor is tomorrow."/>
   
     <meta name="twitter:site" content="@ngc7293"/>
@@ -30,7 +30,7 @@
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.31.1" />
-		<title>frist day &middot; ngc7293&#39;s blog</title>
+		<title>网络以及C&#43;&#43;debug拾遗 &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
 		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
 		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
@@ -68,11 +68,11 @@
             <article>
                 <header>
                     <h1>
-                        frist day
+                        网络以及C&#43;&#43;debug拾遗
                     </h1>
                     <h2 class="headline">
                     Dec 26, 2017 00:00
-                    · 5 words
+                    · 27 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -83,18 +83,54 @@
                   
                 
                 <section id="post-body">
-                    <p>#这是新的一天</p>
+                    <p>#2017-12-27
+我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客[how to study network]](<a href="http://old.lazysheep.cc/2015/01/04/0x01/)，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。">http://old.lazysheep.cc/2015/01/04/0x01/)，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。</a></p>
 
-<p>现在是2017年12月26日的23点半，今天又是我的基金大跌的一天，伤心，今天怎么说呢，每天也不知道在干什么，不管了，tomorrow is tomorrow，毕竟想换电脑了。</p>
+<p>
+前几天写了一点zhulong的数据库文件跟注册登陆的部分，这几天就咕咕咕喽，其实我想了很久是否要将时间放到渗透技巧的应用还是将时间用来学习文化课，我觉得虽然我们的老师讲的不是特别的好，但是不代表我们不能学的好，毕竟学习是自己的，像我们学的课像是概率论，在ml方面都是非常的有用的。</p>
 
-<p></p>
+<p>下面是正文。。。。。</p>
 
-<p>明日计划：写完原本早该写的网络学习1，大物实验报告以及早该开始的简明信息安全基础的学习，明天加油吧。（ps:今天把我僚机的蛋糕送到了，原本是从上海出发，结果居然从成都发，不知道到之后坏没坏，总是想如果他在杭就好了)</p>
+<p>学习网络，一部分是为了考取CCNA，CCNP以及到CCIE那个专业方向，不过我觉得现在在中国市场，华为比思科的前景要好一点，另外一点，是将网络学习作为一种辅助手段，不管是渗透也好，开发也好，你如果需要同其他的地方（主机）进行交互，那就需要用到网络。网络作为一种连接世界的一种工具，毕竟也是计算机的一部分基础，在这里我也不写多了，写一些我自己的理解吧。</p>
+
+<p>网络分为两个部分，一个是协议部分，另外一个算是硬件吧。</p>
+
+<p>如果说协议部分，就不得不说iso（国际标准化组织）制定的一个参考模型osi（Open System Interconnect），它为开放式互联信息系统提供了一种功能结构的架构。</p>
+
+<p>这是osi的模型图；</p>
+
+<p>值得一提的是，osi是一个参考模型，只是提供一个共同的基础以及标准框架，并为保持标准的一致性和兼容性给出自己的参考，并不是实际的硬件设备。</p>
+
+<p>上三层我们可以称他们是应用层，其中包括应用层，表示层跟会话层。</p>
+
+<p>应用层：作为用户的接口，eg：http，ftp，SMTP，telnet等协议</p>
+
+<p>表示层：对数据加密等特殊处理</p>
+
+<p>会话层：保持不同应用之间的数据流</p>
+
+<p>下三层我们称为数据流层，毕竟是更接近硬件一点，其中包括传输层，网络层，数据链路层以及物理层</p>
+
+<p>传输层：提供可靠或者不可靠的数据传输。并且提供数据重传的错误纠正。</p>
+
+<p>网络层：提供路由路径，逻辑寻址，定义指定协议相关联的目标逻辑地址</p>
+
+<p>数据链路层：源与目标物理地址之间，与帧的高层协议之间，网络拓扑，帧顺序，数据流控制，以及有向无向的链接。其是将比特流合成字节进而合成帧用mac地址访问媒介以及错误发现。又分为mac子层以及LLC子层，mac子层负责mac寻址以及定义访问媒介的控制方法，LLC子层负责为上层提供SAP服务访问点，并为数据加上控制信息。</p>
+
+<p>物理层：负责设备间发送比特流（定义针脚方式，定义介质类型，连接器类型，信令类型，</p>
+
+<p>如果按照tcpip分层模型来看，可以分为4层。。。。</p>
+
+<p>了解完分层之后，你可以来看各个协议的细节，例如http与tcp等协议，在这里推荐两本书，一本图解http跟图解tcpip，虽然这两本书不是很详细，但是花几个小时过一遍，大致的对network有所了解，另一本是tcpip详解，林一方面是先对硬件进行了解对交换机，路由器，网桥等进行一些了解。</p>
+
+<p>话说我的简明信息安全基础的复习又又又又又又又鸽了，，，，，</p>
+
+<p>好了我去写大物实验了。</p>
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fnewday%2f - frist_day by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2f12_27%2f - 20171227 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
