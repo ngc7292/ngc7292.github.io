@@ -4,7 +4,7 @@
   
   <url>
     <loc>http://gqhappy.xyz/posts/12_27/</loc>
-    <lastmod>2017-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,24 +18,37 @@
   </url>
   
   <url>
+    <loc>http://gqhappy.xyz/tags/c&#43;&#43;/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://gqhappy.xyz/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://gqhappy.xyz/tags/network/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://gqhappy.xyz/posts/</loc>
-    <lastmod>2017-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://gqhappy.xyz/tags/</loc>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://gqhappy.xyz/</loc>
-    <lastmod>2017-12-26T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
