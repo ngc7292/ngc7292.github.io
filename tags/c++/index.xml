@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on ngc7293&#39;s blog</title>
-    <link>http://gqhappy.xyz/posts/</link>
-    <description>Recent content in Posts on ngc7293&#39;s blog</description>
+    <title>C&#43;&#43; on ngc7293&#39;s blog</title>
+    <link>http://gqhappy.xyz/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gqhappy.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gqhappy.xyz/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,19 +20,6 @@
       <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
 
 &lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>frist day</title>
-      <link>http://gqhappy.xyz/posts/newday/</link>
-      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://gqhappy.xyz/posts/newday/</guid>
-      <description>&lt;p&gt;#这是新的一天&lt;/p&gt;
-
-&lt;p&gt;现在是2017年12月26日的23点半，今天又是我的基金大跌的一天，伤心，今天怎么说呢，每天也不知道在干什么，不管了，tomorrow is tomorrow，毕竟想换电脑了。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
