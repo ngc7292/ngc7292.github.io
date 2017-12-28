@@ -76,6 +76,166 @@
     
         
             <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_api/'>
+                    Django api 一览
+                    
+                        
+                            <h2>API参考
+应用 系统检查框架 内置基于类的视图API Clickjacking保护 contrib 包 跨站请求伪造保护 数据库 django-admin 和 manage.py 从您的代码运行管理命令 Django例外 文件处理 形式 中间件 迁移操作 楷模 请求和响应对象 SchemaEditor 设置 信号 模板 TemplateResponse 和 SimpleTemplateResponse Unicode数据 django.urls 效用函数 django.urls 函数在URLconf中使用 django.conf.urls 函数在URLconf中使用 Django Utils 验证器 内置视图  </h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_frist/'>
+                    编写你的第一个Django应用程序，第一部分
+                    
+                        
+                            <h2>#编写你的第一个Django应用程序，第一部分
+让我们通过例子来学习。
+在本教程中，我们将引导您完成基本的轮询应用程序的创建。
+它将由两部分组成：
+一个让人们查看民意调查并投票的公共网站。 一个管理网站，可让您添加，更改和删除民意调查。 我们假设你已经安装了Django。您可以通过在shell提示符下运行以下命令（由$前缀指示）来告诉Django已经安装以及哪个版本：
+$ python -m django --version  如果安装了Django，你应该看到你的安装版本。如果不是，则会显示“No module named django”错误。
+本教程是为Django 2.0和Python 3.4或更高版本编写的。如果Django版本不匹配，可以使用此页面右下角的版本切换器来引用您的Django版本的教程，或将Django更新为最新版本。如果您仍在使用Python 2.7，则需要稍微调整代码示例，如注释中所述。
+请参阅如何安装Django以获取有关如何移除较旧版本Django并安装较新版本的建议。
+从哪里得到帮助：
+如果您在阅读本教程时遇到困难，请发送消息给django用户，或者在irc.freenode.net上通过#django发送消息，与其他可能帮助您的Django用户聊天。 创建项目¶
+如果这是你第一次使用Django，你将不得不照顾一些初始设置。也就是说，您需要自动生成一些代码来建立一个Django 项目 - 一个Django实例的设置集合，包括数据库配置，Django特定的选项和特定于应用程序的设置。
+从命令行，cd到您要存储代码的目录中，然后运行以下命令：
+$ django-admin startproject mysite  这将mysite在当前目录中创建一个目录。如果它不起作用，请参阅运行django-admin的问题。
+注意
+您需要避免在内置Python或Django组件之后命名项目。特别是，这意味着你应该避免使用像 django（这将与Django本身冲突）或test（与内置Python包冲突）的名称。 这个代码应该在哪里居住？
+如果你的背景是普通的旧PHP（没有使用现代的框架），你可能习惯于把代码放在Web服务器的文档根目录下（比如/var/www）。用Django，你不这样做。将这些Python代码放在​​Web服务器的文档根目录中并不是一个好主意，因为这样做有可能使人们能够通过Web查看代码。这对安全性不好。
+把你的代码放在文档根目录以外的某个目录中，比如 /home/mycode。 我们来看看startproject创建的内容：
+mysite/ manage.py mysite/ __init__.py settings.py urls.py wsgi.py  这些文件是：
+外部mysite/根目录只是您的项目的容器。它的名字与Django无关; 你可以把它重命名为任何你喜欢的东西。 manage.py：一个命令行实用程序，可让您以各种方式与此Django项目进行交互。你可以阅读所有的细节 manage.py在Django的管理和manage.py。 内部mysite/目录是您的项目的实际Python包。它的名字是你需要用来导入任何内容的Python包名（例如mysite.urls）。 mysite/init.py：一个空的文件，告诉Python这个目录应该被认为是一个Python包。如果你是一名Python初学者，请阅读官方Python文档中有关软件包的更多信息。 mysite/settings.py：这个Django项目的设置/配置。 Django的设置会告诉你所有关于设置的工作。 mysite/urls.py：这个Django项目的URL声明; Django支持的站点的“目录”。您可以在URL调度器中阅读更多关于URL的内容。 mysite/wsgi.py：WSGI兼容的Web服务器为您的项目提供服务的入口点。有关更多详细信息，请参阅如何使用WSGI进行部署。
+###开发服务器
+让我们验证你的Django项目的作品。mysite如果尚未更改到外部目录，请运行以下命令：
+$ python manage.py runserver  您将在命令行上看到以下输出：</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_second/'>
+                    编写你的第一个Django应用程序，第二部分
+                    
+                        
+                            <h2></h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_site/'>
+                    Django文档目录
+                    
+                        
+                            <h2>#Django文档内容
+##入门 - [x] Django一目了然 - [x] 编写你的第一个Django应用程序，第1部分 - [x] 编写你的第一个Django应用程序，第2部分 - [x] 编写你的第一个Django应用程序，第3部分 - [ ] 编写你的第一个Django应用程序，第4部分 - [ ] 编写你的第一个Django应用程序，第5部分 - [ ] 编写你的第一个Django应用程序，第6部分 - [ ] 编写你的第一个Django应用程序，第7部分 - [ ] 高级教程：如何编写可重用的应用程序 - [ ] 接下来要读什么 - [ ] 为Django编写你的第一个补丁 - [ ] 使用Django - [ ] 如何安装Django - [ ] 模型和数据库 - [ ] 处理HTTP请求 - [ ] 使用表单 - [ ] 模板 - [ ] 基于类的视图 - [ ] 迁移 - [ ] 管理文件 - [ ] 在Django测试 - [ ] Django中的用户认证 - [ ] Django的缓存框架 - [ ] 条件视图处理 - [ ] 加密签名 - [ ] 发送电子邮件 - [ ] 国际化和本地化 - [ ] 记录 - [ ] 分页 - [ ] Django的安全 - [ ] 性能和优化 - [ ] 序列化Django对象 - [ ] Django设置 - [ ] 信号 - [ ] 外包装 - [ ] “如何做”指南 - [ ] 认证使用 REMOTE_USER - [ ] 编写自定义django-admin命令 - [ ] 编写自定义模型字段 - [ ] 自定义查找 - [ ] 自定义模板标签和过滤器 - [ ] 编写自定义存储系统 - [ ] 部署Django - [ ] 将Django升级到更新的版本 - [ ] 错误报告 - [ ] 为模型提供初始数据 - [ ] 在Jython上运行Django - [ ] 将Django与遗留数据库集成 - [x] 用Django输出CSV - [x] 用Django输出PDF - [ ] 覆盖模板 - [ ] 管理静态文件（例如图像，JavaScript，CSS） - [ ] 部署静态文件 - [ ] 编写数据库迁移</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_thrid/'>
+                    编写你的第一个Django应用程序，第三部分
+                    
+                        
+                            <h2>#编写你的第一个Django应用程序，第3部分
+本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。
+###概述
+视图是Django应用程序中网页的“类型”，它通常用于特定的功能并具有特定的模板。例如，在博客应用程序中，您可能有以下观点：
+博客主页 - 显示最新的几个条目。 输入“详细信息”页面 - 永久链接页面为单个条目。 基于年份的存档页面 - 显示给定年份中所有条目的月份。 基于月份的存档页面 - 显示给定月份中所有条目的日期。 基于日期的归档页面 - 显示给定日期的所有条目。 评论操作 - 处理对给定条目的发布评论。 在我们的投票应用程序中，我们将有以下四个视图：
+问题“索引”页面 - 显示最新的几个问题。 问题“详细”页面 - 显示一个问题文本，没有结果，但有一个表格投票。 问题“结果”页面 - 显示特定问题的结果。 投票行动 - 处理针对特定问题的特定选择的投票。 在Django中，网页和其他内容由视图传递。每个视图都由一个简单的Python函数（或基于类的视图的方法）表示。Django将通过检查请求的URL（准确地说，域名后的URL部分）来选择一个视图。
+现在在网络上你可能遇到过“ME2/Sites/dirmod.asp?sid=&amp;amp;type=gen&amp;amp;mod=Core&#43;Pages&amp;amp;gid=A6CD4967199A42D9B65B1B”等美女。你会很高兴知道，Django允许我们有更优雅的 URL模式。
+URL模式只是一个URL的一般形式，例如： /newsarchive/&amp;lt;year&amp;gt;/&amp;lt;month&amp;gt;/。
+为了从一个URL获得一个视图，Django使用了所谓的“URLconf”。URLconf将URL模式映射到视图。
+本教程提供了有关使用URLconf的基本说明，您可以参考URL调度器以获取更多信息。
+###写更多的意见
+现在让我们添加更多的意见polls/views.py。这些观点略有不同，因为他们有一个论点：
+polls/views.py def detail(request, question_id): return HttpResponse(&amp;quot;You&#39;re looking at question %s.&amp;quot; % question_id) def results(request, question_id): response = &amp;quot;You&#39;re looking at the results of question %s.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_to_csv/'>
+                    django_to_pdf
+                    
+                        
+                            <h2>##输出CSV和Django ¶
+本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。
+###使用Python CSV库¶
+Python带有一个CSV库，csv。在Django中使用它的关键是csv模块的CSV创建功能作用于类文件对象，Django的HttpResponse对象是类文件对象。
+这是一个例子：
+import csv from django.http import HttpResponse def some_view(request): # Create the HttpResponse object with the appropriate CSV header. response = HttpResponse(content_type=&#39;text/csv&#39;) response[&#39;Content-Disposition&#39;] = &#39;attachment; filename=&amp;quot;somefilename.csv&amp;quot;&#39; writer = csv.writer(response) writer.writerow([&#39;First row&#39;, &#39;Foo&#39;, &#39;Bar&#39;, &#39;Baz&#39;]) writer.writerow([&#39;Second row&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;&amp;quot;Testing&amp;quot;&#39;, &amp;quot;Here&#39;s a quote&amp;quot;]) return response  代码和评论应该是不言自明的，但是有一些事情值得一提：
+响应获取特殊的MIME类型text / csv。这告诉浏览器该文档是一个CSV文件，而不是一个HTML文件。如果不这样做，浏览器可能会将输出解释为HTML，这将导致浏览器窗口中出现难看，可怕的gobbledygook。 响应获得一个额外的Content-Disposition头，其中包含CSV文件的名称。这个文件名是任意的; 把它叫做你想要的。浏览器将在“另存为&amp;hellip;”对话框中使用它。 连接到CSV生成API很简单：只需将其response作为第一个参数传递给csv.writer。该csv.writer函数需要一个类似文件的对象，并且HttpResponse对象适合账单。 对于CSV文件中的每一行，调用writer.writerow，传递一个可迭代的对象，如列表或元组。 CSV模块负责为您引用，所以您不必担心使用引号或逗号来转义字符串。只要通过 writerow()你的原始字符串，它会做正确的事情。 流大的CSV文件¶
+当处理产生非常大的响应的视图时，您可能需要考虑使用Django StreamingHttpResponse。例如，通过流式传输需要很长时间才能生成的文件，可以避免负载均衡器丢弃在服务器生成响应时可能超时的连接。
+在这个例子中，我们充分利用Python生成器来高效地处理大型CSV文件的汇编和传输：
+import csv from django.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
+                <aside class="dates">Dec 28</aside>
+                <a href='http://gqhappy.xyz/posts/django_to_pdf/'>
+                    django_to_pdf
+                    
+                        
+                            <h2>###输出PDF文件和Django
+本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。
+动态生成PDF文件的优势在于，您可以为不同的目的创建自定义的PDF - 例如，针对不同的用户或不同的内容片段。
+例如，Django在kusports.com上用于为参与三月疯狂比赛的人们生成定制的，打印友好的NCAA锦标赛括号，如PDF文件。
+##安装ReportLab的
+ReportLab库在PyPI上可用。一个用户指南（不是巧合，PDF文件）也可供下载。您可以安装ReportLab pip：
+$ pip install reportlab  通过在Python交互式解释器中导入来测试您的安装：
+&amp;gt;&amp;gt;&amp;gt; import reportlab  如果该命令不会引发任何错误，则安装工作。
+###写下您的看法
+使用Django动态生成PDF的关键是ReportLab API作用于类文件对象，而Django的HttpResponse 对象则是文件类对象。
+这是一个“Hello World”的例子：
+from reportlab.pdfgen import canvas from django.http import HttpResponse def some_view(request): # Create the HttpResponse object with the appropriate PDF headers. response = HttpResponse(content_type=&#39;application/pdf&#39;) response[&#39;Content-Disposition&#39;] = &#39;attachment; filename=&amp;quot;somefilename.pdf&amp;quot;&#39; # Create the PDF object, using the response object as its &amp;quot;file.&amp;quot; p = canvas.Canvas(response) # Draw things on the PDF.</h2>
+                        
+                    
+                </a>
+            </li>
+        
+    
+    
+        
+            <li>
                 <aside class="dates">Dec 27</aside>
                 <a href='http://gqhappy.xyz/posts/12_27/'>
                     网络以及C&#43;&#43; debug拾遗
