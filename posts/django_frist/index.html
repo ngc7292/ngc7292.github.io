@@ -89,13 +89,23 @@
                 </header>
                 
                   
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#编写你的第一个django应用程序-第一部分">编写你的第一个Django应用程序，第一部分</a></li>
+</ul>
+</nav>
+                    </div>
+                  
                 
                 <section id="post-body">
-                    <p>#编写你的第一个Django应用程序，第一部分</p>
+                    <h1 id="编写你的第一个django应用程序-第一部分">编写你的第一个Django应用程序，第一部分</h1>
 
 <p>让我们通过例子来学习。</p>
 
 <p>在本教程中，我们将引导您完成基本的轮询应用程序的创建。</p>
+
+<p></p>
 
 <p>它将由两部分组成：</p>
 
@@ -306,7 +316,7 @@ urlpatterns = [
 
 <p>route是一个包含URL模式的字符串。在处理请求时，Django从第一个模式开始，urlpatterns并在列表中向下，比较所请求的URL和每个模式，直到找到匹配的模式。</p>
 
-<p>模式不搜索GET和POST参数或域名。例如，在一个请求中<a href="https://www.example.com/myapp/，URLconf会查找">https://www.example.com/myapp/，URLconf会查找</a> myapp/。在一个请求中<a href="https://www.example.com/myapp/?page=3，URLconf也将被查找myapp/。">https://www.example.com/myapp/?page=3，URLconf也将被查找myapp/。</a></p>
+<p>模式不搜索GET和POST参数或域名。例如，在一个请求中<code>https://www.example.com/myapp/</code>，URLconf会查找 myapp/。在一个请求中<code>https://www.example.com/myapp/?page=3</code>，URLconf也将被查找myapp/。</p>
 
 <p>path()参数：view</p>
 
@@ -321,7 +331,6 @@ urlpatterns = [
 <p>命名您的URL可以让您从Django的其他地方明确地引用它，尤其是在模板中。这个强大的功能使您可以对项目的URL模式进行全局更改，同时只触摸单个文件。</p>
 
 <p>当您熟悉基本的请求和响应流程时，请阅读 本教程的第2部分以开始使用数据库。</p>
-
                 </section>
             </article>
 
