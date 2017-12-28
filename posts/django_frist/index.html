@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="http://gqhappy.xyz/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="编写你的第一个Django应用程序，第一部分"/>
+  <meta name="twitter:description" content="编写你的第一个Django应用程序，第一部分"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.31.1" />
+		<title>编写你的第一个Django应用程序，第一部分 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/font-awesome.min.css">
+		
+
+		
+		<link href="http://gqhappy.xyz/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='http://gqhappy.xyz/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='http://gqhappy.xyz/posts'>Archive</a>
+	<a href='http://gqhappy.xyz/tags'>Tags</a>
+	<a href='http://gqhappy.xyz/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="http://gqhappy.xyz/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        编写你的第一个Django应用程序，第一部分
+                    </h1>
+                    <h2 class="headline">
+                    Dec 28, 2017 00:00
+                    · 283 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="http://gqhappy.xyz/tags/django">django</a>
+                          
+                              <a href="http://gqhappy.xyz/tags/python">python</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                
+                <section id="post-body">
+                    <p>#编写你的第一个Django应用程序，第一部分</p>
+
+<p>让我们通过例子来学习。</p>
+
+<p>在本教程中，我们将引导您完成基本的轮询应用程序的创建。</p>
+
+<p>它将由两部分组成：</p>
+
+<p>一个让人们查看民意调查并投票的公共网站。
+一个管理网站，可让您添加，更改和删除民意调查。
+我们假设你已经安装了Django。您可以通过在shell提示符下运行以下命令（由$前缀指示）来告诉Django已经安装以及哪个版本：</p>
+
+<pre><code class="language-shell">$ python -m django --version
+</code></pre>
+
+<p>如果安装了Django，你应该看到你的安装版本。如果不是，则会显示“No module named django”错误。</p>
+
+<p>本教程是为Django 2.0和Python 3.4或更高版本编写的。如果Django版本不匹配，可以使用此页面右下角的版本切换器来引用您的Django版本的教程，或将Django更新为最新版本。如果您仍在使用Python 2.7，则需要稍微调整代码示例，如注释中所述。</p>
+
+<p>请参阅如何安装Django以获取有关如何移除较旧版本Django并安装较新版本的建议。</p>
+
+<p>从哪里得到帮助：</p>
+
+<p>如果您在阅读本教程时遇到困难，请发送消息给django用户，或者在irc.freenode.net上通过#django发送消息，与其他可能帮助您的Django用户聊天。
+创建项目¶</p>
+
+<p>如果这是你第一次使用Django，你将不得不照顾一些初始设置。也就是说，您需要自动生成一些代码来建立一个Django 项目 - 一个Django实例的设置集合，包括数据库配置，Django特定的选项和特定于应用程序的设置。</p>
+
+<p>从命令行，cd到您要存储代码的目录中，然后运行以下命令：</p>
+
+<pre><code class="language-shell">$ django-admin startproject mysite
+</code></pre>
+
+<p>这将mysite在当前目录中创建一个目录。如果它不起作用，请参阅运行django-admin的问题。</p>
+
+<p>注意</p>
+
+<p>您需要避免在内置Python或Django组件之后命名项目。特别是，这意味着你应该避免使用像 django（这将与Django本身冲突）或test（与内置Python包冲突）的名称。
+这个代码应该在哪里居住？</p>
+
+<p>如果你的背景是普通的旧PHP（没有使用现代的框架），你可能习惯于把代码放在Web服务器的文档根目录下（比如/var/www）。用Django，你不这样做。将这些Python代码放在​​Web服务器的文档根目录中并不是一个好主意，因为这样做有可能使人们能够通过Web查看代码。这对安全性不好。</p>
+
+<p>把你的代码放在文档根目录以外的某个目录中，比如 /home/mycode。
+我们来看看startproject创建的内容：</p>
+
+<pre><code>mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+</code></pre>
+
+<p>这些文件是：</p>
+
+<p>外部mysite/根目录只是您的项目的容器。它的名字与Django无关; 你可以把它重命名为任何你喜欢的东西。
+manage.py：一个命令行实用程序，可让您以各种方式与此Django项目进行交互。你可以阅读所有的细节 manage.py在Django的管理和manage.py。
+内部mysite/目录是您的项目的实际Python包。它的名字是你需要用来导入任何内容的Python包名（例如mysite.urls）。
+mysite/<strong>init</strong>.py：一个空的文件，告诉Python这个目录应该被认为是一个Python包。如果你是一名Python初学者，请阅读官方Python文档中有关软件包的更多信息。
+mysite/settings.py：这个Django项目的设置/配置。 Django的设置会告诉你所有关于设置的工作。
+mysite/urls.py：这个Django项目的URL声明; Django支持的站点的“目录”。您可以在URL调度器中阅读更多关于URL的内容。
+mysite/wsgi.py：WSGI兼容的Web服务器为您的项目提供服务的入口点。有关更多详细信息，请参阅如何使用WSGI进行部署。</p>
+
+<p>###开发服务器</p>
+
+<p>让我们验证你的Django项目的作品。mysite如果尚未更改到外部目录，请运行以下命令：</p>
+
+<pre><code class="language-shell">$ python manage.py runserver
+</code></pre>
+
+<p>您将在命令行上看到以下输出：</p>
+
+<pre><code>Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+December 02, 2017 - 15:50:53
+Django version 2.0, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</code></pre>
+
+<p>###注意</p>
+
+<p>现在忽略有关未应用数据库迁移的警告; 我们很快就会处理数据库。
+您已经开始使用Django开发服务器，这是一个纯粹用Python编写的轻量级Web服务器。我们在Django中包含了这个功能，所以您可以快速开发，而无需处理配置生产服务器（如Apache），直到您准备好生产。</p>
+
+<p>现在是值得注意的时候了：不要使用类似于生产环境的任何东西。它仅用于开发时使用。（我们正在开发Web框架，而不是Web服务器。）</p>
+
+<p>现在服务器正在运行，请使用Web浏览器访问<a href="http://127.0.0.1:8000/。你会看到一个“恭喜！”页面，一个火箭起飞。有效！">http://127.0.0.1:8000/。你会看到一个“恭喜！”页面，一个火箭起飞。有效！</a></p>
+
+<p>改变端口</p>
+
+<p>默认情况下，该runserver命令将在端口8000上启动内部IP上的开发服务器。</p>
+
+<p>如果要更改服务器的端口，请将其作为命令行参数传递。例如，这个命令在端口8080上启动服务器：</p>
+
+<pre><code class="language-shell">$ python manage.py runserver 8080
+</code></pre>
+
+<p>如果要更改服务器的IP，请将其与端口一起传递。例如，要收听所有可用的公共IP（如果您正在运行Vagrant或想要在网络上的其他计算机上显示您的工作，这是非常有用的），请使用：</p>
+
+<pre><code class="language-shell">$ python manage.py runserver 0：8000
+</code></pre>
+
+<p>0是0.0.0.0的快捷方式。完整的开发服务器文档可以在runserver参考资料中找到。</p>
+
+<p>自动重新加载 runserver</p>
+
+<p>开发服务器根据需要自动为每个请求重新加载Python代码。您不需要重新启动服务器以使代码更改生效。但是，添加文件等一些操作不会触发重新启动，因此在这种情况下您必须重新启动服务器。
+创建民意调查程序¶</p>
+
+<p>既然你的环境 - 一个“项目” - 已经建立起来了，你就开始工作了。</p>
+
+<p>您在Django中编写的每个应用程序都包含遵循特定约定的Python包。Django自带了一个实用程序，可以自动生成应用程序的基本目录结构，因此您可以专注于编写代码而不是创建目录。</p>
+
+<p>###项目与应用程序</p>
+
+<p>项目和应用程序有什么区别？一个应用程序是一个Web应用程序，它执行某些操作，例如Weblog系统，公共记录数据库或简单的轮询应用程序。项目是特定网站的配置和应用程序的集合。项目可以包含多个应用程序。一个应用程序可以在多个项目中。
+您的应用程序可以在您的任何地方居住Python的路径。在本教程中，我们将在您的manage.py 文件旁边创建我们的轮询应用程序，以便将其导入为自己的顶级模块，而不是子模块mysite。</p>
+
+<p>要创建您的应用程序，请确保您位于相同的目录中manage.py 并键入此命令：</p>
+
+<p>$ python manage.py startapp民意调查
+这将创建一个目录polls，其布局如下：</p>
+
+<pre><code>polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+</code></pre>
+
+<p>该目录结构将容纳轮询应用程序。</p>
+
+<p>写下您的第一个视图</p>
+
+<p>我们来写第一个视图。打开文件polls/views.py 并将下面的Python代码放入其中：</p>
+
+<pre><code class="language-python">polls/views.py
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse(&quot;Hello, world. You're at the polls index.&quot;)
+</code></pre>
+
+<p>这是Django中最简单的视图。要调用视图，我们需要将它映射到一个URL - 为此，我们需要一个URLconf。</p>
+
+<p>要在polls目录中创建URLconf，请创建一个名为的文件urls.py。你的app目录应该如下所示：</p>
+
+<pre><code>polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    urls.py
+    views.py
+</code></pre>
+
+<p>在polls/urls.py文件中包含以下代码：</p>
+
+<pre><code class="language-python">polls/urls.py
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+</code></pre>
+
+<p>下一步是将URL URL指向polls.urls模块。在 mysite/urls.py，添加一个导入django.urls.include并include()在urlpatterns列表中插入一个 ，所以你有：</p>
+
+<pre><code class="language-python">mysite/urls.py
+from django.urls import include, path
+from django.contrib import admin
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+</code></pre>
+
+<p>该include()函数允许引用其他URLconf。每当Django遇到的时候include()，它会截断与该点匹配的URL的任何部分，并将剩余的字符串发送到包含的URLconf以供进一步处理。</p>
+
+<p>背后的想法include()是使插入和播放网址变得容易。由于民意测验是在他们自己的URLconf（polls/urls.py）中，他们可以被放置在“/ polls /”下，或者在“/ fun_polls /”下，或者在“/ content / polls /”或者其他路径根目录下，工作。</p>
+
+<p>###何时使用 include()</p>
+
+<p>include()包含其他网址格式时，请务必使用。 admin.site.urls这是唯一的例外。
+现在你已经把一个index视图连接到了URLconf中。让我们验证它的工作，运行以下命令：</p>
+
+<pre><code class="language-shell">$ python manage.py runserver
+</code></pre>
+
+<p>在你的浏览器中转到http：// localhost：8000 / polls /，你应该看到文本“ Hello，world”。你在投票指数。“，你在index视图中定义的 。</p>
+
+<p>该path()函数传递四个参数，需要两个： route和view，和两个可选：kwargs和name。在这一点上，值得回顾一下这些论点是什么。</p>
+
+<p>path()参数：route</p>
+
+<p>route是一个包含URL模式的字符串。在处理请求时，Django从第一个模式开始，urlpatterns并在列表中向下，比较所请求的URL和每个模式，直到找到匹配的模式。</p>
+
+<p>模式不搜索GET和POST参数或域名。例如，在一个请求中<a href="https://www.example.com/myapp/，URLconf会查找">https://www.example.com/myapp/，URLconf会查找</a> myapp/。在一个请求中<a href="https://www.example.com/myapp/?page=3，URLconf也将被查找myapp/。">https://www.example.com/myapp/?page=3，URLconf也将被查找myapp/。</a></p>
+
+<p>path()参数：view</p>
+
+<p>当Django找到一个匹配的模式时，它会以一个HttpRequest对象作为第一个参数和路由中的任何“捕获”值作为关键字参数来调用指定的视图函数。我们将举一个例子。</p>
+
+<p>path()参数：kwargs</p>
+
+<p>任意关键字参数可以在字典中传递给目标视图。我们不打算在教程中使用Django的这个特性。</p>
+
+<p>path()参数：name</p>
+
+<p>命名您的URL可以让您从Django的其他地方明确地引用它，尤其是在模板中。这个强大的功能使您可以对项目的URL模式进行全局更改，同时只触摸单个文件。</p>
+
+<p>当您熟悉基本的请求和响应流程时，请阅读 本教程的第2部分以开始使用数据库。</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fdjango_frist%2f - django_frist by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'your_disqus_short_name'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2017 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="http://gqhappy.xyz/js/jquery-2.2.4.min.js"></script>
+<script src="http://gqhappy.xyz/js/main.js"></script>
+<script src="http://gqhappy.xyz/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

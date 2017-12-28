@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="http://gqhappy.xyz/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="django_to_pdf"/>
+  <meta name="twitter:description" content="django_to_pdf"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.31.1" />
+		<title>django_to_pdf &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/font-awesome.min.css">
+		
+
+		
+		<link href="http://gqhappy.xyz/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='http://gqhappy.xyz/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='http://gqhappy.xyz/posts'>Archive</a>
+	<a href='http://gqhappy.xyz/tags'>Tags</a>
+	<a href='http://gqhappy.xyz/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="http://gqhappy.xyz/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        django_to_pdf
+                    </h1>
+                    <h2 class="headline">
+                    Dec 28, 2017 00:00
+                    · 289 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="http://gqhappy.xyz/tags/django">django</a>
+                          
+                              <a href="http://gqhappy.xyz/tags/python">python</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                
+                <section id="post-body">
+                    <p>##输出CSV和Django ¶</p>
+
+<p>本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。</p>
+
+<p>###使用Python CSV库¶</p>
+
+<p>Python带有一个CSV库，csv。在Django中使用它的关键是csv模块的CSV创建功能作用于类文件对象，Django的HttpResponse对象是类文件对象。</p>
+
+<p>这是一个例子：</p>
+
+<pre><code class="language-pthon">import csv
+from django.http import HttpResponse
+
+def some_view(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=&quot;somefilename.csv&quot;'
+
+    writer = csv.writer(response)
+    writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
+    writer.writerow(['Second row', 'A', 'B', 'C', '&quot;Testing&quot;', &quot;Here's a quote&quot;])
+
+    return response
+</code></pre>
+
+<p>代码和评论应该是不言自明的，但是有一些事情值得一提：</p>
+
+<p>响应获取特殊的MIME类型text / csv。这告诉浏览器该文档是一个CSV文件，而不是一个HTML文件。如果不这样做，浏览器可能会将输出解释为HTML，这将导致浏览器窗口中出现难看，可怕的gobbledygook。
+响应获得一个额外的Content-Disposition头，其中包含CSV文件的名称。这个文件名是任意的; 把它叫做你想要的。浏览器将在“另存为&hellip;”对话框中使用它。
+连接到CSV生成API很简单：只需将其response作为第一个参数传递给csv.writer。该csv.writer函数需要一个类似文件的对象，并且HttpResponse对象适合账单。
+对于CSV文件中的每一行，调用writer.writerow，传递一个可迭代的对象，如列表或元组。
+CSV模块负责为您引用，所以您不必担心使用引号或逗号来转义字符串。只要通过 writerow()你的原始字符串，它会做正确的事情。
+流大的CSV文件¶</p>
+
+<p>当处理产生非常大的响应的视图时，您可能需要考虑使用Django StreamingHttpResponse。例如，通过流式传输需要很长时间才能生成的文件，可以避免负载均衡器丢弃在服务器生成响应时可能超时的连接。</p>
+
+<p>在这个例子中，我们充分利用Python生成器来高效地处理大型CSV文件的汇编和传输：</p>
+
+<pre><code class="language-python">import csv
+
+from django.http import StreamingHttpResponse
+
+class Echo:
+    &quot;&quot;&quot;An object that implements just the write method of the file-like
+    interface.
+    &quot;&quot;&quot;
+    def write(self, value):
+        &quot;&quot;&quot;Write the value by returning it, instead of storing in a buffer.&quot;&quot;&quot;
+        return value
+
+def some_streaming_csv_view(request):
+    &quot;&quot;&quot;A view that streams a large CSV file.&quot;&quot;&quot;
+    # Generate a sequence of rows. The range is based on the maximum number of
+    # rows that can be handled by a single sheet in most spreadsheet
+    # applications.
+    rows = ([&quot;Row {}&quot;.format(idx), str(idx)] for idx in range(65536))
+    pseudo_buffer = Echo()
+    writer = csv.writer(pseudo_buffer)
+    response = StreamingHttpResponse((writer.writerow(row) for row in rows),
+                                     content_type=&quot;text/csv&quot;)
+    response['Content-Disposition'] = 'attachment; filename=&quot;somefilename.csv&quot;'
+    return response
+</code></pre>
+
+<p>###使用模板系统¶</p>
+
+<p>或者(Alternatively)，您可以使用Django模板系统 生成CSV。这比使用方便的Python csv 模块要低，但是为了完整性，这里给出了解决方案。</p>
+
+<p>这里的想法是传递一个项目列表到你的模板，并让模板在for循环中输出逗号。</p>
+
+<p>下面是一个例子，它生成与上面相同的CSV文件：</p>
+
+<pre><code class="language-python">from django.http import HttpResponse
+from django.template import loader, Context
+
+def some_view(request):
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=&quot;somefilename.csv&quot;'
+
+    # The data is hard-coded here, but you could load it from a database or
+    # some other source.
+    csv_data = (
+        ('First row', 'Foo', 'Bar', 'Baz'),
+        ('Second row', 'A', 'B', 'C', '&quot;Testing&quot;', &quot;Here's a quote&quot;),
+    )
+
+    t = loader.get_template('my_template_name.txt')
+    c = Context({
+        'data': csv_data,
+    })
+    response.write(t.render(c))
+    return response
+</code></pre>
+
+<p>这个例子和前面的例子唯一的区别是，这个例子使用模板加载，而不是CSV模块。其余的代码 - 如content_type=&lsquo;text/csv&rsquo;- 是一样的。</p>
+
+<p>然后，my_template_name.txt用这个模板代码创建模板：</p>
+
+<pre><code class="language-html">{% for row in data %}&quot;{{ row.0|addslashes }}&quot;, &quot;{{ row.1|addslashes }}&quot;, &quot;{{ row.2|addslashes }}&quot;, &quot;{{ row.3|addslashes }}&quot;, &quot;{{ row.4|addslashes }}&quot;
+{% endfor %}
+</code></pre>
+
+<p>这个模板是相当基础的。它只是遍历给定的数据，并显示每行的CSV行。它使用addslashes模板过滤器来确保引号没有任何问题。</p>
+
+<p>###其他基于文本的格式</p>
+
+<p>请注意，这里没有特别的CSV，只是具体的输出格式。您可以使用这些技术中的任何一种来输出您可以梦想的任何基于文本的格式。您也可以使用类似的技术来生成任意的二进制数据; 有关示例，请参阅使用Django输出PDF。</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fdjango_to_csv%2f - django_to_pdf by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'your_disqus_short_name'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2017 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="http://gqhappy.xyz/js/jquery-2.2.4.min.js"></script>
+<script src="http://gqhappy.xyz/js/main.js"></script>
+<script src="http://gqhappy.xyz/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
