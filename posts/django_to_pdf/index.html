@@ -89,17 +89,39 @@
                 </header>
                 
                   
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#输出pdf文件和django">输出PDF文件和Django</a></li>
+</ul></li>
+<li><a href="#安装reportlab的">安装ReportLab的</a>
+<ul>
+<li><a href="#写下您的看法">写下您的看法</a></li>
+<li><a href="#复杂的pdf文件">复杂的PDF文件</a></li>
+<li><a href="#其他格式">其他格式</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
                 
                 <section id="post-body">
-                    <p>###输出PDF文件和Django</p>
+                    <h3 id="输出pdf文件和django">输出PDF文件和Django</h3>
 
 <p>本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。</p>
+
+<p></p>
 
 <p>动态生成PDF文件的优势在于，您可以为不同的目的创建自定义的PDF - 例如，针对不同的用户或不同的内容片段。</p>
 
 <p>例如，Django在kusports.com上用于为参与三月疯狂比赛的人们生成定制的，打印友好的NCAA锦标赛括号，如PDF文件。</p>
 
-<p>##安装ReportLab的</p>
+<h2 id="安装reportlab的">安装ReportLab的</h2>
 
 <p>ReportLab库在PyPI上可用。一个用户指南（不是巧合，PDF文件）也可供下载。您可以安装ReportLab pip：</p>
 
@@ -113,7 +135,7 @@
 
 <p>如果该命令不会引发任何错误，则安装工作。</p>
 
-<p>###写下您的看法</p>
+<h3 id="写下您的看法">写下您的看法</h3>
 
 <p>使用Django动态生成PDF的关键是ReportLab API作用于类文件对象，而Django的HttpResponse 对象则是文件类对象。</p>
 
@@ -162,7 +184,7 @@ def some_view(request):
 
 <p>ReportLab不是线程安全的。我们的一些用户报告了构建PDF生成的Django视图的奇怪问题，这些视图被许多人同时访问。</p>
 
-<p>###复杂的PDF文件</p>
+<h3 id="复杂的pdf文件">复杂的PDF文件</h3>
 
 <p>如果您使用ReportLab创建复杂的PDF文档，请考虑使用该 io库作为PDF文件的临时保存位置。这个库提供了一个特别高效的文件类对象接口。上面的“Hello World”示例被重写为使用io：</p>
 
@@ -195,14 +217,13 @@ def some_view(request):
     return response
 </code></pre>
 
-<p>###其他格式</p>
+<h3 id="其他格式">其他格式</h3>
 
 <p>请注意，这些示例中没有太多是PDF特定的 - 只是使用的位reportlab。您可以使用类似的技术来生成任何可以找到Python库的任意格式。另请参阅 使用Django输出CSV以获得另一个示例以及在生成基于文本的格式时可以使用的一些技巧。</p>
 
 <p>也可以看看</p>
 
 <p>Django Packages提供了一个可以帮助从Django生成PDF文件的软件包比较。</p>
-
                 </section>
             </article>
 

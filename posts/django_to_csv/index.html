@@ -13,8 +13,8 @@
     
   
   
-  <meta name="twitter:title" content="django_to_pdf"/>
-  <meta name="twitter:description" content="django_to_pdf"/>
+  <meta name="twitter:title" content="django_to_csv"/>
+  <meta name="twitter:description" content="django_to_csv"/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -30,7 +30,7 @@
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.31.1" />
-		<title>django_to_pdf &middot; ngc7293&#39;s blog</title>
+		<title>django_to_csv &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
 		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
 		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
@@ -68,11 +68,11 @@
             <article>
                 <header>
                     <h1>
-                        django_to_pdf
+                        django_to_csv
                     </h1>
                     <h2 class="headline">
                     Dec 28, 2017 00:00
-                    · 289 words
+                    · 288 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -89,13 +89,32 @@
                 </header>
                 
                   
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#输出csv和django">输出CSV和Django</a>
+<ul>
+<li><a href="#使用python-csv库">使用Python CSV库</a></li>
+<li><a href="#流大的csv文件">流大的CSV文件</a></li>
+<li><a href="#使用模板系统">使用模板系统</a></li>
+<li><a href="#其他基于文本的格式">其他基于文本的格式</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
                 
                 <section id="post-body">
-                    <p>##输出CSV和Django ¶</p>
+                    <h2 id="输出csv和django">输出CSV和Django</h2>
 
 <p>本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。</p>
 
-<p>###使用Python CSV库¶</p>
+<p></p>
+
+<h3 id="使用python-csv库">使用Python CSV库</h3>
 
 <p>Python带有一个CSV库，csv。在Django中使用它的关键是csv模块的CSV创建功能作用于类文件对象，Django的HttpResponse对象是类文件对象。</p>
 
@@ -122,8 +141,9 @@ def some_view(request):
 响应获得一个额外的Content-Disposition头，其中包含CSV文件的名称。这个文件名是任意的; 把它叫做你想要的。浏览器将在“另存为&hellip;”对话框中使用它。
 连接到CSV生成API很简单：只需将其response作为第一个参数传递给csv.writer。该csv.writer函数需要一个类似文件的对象，并且HttpResponse对象适合账单。
 对于CSV文件中的每一行，调用writer.writerow，传递一个可迭代的对象，如列表或元组。
-CSV模块负责为您引用，所以您不必担心使用引号或逗号来转义字符串。只要通过 writerow()你的原始字符串，它会做正确的事情。
-流大的CSV文件¶</p>
+CSV模块负责为您引用，所以您不必担心使用引号或逗号来转义字符串。只要通过 writerow()你的原始字符串，它会做正确的事情。</p>
+
+<h3 id="流大的csv文件">流大的CSV文件</h3>
 
 <p>当处理产生非常大的响应的视图时，您可能需要考虑使用Django StreamingHttpResponse。例如，通过流式传输需要很长时间才能生成的文件，可以避免负载均衡器丢弃在服务器生成响应时可能超时的连接。</p>
 
@@ -155,7 +175,7 @@ def some_streaming_csv_view(request):
     return response
 </code></pre>
 
-<p>###使用模板系统¶</p>
+<h3 id="使用模板系统">使用模板系统</h3>
 
 <p>或者(Alternatively)，您可以使用Django模板系统 生成CSV。这比使用方便的Python csv 模块要低，但是为了完整性，这里给出了解决方案。</p>
 
@@ -196,15 +216,14 @@ def some_view(request):
 
 <p>这个模板是相当基础的。它只是遍历给定的数据，并显示每行的CSV行。它使用addslashes模板过滤器来确保引号没有任何问题。</p>
 
-<p>###其他基于文本的格式</p>
+<h3 id="其他基于文本的格式">其他基于文本的格式</h3>
 
 <p>请注意，这里没有特别的CSV，只是具体的输出格式。您可以使用这些技术中的任何一种来输出您可以梦想的任何基于文本的格式。您也可以使用类似的技术来生成任意的二进制数据; 有关示例，请参阅使用Django输出PDF。</p>
-
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fdjango_to_csv%2f - django_to_pdf by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fdjango_to_csv%2f - django_to_csv by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
