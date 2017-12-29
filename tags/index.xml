@@ -41,9 +41,27 @@
     <item>
       <title>Python</title>
       <link>http://gqhappy.xyz/tags/python/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>http://gqhappy.xyz/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scrapy</title>
+      <link>http://gqhappy.xyz/tags/scrapy/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/tags/scrapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spider</title>
+      <link>http://gqhappy.xyz/tags/spider/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/tags/spider/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scrapy on ngc7293&#39;s blog</title>
+    <link>http://gqhappy.xyz/tags/scrapy/</link>
+    <description>Recent content in Scrapy on ngc7293&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://gqhappy.xyz/tags/scrapy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>scrapy 以及bs4拾遗</title>
+      <link>http://gqhappy.xyz/posts/12_29/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/posts/12_29/</guid>
+      <description>&lt;p&gt;##昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
