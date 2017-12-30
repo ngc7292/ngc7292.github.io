@@ -6,10 +6,21 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gqhappy.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>概率论提纲</title>
+      <link>http://gqhappy.xyz/posts/12_30/</link>
+      <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/posts/12_30/</guid>
+      <description>&lt;h1 id=&#34;2017-12-27&#34;&gt;2017-12-27&lt;/h1&gt;
+
+&lt;p&gt;今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>scrapy 以及bs4拾遗</title>
