@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://gqhappy.xyz/posts/01_04/</loc>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://gqhappy.xyz/posts/12_30/</loc>
     <lastmod>2017-12-30T00:00:00+00:00</lastmod>
   </url>
@@ -74,8 +79,8 @@
   </url>
   
   <url>
-    <loc>http://gqhappy.xyz/tags/dayily/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+    <loc>http://gqhappy.xyz/tags/daily/</loc>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -93,7 +98,7 @@
   
   <url>
     <loc>http://gqhappy.xyz/posts/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -123,7 +128,7 @@
   
   <url>
     <loc>http://gqhappy.xyz/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
