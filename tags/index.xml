@@ -30,9 +30,18 @@
     </item>
     
     <item>
+      <title>Database</title>
+      <link>http://gqhappy.xyz/tags/database/</link>
+      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Django</title>
       <link>http://gqhappy.xyz/tags/django/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>http://gqhappy.xyz/tags/django/</guid>
       <description></description>
@@ -50,7 +59,7 @@
     <item>
       <title>Python</title>
       <link>http://gqhappy.xyz/tags/python/</link>
-      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>http://gqhappy.xyz/tags/python/</guid>
       <description></description>
