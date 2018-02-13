@@ -6,10 +6,32 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gqhappy.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode database刷题记录</title>
+      <link>http://gqhappy.xyz/posts/leetcode-database/</link>
+      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/posts/leetcode-database/</guid>
+      <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode python刷题记录</title>
+      <link>http://gqhappy.xyz/posts/leetcode-python/</link>
+      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://gqhappy.xyz/posts/leetcode-python/</guid>
+      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>20180210</title>
@@ -31,17 +53,6 @@
       
       <guid>http://gqhappy.xyz/posts/django_settings/</guid>
       <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode database刷题记录</title>
-      <link>http://gqhappy.xyz/posts/leetcode-database/</link>
-      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://gqhappy.xyz/posts/leetcode-database/</guid>
-      <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

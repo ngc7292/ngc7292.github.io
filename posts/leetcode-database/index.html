@@ -71,9 +71,9 @@
                         leetcode database刷题记录
                     </h1>
                     <h2 class="headline">
-                    Feb 7, 2018 00:00
-                    · 1010 words
-                    · 5 minute read
+                    Feb 13, 2018 00:00
+                    · 1471 words
+                    · 7 minute read
                       <span class="tags">
                       
                       
@@ -100,6 +100,9 @@
 <li><a href="#184-department-highest-salary">184. Department Highest Salary</a></li>
 <li><a href="#196-delete-duplicate-emails">196. Delete Duplicate Emails</a></li>
 <li><a href="#197-rising-temperature">197. Rising Temperature</a></li>
+<li><a href="#595-big-countries">595. Big Countries</a></li>
+<li><a href="#596-classes-more-than-5-students">596. Classes More Than 5 Students</a></li>
+<li><a href="#620-not-boring-movies">620. Not Boring Movies</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -450,6 +453,143 @@ For example, after running your query, the above Person table should have the fo
 <p>+&mdash;-+</p>
 
 <pre><code class="language-sql">SELECT IFNULL(n.Id,1) as Id FROM Weather as n,Weather as p WHERE TO_DAYS(n.Date)=TO_DAYS(p.Date)+1 AND n.Temperature &gt; p.Temperature;
+</code></pre>
+
+<h2 id="595-big-countries">595. Big Countries</h2>
+
+<p>There is a table World</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>| name            | continent  | area       | population   | gdp           |</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |</p>
+
+<p>| Albania         | Europe     | 28748      | 2831741      | 12960000      |</p>
+
+<p>| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |</p>
+
+<p>| Andorra         | Europe     | 468        | 78115        | 3712000       |</p>
+
+<p>| Angola          | Africa     | 1246700    | 20609294     | 100990000     |</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million.</p>
+
+<p>Write a SQL solution to output big countries&rsquo; name, population and area.</p>
+
+<p>For example, according to the above table, we should output:</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>| name         | population  | area         |</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>| Afghanistan  | 25500100    | 652230       |</p>
+
+<p>| Algeria      | 37100000    | 2381741      |</p>
+
+<p>+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&mdash;&ndash;+</p>
+
+<pre><code class="language-sql"># Write your MySQL query statement below
+SELECT name,population,area FROM World WHERE area &gt; 3000000 or population &gt; 25000000;
+</code></pre>
+
+<h2 id="596-classes-more-than-5-students">596. Classes More Than 5 Students</h2>
+
+<p>There is a table courses with columns: student and class</p>
+
+<p>Please list out all classes which have more than or equal to 5 students.</p>
+
+<p>For example, the table:</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>| student | class      |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>| A       | Math       |</p>
+
+<p>| B       | English    |</p>
+
+<p>| C       | Math       |</p>
+
+<p>| D       | Biology    |</p>
+
+<p>| E       | Math       |</p>
+
+<p>| F       | Computer   |</p>
+
+<p>| G       | Math       |</p>
+
+<p>| H       | Math       |</p>
+
+<p>| I       | Math       |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&mdash;+</p>
+
+<p>Should output:</p>
+
+<p>+&mdash;&mdash;&mdash;+</p>
+
+<p>| class   |</p>
+
+<p>+&mdash;&mdash;&mdash;+</p>
+
+<p>| Math    |</p>
+
+<p>+&mdash;&mdash;&mdash;+</p>
+
+<pre><code class="language-sql"># Write your MySQL query statement below
+SELECT class FROM courses GROUP BY class HAVING COUNT(DISTINCT student)&gt;4;
+</code></pre>
+
+<h2 id="620-not-boring-movies">620. Not Boring Movies</h2>
+
+<p>X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies’ ratings and descriptions.
+Please write a SQL query to output movies with an odd numbered ID and a description that is not &lsquo;boring&rsquo;. Order the result by rating.</p>
+
+<p>For example, table cinema:</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>|   id    | movie     |  description |  rating   |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>|   1     | War       |   great 3D   |   8.9     |</p>
+
+<p>|   2     | Science   |   fiction    |   8.5     |</p>
+
+<p>|   3     | irish     |   boring     |   6.2     |</p>
+
+<p>|   4     | Ice song  |   Fantacy    |   8.6     |</p>
+
+<p>|   5     | House card|   Interesting|   9.1     |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>For the example above, the output should be:</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>|   id    | movie     |  description |  rating   |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<p>|   5     | House card|   Interesting|   9.1     |</p>
+
+<p>|   1     | War       |   great 3D   |   8.9     |</p>
+
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&ndash;+&mdash;&mdash;&mdash;&ndash;+</p>
+
+<pre><code class="language-sql"># Write your MySQL query statement below
+SELECT * FROM cinema WHERE id%2 = 1 AND description != 'boring' ORDER BY rating DESC;
 </code></pre>
                 </section>
             </article>
