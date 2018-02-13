@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="http://gqhappy.xyz/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录"/>
+  <meta name="twitter:description" content="leetcode pythngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36" />
+		<title>leetcode python刷题记录 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/font-awesome.min.css">
+		
+
+		
+		<link href="http://gqhappy.xyz/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='http://gqhappy.xyz/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='http://gqhappy.xyz/posts'>Archive</a>
+	<a href='http://gqhappy.xyz/tags'>Tags</a>
+	<a href='http://gqhappy.xyz/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="http://gqhappy.xyz/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode python刷题记录
+                    </h1>
+                    <h2 class="headline">
+                    Feb 13, 2018 00:00
+                    · 455 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="http://gqhappy.xyz/tags/python">python</a>
+                          
+                              <a href="http://gqhappy.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-two-sum">1. Two Sum</a></li>
+<li><a href="#2-add-two-numbers">2. Add Two Numbers</a></li>
+<li><a href="#3-longest-substring-without-repeating-characters">3. Longest Substring Without Repeating Characters</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？</p>
+
+<p></p>
+
+<h2 id="1-two-sum">1. Two Sum</h2>
+
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+
+<p>Example:</p>
+
+<pre><code>Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+</code></pre>
+
+<pre><code class="language-python">class Solution:
+    def twoSum(self, nums, target):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        num_dict = {}
+        for i in range(len(nums)):
+            if num_dict.get(target-nums[i],None) == None:
+                num_dict[nums[i]] = i
+            else:
+                return (num_dict[target - nums[i]], i)
+</code></pre>
+
+<h2 id="2-add-two-numbers">2. Add Two Numbers</h2>
+
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+
+<p>Example</p>
+
+<pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+Output: 7 -&gt; 0 -&gt; 8
+Explanation: 342 + 465 = 807.
+</code></pre>
+
+<pre><code class="language-python">class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        &quot;&quot;&quot;
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        if l1 is None:
+            return l2
+        elif l2 is None:
+            return l1
+        else:          
+            carry = 0
+            ret =ListNode(0)
+            ret_Last = ret
+            
+            while(l1 or l2):
+                sum = 0
+                if(l1):
+                    sum = l1.val
+                    l1 = l1.next
+                if(l2):
+                    sum += l2.val
+                    l2 = l2.next
+                sum += carry
+                ret_Last.next = ListNode(sum%10)
+                ret_Last = ret_Last.next
+                carry = (sum &gt;= 10)
+            if(carry):
+                ret_Last.next =ListNode(1)
+            ret_Last = ret.next
+            del ret
+            return ret_Last 
+</code></pre>
+
+<h2 id="3-longest-substring-without-repeating-characters">3. Longest Substring Without Repeating Characters</h2>
+
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
+
+<p>Examples:</p>
+
+<pre><code>Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
+
+Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
+
+Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre>
+
+<pre><code class="language-python">class Solution:
+    def lengthOfLongestSubstring(self, s):
+        &quot;&quot;&quot;
+        :type s: str
+        :rtype: int
+        &quot;&quot;&quot;
+        know_dict = {}
+        know_max = 0
+        num = 0
+        for i in s:
+            if i not in know_dict:
+                know_dict[i] = num
+                num += 1
+            else:
+                r_num = 0
+                for j in know_dict.keys():
+                    if know_dict[j] &lt;= know_dict[i]:
+                        know_dict[j] = -1
+                    else:
+                        know_dict[j] = r_num
+                        r_num += 1
+                know_dict[i] = r_num
+                num = r_num+1
+            if num &gt; know_max:
+                know_max = num
+        return know_max
+</code></pre>
+
+<p>上面是我的解法，但是不知道为什么我在本地跑的所有测试都可以用，完全没有毛病，但是leetcode就是不给我过。。。</p>
+
+<p>于是我去找了一下网上大神的解法，的确比较简洁而且惊艳233333</p>
+
+<p><a href="https://www.jianshu.com/p/b97ba06b488a">LeetCode题解3：Longest Substring Without Repeating Characters</a></p>
+
+<pre><code class="language-python">class Solution:
+    def lengthOfLongestSubstring(self, s):
+        max_length, start, char_dict = 0, 0, {}
+        for idx, char in enumerate(s, 1):
+            if char_dict.get(char, -1) &gt;= start:
+                start = char_dict[char]
+            char_dict[char] = idx
+            max_length = max(max_length, idx - start)
+        return max_length
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fleetcode-python%2f - leetcode_python by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'your_disqus_short_name'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="http://gqhappy.xyz/js/jquery-2.2.4.min.js"></script>
+<script src="http://gqhappy.xyz/js/main.js"></script>
+<script src="http://gqhappy.xyz/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
