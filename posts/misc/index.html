@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="http://ngc7.cn/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content=""/>
+  <meta name="twitter:description" content="首先，抱歉各位大佬，前几天感冒，在学校里养病。。。
+misc1 只是因为感觉没什么我自己没啥好出的，而且看了cr题之后打算送点分，，，题目给出了一个cap，是我用airport抓的握手包，明眼人都知道，一看就是拿到aircrack-ng中暴力跑密码，但是字典生成就是一个十分重要的任务，为了降低难度，我给了2条hint，基本上就知道密码是潍坊地区的手机号，只要将其字典跑出，基本上就很简单了。(早知道不给那么多hint了)
+misc2 misc2出题人跑路了，啊啊啊啊，所以我来写一下wp
+这道题就是一个简单识别验证码的题目，验证码生成也十分简单
+size = (12, 20) back_color = (255,255,255) font_path = &#39;./Arial.ttf&#39; font_color = (0,0,0) def gen_cap(): image = Image.new(&#39;RGBA&#39;, size, back_color) font = ImageFont.truetype(font_path, 15) draw = ImageDraw.Draw(image) text = str(random.choice([i for i in range(0, 10)])) draw.text((0, -2), text, font=font, fill=font_color) buf = io.BytesIO() image.save(buf, &#39;png&#39;) return text, base64.b64encode(buf.getvalue())  基本上一般的验证码都还有一些干扰线啥的，外加七歪八扭，这个啥也没有，顶多换换位置，，，所以我写一下我会的3种方法吧
+首先就是我的最土的办法，先将验证码按边缘裁剪，然后将其像素特征提取到一个字典里，然后拿这个字典去匹配，下面是土代码 (ps:不确定能跑出来，只是大致看个思路就好)
+import requests import base64 from PIL import Image from io import BytesIO import pytesseract &#39;&#39;&#39; im_test_pixel = [] im_test = Image."/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title> &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="http://ngc7.cn/images/favicon.ico">
+		<link rel="stylesheet" href="http://ngc7.cn/css/style.css">
+		<link rel="stylesheet" href="http://ngc7.cn/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="http://ngc7.cn/css/font-awesome.min.css">
+		
+
+		
+		<link href="http://ngc7.cn/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='http://ngc7.cn/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='http://ngc7.cn/posts'>Archive</a>
+	<a href='http://ngc7.cn/tags'>Tags</a>
+	<a href='http://ngc7.cn/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="http://ngc7.cn/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        
+                    </h1>
+                    <h2 class="headline">
+                    Jan 1, 0001 00:00
+                    · 556 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#misc1">misc1</a></li>
+<li><a href="#misc2">misc2</a></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<p>首先，抱歉各位大佬，前几天感冒，在学校里养病。。。</p>
+
+<h1 id="misc1">misc1</h1>
+
+<p>只是因为感觉没什么我自己没啥好出的，而且看了cr题之后打算送点分，，，题目给出了一个cap，是我用airport抓的握手包，明眼人都知道，一看就是拿到aircrack-ng中暴力跑密码，但是字典生成就是一个十分重要的任务，为了降低难度，我给了2条hint，基本上就知道密码是潍坊地区的手机号，只要将其字典跑出，基本上就很简单了。(早知道不给那么多hint了)</p>
+
+<h1 id="misc2">misc2</h1>
+
+<p>misc2出题人跑路了，啊啊啊啊，所以我来写一下wp</p>
+
+<p>这道题就是一个简单识别验证码的题目，验证码生成也十分简单</p>
+
+<pre><code class="language-python">size = (12, 20)
+back_color = (255,255,255)
+font_path = './Arial.ttf'
+font_color = (0,0,0)
+
+def gen_cap():
+    image = Image.new('RGBA', size, back_color)
+    font = ImageFont.truetype(font_path, 15)
+    draw = ImageDraw.Draw(image)
+    text = str(random.choice([i for i in range(0, 10)]))
+    draw.text((0, -2), text, font=font, fill=font_color)
+    buf = io.BytesIO()
+    image.save(buf, 'png')
+    return text, base64.b64encode(buf.getvalue())
+</code></pre>
+
+<p>基本上一般的验证码都还有一些干扰线啥的，外加七歪八扭，这个啥也没有，顶多换换位置，，，所以我写一下我会的3种方法吧</p>
+
+<p>首先就是我的最土的办法，先将验证码按边缘裁剪，然后将其像素特征提取到一个字典里，然后拿这个字典去匹配，下面是土代码
+(ps:不确定能跑出来，只是大致看个思路就好)</p>
+
+<pre><code class="language-python">import requests
+import base64
+from PIL import Image
+from io import BytesIO
+import pytesseract
+
+'''
+im_test_pixel = []
+im_test = Image.open('6.png')
+
+im_test = im_test.convert(&quot;L&quot;)
+
+threshold = 140
+table = []
+for i in range(256):
+    if i &lt; threshold:
+        table.append(0)
+    else:
+        table.append(1)
+
+im_test = im_test.point(table,'1')
+
+im_test = im_test.convert(&quot;RGB&quot;)
+
+im_test.show()
+
+height = im_test.size[1]
+weight = im_test.size[0]
+'''
+def ini_png(im_path):
+    im = Image.open(im_path)
+    
+    im = im.convert(&quot;L&quot;)
+    
+    threshold = 90
+    table = []
+    for i in range(256):
+        if i &lt; threshold:
+            table.append(0)
+        else:
+            table.append(1)
+    
+    im = im.point(table, '1')
+    
+    
+    im = im.convert(&quot;RGB&quot;)
+    
+    im_hight = im.size[1]
+    im_wight = im.size[0]
+    
+    hight_flag = 0
+    wight_flag = 0
+    
+    for i in range(im_hight):
+        for j in range(im_wight):
+            im_pixel = im.getpixel((j,i))
+            if hight_flag == 0:
+                if im_pixel == (0,0,0):
+                    im_hight_top = i
+                    hight_flag = 1
+            if im_pixel == (0,0,0):
+                im_hight_bottom = i
+    
+    for i in range(im_wight):
+        for j in range(im_hight):
+            im_pixel = im.getpixel((i,j))
+            if wight_flag == 0:
+                if im_pixel == (0,0,0):
+                    im_wight_left = i
+                    wight_flag = 1
+            if im_pixel == (0,0,0):
+                im_wight_right = i
+    
+#   print(im_hight_top,im_hight_bottom)
+#   print(im_wight_left,im_wight_right)
+    
+    im_size = (im_wight_left,im_hight_top,im_wight_right+1,im_hight_bottom+1)
+    im_crop = im.crop(im_size)
+    
+#   im_crop.show()
+    
+    im_crop_hight = im_crop.size[1]
+    im_crop_wight = im_crop.size[0]
+    
+    im_crop_pixel = []
+    
+    for i in range(im_crop_hight):
+        for j in range(im_crop_wight):
+            im_pixel = im_crop.getpixel((j,i))
+            im_crop_pixel.append(im_pixel)
+    return im_crop_pixel
+
+def init_png_list():
+    
+    png_pixel_list = []
+    
+    for i in range(10):
+        png_path = str(i)+'.png'
+        im_pixel = ini_png(png_path)
+        png_pixel_list.append(im_pixel)
+        
+    return png_pixel_list
+
+#ini_png(&quot;6.png&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    
+    png_pixel_list = init_png_list()
+    
+    im = ini_png(&quot;100.png&quot;)
+    
+    for i in range(10):
+        if im == png_pixel_list[i]:
+            print(i)
+</code></pre>
+
+<p>第二个是学弟(li4n06)的方法</p>
+
+<p>也是用将所有的图片的像素大于255的数出来，存在一个字典中，然后用字典识别</p>
+
+<pre><code class="language-python">def get_feature():
+    dic = {}
+    for root, dir, files in os.walk('code/'):
+        for filename in files:
+            img = PIL.Image.open('code/%s' % filename)
+            black = 0
+            for x in range(img.size[0]):
+                for y in range(img.size[1]):
+                    for i in img.getpixel((x, y)):
+                        if i &lt; 255:
+                            black += 1
+            dic[black] = filename[:‐4] #filename形如 1.jpg
+    print(dic)
+</code></pre>
+
+<pre><code class="language-python">def get_image():
+    status_code = 500
+    while status_code != 200:
+        c = request.get(url)
+        status_code = c.status_code
+        try:
+            code = json.loads(str(c.content)[2:‐1])[&quot;captcha_png_base64&quot;]
+            with open('code.png', 'wb')as file:
+                file.write(base64.b64decode(code))
+        except:
+            print(status_code)
+            pass
+def get_flag():
+    dic = {180: '0', 90: '1', 150: '2', 162: '3', 153: '4', 156: '5', 198: '6',105: '7',204: '8', 195: '9'}
+    img = PIL.Image.open('code.png')
+    black = 0
+    for x in range(img.size[0]):
+        for y in range(img.size[1]):
+            for i in img.getpixel((x, y)):
+                if i &lt; 255:
+                    black += 1
+    status_code = 500 #解决随机 500 的影响...
+    while status_code != 200:
+        try:
+            print(dic[black])
+            b = request.get(url+'&amp;submit=%s'%dic[black])
+            status_code = b.status_code
+        except:
+            b = request.get(url + '&amp;submit=1')
+            status_code = b.status_code
+    print(b.content.decode('utf‐8'))
+
+while i &lt; 20:
+    get_image()
+    get_flag()
+    i += 1
+</code></pre>
+
+<p>最后一种是ai解法，但是用线性分类器好像性能还不如前两个。。。gg</p>
+
+<p>(测试文件，仅供参考)</p>
+
+<pre><code class="language-python">import base64
+from sklearn import svm
+import matplotlib.image as mpimg
+
+
+### train ###
+
+#open('pic.png', 'wb').write(base64.b64decode(x))
+
+
+#give train set
+
+pics = []
+for i in range(13):
+    path = str(i)+&quot;.png&quot;
+    print(path)
+    pic = mpimg.imread(path)
+    # label need artificial mark
+    label = 0
+    pic[pic&lt;1] = 0
+    pic = pic[:,:,0].reshape(pic.shape[0]*pic.shape[1])
+    pics.append(pic)
+    
+labels = [0,1,2,3,4,5,6,7,8,9,9,1,2]
+# pics = pic1,pic2,pic3 .....
+# labels = label1,label2 ......
+# for example
+
+#pics = [pic1,pic2]
+#labels= [label, label]
+
+clf = svm.LinearSVC()
+clf.fit(pics, labels)
+
+### predict ###
+# same way with pic
+
+pic_test = mpimg.imread(&quot;100.png&quot;)
+#pic_test[pic_test&lt;1] = 0
+pic_test = pic_test[:,:,0].reshape(pic_test.shape[0]*pic_test.shape[1])
+
+other_pic = pic_test
+a = clf.predict([other_pic])
+
+print(a)
+</code></pre>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fngc7.cn%2fposts%2fmisc%2f -  by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="http://ngc7.cn/js/jquery-2.2.4.min.js"></script>
+<script src="http://ngc7.cn/js/main.js"></script>
+<script src="http://ngc7.cn/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
