@@ -6,10 +6,21 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ngc7.cn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hgame_week4</title>
+      <link>http://ngc7.cn/posts/misc/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://ngc7.cn/posts/misc/</guid>
+      <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>jinja模版注入</title>
@@ -233,21 +244,6 @@
 39.72.183.13
 119.461208 / 35.428588
 118.767413 / 32.041544,118.767413</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ngc7.cn/posts/misc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ngc7.cn/posts/misc/</guid>
-      <description>首先，抱歉各位大佬，前几天感冒，在学校里养病。。。
-misc1 只是因为感觉没什么我自己没啥好出的，而且看了cr题之后打算送点分，，，题目给出了一个cap，是我用airport抓的握手包，明眼人都知道，一看就是拿到aircrack-ng中暴力跑密码，但是字典生成就是一个十分重要的任务，为了降低难度，我给了2条hint，基本上就知道密码是潍坊地区的手机号，只要将其字典跑出，基本上就很简单了。(早知道不给那么多hint了)
-misc2 misc2出题人跑路了，啊啊啊啊，所以我来写一下wp
-这道题就是一个简单识别验证码的题目，验证码生成也十分简单
-size = (12, 20) back_color = (255,255,255) font_path = &#39;./Arial.ttf&#39; font_color = (0,0,0) def gen_cap(): image = Image.new(&#39;RGBA&#39;, size, back_color) font = ImageFont.truetype(font_path, 15) draw = ImageDraw.Draw(image) text = str(random.choice([i for i in range(0, 10)])) draw.text((0, -2), text, font=font, fill=font_color) buf = io.BytesIO() image.save(buf, &#39;png&#39;) return text, base64.b64encode(buf.getvalue())  基本上一般的验证码都还有一些干扰线啥的，外加七歪八扭，这个啥也没有，顶多换换位置，，，所以我写一下我会的3种方法吧
-首先就是我的最土的办法，先将验证码按边缘裁剪，然后将其像素特征提取到一个字典里，然后拿这个字典去匹配，下面是土代码 (ps:不确定能跑出来，只是大致看个思路就好)
-import requests import base64 from PIL import Image from io import BytesIO import pytesseract &#39;&#39;&#39; im_test_pixel = [] im_test = Image.</description>
     </item>
     
   </channel>
