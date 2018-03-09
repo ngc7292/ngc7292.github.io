@@ -82,13 +82,8 @@
                     
                         
                             <h2>jinja模版注入入门 放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记
-首先先推荐两篇写的不错的博客
-(探索Flask/Jinja2中的服务端模版注入（一）)[http://www.freebuf.com/articles/web/98619.html]
-(探索Flask/Jinja2中的服务端模版注入（二）)[http://www.freebuf.com/articles/web/98928.html]
-首先我们来写一个poc.py来介绍一下这个漏洞
-因为django有点庞大冗杂，咱们来用flask来复现漏洞
-from flask import * app = Flask(__name__) @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello(name): templates = &#39;&#39;&#39; &amp;lt;div&amp;gt;%s&amp;lt;/div&amp;gt; &#39;&#39;&#39;%name return render_template_string(templates) if __name__ == &amp;quot;__main__&amp;quot;: app.run()  这是一个简单的demo，作用就是将传入的name字符串经过模版渲染打印在网页上
-当我们传入{{ 2&#43;2 }}时，你会发现我们的输入变成4，</h2>
+
+</h2>
                         
                     
                 </a>
