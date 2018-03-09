@@ -2,102 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ngc7293&#39;s blog</title>
-    <link>http://gqhappy.xyz/tags/</link>
+    <link>http://ngc7.cn/tags/</link>
     <description>Recent content in Tags on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gqhappy.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ngc7.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>http://gqhappy.xyz/tags/c&#43;&#43;/</link>
+      <link>http://ngc7.cn/tags/c&#43;&#43;/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/c&#43;&#43;/</guid>
+      <guid>http://ngc7.cn/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ctf</title>
+      <link>http://ngc7.cn/tags/ctf/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://ngc7.cn/tags/ctf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Daily</title>
-      <link>http://gqhappy.xyz/tags/daily/</link>
+      <link>http://ngc7.cn/tags/daily/</link>
       <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/daily/</guid>
+      <guid>http://ngc7.cn/tags/daily/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Database</title>
-      <link>http://gqhappy.xyz/tags/database/</link>
+      <link>http://ngc7.cn/tags/database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/database/</guid>
+      <guid>http://ngc7.cn/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Django</title>
-      <link>http://gqhappy.xyz/tags/django/</link>
+      <link>http://ngc7.cn/tags/django/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/django/</guid>
+      <guid>http://ngc7.cn/tags/django/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Network</title>
-      <link>http://gqhappy.xyz/tags/network/</link>
+      <link>http://ngc7.cn/tags/network/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/network/</guid>
+      <guid>http://ngc7.cn/tags/network/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>http://gqhappy.xyz/tags/python/</link>
-      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      <link>http://ngc7.cn/tags/python/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/python/</guid>
+      <guid>http://ngc7.cn/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scrapy</title>
-      <link>http://gqhappy.xyz/tags/scrapy/</link>
+      <link>http://ngc7.cn/tags/scrapy/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/scrapy/</guid>
+      <guid>http://ngc7.cn/tags/scrapy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spider</title>
-      <link>http://gqhappy.xyz/tags/spider/</link>
+      <link>http://ngc7.cn/tags/spider/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/spider/</guid>
+      <guid>http://ngc7.cn/tags/spider/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>http://gqhappy.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>http://ngc7.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>http://ngc7.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>概率论</title>
-      <link>http://gqhappy.xyz/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
+      <link>http://ngc7.cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</guid>
+      <guid>http://ngc7.cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</guid>
       <description></description>
     </item>
     
