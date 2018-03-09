@@ -8,103 +8,8 @@
   </url>
   
   <url>
-    <loc>http://ngc7.cn/posts/jinja/</loc>
-    <lastmod>2018-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/leetcode-database/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/leetcode-python/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/02_10/</loc>
-    <lastmod>2018-02-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_settings/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/01_04/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/12_30/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/12_29/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_api/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_frist/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_second/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_site/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_thrid/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_to_csv/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/django_to_pdf/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/12_27/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/newday/</loc>
-    <lastmod>2017-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://ngc7.cn/about/</loc>
     <lastmod>2015-06-20T14:02:37+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/posts/hgame_misc/</loc>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/c&#43;&#43;/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -115,30 +20,6 @@
   <url>
     <loc>http://ngc7.cn/tags/ctf/</loc>
     <lastmod>2018-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/daily/</loc>
-    <lastmod>2018-02-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/database/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/django/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/network/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,38 +36,14 @@
   </url>
   
   <url>
-    <loc>http://ngc7.cn/tags/scrapy/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/spider/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://ngc7.cn/tags/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://ngc7.cn/</loc>
     <lastmod>2018-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://ngc7.cn/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
