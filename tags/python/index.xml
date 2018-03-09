@@ -6,10 +6,21 @@
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ngc7.cn/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hgame_week4</title>
+      <link>http://ngc7.cn/posts/misc/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://ngc7.cn/posts/misc/</guid>
+      <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>jinja模版注入</title>
