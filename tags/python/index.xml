@@ -2,22 +2,161 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on ngc7293&#39;s blog</title>
-    <link>http://ngc7.cn/tags/python/</link>
+    <link>http:///tags/python/</link>
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ngc7.cn/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http:///tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hgame_week4</title>
-      <link>http://ngc7.cn/posts/misc/</link>
+      <link>http:///posts/misc/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://ngc7.cn/posts/misc/</guid>
+      <guid>http:///posts/misc/</guid>
       <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>jinja模版注入</title>
+      <link>http:///posts/jinja/</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/jinja/</guid>
+      <description>&lt;h1 id=&#34;jinja模版注入入门&#34;&gt;jinja模版注入入门&lt;/h1&gt;
+
+&lt;p&gt;放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode python刷题记录</title>
+      <link>http:///posts/leetcode-python/</link>
+      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/leetcode-python/</guid>
+      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django 设置</title>
+      <link>http:///posts/django_settings/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_settings/</guid>
+      <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>scrapy 以及bs4拾遗</title>
+      <link>http:///posts/12_29/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/12_29/</guid>
+      <description>&lt;p&gt;昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django api 一览</title>
+      <link>http:///posts/django_api/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_api/</guid>
+      <description>&lt;p&gt;API参考&lt;/p&gt;
+
+&lt;p&gt;关于api的目录&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django文档目录</title>
+      <link>http:///posts/django_site/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_site/</guid>
+      <description>&lt;h1 id=&#34;django文档内容&#34;&gt;Django文档内容&lt;/h1&gt;
+
+&lt;p&gt;关于django文档的目录&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django_to_csv</title>
+      <link>http:///posts/django_to_csv/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_to_csv/</guid>
+      <description>&lt;h2 id=&#34;输出csv和django&#34;&gt;输出CSV和Django&lt;/h2&gt;
+
+&lt;p&gt;本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django_to_pdf</title>
+      <link>http:///posts/django_to_pdf/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_to_pdf/</guid>
+      <description>&lt;h3 id=&#34;输出pdf文件和django&#34;&gt;输出PDF文件和Django&lt;/h3&gt;
+
+&lt;p&gt;本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>编写你的第一个Django应用程序，第一部分</title>
+      <link>http:///posts/django_frist/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_frist/</guid>
+      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第一部分&#34;&gt;编写你的第一个Django应用程序，第一部分&lt;/h1&gt;
+
+&lt;p&gt;让我们通过例子来学习。&lt;/p&gt;
+
+&lt;p&gt;在本教程中，我们将引导您完成基本的轮询应用程序的创建。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>编写你的第一个Django应用程序，第三部分</title>
+      <link>http:///posts/django_thrid/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_thrid/</guid>
+      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第3部分&#34;&gt;编写你的第一个Django应用程序，第3部分&lt;/h1&gt;
+
+&lt;p&gt;本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>编写你的第一个Django应用程序，第二部分</title>
+      <link>http:///posts/django_second/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http:///posts/django_second/</guid>
+      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第2部分&#34;&gt;编写你的第一个Django应用程序，第2部分&lt;/h1&gt;
+
+&lt;p&gt;本教程从教程1停止的地方开始。我们将设置数据库，创建您的第一个模型，并快速介绍Django自动生成的管理站点。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
