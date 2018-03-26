@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ctf on ngc7293&#39;s blog</title>
-    <link>http:///tags/ctf/</link>
+    <link>http://ngc7.cn/tags/ctf/</link>
     <description>Recent content in Ctf on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http:///tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ngc7.cn/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hgame_week4</title>
-      <link>http:///posts/misc/</link>
+      <link>http://ngc7.cn/posts/misc/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http:///posts/misc/</guid>
+      <guid>http://ngc7.cn/posts/misc/</guid>
       <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>jinja模版注入</title>
-      <link>http:///posts/jinja/</link>
+      <link>http://ngc7.cn/posts/jinja/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http:///posts/jinja/</guid>
+      <guid>http://ngc7.cn/posts/jinja/</guid>
       <description>&lt;h1 id=&#34;jinja模版注入入门&#34;&gt;jinja模版注入入门&lt;/h1&gt;
 
 &lt;p&gt;放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记&lt;/p&gt;
