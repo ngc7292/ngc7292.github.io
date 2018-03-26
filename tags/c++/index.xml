@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on ngc7293&#39;s blog</title>
-    <link>http://ngc7.cn/tags/c&#43;&#43;/</link>
+    <link>http://0xf.top/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://ngc7.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://0xf.top/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>网络以及C&#43;&#43; debug拾遗</title>
-      <link>http://ngc7.cn/posts/12_27/</link>
+      <link>http://0xf.top/posts/12_27/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ngc7.cn/posts/12_27/</guid>
+      <guid>http://0xf.top/posts/12_27/</guid>
       <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
 
 &lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>
