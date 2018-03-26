@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on ngc7293&#39;s blog</title>
-    <link>http:///tags/database/</link>
+    <link>http://ngc7.cn/tags/database/</link>
     <description>Recent content in Database on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 13 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http:///tags/database/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ngc7.cn/tags/database/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>leetcode database刷题记录</title>
-      <link>http:///posts/leetcode-database/</link>
+      <link>http://ngc7.cn/posts/leetcode-database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http:///posts/leetcode-database/</guid>
+      <guid>http://ngc7.cn/posts/leetcode-database/</guid>
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
