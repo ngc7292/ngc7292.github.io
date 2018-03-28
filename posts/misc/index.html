@@ -9,7 +9,7 @@
   
     <meta name="twitter:card" content="summary"/>
     
-      <meta name="twitter:image" content="http://0xf.top/images/avatar.png" />
+      <meta name="twitter:image" content="http://gqhappy.xyz/images/avatar.png" />
     
   
   
@@ -31,16 +31,16 @@
 		
 		<meta name="generator" content="Hugo 0.36.1" />
 		<title>hgame_week4 &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="http://0xf.top/images/favicon.ico">
-		<link rel="stylesheet" href="http://0xf.top/css/style.css">
-		<link rel="stylesheet" href="http://0xf.top/css/highlight.css">
+		<link rel="shortcut icon" href="http://gqhappy.xyz/images/favicon.ico">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/style.css">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/highlight.css">
 
 		
-		<link rel="stylesheet" href="http://0xf.top/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://gqhappy.xyz/css/font-awesome.min.css">
 		
 
 		
-		<link href="http://0xf.top/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		<link href="http://gqhappy.xyz/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
 		
 
 		
@@ -50,16 +50,16 @@
        <nav class="main-nav">
 	
 	
-		<a href='http://0xf.top/'> <span class="arrow">←</span>Home</a>
+		<a href='http://gqhappy.xyz/'> <span class="arrow">←</span>Home</a>
 	
-	<a href='http://0xf.top/posts'>Archive</a>
-	<a href='http://0xf.top/tags'>Tags</a>
-	<a href='http://0xf.top/about'>About</a>
+	<a href='http://gqhappy.xyz/posts'>Archive</a>
+	<a href='http://gqhappy.xyz/tags'>Tags</a>
+	<a href='http://gqhappy.xyz/about'>About</a>
 
 	
 
 	
-	<a class="cta" href="http://0xf.top/index.xml">Subscribe</a>
+	<a class="cta" href="http://gqhappy.xyz/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -72,15 +72,15 @@
                     </h1>
                     <h2 class="headline">
                     Mar 9, 2018 00:00
-                    · 562 words
+                    · 571 words
                     · 3 minute read
                       <span class="tags">
                       
                       
                           
-                              <a href="http://0xf.top/tags/ctf">ctf</a>
+                              <a href="http://gqhappy.xyz/tags/ctf">ctf</a>
                           
-                              <a href="http://0xf.top/tags/python">python</a>
+                              <a href="http://gqhappy.xyz/tags/python">python</a>
                           
                       
                       
@@ -94,6 +94,14 @@
 <ul>
 <li><a href="#misc1">misc1</a></li>
 <li><a href="#misc2">misc2</a></li>
+<li><a href="#下面补两个前几个周的wp">下面补两个前几个周的wp</a>
+<ul>
+<li>
+<ul>
+<li><a href="#web150">web150</a></li>
+<li><a href="#misc-这是啥">misc 这是啥</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
                     </div>
@@ -362,11 +370,24 @@ print(a)
 
 <p>T =＃a＃b＃a＃a＃b＃a＃
 P =0 103 016103010</p>
+
+<h1 id="下面补两个前几个周的wp">下面补两个前几个周的wp</h1>
+
+<h3 id="web150">web150</h3>
+
+<p>本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。</p>
+
+<pre><code class="language-python">/sachabv{{ ''.__class__.__mro__[2].__subclasses__()[40]('./flag').read() }}
+</code></pre>
+
+<h3 id="misc-这是啥">misc 这是啥</h3>
+
+<p>首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码</p>
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2f0xf.top%2fposts%2fmisc%2f - hgame_week4 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fgqhappy.xyz%2fposts%2fmisc%2f - hgame_week4 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
@@ -431,9 +452,9 @@ P =0 103 016103010</p>
 
         </section>
 
-        <script src="http://0xf.top/js/jquery-2.2.4.min.js"></script>
-<script src="http://0xf.top/js/main.js"></script>
-<script src="http://0xf.top/js/highlight.min.js"></script>
+        <script src="http://gqhappy.xyz/js/jquery-2.2.4.min.js"></script>
+<script src="http://gqhappy.xyz/js/main.js"></script>
+<script src="http://gqhappy.xyz/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
