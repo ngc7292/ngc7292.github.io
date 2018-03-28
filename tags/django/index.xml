@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on ngc7293&#39;s blog</title>
-    <link>http://0xf.top/tags/django/</link>
+    <link>http://gqhappy.xyz/tags/django/</link>
     <description>Recent content in Django on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://0xf.top/tags/django/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gqhappy.xyz/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>django 设置</title>
-      <link>http://0xf.top/posts/django_settings/</link>
+      <link>http://gqhappy.xyz/posts/django_settings/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_settings/</guid>
+      <guid>http://gqhappy.xyz/posts/django_settings/</guid>
       <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>Django api 一览</title>
-      <link>http://0xf.top/posts/django_api/</link>
+      <link>http://gqhappy.xyz/posts/django_api/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_api/</guid>
+      <guid>http://gqhappy.xyz/posts/django_api/</guid>
       <description>&lt;p&gt;API参考&lt;/p&gt;
 
 &lt;p&gt;关于api的目录&lt;/p&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>Django文档目录</title>
-      <link>http://0xf.top/posts/django_site/</link>
+      <link>http://gqhappy.xyz/posts/django_site/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_site/</guid>
+      <guid>http://gqhappy.xyz/posts/django_site/</guid>
       <description>&lt;h1 id=&#34;django文档内容&#34;&gt;Django文档内容&lt;/h1&gt;
 
 &lt;p&gt;关于django文档的目录&lt;/p&gt;
@@ -50,10 +50,10 @@
     
     <item>
       <title>django_to_csv</title>
-      <link>http://0xf.top/posts/django_to_csv/</link>
+      <link>http://gqhappy.xyz/posts/django_to_csv/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_to_csv/</guid>
+      <guid>http://gqhappy.xyz/posts/django_to_csv/</guid>
       <description>&lt;h2 id=&#34;输出csv和django&#34;&gt;输出CSV和Django&lt;/h2&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。&lt;/p&gt;
@@ -63,10 +63,10 @@
     
     <item>
       <title>django_to_pdf</title>
-      <link>http://0xf.top/posts/django_to_pdf/</link>
+      <link>http://gqhappy.xyz/posts/django_to_pdf/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_to_pdf/</guid>
+      <guid>http://gqhappy.xyz/posts/django_to_pdf/</guid>
       <description>&lt;h3 id=&#34;输出pdf文件和django&#34;&gt;输出PDF文件和Django&lt;/h3&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。&lt;/p&gt;
@@ -76,10 +76,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第一部分</title>
-      <link>http://0xf.top/posts/django_frist/</link>
+      <link>http://gqhappy.xyz/posts/django_frist/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_frist/</guid>
+      <guid>http://gqhappy.xyz/posts/django_frist/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第一部分&#34;&gt;编写你的第一个Django应用程序，第一部分&lt;/h1&gt;
 
 &lt;p&gt;让我们通过例子来学习。&lt;/p&gt;
@@ -91,10 +91,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第三部分</title>
-      <link>http://0xf.top/posts/django_thrid/</link>
+      <link>http://gqhappy.xyz/posts/django_thrid/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_thrid/</guid>
+      <guid>http://gqhappy.xyz/posts/django_thrid/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第3部分&#34;&gt;编写你的第一个Django应用程序，第3部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。&lt;/p&gt;
@@ -104,10 +104,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第二部分</title>
-      <link>http://0xf.top/posts/django_second/</link>
+      <link>http://gqhappy.xyz/posts/django_second/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://0xf.top/posts/django_second/</guid>
+      <guid>http://gqhappy.xyz/posts/django_second/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第2部分&#34;&gt;编写你的第一个Django应用程序，第2部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程1停止的地方开始。我们将设置数据库，创建您的第一个模型，并快速介绍Django自动生成的管理站点。&lt;/p&gt;
