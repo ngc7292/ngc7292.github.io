@@ -2,34 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Daily on ngc7293&#39;s blog</title>
-    <link>http://gqhappy.xyz/tags/daily/</link>
+    <link>https://ngc7292.github.io/tags/daily/</link>
     <description>Recent content in Daily on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gqhappy.xyz/tags/daily/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ngc7292.github.io/tags/daily/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>20180210</title>
-      <link>http://gqhappy.xyz/posts/02_10/</link>
-      <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://gqhappy.xyz/posts/02_10/</guid>
-      <description>&lt;h2 id=&#34;2018-02-10&#34;&gt;2018_02_10&lt;/h2&gt;
-
-&lt;p&gt;昨天真的是非常激动。。。。hhh&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>纯粹水文</title>
-      <link>http://gqhappy.xyz/posts/01_04/</link>
+      <link>https://ngc7292.github.io/posts/01_04/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/01_04/</guid>
+      <guid>https://ngc7292.github.io/posts/01_04/</guid>
       <description>&lt;h1 id=&#34;2018-01-04&#34;&gt;2018-01-04&lt;/h1&gt;
 
 &lt;h2 id=&#34;今年真是颓废啊-233333&#34;&gt;今年真是颓废啊，233333&lt;/h2&gt;
@@ -39,10 +26,10 @@
     
     <item>
       <title>概率论提纲</title>
-      <link>http://gqhappy.xyz/posts/12_30/</link>
+      <link>https://ngc7292.github.io/posts/12_30/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_30/</guid>
+      <guid>https://ngc7292.github.io/posts/12_30/</guid>
       <description>&lt;h1 id=&#34;2017-12-27&#34;&gt;2017-12-27&lt;/h1&gt;
 
 &lt;p&gt;今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333&lt;/p&gt;</description>
@@ -50,10 +37,10 @@
     
     <item>
       <title>scrapy 以及bs4拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_29/</link>
+      <link>https://ngc7292.github.io/posts/12_29/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_29/</guid>
+      <guid>https://ngc7292.github.io/posts/12_29/</guid>
       <description>&lt;p&gt;昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -61,10 +48,10 @@
     
     <item>
       <title>网络以及C&#43;&#43; debug拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_27/</link>
+      <link>https://ngc7292.github.io/posts/12_27/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_27/</guid>
+      <guid>https://ngc7292.github.io/posts/12_27/</guid>
       <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
 
 &lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>

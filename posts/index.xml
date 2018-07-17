@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ngc7293&#39;s blog</title>
-    <link>http://gqhappy.xyz/posts/</link>
+    <link>https://ngc7292.github.io/posts/</link>
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gqhappy.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hgame_week4</title>
-      <link>http://gqhappy.xyz/posts/misc/</link>
+      <link>https://ngc7292.github.io/posts/misc/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/misc/</guid>
+      <guid>https://ngc7292.github.io/posts/misc/</guid>
       <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>jinja模版注入</title>
-      <link>http://gqhappy.xyz/posts/jinja/</link>
+      <link>https://ngc7292.github.io/posts/jinja/</link>
       <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/jinja/</guid>
+      <guid>https://ngc7292.github.io/posts/jinja/</guid>
       <description>&lt;h1 id=&#34;jinja模版注入入门&#34;&gt;jinja模版注入入门&lt;/h1&gt;
 
 &lt;p&gt;放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记&lt;/p&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>leetcode database刷题记录</title>
-      <link>http://gqhappy.xyz/posts/leetcode-database/</link>
+      <link>https://ngc7292.github.io/posts/leetcode-database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/leetcode-database/</guid>
+      <guid>https://ngc7292.github.io/posts/leetcode-database/</guid>
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -48,34 +48,21 @@
     
     <item>
       <title>leetcode python刷题记录</title>
-      <link>http://gqhappy.xyz/posts/leetcode-python/</link>
+      <link>https://ngc7292.github.io/posts/leetcode-python/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/leetcode-python/</guid>
+      <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
       <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>20180210</title>
-      <link>http://gqhappy.xyz/posts/02_10/</link>
-      <pubDate>Sat, 10 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://gqhappy.xyz/posts/02_10/</guid>
-      <description>&lt;h2 id=&#34;2018-02-10&#34;&gt;2018_02_10&lt;/h2&gt;
-
-&lt;p&gt;昨天真的是非常激动。。。。hhh&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>django 设置</title>
-      <link>http://gqhappy.xyz/posts/django_settings/</link>
+      <link>https://ngc7292.github.io/posts/django_settings/</link>
       <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_settings/</guid>
+      <guid>https://ngc7292.github.io/posts/django_settings/</guid>
       <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -83,10 +70,10 @@
     
     <item>
       <title>纯粹水文</title>
-      <link>http://gqhappy.xyz/posts/01_04/</link>
+      <link>https://ngc7292.github.io/posts/01_04/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/01_04/</guid>
+      <guid>https://ngc7292.github.io/posts/01_04/</guid>
       <description>&lt;h1 id=&#34;2018-01-04&#34;&gt;2018-01-04&lt;/h1&gt;
 
 &lt;h2 id=&#34;今年真是颓废啊-233333&#34;&gt;今年真是颓废啊，233333&lt;/h2&gt;
@@ -96,10 +83,10 @@
     
     <item>
       <title>概率论提纲</title>
-      <link>http://gqhappy.xyz/posts/12_30/</link>
+      <link>https://ngc7292.github.io/posts/12_30/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_30/</guid>
+      <guid>https://ngc7292.github.io/posts/12_30/</guid>
       <description>&lt;h1 id=&#34;2017-12-27&#34;&gt;2017-12-27&lt;/h1&gt;
 
 &lt;p&gt;今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333&lt;/p&gt;</description>
@@ -107,10 +94,10 @@
     
     <item>
       <title>scrapy 以及bs4拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_29/</link>
+      <link>https://ngc7292.github.io/posts/12_29/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_29/</guid>
+      <guid>https://ngc7292.github.io/posts/12_29/</guid>
       <description>&lt;p&gt;昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -118,10 +105,10 @@
     
     <item>
       <title>Django api 一览</title>
-      <link>http://gqhappy.xyz/posts/django_api/</link>
+      <link>https://ngc7292.github.io/posts/django_api/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_api/</guid>
+      <guid>https://ngc7292.github.io/posts/django_api/</guid>
       <description>&lt;p&gt;API参考&lt;/p&gt;
 
 &lt;p&gt;关于api的目录&lt;/p&gt;
@@ -131,10 +118,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第一部分</title>
-      <link>http://gqhappy.xyz/posts/django_frist/</link>
+      <link>https://ngc7292.github.io/posts/django_frist/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_frist/</guid>
+      <guid>https://ngc7292.github.io/posts/django_frist/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第一部分&#34;&gt;编写你的第一个Django应用程序，第一部分&lt;/h1&gt;
 
 &lt;p&gt;让我们通过例子来学习。&lt;/p&gt;
@@ -146,10 +133,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第二部分</title>
-      <link>http://gqhappy.xyz/posts/django_second/</link>
+      <link>https://ngc7292.github.io/posts/django_second/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_second/</guid>
+      <guid>https://ngc7292.github.io/posts/django_second/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第2部分&#34;&gt;编写你的第一个Django应用程序，第2部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程1停止的地方开始。我们将设置数据库，创建您的第一个模型，并快速介绍Django自动生成的管理站点。&lt;/p&gt;
@@ -159,10 +146,10 @@
     
     <item>
       <title>Django文档目录</title>
-      <link>http://gqhappy.xyz/posts/django_site/</link>
+      <link>https://ngc7292.github.io/posts/django_site/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_site/</guid>
+      <guid>https://ngc7292.github.io/posts/django_site/</guid>
       <description>&lt;h1 id=&#34;django文档内容&#34;&gt;Django文档内容&lt;/h1&gt;
 
 &lt;p&gt;关于django文档的目录&lt;/p&gt;
@@ -172,10 +159,10 @@
     
     <item>
       <title>编写你的第一个Django应用程序，第三部分</title>
-      <link>http://gqhappy.xyz/posts/django_thrid/</link>
+      <link>https://ngc7292.github.io/posts/django_thrid/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_thrid/</guid>
+      <guid>https://ngc7292.github.io/posts/django_thrid/</guid>
       <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第3部分&#34;&gt;编写你的第一个Django应用程序，第3部分&lt;/h1&gt;
 
 &lt;p&gt;本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。&lt;/p&gt;
@@ -185,10 +172,10 @@
     
     <item>
       <title>django_to_csv</title>
-      <link>http://gqhappy.xyz/posts/django_to_csv/</link>
+      <link>https://ngc7292.github.io/posts/django_to_csv/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_to_csv/</guid>
+      <guid>https://ngc7292.github.io/posts/django_to_csv/</guid>
       <description>&lt;h2 id=&#34;输出csv和django&#34;&gt;输出CSV和Django&lt;/h2&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。&lt;/p&gt;
@@ -198,10 +185,10 @@
     
     <item>
       <title>django_to_pdf</title>
-      <link>http://gqhappy.xyz/posts/django_to_pdf/</link>
+      <link>https://ngc7292.github.io/posts/django_to_pdf/</link>
       <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/django_to_pdf/</guid>
+      <guid>https://ngc7292.github.io/posts/django_to_pdf/</guid>
       <description>&lt;h3 id=&#34;输出pdf文件和django&#34;&gt;输出PDF文件和Django&lt;/h3&gt;
 
 &lt;p&gt;本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。&lt;/p&gt;
@@ -211,10 +198,10 @@
     
     <item>
       <title>网络以及C&#43;&#43; debug拾遗</title>
-      <link>http://gqhappy.xyz/posts/12_27/</link>
+      <link>https://ngc7292.github.io/posts/12_27/</link>
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/12_27/</guid>
+      <guid>https://ngc7292.github.io/posts/12_27/</guid>
       <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
 
 &lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>
@@ -222,15 +209,49 @@
     
     <item>
       <title>frist day</title>
-      <link>http://gqhappy.xyz/posts/newday/</link>
+      <link>https://ngc7292.github.io/posts/newday/</link>
       <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://gqhappy.xyz/posts/newday/</guid>
+      <guid>https://ngc7292.github.io/posts/newday/</guid>
       <description>&lt;h1 id=&#34;这是新的一天&#34;&gt;这是新的一天&lt;/h1&gt;
 
 &lt;p&gt;现在是2017年12月26日的23点半，今天又是我的基金大跌的一天，伤心，今天怎么说呢，每天也不知道在干什么，不管了，tomorrow is tomorrow，毕竟想换电脑了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/learn-evaluating-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
+      <description>西瓜书学习笔记
+模型的评估与选择 关于模型的评估结果 关于评估有两个基本的概念，一个是错误率(error rate)$$ E=a/m $$ ，另外一个是精度（accuracy) $$ A=1-a/m $$ ,我们将分类错误的样本数目称为错误率，把实际预测输出与真实输出称为训练误差(training error)或叫经验误差(empirical error),在新样本的误差叫泛化误差(generalization error).
+&amp;ldquo;过拟合(overfitting)&amp;ldquo;与&amp;rdquo;欠拟合(underfitting)&amp;rdquo;
+产生测试集的几种方法 留出法（hold-out） 直接将给定训练集的样本比例，直接将数据集划分为两个不同的数据集，在其中一个训练在另一个进行测试。
+交叉验证法 （cross validation） 将数据集划分为k个大小相同的互斥子集，并将每个集合的k-1个子集的并集作为训练集，其他的作为测试集，通常称为k折交叉验证
+sklearn中的cross validation模块，最主要的函数是如下函数： sklearn.cross_validation.cross_val_score:他的调用形式是scores = cross_validation.cross_val_score(clf, raw_data, raw_target, cv=5, score_func=None) 参数解释： clf:表示的是不同的分类器，可以是任何的分类器。比如支持向量机分类器。clf = svm.SVC(kernel=’linear’, C=1)； raw_data：原始数据； raw_target:原始类别标号； cv：代表的就是不同的cross validation的方法了。引用scikit-learn上的一句话（When the cv argument is an integer, cross_val_score uses the KFold or StratifiedKFold strategies by default, the latter being used if the estimator derives from ClassifierMixin.）如果cv是一个int数字的话，那么默认使用的是KFold或者StratifiedKFold交叉，如果如果指定了类别标签则使用的是StratifiedKFold。 cross_val_score:这个函数的返回值就是对于每次不同的的划分raw_data时，在test_data上得到的分类的准确率。至于准确率的算法可以通过score_func参数指定，如果不指定的话，是用clf默认自带的准确率算法。  自助法 (bootstrapping) 自助采样法为基础，重复取回采样，这样的话按照概率来分析，不被采到的概率大概是36.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/math_sage_1st/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/math_sage_1st/</guid>
+      <description> 第一天开始学习sagemath，原本打算学习一下算法，但是入了数学建模的坑，那就好好学会数学吧 矩阵 分享策略 微分法建模 sagemath基本操作 sage在macos下好多个包，但是可以执行的是带app的，我刚开始的时候下的源码，GG
+打开后会开一个类似ipython的进程，好像sage是跑在这上面的
+矩阵操作 A = Matrix([[1,2,3],[3,2,1],[1,1,1]]) #标准创建一个矩阵 w = vector([1,1,-4]) #创建矩阵  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/vacation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/vacation/</guid>
+      <description></description>
     </item>
     
   </channel>
