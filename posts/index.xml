@@ -6,10 +6,21 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/shapley/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/shapley/</guid>
+      <description>&lt;p&gt;shapley值作为一种利益分配算法，考虑到了所有的人对总目标的贡献程度，避免分配上的平均主义，但是，首先需要对其中所有成员的组合利益有着较为准确的预期，每个参与者在参与的时候每个组合的贡献都会影响到最后的输出结果，对于总效益不确定的情况下可以采用AHP法，ANP法以及模糊数学等方法来估算个联盟之间的可能效用值，再进行具体利益上的分配。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>hgame_week4</title>
