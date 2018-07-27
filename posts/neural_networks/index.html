@@ -72,7 +72,7 @@
                     </h1>
                     <h2 class="headline">
                     Jul 27, 2018 00:00
-                    · 157 words
+                    · 189 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -141,12 +141,17 @@
 
 <p>下面是该算法的一些表示：</p>
 
-<p>$$ \theta_j 表示输出层第j个神经元阈值$$
-$$ \gamma<em>h 表示隐层第h个神经元的阈值$$
-$$ \nu</em>{ih} 表示第i个输入层神经元到第h个隐层神经元的连接权$$
-$$ \omega_{hj} 表示第h个隐层神经元到第j个输出层神经元的连接权$$
-$$ \alpha<em>h = \sum ^{d}</em>{i=1} \nu_{ih}x_i 表示隐层神经元接收到的输入$$
-$$ \beta<em>j = \sum^{q}</em>{h=1} \omega_{hi}b_h 表示输出层第j个神经元接收的输入$$</p>
+<p>$$ \theta_j 表示输出层第j个神经元阈值$$</p>
+
+<p>$$ \gamma_{h} 表示隐层第h个神经元的阈值$$</p>
+
+<p>$$ \nu_{ih} 表示第i个输入层神经元到第h个隐层神经元的连接权$$</p>
+
+<p>$$ \omega_{hj} 表示第h个隐层神经元到第j个输出层神经元的连接权$$</p>
+
+<p>$$ \alpha_{h} = \sum ^{d} _{i=1}\nu _{ih}x_i 表示隐层神经元接收到的输入$$</p>
+
+<p>$$ \beta_j = \sum^{q} _{h=1} \omega _{hi}b_h 表示输出层第j个神经元接收的输入$$</p>
 
 <p>假设神经元都使用sigmoid函数，假定神经网络输出为：</p>
 
@@ -154,17 +159,19 @@ $$ \beta<em>j = \sum^{q}</em>{h=1} \omega_{hi}b_h 表示输出层第j个神经�
 
 <p>均方误差：</p>
 
-<p>$$ E<em>{k}=\dfrac {1}{2}\sum ^{l}</em>{j=1}( \widehat {y}^k<em>{j}-y^k</em>{j})  1/2的是为了求导方便$$</p>
+<p>$$ E_{k}=\dfrac {1}{2}\sum ^{l} _{j=1}( \widehat {y}^k _{j}-y^k _{j})  1/2的是为了求导方便$$</p>
 
 <p>BP算法是基于梯度下降策略的，以目标的负梯度方向对参数进行调整。</p>
 
-<p>$$\Delta \omega<em>{hj}=-\eta\dfrac {\partial E</em>{k}}{\partial \omega <em>{hj}}$$
-$$\Delta \theta</em>{j}=-\eta\dfrac {\partial E_{k}}{\partial \beta <em>{j}}$$
-$$\Delta \nu</em>{ih}=-\eta\dfrac {\partial E_{k}}{\partial \nu _{ih}}$$</p>
+<p>$$\Delta \omega _{hj}=-\eta\dfrac {\partial E _{k}}{\partial \omega _{hj}}$$</p>
+
+<p>$$\Delta \theta _{j}=-\eta\dfrac {\partial E _{k}}{\partial \beta _{j}}$$</p>
+
+<p>$$\Delta \nu _{ih}=-\eta\dfrac {\partial E _{k}}{\partial \nu _{ih}}$$</p>
 
 <p>以omega举例，omega是先影响到beta再影响y继而影响E的，所以我们可以将omega式子转化：</p>
 
-<p>$$\dfrac {\partial E_{k}}{\partial \omega <em>{hj}} = \dfrac {\partial E</em>{k}}{\partial y^k<em>{j}}*\dfrac {\partial y^k</em>{j}}{\partial \beta <em>{j}}*\dfrac {\partial \beta</em>{j}}{\partial \omega _{hj}}$$</p>
+<p>$$\dfrac {\partial E _{k}} {\partial \omega _{hj}} = \dfrac {\partial E _{k}} {\partial y^k _{j}}* \dfrac {\partial y^k _{j}} {\partial \beta _{j}}* \dfrac {\partial \beta _{j}} {\partial \omega _{hj}}$$</p>
 
 <p>由于</p>
 
@@ -172,7 +179,7 @@ $$\Delta \nu</em>{ih}=-\eta\dfrac {\partial E_{k}}{\partial \nu _{ih}}$$</p>
 
 <p>设</p>
 
-<p>$$g<em>j = -\dfrac {\partial E</em>{k}}{\partial y^k<em>{j}}*\dfrac {\partial y^k</em>{j}}{\partial \beta _{j}} = \widehat{y}^k_j(1-\widehat{y}^k_j)(y^k_j-\widehat{y}^k_j)$$</p>
+<p>$$g_j = -\dfrac {\partial E _{k}} {\partial y^k _{j}}*\dfrac {\partial y^k _{j}} {\partial \beta _{j}} = \widehat{y}^k _j(1-\widehat{y}^k _j)(y^k _j-\widehat{y}^k _j)$$</p>
 
 <p>所以关于omega的更新公式为</p>
 
@@ -180,9 +187,11 @@ $$\Delta \nu</em>{ih}=-\eta\dfrac {\partial E_{k}}{\partial \nu _{ih}}$$</p>
 
 <p>其他的更新公式为：</p>
 
-<p>$$ \Delta \theta_{j}=-\eta g<em>j $$
-$$ \Delta \nu</em>{ih}=\eta e_h x<em>i $$
-$$ \Delta \gamma</em>{h}=-\eta e_h $$</p>
+<p>$$ \Delta \theta_{j}=-\eta g_j $$</p>
+
+<p>$$ \Delta \nu_{ih}=\eta e_h x_i $$</p>
+
+<p>$$ \Delta \gamma_{h}=-\eta e_h $$</p>
 
 <p>之后便是遍历训练集并更新其中的一个参数</p>
 
@@ -191,7 +200,7 @@ $$ \Delta \gamma</em>{h}=-\eta e_h $$</p>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fneural_networks%2f - neural%20network%20and%20BP%20algorithm by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fneural_networks%2f - neural_network_and_BP_algorithm by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
