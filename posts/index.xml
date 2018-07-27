@@ -6,10 +6,56 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>evaluation and selection</title>
+      <link>https://ngc7292.github.io/posts/learn-evaluating-model/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
+      <description>&lt;p&gt;我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>neural network and BP algorithm</title>
+      <link>https://ngc7292.github.io/posts/neural_networks/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
+      <description>&lt;p&gt;前几天回顾了一下西瓜书中的第五章 神经网络，而且发现还有一些基本概念我也想写一下，例如梯度下降法，最小二乘法，牛顿法等&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode python刷题记录</title>
+      <link>https://ngc7292.github.io/posts/leetcode-python2/</link>
+      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-python2/</guid>
+      <description>&lt;p&gt;记录一下，今天已经74题了。&lt;/p&gt;
+
+&lt;p&gt;今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode python刷题记录</title>
+      <link>https://ngc7292.github.io/posts/leetcode-python/</link>
+      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
+      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>shapley合作对策</title>
@@ -31,7 +77,8 @@
       
       <guid>https://ngc7292.github.io/posts/vacation/</guid>
       <description>为了暑假不闲置，在这里记录下暑假生活的日常，嘻嘻
-2018.7.19 numpy，leetcode，复习一下几种迭代算法（梯度下降法，牛顿法），继续学习机器学习。 2018.7.24 - [] numpy - [] leetcode math - [**] 机器学习第5章 2018.7.25 - [] leetcode - [] 机器学习（西瓜书）BP算法实现</description>
+2018.7.19 numpy，leetcode，复习一下几种迭代算法（梯度下降法，牛顿法），继续学习机器学习。
+2018.7.24 - numpy - leetcode math - 机器学习第5章 2018.7.25 - leetcode - 机器学习（西瓜书）BP算法实现</description>
     </item>
     
     <item>
@@ -65,17 +112,6 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-database/</guid>
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python/</link>
-      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
-      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -241,20 +277,6 @@
 &lt;p&gt;现在是2017年12月26日的23点半，今天又是我的基金大跌的一天，伤心，今天怎么说呢，每天也不知道在干什么，不管了，tomorrow is tomorrow，毕竟想换电脑了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ngc7292.github.io/posts/learn-evaluating-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
-      <description>西瓜书学习笔记
-模型的评估与选择 关于模型的评估结果 关于评估有两个基本的概念，一个是错误率(error rate)$$ E=a/m $$ ，另外一个是精度（accuracy) $$ A=1-a/m $$ ,我们将分类错误的样本数目称为错误率，把实际预测输出与真实输出称为训练误差(training error)或叫经验误差(empirical error),在新样本的误差叫泛化误差(generalization error).
-&amp;ldquo;过拟合(overfitting)&amp;ldquo;与&amp;rdquo;欠拟合(underfitting)&amp;rdquo;
-产生测试集的几种方法 留出法（hold-out） 直接将给定训练集的样本比例，直接将数据集划分为两个不同的数据集，在其中一个训练在另一个进行测试。
-交叉验证法 （cross validation） 将数据集划分为k个大小相同的互斥子集，并将每个集合的k-1个子集的并集作为训练集，其他的作为测试集，通常称为k折交叉验证
-sklearn中的cross validation模块，最主要的函数是如下函数： sklearn.cross_validation.cross_val_score:他的调用形式是scores = cross_validation.cross_val_score(clf, raw_data, raw_target, cv=5, score_func=None) 参数解释： clf:表示的是不同的分类器，可以是任何的分类器。比如支持向量机分类器。clf = svm.SVC(kernel=’linear’, C=1)； raw_data：原始数据； raw_target:原始类别标号； cv：代表的就是不同的cross validation的方法了。引用scikit-learn上的一句话（When the cv argument is an integer, cross_val_score uses the KFold or StratifiedKFold strategies by default, the latter being used if the estimator derives from ClassifierMixin.）如果cv是一个int数字的话，那么默认使用的是KFold或者StratifiedKFold交叉，如果如果指定了类别标签则使用的是StratifiedKFold。 cross_val_score:这个函数的返回值就是对于每次不同的的划分raw_data时，在test_data上得到的分类的准确率。至于准确率的算法可以通过score_func参数指定，如果不指定的话，是用clf默认自带的准确率算法。  自助法 (bootstrapping) 自助采样法为基础，重复取回采样，这样的话按照概率来分析，不被采到的概率大概是36.</description>
     </item>
     
     <item>
