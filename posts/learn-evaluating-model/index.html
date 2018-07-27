@@ -13,13 +13,8 @@
     
   
   
-  <meta name="twitter:title" content=""/>
-  <meta name="twitter:description" content="西瓜书学习笔记
-模型的评估与选择 关于模型的评估结果 关于评估有两个基本的概念，一个是错误率(error rate)$$ E=a/m $$ ，另外一个是精度（accuracy) $$ A=1-a/m $$ ,我们将分类错误的样本数目称为错误率，把实际预测输出与真实输出称为训练误差(training error)或叫经验误差(empirical error),在新样本的误差叫泛化误差(generalization error).
-&ldquo;过拟合(overfitting)&ldquo;与&rdquo;欠拟合(underfitting)&rdquo;
-产生测试集的几种方法 留出法（hold-out） 直接将给定训练集的样本比例，直接将数据集划分为两个不同的数据集，在其中一个训练在另一个进行测试。
-交叉验证法 （cross validation） 将数据集划分为k个大小相同的互斥子集，并将每个集合的k-1个子集的并集作为训练集，其他的作为测试集，通常称为k折交叉验证
-sklearn中的cross validation模块，最主要的函数是如下函数： sklearn.cross_validation.cross_val_score:他的调用形式是scores = cross_validation.cross_val_score(clf, raw_data, raw_target, cv=5, score_func=None) 参数解释： clf:表示的是不同的分类器，可以是任何的分类器。比如支持向量机分类器。clf = svm.SVC(kernel=’linear’, C=1)； raw_data：原始数据； raw_target:原始类别标号； cv：代表的就是不同的cross validation的方法了。引用scikit-learn上的一句话（When the cv argument is an integer, cross_val_score uses the KFold or StratifiedKFold strategies by default, the latter being used if the estimator derives from ClassifierMixin.）如果cv是一个int数字的话，那么默认使用的是KFold或者StratifiedKFold交叉，如果如果指定了类别标签则使用的是StratifiedKFold。 cross_val_score:这个函数的返回值就是对于每次不同的的划分raw_data时，在test_data上得到的分类的准确率。至于准确率的算法可以通过score_func参数指定，如果不指定的话，是用clf默认自带的准确率算法。  自助法 (bootstrapping) 自助采样法为基础，重复取回采样，这样的话按照概率来分析，不被采到的概率大概是36."/>
+  <meta name="twitter:title" content="evaluation and selection"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -35,7 +30,7 @@ sklearn中的cross validation模块，最主要的函数是如下函数： sklea
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.36.1" />
-		<title> &middot; ngc7293&#39;s blog</title>
+		<title>evaluation and selection &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
@@ -73,13 +68,19 @@ sklearn中的cross validation模块，最主要的函数是如下函数： sklea
             <article>
                 <header>
                     <h1>
-                        
+                        evaluation and selection
                     </h1>
                     <h2 class="headline">
-                    Jan 1, 0001 00:00
+                    Jul 27, 2018 00:00
                     · 144 words
                     · 1 minute read
                       <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
+                          
+                      
                       
                       </span>
                     </h2>
@@ -89,8 +90,9 @@ sklearn中的cross validation模块，最主要的函数是如下函数： sklea
                     <div id="toc">
                       <nav id="TableOfContents">
 <ul>
-<li><a href="#模型的评估与选择">模型的评估与选择</a>
+<li>
 <ul>
+<li><a href="#模型的评估与选择">模型的评估与选择</a></li>
 <li><a href="#关于模型的评估结果">关于模型的评估结果</a></li>
 <li><a href="#产生测试集的几种方法">产生测试集的几种方法</a>
 <ul>
@@ -112,11 +114,11 @@ sklearn中的cross validation模块，最主要的函数是如下函数： sklea
                   
                 
                 <section id="post-body">
-                    
+                    <p>我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法</p>
 
-<p>西瓜书学习笔记</p>
+<p></p>
 
-<h1 id="模型的评估与选择">模型的评估与选择</h1>
+<h2 id="模型的评估与选择">模型的评估与选择</h2>
 
 <h2 id="关于模型的评估结果">关于模型的评估结果</h2>
 
@@ -222,12 +224,11 @@ $$ R = TP/(TP+FN) $$</p>
 <p>方差（variance）度量了训练集变化给训练结果带来的学习性能的变化，即数据扰动造成的影响</p>
 
 <p>噪声，表示当前学习算法所能达到的期望泛化误差的下界。</p>
-
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2flearn-evaluating-model%2f -  by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2flearn-evaluating-model%2f - evaluation%20and%20selection by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(

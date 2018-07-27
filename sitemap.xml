@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ngc7292.github.io/posts/learn-evaluating-model/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/neural_networks/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/leetcode-python2/</loc>
+    <lastmod>2018-07-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/leetcode-python/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/shapley/</loc>
     <lastmod>2018-07-13T00:00:00+00:00</lastmod>
   </url>
@@ -24,11 +44,6 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/leetcode-database/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts/leetcode-python/</loc>
     <lastmod>2018-02-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -103,11 +118,13 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts/learn-evaluating-model/</loc>
+    <loc>https://ngc7292.github.io/posts/math_sage_1st/</loc>
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts/math_sage_1st/</loc>
+    <loc>https://ngc7292.github.io/tags/algorithm/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -146,6 +163,12 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/tags/mechine-learning/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/tags/network/</loc>
     <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -153,13 +176,13 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ngc7292.github.io/tags/python/</loc>
-    <lastmod>2018-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -177,19 +200,19 @@
   
   <url>
     <loc>https://ngc7292.github.io/tags/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2018-02-13T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

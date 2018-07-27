@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode python刷题记录 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode python刷题记录
+                    </h1>
+                    <h2 class="headline">
+                    Jul 26, 2018 00:00
+                    · 671 words
+                    · 4 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#binary-tree-preorder-traversal">Binary Tree Preorder Traversal</a></li>
+<li><a href="#binary-tree-zigzag-level-order-traversal">Binary Tree Zigzag Level Order Traversal</a></li>
+<li><a href="#largest-rectangle-in-histogram">Largest Rectangle in Histogram</a></li>
+<li><a href="#binary-tree-inorder-traversal">Binary Tree Inorder Traversal</a></li>
+<li><a href="#arithmetic-slices">Arithmetic Slices</a></li>
+<li><a href="#arranging-coins">Arranging Coins</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>记录一下，今天已经74题了。</p>
+
+<p>今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了</p>
+
+<p></p>
+
+<h2 id="binary-tree-preorder-traversal">Binary Tree Preorder Traversal</h2>
+
+<p>二叉树前序遍历，不过不让用递归，只能用循环。</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def preorderTraversal(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        res = []
+        root_list = [root]
+        while root_list != []:
+            t = root_list[-1]
+            root_list.pop()
+            res.append(t.val)
+            if t.right != None:
+                root_list.append(t.right)
+            if t.left != None:
+                root_list.append(t.left)
+        return res
+</code></pre>
+
+<h2 id="binary-tree-zigzag-level-order-traversal">Binary Tree Zigzag Level Order Traversal</h2>
+
+<p>Given a binary tree, return the zigzag level order traversal of its nodes&rsquo; values. (ie, from left to right, then right to left for the next level and alternate between).</p>
+
+<p>关于二叉树访问的一个小小的问题，第一层从左到右，第二层从右到左，以此类推。。。</p>
+
+<p>所以我就找了一个flag位，并做0-1置换 2333333</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def zigzagLevelOrder(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        res = [[root.val]]
+        root_list = [root]
+        flag = 0
+        while True:
+            res_1,root_list = self.get_num(root_list)
+            if root_list == []:
+                break
+            if flag == 1:
+                res.append(res_1)
+                flag = 0
+            else:
+                res.append(res_1[::-1])
+                flag = 1
+        return res
+            
+    def get_num(self, root_list):
+        res = []
+        res_list = []
+        for i in root_list:
+            if i.left != None:
+                res.append(i.left.val)
+                res_list.append(i.left)
+            if i.right != None:
+                res.append(i.right.val)
+                res_list.append(i.right)
+        return res,res_list
+</code></pre>
+
+<h2 id="largest-rectangle-in-histogram">Largest Rectangle in Histogram</h2>
+
+<p>Given n non-negative integers representing the histogram&rsquo;s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
+
+<p><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">the problem</a></p>
+
+<p>从一个直方图中找到一个最大的长方形，所以我们需要找到一个最大的连续索引与这些索引之间最小的值的最大乘积，2333 有点绕口，反正算法是这样子，我们维护一个栈，遍历hieghts 若i的height值比栈顶的值大，入栈，否则计算增加这个值的最大面积，更新最大面积，并将i-1，直到得到最大的面积值</p>
+
+<pre><code class="language-python">class Solution:
+    def largestRectangleArea(self, heights):
+        &quot;&quot;&quot;
+        :type heights: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        res = 0
+        stk = []
+        heights.append(0)
+        i = 0
+        while i &lt; len(heights):
+            if stk == [] or heights[stk[-1]] &lt;= heights[i]:
+                stk.append(i)
+            else:
+                temp = stk[-1]
+                stk.pop()
+                res = max(res,heights[temp]*i if stk == [] else heights[temp]*(i-stk[-1]-1))
+                i -= 1
+            i += 1
+        return res
+        
+</code></pre>
+
+<h2 id="binary-tree-inorder-traversal">Binary Tree Inorder Traversal</h2>
+
+<p>二叉树中序遍历</p>
+
+<p>Given a binary tree, return the inorder traversal of its nodes&rsquo; values.</p>
+
+<pre><code class="language-python">/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; inorderTraversal(TreeNode* root) {
+        stack&lt;TreeNode *&gt; s;
+        vector&lt;int&gt; res;
+        TreeNode* p = root;
+        while(p || !s.empty())
+        {
+            while(p)
+            {
+                s.push(p);
+                p = p-&gt;left;
+            }
+            p = s.top();
+            s.pop();
+            res.push_back(p-&gt;val);
+            p = p-&gt;right;
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<h2 id="arithmetic-slices">Arithmetic Slices</h2>
+
+<p>A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same.</p>
+
+<p>For example, these are arithmetic sequence:</p>
+
+<pre><code>1, 3, 5, 7, 9
+7, 7, 7, 7
+3, -1, -5, -9
+</code></pre>
+
+<p>The following sequence is not arithmetic.</p>
+
+<pre><code>1, 1, 2, 5, 7
+</code></pre>
+
+<p>A zero-indexed array A consisting of N numbers is given. A slice of that array is any pair of integers (P, Q) such that 0 &lt;= P &lt; Q &lt; N.</p>
+
+<p>A slice (P, Q) of array A is called arithmetic if the sequence:
+A[P], A[p + 1], &hellip;, A[Q - 1], A[Q] is arithmetic. In particular, this means that P + 1 &lt; Q.</p>
+
+<p>The function should return the number of arithmetic slices in the array A.</p>
+
+<pre><code class="language-python">class Solution:
+    def numberOfArithmeticSlices(self, A):
+        &quot;&quot;&quot;
+        :type A: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        count = 0
+        addend = 0
+        for i in range(2,len(A)):
+            if A[i-2] - A[i-1] == A[i-1] - A[i]:
+                addend += 1
+                count += addend
+            else:
+                addend = 0
+        return count
+        
+</code></pre>
+
+<h2 id="arranging-coins">Arranging Coins</h2>
+
+<p>You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.</p>
+
+<p>Given n, find the total number of full staircase rows that can be formed.</p>
+
+<p>n is a non-negative integer and fits within the range of a 32-bit signed integer.</p>
+
+<p>so eazy</p>
+
+<pre><code class="language-python">class Solution:
+    def arrangeCoins(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        i = 0
+        result = 0
+        while n &gt;= result:
+            i += 1
+            result += i
+        return i-1 
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode-python2%2f - leetcode_python%202 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

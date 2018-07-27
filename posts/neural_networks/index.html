@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="neural network and BP algorithm"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>neural network and BP algorithm &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        neural network and BP algorithm
+                    </h1>
+                    <h2 class="headline">
+                    Jul 27, 2018 00:00
+                    · 157 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithm">algorithm</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#感知机与多重神经网络">感知机与多重神经网络</a></li>
+<li><a href="#bp-误差逆传播算法">BP(误差逆传播算法)</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>前几天回顾了一下西瓜书中的第五章 神经网络，而且发现还有一些基本概念我也想写一下，例如梯度下降法，最小二乘法，牛顿法等</p>
+
+<p></p>
+
+<p>神经网络最基本组成成分是神经元，每个神经元输入的信号通过带权连接进入相应的神经元，并将总输入值与阈值进行比较，并通过激活函数进行输出。</p>
+
+<p>典型的激活函数包括像sigmoid函数或者跃迁函数之类的，sigmoid函数又被称为挤压函数，好像是说把数字都挤压到[0,1]区间上的函数，其数学表示为：</p>
+
+<p>$$ sigmoid(x) = 1/(1+e^{-x}) $$</p>
+
+<p>函数图形类似这样：</p>
+
+<p><img src="http://p1kaloi2x.bkt.clouddn.com/image/blog/sigmoid.jpg" alt="" /></p>
+
+<p>很多神经元连接于是得到神经网络，从计算机科学的角度，神经网络可以看作一个模型，该模型有许多函数，并且在很多时候可以递归什么的，最后给出一个输出，类似的，实现下列相互嵌套，相互作用的一些函数综合而成的模型，很多都是以数学证明为基础的。</p>
+
+<p>$$ y_j = f(\Sigma_i w_ix_i - \theta_j)$$</p>
+
+<h2 id="感知机与多重神经网络">感知机与多重神经网络</h2>
+
+<p>感知机是我感觉最简单的一种神经网络，其由两层神经元构成的，对于线性可分问题比如关于与，或，非等问题，即存在一个线性超平面可以将所有的输入划分为两个模式那种，对于非线性可分问题，感知机可能会有些问题，比如产生震荡（fluctuation），即一直在两个模块之间跌宕，得不到最后的x的参数。</p>
+
+<p>当出现这了问题时，我们需要多层神经网络，一般常见的有多层前馈网络，由输入层处理外界信号，由隐层处理数据，由输出层输出，网络的学习过程就是对其中的连接权，以及各个层之间的阈值。</p>
+
+<p><img src="http://p1kaloi2x.bkt.clouddn.com/image/blog/mLP.jpg" alt="" /></p>
+
+<h2 id="bp-误差逆传播算法">BP(误差逆传播算法)</h2>
+
+<p>好说歹说也是看了好长时间ml的人，刚开始沉迷于使用库函数，完全不管其中包含的算法细节，结果很多算法还是不会，现在刷《机器学习》的时候来复习（学习）一下这些算法。</p>
+
+<p>首先给定一个训练集</p>
+
+<p>$$ D = {(x_1,y_1),(x_2,y_2),&hellip;,(x_m,y_m)} x_i \in R^d y_i \in R^l$$</p>
+
+<p>表示训练集由d个属性描述，输出l维实值向量</p>
+
+<p>下面是该算法的一些表示：</p>
+
+<p>$$ \theta_j 表示输出层第j个神经元阈值$$
+$$ \gamma<em>h 表示隐层第h个神经元的阈值$$
+$$ \nu</em>{ih} 表示第i个输入层神经元到第h个隐层神经元的连接权$$
+$$ \omega_{hj} 表示第h个隐层神经元到第j个输出层神经元的连接权$$
+$$ \alpha<em>h = \sum ^{d}</em>{i=1} \nu_{ih}x_i 表示隐层神经元接收到的输入$$
+$$ \beta<em>j = \sum^{q}</em>{h=1} \omega_{hi}b_h 表示输出层第j个神经元接收的输入$$</p>
+
+<p>假设神经元都使用sigmoid函数，假定神经网络输出为：</p>
+
+<p>$$ \widehat {y}^k_j = f(\beta_j - \theta_j) $$</p>
+
+<p>均方误差：</p>
+
+<p>$$ E<em>{k}=\dfrac {1}{2}\sum ^{l}</em>{j=1}( \widehat {y}^k<em>{j}-y^k</em>{j})  1/2的是为了求导方便$$</p>
+
+<p>BP算法是基于梯度下降策略的，以目标的负梯度方向对参数进行调整。</p>
+
+<p>$$\Delta \omega<em>{hj}=-\eta\dfrac {\partial E</em>{k}}{\partial \omega <em>{hj}}$$
+$$\Delta \theta</em>{j}=-\eta\dfrac {\partial E_{k}}{\partial \beta <em>{j}}$$
+$$\Delta \nu</em>{ih}=-\eta\dfrac {\partial E_{k}}{\partial \nu _{ih}}$$</p>
+
+<p>以omega举例，omega是先影响到beta再影响y继而影响E的，所以我们可以将omega式子转化：</p>
+
+<p>$$\dfrac {\partial E_{k}}{\partial \omega <em>{hj}} = \dfrac {\partial E</em>{k}}{\partial y^k<em>{j}}*\dfrac {\partial y^k</em>{j}}{\partial \beta <em>{j}}*\dfrac {\partial \beta</em>{j}}{\partial \omega _{hj}}$$</p>
+
+<p>由于</p>
+
+<p>$$f&rsquo;\left( x\right) = f(x)(1-f(x))$$</p>
+
+<p>设</p>
+
+<p>$$g<em>j = -\dfrac {\partial E</em>{k}}{\partial y^k<em>{j}}*\dfrac {\partial y^k</em>{j}}{\partial \beta _{j}} = \widehat{y}^k_j(1-\widehat{y}^k_j)(y^k_j-\widehat{y}^k_j)$$</p>
+
+<p>所以关于omega的更新公式为</p>
+
+<p>$$\Delta \omega_{hj}=\eta g_jb_n$$</p>
+
+<p>其他的更新公式为：</p>
+
+<p>$$ \Delta \theta_{j}=-\eta g<em>j $$
+$$ \Delta \nu</em>{ih}=\eta e_h x<em>i $$
+$$ \Delta \gamma</em>{h}=-\eta e_h $$</p>
+
+<p>之后便是遍历训练集并更新其中的一个参数</p>
+
+<p>另外，BP算法的目标是最小化训练集上的累积误差。</p>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fneural_networks%2f - neural%20network%20and%20BP%20algorithm by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

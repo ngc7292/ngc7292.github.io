@@ -6,15 +6,28 @@
     <description>Recent content in 数据结构 on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>leetcode python刷题记录</title>
+      <link>https://ngc7292.github.io/posts/leetcode-python2/</link>
+      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-python2/</guid>
+      <description>&lt;p&gt;记录一下，今天已经74题了。&lt;/p&gt;
+
+&lt;p&gt;今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode python刷题记录</title>
       <link>https://ngc7292.github.io/posts/leetcode-python/</link>
-      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
       <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
