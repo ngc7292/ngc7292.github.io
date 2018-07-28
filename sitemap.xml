@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/posts/vacation/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/leetcode-python2/</loc>
     <lastmod>2018-07-26T00:00:00+00:00</lastmod>
   </url>
@@ -25,11 +30,6 @@
   <url>
     <loc>https://ngc7292.github.io/posts/shapley/</loc>
     <lastmod>2018-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts/vacation/</loc>
-    <lastmod>2018-07-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -159,6 +159,12 @@
   <url>
     <loc>https://ngc7292.github.io/tags/django/</loc>
     <lastmod>2018-02-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/tags/linshi/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
