@@ -72,8 +72,8 @@
                     </h1>
                     <h2 class="headline">
                     Jul 26, 2018 00:00
-                    · 671 words
-                    · 4 minute read
+                    · 1586 words
+                    · 8 minute read
                       <span class="tags">
                       
                       
@@ -100,6 +100,12 @@
 <li><a href="#binary-tree-inorder-traversal">Binary Tree Inorder Traversal</a></li>
 <li><a href="#arithmetic-slices">Arithmetic Slices</a></li>
 <li><a href="#arranging-coins">Arranging Coins</a></li>
+<li><a href="#implement-stack-using-queues">Implement Stack using Queues</a></li>
+<li><a href="#implement-queue-using-stacks">Implement Queue using Stacks</a></li>
+<li><a href="#min-stack">Min Stack</a></li>
+<li><a href="#baseball-game">Baseball Game</a></li>
+<li><a href="#next-greater-element-i">Next Greater Element I</a></li>
+<li><a href="#backspace-string-compare">Backspace String Compare</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -328,6 +334,301 @@ A[P], A[p + 1], &hellip;, A[Q - 1], A[Q] is arithmetic. In particular, this mean
             i += 1
             result += i
         return i-1 
+</code></pre>
+
+<p>update :今天看了一天的tf，但是我觉得不如看数学来的实在23333 ，明天继续看书咯，夜晚刷了几道eazy的stack问题</p>
+
+<h2 id="implement-stack-using-queues">Implement Stack using Queues</h2>
+
+<p>Implement the following operations of a stack using queues.</p>
+
+<p>push(x) &ndash; Push element x onto stack.
+pop() &ndash; Removes the element on top of the stack.
+top() &ndash; Get the top element.
+empty() &ndash; Return whether the stack is empty.</p>
+
+<pre><code class="language-python">class MyStack:
+
+    def __init__(self):
+        &quot;&quot;&quot;
+        Initialize your data structure here.
+        &quot;&quot;&quot;
+        self.res = []
+        
+
+    def push(self, x):
+        &quot;&quot;&quot;
+        Push element x onto stack.
+        :type x: int
+        :rtype: void
+        &quot;&quot;&quot;
+        self.res.append(x)
+        
+
+    def pop(self):
+        &quot;&quot;&quot;
+        Removes the element on top of the stack and returns that element.
+        :rtype: int
+        &quot;&quot;&quot;
+        if self.res != []:
+            a = self.res[-1]
+            self.res.pop()
+            return a
+        else:
+            return False
+
+    def top(self):
+        &quot;&quot;&quot;
+        Get the top element.
+        :rtype: int
+        &quot;&quot;&quot;
+        if self.res != []:
+            return self.res[-1]
+        else:
+            return False
+
+    def empty(self):
+        &quot;&quot;&quot;
+        Returns whether the stack is empty.
+        :rtype: bool
+        &quot;&quot;&quot;
+        if self.res != []:
+            return False
+        else:
+            return True
+        
+
+
+# Your MyStack object will be instantiated and called as such:
+# obj = MyStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.empty()
+</code></pre>
+
+<h2 id="implement-queue-using-stacks">Implement Queue using Stacks</h2>
+
+<p>Implement the following operations of a queue using stacks.</p>
+
+<p>push(x) &ndash; Push element x to the back of queue.
+pop() &ndash; Removes the element from in front of queue.
+peek() &ndash; Get the front element.
+empty() &ndash; Return whether the queue is empty.</p>
+
+<pre><code class="language-python">class MyQueue:
+
+    def __init__(self):
+        &quot;&quot;&quot;
+        Initialize your data structure here.
+        &quot;&quot;&quot;
+        self.res = []
+
+    def push(self, x):
+        &quot;&quot;&quot;
+        Push element x to the back of queue.
+        :type x: int
+        :rtype: void
+        &quot;&quot;&quot;
+        self.res.append(x)
+        
+
+    def pop(self):
+        &quot;&quot;&quot;
+        Removes the element from in front of queue and returns that element.
+        :rtype: int
+        &quot;&quot;&quot;
+        a = self.res[0]
+        self.res = self.res[1:]
+        return a
+
+    def peek(self):
+        &quot;&quot;&quot;
+        Get the front element.
+        :rtype: int
+        &quot;&quot;&quot;
+        return self.res[0]
+        
+
+    def empty(self):
+        &quot;&quot;&quot;
+        Returns whether the queue is empty.
+        :rtype: bool
+        &quot;&quot;&quot;
+        if self.res == []:
+            return True
+        else:
+            return False
+        
+
+
+# Your MyQueue object will be instantiated and called as such:
+# obj = MyQueue()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.peek()
+# param_4 = obj.empty()
+</code></pre>
+
+<h2 id="min-stack">Min Stack</h2>
+
+<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+
+<p>push(x) &ndash; Push element x onto stack.
+pop() &ndash; Removes the element on top of the stack.
+top() &ndash; Get the top element.
+getMin() &ndash; Retrieve the minimum element in the stack.</p>
+
+<pre><code class="language-python">class MinStack:
+
+    def __init__(self):
+        &quot;&quot;&quot;
+        initialize your data structure here.
+        &quot;&quot;&quot;
+        self.res = []
+
+    def push(self, x):
+        &quot;&quot;&quot;
+        :type x: int
+        :rtype: void
+        &quot;&quot;&quot;
+        self.res.append(x)
+        
+
+    def pop(self):
+        &quot;&quot;&quot;
+        :rtype: void
+        &quot;&quot;&quot;
+        self.res.pop()
+        
+
+    def top(self):
+        &quot;&quot;&quot;
+        :rtype: int
+        &quot;&quot;&quot;
+        return self.res[-1]
+        
+
+    def getMin(self):
+        &quot;&quot;&quot;
+        :rtype: int
+        &quot;&quot;&quot;
+        min = self.res[0]
+        for i in self.res:
+            if min &gt; i:
+                min = i
+        return min
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+</code></pre>
+
+<h2 id="baseball-game">Baseball Game</h2>
+
+<p>You&rsquo;re now a baseball game point recorder.</p>
+
+<p>Given a list of strings, each string can be one of the 4 following types:</p>
+
+<ol>
+<li>Integer (one round&rsquo;s score): Directly represents the number of points you get in this round.</li>
+<li>&rdquo;+&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&rsquo;s points.</li>
+<li>&ldquo;D&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&rsquo;s points.</li>
+<li>&ldquo;C&rdquo; (an operation, which isn&rsquo;t a round&rsquo;s score): Represents the last valid round&rsquo;s points you get were invalid and should be removed.
+Each round&rsquo;s operation is permanent and could have an impact on the round before and the round after.</li>
+</ol>
+
+<p>You need to return the sum of the points you could get in all the rounds.</p>
+
+<pre><code class="language-python">class Solution:
+    def calPoints(self, ops):
+        &quot;&quot;&quot;
+        :type ops: List[str]
+        :rtype: int
+        &quot;&quot;&quot;
+        res = 0
+        stk = []
+        for i in ops:
+            if i == &quot;C&quot;:
+                num = stk.pop()
+                res -= num
+            elif i == &quot;D&quot;:
+                num = stk[-1]*2
+                res += num
+                stk.append(num)
+            elif i == &quot;+&quot;:
+                num = stk[-1]+stk[-2]
+                res += num
+                stk.append(num)
+            else:
+                num = int(i)
+                stk.append(num)
+                res += num
+        return res        
+</code></pre>
+
+<h2 id="next-greater-element-i">Next Greater Element I</h2>
+
+<p>ps: 这道题居然连emuerate都不可以用，没有什么好说的2333</p>
+
+<p>You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1&rsquo;s elements in the corresponding places of nums2.</p>
+
+<p>The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.</p>
+
+<pre><code class="language-python">class Solution:
+    def nextGreaterElement(self, nums1, nums2):
+        &quot;&quot;&quot;
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        table = {nums2[i]:i for i in range(len(nums2))}
+        res = []
+        for i in nums1:
+            flag = 0
+            for j in range(table[i],len(nums2)):
+                if nums2[j] &gt; i:
+                    res.append(nums2[j])
+                    flag = 1
+                    break
+            if flag == 0:
+                res.append(-1)
+        return res
+</code></pre>
+
+<h2 id="backspace-string-compare">Backspace String Compare</h2>
+
+<p>Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.</p>
+
+<pre><code class="language-python">class Solution:
+    def backspaceCompare(self, S, T):
+        &quot;&quot;&quot;
+        :type S: str
+        :type T: str
+        :rtype: bool
+        &quot;&quot;&quot;
+        stk_s = []
+        stk_t = []
+        for i in S:
+            if i == &quot;#&quot; and stk_s != []:
+                stk_s.pop()
+            elif stk_s == [] and i == &quot;#&quot;:
+                continue
+            else:
+                stk_s.append(i)
+        for j in T:
+            if j == &quot;#&quot; and stk_t != []:
+                stk_t.pop()
+            elif stk_t == [] and j == &quot;#&quot;:
+                continue
+            else:
+                stk_t.append(j)
+
+        return True if stk_t == stk_s else False
 </code></pre>
                 </section>
             </article>
