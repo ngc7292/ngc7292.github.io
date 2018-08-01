@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录3"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode python刷题记录3 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode python刷题记录3
+                    </h1>
+                    <h2 class="headline">
+                    Aug 1, 2018 00:00
+                    · 797 words
+                    · 4 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#636-exclusive-time-of-functions">636. Exclusive Time of Functions</a></li>
+<li><a href="#binary-tree-postorder-traversal">Binary Tree Postorder Traversal</a></li>
+<li><a href="#853-car-fleet">853. Car Fleet</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。</p>
+
+<p></p>
+
+<h2 id="636-exclusive-time-of-functions">636. Exclusive Time of Functions</h2>
+
+<p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
+
+<p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
+
+<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, &ldquo;0:start:0&rdquo; means function 0 starts from the very beginning of time 0. &ldquo;0:end:0&rdquo; means function 0 ends to the very end of time 0.</p>
+
+<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function&rsquo;s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
+
+<pre><code>Example 1:
+Input:
+n = 2
+logs = 
+[&quot;0:start:0&quot;,
+ &quot;1:start:2&quot;,
+ &quot;1:end:5&quot;,
+ &quot;0:end:6&quot;]
+Output:[3, 4]
+Explanation:
+Function 0 starts at time 0, then it executes 2 units of time and reaches the end of time 1. 
+Now function 0 calls function 1, function 1 starts at time 2, executes 4 units of time and end at time 5.
+Function 0 is running again at time 6, and also end at the time 6, thus executes 1 unit of time. 
+So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally execute 4 units of time.
+</code></pre>
+
+<p>Note:
+1. Input logs will be sorted by timestamp, NOT log id.
+2. Your output should be sorted by function id, which means the 0th element of your output corresponds to the exclusive time of function 0.
+3. Two functions won&rsquo;t start or end at the same time.
+4. Functions could be called recursively, and will always end.
+5. 1 &lt;= n &lt;= 100</p>
+
+<p>不得不说，python真实一个好language，大致思路便是先把log都一个个分开，然后维护一个hash表，与一个stack，hash表来存储每个进程的时间，stk来存储所有开始的进程，遍历整个logs，在start的时候结束上个进程，在end的时候开始stk最后一个进程，最后把p_dict取出来就好了。</p>
+
+<pre><code class="language-python">class Solution:
+    def exclusiveTime(self, n, logs):
+        &quot;&quot;&quot;
+        :type n: int
+        :type logs: List[str]
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        p_dict = {}
+        stk = []
+        on_time = 0
+        for log in logs:
+            log = log.split(&quot;:&quot;)
+            p_id = log[0]
+            opt = log[1]
+            time = int(log[2])
+            if opt == &quot;start&quot;:
+                if stk != []:
+                    p_dict[stk[-1]] = (time - on_time) + p_dict[stk[-1]] if on_time &gt;= 0 else time + on_time + p_dict[
+                        stk[-1]] - 1
+                on_time = time
+                stk.append(p_id)
+                if p_id not in p_dict:
+                    p_dict[p_id] = 0
+            else:
+                p_dict[stk[-1]] = time - on_time + p_dict[stk[-1]] + 1 if on_time &gt;= 0 else time + on_time + p_dict[
+                    stk[-1]]
+                on_time = -time
+                stk.pop()
+        return [p_dict[str(i)] for i in range(n)]
+</code></pre>
+
+<h2 id="binary-tree-postorder-traversal">Binary Tree Postorder Traversal</h2>
+
+<p>Given a binary tree, return the postorder traversal of its nodes&rsquo; values.</p>
+
+<p>后续遍历，</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def postorderTraversal(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        stk = [root]
+        res = []
+        head = root
+        while stk != []:
+            t = stk[-1]
+            if (t.left == None and t.right == None) or t.left == head or t.right == head:
+                res.append(t.val)
+                stk.pop()
+                head = t
+            else:
+                if t.right != None:
+                    stk.append(t.right)
+                if t.left != None:
+                    stk.append(t.left)
+        return res
+</code></pre>
+
+<h2 id="853-car-fleet">853. Car Fleet</h2>
+
+<p>N cars are going to the same destination along a one lane road.  The destination is target miles away.</p>
+
+<p>Each car i has a constant speed speed<a href="in miles per hour">i</a>, and initial position position[i] miles towards the target along the road.</p>
+
+<p>A car can never pass another car ahead of it, but it can catch up to it, and drive bumper to bumper at the same speed.</p>
+
+<p>The distance between these two cars is ignored - they are assumed to have the same position.</p>
+
+<p>A car fleet is some non-empty set of cars driving at the same position and same speed.  Note that a single car is also a car fleet.</p>
+
+<p>If a car catches up to a car fleet right at the destination point, it will still be considered as one car fleet.</p>
+
+<p>How many car fleets will arrive at the destination?</p>
+
+<pre><code>Example 1:
+
+Input: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
+Output: 3
+Explanation:
+The cars starting at 10 and 8 become a fleet, meeting each other at 12.
+The car starting at 0 doesn't catch up to any other car, so it is a fleet by itself.
+The cars starting at 5 and 3 become a fleet, meeting each other at 6.
+Note that no other cars meet these fleets before the destination, so the answer is 3.
+</code></pre>
+
+<pre><code class="language-python">class Solution:
+    def carFleet(self, target, position, speed):
+        &quot;&quot;&quot;
+        :type target: int
+        :type position: List[int]
+        :type speed: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        status = [(-p,float(target - p ) /s) for p,s in zip(position,speed)]
+        status.sort()
+        ctime = 0
+        ans = 0
+        for p,t in status:
+            if t &gt; ctime:
+                ans += 1
+                ctime = t
+        return ans
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode-python3%2f - leetcode_python%203 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
