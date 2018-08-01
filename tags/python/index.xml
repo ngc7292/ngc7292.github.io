@@ -6,10 +6,21 @@
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode python刷题记录3</title>
+      <link>https://ngc7292.github.io/posts/leetcode-python3/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-python3/</guid>
+      <description>&lt;p&gt;2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>leetcode python刷题记录2</title>
