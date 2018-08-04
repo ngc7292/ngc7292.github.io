@@ -72,8 +72,8 @@
                     </h1>
                     <h2 class="headline">
                     Aug 1, 2018 00:00
-                    · 797 words
-                    · 4 minute read
+                    · 1940 words
+                    · 10 minute read
                       <span class="tags">
                       
                       
@@ -97,6 +97,16 @@
 <li><a href="#636-exclusive-time-of-functions">636. Exclusive Time of Functions</a></li>
 <li><a href="#binary-tree-postorder-traversal">Binary Tree Postorder Traversal</a></li>
 <li><a href="#853-car-fleet">853. Car Fleet</a></li>
+<li><a href="#minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</a></li>
+<li><a href="#balanced-binary-tree">Balanced Binary Tree</a>
+<ul>
+<li><a href="#a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</a></li>
+</ul></li>
+<li><a href="#binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</a></li>
+<li><a href="#same-tree">Same Tree</a></li>
+<li><a href="#daily-temperatures">Daily Temperatures</a></li>
+<li><a href="#exclusive-time-of-functions">Exclusive Time of Functions</a></li>
+<li><a href="#asteroid-collision">Asteroid Collision</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -105,6 +115,8 @@
                 
                 <section id="post-body">
                     <p>2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。</p>
+
+<p>2018.8.3 更新 solution破百咯，立个flag：明天problem破百</p>
 
 <p></p>
 
@@ -256,6 +268,279 @@ Note that no other cars meet these fleets before the destination, so the answer 
                 ans += 1
                 ctime = t
         return ans
+</code></pre>
+
+<h2 id="minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</h2>
+
+<p>Given a binary tree, find its minimum depth.</p>
+
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+
+<p>Note: A leaf is a node with no children.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def minDepth(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot;
+        if not root:
+            return 0
+        root_list = [root]
+        res = []
+        depth = 1
+        flag = 0
+        while root_list:
+            node_list = []
+            for i in root_list:
+                if not i.left and not i.right:
+                    flag = 1
+                if i.left:
+                    node_list.append(i.left)
+                if i.right:
+                    node_list.append(i.right)
+            root_list = node_list
+            if flag == 1:
+                return depth
+            depth += 1
+</code></pre>
+
+<h2 id="balanced-binary-tree">Balanced Binary Tree</h2>
+
+<p>Given a binary tree, determine if it is height-balanced.</p>
+
+<p>For this problem, a height-balanced binary tree is defined as:</p>
+
+<h3 id="a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</h3>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isBalanced(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        return True if self.check_depth(root) != -1 else False
+    
+    def check_depth(self,root):
+        if not root:
+            return 0
+        left = self.check_depth(root.left)
+        right = self.check_depth(root.right)
+        if left == -1:
+            return -1
+        if right == -1:
+            return -1
+        if abs(left-right) &gt; 1:
+            return -1
+        return 1+max(left,right)
+</code></pre>
+
+<h2 id="binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</h2>
+
+<p>Given a binary tree, return the bottom-up level order traversal of its nodes&rsquo; values. (ie, from left to right, level by level from leaf to root).</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def levelOrderBottom(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        if not root:
+            return []
+        res = [[root.val]]
+        root_list = [root]
+        while root_list:
+            l_node_list = []
+            num_list = []
+            for i in root_list:
+                if i.left:
+                    l_node_list.append(i.left)
+                    num_list.append(i.left.val)
+                if i.right:
+                    l_node_list.append(i.right)
+                    num_list.append(i.right.val)
+            root_list = l_node_list
+            res.append(num_list)
+        return [i for i in res[-2::-1]]
+</code></pre>
+
+<h2 id="same-tree">Same Tree</h2>
+
+<p>Given two binary trees, write a function to check if they are the same or not.</p>
+
+<p>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSameTree(self, p, q):
+        &quot;&quot;&quot;
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        if p == None and q == None:
+            return True
+        if (p == None or q == None) or p.val != q.val:
+            return False
+        return True if self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right) else False
+</code></pre>
+
+<h2 id="daily-temperatures">Daily Temperatures</h2>
+
+<p>Given a list of daily temperatures, produce a list that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.</p>
+
+<p>For example, given the list temperatures = [73, 74, 75, 71, 69, 72, 76, 73], your output should be [1, 1, 4, 2, 1, 1, 0, 0].</p>
+
+<p>Note: The length of temperatures will be in the range [1, 30000]. Each temperature will be an integer in the range [30, 100].</p>
+
+<pre><code class="language-python">class Solution:
+    def dailyTemperatures(self, temperatures):
+        &quot;&quot;&quot;
+        :type temperatures: List[int]
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        res = [0 for i in temperatures]
+        stk = []
+        for tem in range(len(temperatures)):
+            while stk != [] :
+                if temperatures[stk[-1]] &gt;= temperatures[tem]:
+                    break
+                n = stk.pop()
+                res[n] = tem-n
+            stk.append(tem)
+        return res 
+</code></pre>
+
+<h2 id="exclusive-time-of-functions">Exclusive Time of Functions</h2>
+
+<p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
+
+<p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
+
+<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, &ldquo;0:start:0&rdquo; means function 0 starts from the very beginning of time 0. &ldquo;0:end:0&rdquo; means function 0 ends to the very end of time 0.</p>
+
+<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function&rsquo;s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
+
+<p>Example 1:</p>
+
+<pre><code>Input:
+n = 2
+logs = [   
+    &quot;0:start:0&quot;,
+    &quot;1:start:2&quot;,
+    &quot;1:end:5&quot;,
+    &quot;0:end:6&quot;
+    ]
+Output:[3, 4]
+Explanation:
+    Function 0 starts at time 0, then it executes 2 units of time and reaches the end of time 1. 
+    Now function 0 calls function 1, function 1 starts at time 2, executes 4 units of time and end at time 5.
+    Function 0 is running again at time 6, and also end at the time 6, thus executes 1 unit of time. 
+    So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally execute 4 units of time.
+</code></pre>
+
+<pre><code class="language-python">class Solution:
+    def exclusiveTime(self, n, logs):
+        &quot;&quot;&quot;
+        :type n: int
+        :type logs: List[str]
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        p_dict = {}
+        stk = []
+        on_time = 0
+        for log in logs:
+            log = log.split(&quot;:&quot;)
+            p_id = log[0]
+            opt = log[1]
+            time = int(log[2])
+            if opt == &quot;start&quot;:
+                if stk != []:
+                    p_dict[stk[-1]] = (time - on_time) + p_dict[stk[-1]] if on_time &gt;= 0 else time + on_time + p_dict[
+                        stk[-1]] - 1
+                on_time = time
+                stk.append(p_id)
+                if p_id not in p_dict:
+                    p_dict[p_id] = 0
+            else:
+                p_dict[stk[-1]] = time - on_time + p_dict[stk[-1]] + 1 if on_time &gt;= 0 else time + on_time + p_dict[
+                    stk[-1]]
+                on_time = -time
+                stk.pop()
+        return [p_dict[str(i)] for i in range(n)]
+</code></pre>
+
+<h2 id="asteroid-collision">Asteroid Collision</h2>
+
+<p>We are given an array asteroids of integers representing asteroids in a row.</p>
+
+<p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
+
+<p>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
+
+<p>Example 1:</p>
+
+<pre><code>Input: 
+    asteroids = [5, 10, -5]
+Output: [5, 10]
+Explanation: 
+    The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
+</code></pre>
+
+<pre><code class="language-python">class Solution:
+    def asteroidCollision(self, asteroids):
+        &quot;&quot;&quot;
+        :type asteroids: List[int]
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        res = []
+        stk = []
+        for i in asteroids:
+            if i &lt;= 0 and stk == []:
+                res.append(i)
+                continue
+            elif stk != [] and i &lt;= 0:
+                while stk != []:
+                    if stk[-1] &gt; -i:
+                        break
+                    elif stk[-1] == -i:
+                        stk.pop()
+                        break
+                    elif stk[-1] &lt; -i:
+                        stk.pop()
+                        if stk == []:
+                            res.append(i)
+                            break
+            else:
+                stk.append(i)
+        return res + stk  
 </code></pre>
                 </section>
             </article>

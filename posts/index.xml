@@ -6,10 +6,25 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unresolved reference 问题及解决</title>
+      <link>https://ngc7292.github.io/posts/pycharm_error/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/pycharm_error/</guid>
+      <description>前几天在熟悉外加测试ODA的代码的时候就发现这个错误
+在一个项目里导入项目里的包，可以
+from example import example  但是pycahrm会爆红（当然对代码执行貌似没有问题，强迫症表示很烦）
+报错信息为Unresolved refernce 大概因为，pycharm无法导入改模块的包，
+设置下source就好了，settings路径为：
+perferences-&amp;gt;Project:project_name-&amp;gt;Project Structure
+把你想加入的souce选中然后点击上面的蓝色Souces就好了。</description>
+    </item>
     
     <item>
       <title>leetcode python刷题记录3</title>
@@ -18,6 +33,8 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-python3/</guid>
       <description>&lt;p&gt;2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。&lt;/p&gt;
+
+&lt;p&gt;2018.8.3 更新 solution破百咯，立个flag：明天problem破百&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
