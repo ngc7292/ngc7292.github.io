@@ -17,13 +17,9 @@
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/pycharm_error/</guid>
-      <description>前几天在熟悉外加测试ODA的代码的时候就发现这个错误
-在一个项目里导入项目里的包，可以
-from example import example  但是pycahrm会爆红（当然对代码执行貌似没有问题，强迫症表示很烦）
-报错信息为Unresolved refernce 大概因为，pycharm无法导入改模块的包，
-设置下source就好了，settings路径为：
-perferences-&amp;gt;Project:project_name-&amp;gt;Project Structure
-把你想加入的souce选中然后点击上面的蓝色Souces就好了。</description>
+      <description>&lt;p&gt;前几天在熟悉外加测试ODA的代码的时候就发现这个错误&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
