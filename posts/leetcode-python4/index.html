@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录4"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode python刷题记录4 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode python刷题记录4
+                    </h1>
+                    <h2 class="headline">
+                    Aug 7, 2018 00:00
+                    · 417 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#111-minimum-depth-of-binary-tree">111. Minimum Depth of Binary Tree</a></li>
+<li><a href="#112-path-sum">112. Path Sum</a></li>
+<li><a href="#226-invert-binary-tree">226. Invert Binary Tree</a></li>
+<li><a href="#101-symmetric-tree">101. Symmetric Tree</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>前几天貌似怠惰了呢，今天做了几道水题，（bin tree的），放上来。</p>
+
+<p></p>
+
+<h2 id="111-minimum-depth-of-binary-tree">111. Minimum Depth of Binary Tree</h2>
+
+<p>Given a binary tree, find its minimum depth.</p>
+
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+
+<p>Note: A leaf is a node with no children.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def minDepth(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot;
+        if not root:
+            return 0
+        root_list = [root]
+        res = []
+        depth = 1
+        flag = 0
+        while root_list:
+            node_list = []
+            for i in root_list:
+                if not i.left and not i.right:
+                    flag = 1
+                if i.left:
+                    node_list.append(i.left)
+                if i.right:
+                    node_list.append(i.right)
+            root_list = node_list
+            if flag == 1:
+                return depth
+            depth += 1
+</code></pre>
+
+<h2 id="112-path-sum">112. Path Sum</h2>
+
+<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
+
+<p>Note: A leaf is a node with no children.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def hasPathSum(self, root, sum):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        &quot;&quot;&quot;
+        if root == None:
+            return False
+        elif root.left == None and root.right == None and root.val == sum:
+            return True
+        
+        return True if self.hasPathSum(root.left,sum - root.val) or self.hasPathSum(root.right,sum - root.val) else False
+</code></pre>
+
+<h2 id="226-invert-binary-tree">226. Invert Binary Tree</h2>
+
+<p>Invert a binary tree.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def invertTree(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        if root == None:
+            return root
+        left = root.left
+        root.left = self.invertTree(root.right)
+        root.right = self.invertTree(left)
+        return root
+</code></pre>
+
+<h2 id="101-symmetric-tree">101. Symmetric Tree</h2>
+
+<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSymmetric(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        if root == None:
+            return True
+        return self.is_balance(root.left,root.right)
+    
+    def is_balance(self,left,right):
+        if left == None and right == None:
+            return True
+        elif left != None and right != None:
+            return True if left.val == right.val and self.is_balance(left.right,right.left) and self.is_balance(right.right,left.left) else False
+        else:
+            return False
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode-python4%2f - leetcode_python%204 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
