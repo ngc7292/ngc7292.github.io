@@ -6,7 +6,7 @@
     <description>Recent content in Django on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>how to build a project with django and vue</title>
       <link>https://ngc7292.github.io/posts/vue-django/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/vue-django/</guid>
       <description>&lt;p&gt;这几天画地图的时候突然发现我需要学习下vue并且把代码重构一下。在这里我放下步骤，以免忘记了。&lt;/p&gt;

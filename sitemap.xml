@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ngc7292.github.io/posts/vue-django/</loc>
+    <lastmod>2018-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/leetcode-python4/</loc>
     <lastmod>2018-08-07T00:00:00+00:00</lastmod>
   </url>
@@ -29,11 +34,6 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/vacation/</loc>
-    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts/vue-django/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,7 +178,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/tags/django/</loc>
-    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -202,7 +202,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -238,7 +238,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

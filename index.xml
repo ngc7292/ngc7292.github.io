@@ -6,10 +6,21 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>how to build a project with django and vue</title>
+      <link>https://ngc7292.github.io/posts/vue-django/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/vue-django/</guid>
+      <description>&lt;p&gt;这几天画地图的时候突然发现我需要学习下vue并且把代码重构一下。在这里我放下步骤，以免忘记了。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>leetcode python刷题记录4</title>
@@ -75,17 +86,6 @@
       
       <guid>https://ngc7292.github.io/posts/vacation/</guid>
       <description>&lt;p&gt;为了暑假不闲置，在这里记录下暑假生活的日常，嘻嘻,很快会删掉的。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>how to build a project with django and vue</title>
-      <link>https://ngc7292.github.io/posts/vue-django/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/vue-django/</guid>
-      <description>&lt;p&gt;这几天画地图的时候突然发现我需要学习下vue并且把代码重构一下。在这里我放下步骤，以免忘记了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
