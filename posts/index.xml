@@ -80,6 +80,17 @@
     </item>
     
     <item>
+      <title>how to build a project with django and vue</title>
+      <link>https://ngc7292.github.io/posts/vue-django/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/vue-django/</guid>
+      <description>&lt;p&gt;这几天画地图的时候突然发现我需要学习下vue并且把代码重构一下。在这里我放下步骤，以免忘记了。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>leetcode python刷题记录2</title>
       <link>https://ngc7292.github.io/posts/leetcode-python2/</link>
       <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
