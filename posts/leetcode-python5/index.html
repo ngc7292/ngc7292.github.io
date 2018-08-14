@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录5"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode python刷题记录5 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode python刷题记录5
+                    </h1>
+                    <h2 class="headline">
+                    Aug 7, 2018 00:00
+                    · 1029 words
+                    · 5 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</a></li>
+<li><a href="#337-house-robber-iii">337. House Robber III</a></li>
+<li><a href="#222-count-complete-tree-nodes">222. Count Complete Tree Nodes</a></li>
+<li><a href="#199-binary-tree-right-side-view">199. Binary Tree Right Side View</a></li>
+<li><a href="#116-populating-next-right-pointers-in-each-node">116. Populating Next Right Pointers in Each Node</a></li>
+<li><a href="#96-unique-binary-search-trees">96. Unique Binary Search Trees</a></li>
+<li><a href="#102-binary-tree-level-order-traversal">102. Binary Tree Level Order Traversal</a></li>
+<li><a href="#257-binary-tree-paths">257. Binary Tree Paths</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>没有介绍</p>
+
+<p></p>
+
+<h2 id="235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</h2>
+
+<p>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.</p>
+
+<p>According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”</p>
+
+<p>根据BST的特点，左节点一定小与根结点，所以可以直接使用递归的方法，将问题细分。</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root, p, q):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        if root == None or root.val == p.val or root.val == q.val:
+            return root
+        if root.val &gt; p.val and root.val &gt; q.val:
+            return self.lowestCommonAncestor(root.left,p,q)
+        if root.val &lt; p.val and root.val &lt; q.val:
+            return self.lowestCommonAncestor(root.right,p,q)
+        return root
+</code></pre>
+
+<h2 id="337-house-robber-iii">337. House Robber III</h2>
+
+<p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &ldquo;root.&rdquo; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &ldquo;all houses in this place forms a binary tree&rdquo;. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+
+<p>维护一个两元数组，一个保存加上该节点之后的，另一个保存未加该节点的最大值，最后返回两者之间的最大值就好。</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def rob(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot;
+        return max(self.get_rob(root))
+    def get_rob(self,root):
+        if root == None:
+            return [0,0]
+        left = self.get_rob(root.left)
+        right = self.get_rob(root.right)
+        return [max(left[0],left[1])+max(right[0],right[1]),left[0]+right[0]+root.val]
+</code></pre>
+
+<h2 id="222-count-complete-tree-nodes">222. Count Complete Tree Nodes</h2>
+
+<p>Given a complete binary tree, count the number of nodes.</p>
+
+<p>Note:</p>
+
+<p>Definition of a complete binary tree from Wikipedia:
+In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.</p>
+
+<p>他给的是一个完整的二叉树，所以，若是满二叉树，我们可以计算其层数，直接返回，若不是，则计算其最后一层的节点个数，并返回。</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def countNodes(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot;
+        hleft = 0
+        hright = 0
+        pleft = root
+        pright = root
+        while pleft != None:
+            hleft += 1
+            pleft = pleft.left
+        while pright != None:
+            hright += 1
+            pright = pright.right
+        if hleft == hright:
+            return 2**hleft-1
+        else:
+            return self.countNodes(root.left)+self.countNodes(root.right)+1
+</code></pre>
+
+<h2 id="199-binary-tree-right-side-view">199. Binary Tree Right Side View</h2>
+
+<p>Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def rightSideView(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        root_stk = [root]
+        res = [root.val]
+        while root_stk:
+            root_list = []
+            for r in root_stk:
+                if r.left != None:
+                    root_list.append(r.left)
+                if r.right != None:
+                    root_list.append(r.right)
+            root_stk = root_list
+            if root_list == []:
+                break
+            res.append(root_list[-1].val) 
+        return res
+</code></pre>
+
+<h2 id="116-populating-next-right-pointers-in-each-node">116. Populating Next Right Pointers in Each Node</h2>
+
+<p>Given a binary tree</p>
+
+<pre><code class="language-c++">struct TreeLinkNode {
+  TreeLinkNode *left;
+  TreeLinkNode *right;
+  TreeLinkNode *next;
+}
+</code></pre>
+
+<p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
+
+<p>Initially, all next pointers are set to NULL.</p>
+
+<p>Note:</p>
+
+<p>[] You may only use constant extra space.
+[] Recursive approach is fine, implicit stack space does not count as extra [] space for this problem.
+[] You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).</p>
+
+<pre><code class="language-python"># Definition for binary tree with next pointer.
+# class TreeLinkNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#         self.next = None
+
+class Solution:
+    # @param root, a tree link node
+    # @return nothing
+    def connect(self, root):
+        if root == None:
+            return root
+        roots_list = [root]
+        while roots_list != []:
+            root_list = []
+            for i in range(len(roots_list)):
+                if i == len(roots_list)-1:
+                    roots_list[i].next = None
+                else :
+                    roots_list[i].next = roots_list[i+1]
+                if roots_list[i].left != None:
+                    root_list.append(roots_list[i].left)
+                if roots_list[i].right != None:
+                    root_list.append(roots_list[i].right)
+            roots_list = root_list
+</code></pre>
+
+<h2 id="96-unique-binary-search-trees">96. Unique Binary Search Trees</h2>
+
+<p>Given n, how many structurally unique BST&rsquo;s (binary search trees) that store values 1 &hellip; n?</p>
+
+<p>这个跟II不一样，可以直接使用卡塔兰数</p>
+
+<p>$$ C<em>{n+1} = \sum ^{n}</em>{i=0}C<em>{i}C</em>{n-i}  $$</p>
+
+<pre><code class="language-python">class Solution:
+    def numTrees(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        count = [1]
+        for i in range(1, n+1):
+            count_num = 0
+            for j in range(i):
+                count_num += count[j] * count[i - j - 1]
+            count.append(count_num)
+        return count[-1]
+</code></pre>
+
+<h2 id="102-binary-tree-level-order-traversal">102. Binary Tree Level Order Traversal</h2>
+
+<p>这道题我貌似也见过，但是忘记在哪里了</p>
+
+<p>Given a binary tree, return the level order traversal of its nodes&rsquo; values. (ie, from left to right, level by level).</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def levelOrder(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        res = [[root.val]]
+        roots_list = [root]
+        while roots_list != []:
+            root_list = []
+            root_num_list = []
+            for i in roots_list:
+                if i.left != None:
+                    root_list.append(i.left)
+                    root_num_list.append(i.left.val)
+                if i.right != None:
+                    root_list.append(i.right)
+                    root_num_list.append(i.right.val)
+            roots_list = root_list
+            res.append(root_num_list)
+        return res[:-1]
+</code></pre>
+
+<h2 id="257-binary-tree-paths">257. Binary Tree Paths</h2>
+
+<p>Given a binary tree, return all root-to-leaf paths.</p>
+
+<p>Note: A leaf is a node with no children.</p>
+
+<p>一个简单的递归</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def binaryTreePaths(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[str]
+        &quot;&quot;&quot;
+        res = []
+        if root == None:
+            return []
+        self.get_path(root,&quot;&quot;,res)
+        return res
+    def get_path(self,root,string,res):
+        if root.left == None and root.right == None:
+            res.append(string+str(root.val))
+        if root.left != None:
+            self.get_path(root.left,string+str(root.val)+&quot;-&gt;&quot;,res)
+        if root.right != None:
+            self.get_path(root.right,string+str(root.val)+&quot;-&gt;&quot;,res)
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode-python5%2f - leetcode_python%205 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
