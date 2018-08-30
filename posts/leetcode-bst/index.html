@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode bst"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode bst &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode bst
+                    </h1>
+                    <h2 class="headline">
+                    Aug 30, 2018 00:00
+                    · 1677 words
+                    · 8 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#449-serialize-and-deserialize-bst">449. Serialize and Deserialize BST</a></li>
+<li><a href="#700-search-in-a-binary-search-tree">700. Search in a Binary Search Tree</a></li>
+<li><a href="#669-trim-a-binary-search-tree">669. Trim a Binary Search Tree</a></li>
+<li><a href="#653-two-sum-iv-input-is-a-bst">653. Two Sum IV - Input is a BST</a></li>
+<li><a href="#501-find-mode-in-binary-search-tree">501. Find Mode in Binary Search Tree</a></li>
+<li><a href="#450-delete-node-in-a-bst">450. Delete Node in a BST</a></li>
+<li><a href="#108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</a></li>
+<li><a href="#230-kth-smallest-element-in-a-bst">230. Kth Smallest Element in a BST</a></li>
+<li><a href="#96-unique-binary-search-trees">96. Unique Binary Search Trees</a></li>
+<li><a href="#98-validate-binary-search-tree">98. Validate Binary Search Tree</a></li>
+<li><a href="#173-binary-search-tree-iterator">173. Binary Search Tree Iterator</a></li>
+<li><a href="#95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>这里放一些关于BST的题目。</p>
+
+<p></p>
+
+<p>BST: binary search tree 这是一种特殊的二叉树，其左节点 &lt; root &lt; 右节点，根据这个性质很多都可以又一些简单的方法来进行计算。</p>
+
+<h2 id="449-serialize-and-deserialize-bst">449. Serialize and Deserialize BST</h2>
+
+<p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
+
+<p>Design an algorithm to serialize and deserialize a binary search tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary search tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
+
+<p>The encoded string should be as compact as possible.</p>
+
+<p>Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Codec:
+    
+    def __init__(self):
+        self.res = &quot;&quot;
+        
+    def serialize(self, root):
+        &quot;&quot;&quot;Encodes a tree to a single string.
+        :type root: TreeNode
+        :rtype: str
+        &quot;&quot;&quot;
+        self.ser_bst(root)
+        return self.res
+    
+    def ser_bst(self, root):
+        if root == None:
+            self.res += &quot;# &quot;
+        else:
+            self.res += str(root.val)+&quot; &quot;
+            self.ser_bst(root.left)
+            self.ser_bst(root.right)
+
+    def deserialize(self, data):
+        &quot;&quot;&quot;Decodes your encoded data to tree.
+
+        :type data: str
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        data = self.res.split(&quot; &quot;)
+        self.res = ' '.join(data[1:])
+        if data[0] == &quot;#&quot;:
+            return None
+        else:
+            root = TreeNode(int(data[0]))
+            root.left = self.deserialize(data)
+            root.right = self.deserialize(data)
+            return root
+            
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.deserialize(codec.serialize(root))
+</code></pre>
+
+<h2 id="700-search-in-a-binary-search-tree">700. Search in a Binary Search Tree</h2>
+
+<p>Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node&rsquo;s value equals the given value. Return the subtree rooted with that node. If such node doesn&rsquo;t exist, you should return NULL.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def searchBST(self, root, val):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type val: int
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        if root == None:
+            return None
+        if root.val == val:
+            return root
+        else:
+            left = self.searchBST(root.left,val)
+            right = self.searchBST(root.right,val)
+            if left != None:
+                return left
+            elif right != None:
+                return right
+            else:
+                return None
+</code></pre>
+
+<h2 id="669-trim-a-binary-search-tree">669. Trim a Binary Search Tree</h2>
+
+<p>Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in <a href="R &gt;= L">L, R</a>. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def trimBST(self, root, L, R):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type L: int
+        :type R: int
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        if root == None:
+            return None
+        if root.val &lt; L:
+            return self.trimBST(root.right,L,R)
+        elif root.val &gt; R:
+            return self.trimBST(root.left,L,R)
+        else:
+            root.left = self.trimBST(root.left,L,R)
+            root.right = self.trimBST(root.right,L,R)
+            return root
+</code></pre>
+
+<h2 id="653-two-sum-iv-input-is-a-bst">653. Two Sum IV - Input is a BST</h2>
+
+<p>Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.</p>
+
+<pre><code class="language-python">class Solution:
+    def findTarget(self, root, k):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type k: int
+        :rtype: bool
+        &quot;&quot;&quot;
+        self.res = []
+        return self.get_tree(root,k)
+
+        
+    def get_tree(self,root,k):
+        if root == None:
+            return 0
+        else:
+            val = k - root.val
+            if root.val in self.res:
+                return True
+            else:
+                self.res.append(val)
+                if self.get_tree(root.left,k) == True or self.get_tree(root.right,k) == True:
+                    return True
+                else:
+                    return False
+</code></pre>
+
+<h2 id="501-find-mode-in-binary-search-tree">501. Find Mode in Binary Search Tree</h2>
+
+<p>Given a binary search tree (BST) with duplicates, find all the mode(s) (the most frequently occurred element) in the given BST.</p>
+
+<p>Assume a BST is defined as follows:</p>
+
+<p>[] The left subtree of a node contains only nodes with keys less than or equal to the node&rsquo;s key.
+[] The right subtree of a node contains only nodes with keys greater than or equal to the node&rsquo;s key.
+[] Both the left and right subtrees must also be binary search trees.</p>
+
+<pre><code class="language-pythn"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def __init__(self):
+        self.inorder_list = []
+        
+    def findMode(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        if root == None:
+            return []
+        self.inorder(root)
+        from collections import Counter
+        c = Counter(self.inorder_list)
+        res = []
+        max_num = c.most_common(1)[0][1]
+        for i in c.keys():
+            if c[i] == max_num:
+                res.append(i)
+        return res
+        
+        return self.inorder_list
+    
+    def inorder(self, root):
+        if root.left != None:
+            self.inorder(root.left)
+        self.inorder_list.append(root.val)
+        if root.right != None:
+            self.inorder(root.right)
+</code></pre>
+
+<h2 id="450-delete-node-in-a-bst">450. Delete Node in a BST</h2>
+
+<p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.</p>
+
+<p>Basically, the deletion can be divided into two stages:</p>
+
+<ol>
+<li>Search for a node to remove.</li>
+<li>If the node is found, delete the node.</li>
+</ol>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def deleteNode(self, root, key):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type key: int
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        root = self.find_value(root, key)
+        return root
+    
+    def find_value(self, root, key):
+        if root == None:
+            return None
+        if root.val &gt; key:
+            root.left = self.find_value(root.left, key)
+        elif root.val &lt; key:
+            root.right = self.find_value(root.right, key)
+        elif root.val == key:
+            if root.left == None or root.right == None:
+                root = root.left if root.left != None else root.right
+            else:
+                tmp = root.right
+                while tmp.left:
+                    tmp = tmp.left
+                root.val = tmp.val
+                root.right = self.find_value(root.right, tmp.val)
+        return root
+</code></pre>
+
+<h2 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h2>
+
+<p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p>
+
+<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def sortedArrayToBST(self, nums):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        return self.get_tree(nums)
+    
+    def get_tree(self,nums):
+        if nums == []:
+            return None
+        length = len(nums)
+        root = TreeNode(nums[length // 2])
+        root.left = self.get_tree(nums[0:length//2])
+        root.right = self.get_tree(nums[length //2+1:])
+        return root
+</code></pre>
+
+<h2 id="230-kth-smallest-element-in-a-bst">230. Kth Smallest Element in a BST</h2>
+
+<p>Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def kthSmallest(self, root, k):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        &quot;&quot;&quot;
+        res = self.inorder(root,[])
+        return res[k-1]
+    def inorder(self,root,num_list):
+        if root == None:
+            return num_list
+        if root.left != None:
+            self.inorder(root.left,num_list)
+        num_list.append(root.val)
+        if root.right != None:
+            self.inorder(root.right,num_list)
+        return num_list
+</code></pre>
+
+<h2 id="96-unique-binary-search-trees">96. Unique Binary Search Trees</h2>
+
+<p>Given n, how many structurally unique BST&rsquo;s (binary search trees) that store values 1 &hellip; n?</p>
+
+<pre><code class="language-python">class Solution:
+    def numTrees(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        count = [1]
+        for i in range(1, n+1):
+            count_num = 0
+            for j in range(i):
+                count_num += count[j] * count[i - j - 1]
+            count.append(count_num)
+        return count[-1]
+</code></pre>
+
+<h2 id="98-validate-binary-search-tree">98. Validate Binary Search Tree</h2>
+
+<p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
+
+<p>Assume a BST is defined as follows:</p>
+
+<p>[] The left subtree of a node contains only nodes with keys less than the node&rsquo;s key.
+[] The right subtree of a node contains only nodes with keys greater than the node&rsquo;s key.
+[] Both the left and right subtrees must also be binary search trees.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution:
+    def isValidBST(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        return self.inorder(root,-10000000000000,100000000000000)
+    
+    def inorder(self,root,min_num,max_num):
+        if root == None:
+            return True
+        if root.val &lt;= min_num or root.val &gt;= max_num:
+            return False
+        return True if self.inorder(root.left,min_num,root.val) == True and self.inorder(root.right,root.val,max_num) == True else False 
+</code></pre>
+
+<h2 id="173-binary-search-tree-iterator">173. Binary Search Tree Iterator</h2>
+
+<p>Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.</p>
+
+<p>Calling next() will return the next smallest number in the BST.</p>
+
+<p>Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.</p>
+
+<pre><code class="language-c">/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class BSTIterator {
+public:
+    stack&lt;TreeNode *&gt; stk;
+    
+    BSTIterator(TreeNode *root) {
+        while (root != NULL){
+            stk.push(root);
+            root = root-&gt;left;
+        }    
+    }
+
+    /** @return whether we have a next smallest number */
+    bool hasNext() {
+        return !stk.empty();
+    }
+
+    /** @return the next smallest number */
+    int next() {
+        TreeNode *tmp = stk.top();
+        stk.pop();
+        int res = tmp-&gt;val;
+        tmp = tmp-&gt;right;
+        while (tmp != NULL){
+            stk.push(tmp);
+            tmp = tmp-&gt;left;
+        }
+        return res;
+    }
+};
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = BSTIterator(root);
+ * while (i.hasNext()) cout &lt;&lt; i.next();
+ */
+</code></pre>
+
+<h2 id="95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</h2>
+
+<p>Given an integer n, generate all structurally unique BST&rsquo;s (binary search trees) that store values 1 &hellip; n.</p>
+
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def generateTrees(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: List[TreeNode]
+        &quot;&quot;&quot;
+        if n == 0:
+            return []
+        return self.createTrees(1,n)
+    
+    def createTrees(self,start,end):
+        results = []
+        if start &gt; end:
+            results.append(None)
+            return results
+        for k in range(start,end+1):
+            left = self.createTrees(start,k-1)
+            right = self.createTrees(k+1,end)
+            for i in left:
+                for j in right:
+                    root = TreeNode(k)
+                    root.left = i
+                    root.right = j
+                    results.append(root)
+        return results
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode-bst%2f - leetcode_python%20bst by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
