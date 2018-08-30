@@ -6,10 +6,32 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode bst</title>
+      <link>https://ngc7292.github.io/posts/leetcode-bst/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-bst/</guid>
+      <description>&lt;p&gt;这里放一些关于BST的题目。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode n ary tree</title>
+      <link>https://ngc7292.github.io/posts/leetcode-narytree/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode-narytree/</guid>
+      <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>how to build a project with django and vue</title>
@@ -18,6 +40,17 @@
       
       <guid>https://ngc7292.github.io/posts/vue-django/</guid>
       <description>&lt;p&gt;这几天画地图的时候突然发现我需要学习下vue并且把代码重构一下。在这里我放下步骤，以免忘记了。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django rest_framework token</title>
+      <link>https://ngc7292.github.io/posts/django_rest_token/</link>
+      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/django_rest_token/</guid>
+      <description>&lt;p&gt;今天学习的时候用到了django的rest_framework的token机制，吐槽一下。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
