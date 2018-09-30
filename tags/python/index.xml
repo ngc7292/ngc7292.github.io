@@ -6,10 +6,21 @@
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode array</title>
+      <link>https://ngc7292.github.io/posts/leetcode_array/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode_array/</guid>
+      <description>&lt;p&gt;leetcode problem of array.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>leetcode bst</title>
@@ -31,6 +42,15 @@
       <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>flask&#39;s code reading</title>
+      <link>https://ngc7292.github.io/posts/flask_read/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/flask_read/</guid>
+      <description>最近在找出题的思路，正好这个学期也没有什么事情干，原本是想看一下django的源码，但是看了一下，好多啊，所以我就来看下flask的源码。</description>
     </item>
     
     <item>
