@@ -72,8 +72,8 @@
                     </h1>
                     <h2 class="headline">
                     Sep 28, 2018 00:00
-                    · 1518 words
-                    · 8 minute read
+                    · 1758 words
+                    · 9 minute read
                       <span class="tags">
                       
                       
@@ -105,6 +105,8 @@
 <li><a href="#605-can-place-flowers">605. Can Place Flowers</a></li>
 <li><a href="#835-image-overlap">835. Image Overlap</a></li>
 <li><a href="#581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</a></li>
+<li><a href="#39-combination-sum">39. Combination Sum</a></li>
+<li><a href="#769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -444,6 +446,84 @@ class Solution:
                 else:
                     end = i
         return end-start+1 if end != start else 0
+</code></pre>
+
+<h2 id="39-combination-sum">39. Combination Sum</h2>
+
+<p>Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
+
+<p>The same repeated number may be chosen from candidates unlimited number of times.</p>
+
+<p>彩笔ngc日常抄代码，<a href="https://blog.csdn.net/happyaaaaaaaaaaa/article/details/50897809">https://blog.csdn.net/happyaaaaaaaaaaa/article/details/50897809</a></p>
+
+<p>原本是想用回溯法，但是出现了很大的问题，在2，2，2，3之后会陷入无限循环，需要给他一个位来判断是否加过这个值，我就没有再做下去，然后，在csdn发现了这位老哥的做法，真的是超级棒了</p>
+
+<pre><code class="language-python">class Solution(object):
+    def combinationSum(self, candidates, target):
+        &quot;&quot;&quot;
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        candidates = sorted(candidates)
+        res = [] 
+        stack = [(0,[],target)]
+        length = len(candidates)
+        while stack:
+            i, temp, tar=stack.pop()
+            while i&lt;length and tar&gt;0:
+                if candidates[i]==tar: 
+                    res.append(temp+[candidates[i]])
+                stack += (i, temp+[candidates[i]], tar-candidates[i]),
+                i+=1
+        return res
+</code></pre>
+
+<p>ps：不过好像效率不是特别的高，还有一个递归版本的，效率高很多</p>
+
+<pre><code class="language-python">class Solution:
+    def combinationSum(self, candidates, target):
+        &quot;&quot;&quot;
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        candidates.sort()
+        res = []
+        size = len(candidates)
+        def helper(i, left, cur):
+            if left == 0:
+                res.append(cur)
+                return
+            for j in range(i, size):
+                if left &lt; candidates[j]:
+                    break
+                helper(j, left - candidates[j], cur + [candidates[j]])
+        helper(0, target, [])
+        return res
+</code></pre>
+
+<p>日常学习。</p>
+
+<h2 id="769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</h2>
+
+<p>Given an array arr that is a permutation of [0, 1, &hellip;, arr.length - 1], we split the array into some number of &ldquo;chunks&rdquo; (partitions), and individually sort each chunk.  After concatenating them, the result equals the sorted array.</p>
+
+<p>What is the most number of chunks we could have made?</p>
+
+<pre><code class="language-python">class Solution:
+    def maxChunksToSorted(self, arr):
+        &quot;&quot;&quot;
+        :type arr: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        res = 0
+        max_num = 0
+        for i in range(len(arr)):
+            max_num = max(max_num,arr[i])
+            if max_num == i:
+                res += 1
+        return res
 </code></pre>
                 </section>
             </article>
