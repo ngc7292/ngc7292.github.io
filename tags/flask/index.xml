@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/flask/</link>
+    <description>Recent content in Flask on ngc7293&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ngc7292.github.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>flask&#39;s code reading</title>
+      <link>https://ngc7292.github.io/posts/flask_read/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/flask_read/</guid>
+      <description>最近在找出题的思路，正好这个学期也没有什么事情干，原本是想看一下django的源码，但是看了一下，好多啊，所以我就来看下flask的源码。</description>
+    </item>
+    
+  </channel>
+</rss>
