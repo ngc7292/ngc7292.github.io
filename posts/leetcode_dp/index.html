@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode dp"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>leetcode dp &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        leetcode dp
+                    </h1>
+                    <h2 class="headline">
+                    Dec 28, 2018 00:00
+                    · 727 words
+                    · 4 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#213-house-robber-ii">213. House Robber II</a></li>
+</ul></li>
+<li><a href="#12-28日打卡">12.28日打卡</a>
+<ul>
+<li><a href="#188-best-time-to-buy-and-sell-stock-iv">188. Best Time to Buy and Sell Stock IV</a></li>
+<li><a href="#70-climbing-stairs">70. Climbing Stairs</a></li>
+<li><a href="#139-word-break">139. Word Break</a></li>
+</ul></li>
+<li><a href="#12-29日打卡">12.29日打卡</a>
+<ul>
+<li><a href="#304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>关于dp的一些题目汇总</p>
+
+<p></p>
+
+<h3 id="213-house-robber-ii">213. House Robber II</h3>
+
+<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong>That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</p>
+
+<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
+
+<pre><code class="language-python">class Solution(object):
+    def rob(self, nums):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        l = len(nums)
+        if l == 0:
+            return 0
+        elif l == 1:
+            return nums[0]
+        elif l == 2:
+            return max(nums[0],nums[1])
+        else:
+            a = self.helper(nums[0:-1])
+            b = self.helper(nums[1:])
+            return max(a,b)
+        
+    def helper(self, nums):
+        l = len(nums)
+        dp = [0 for i in nums]
+        dp[0] = nums[0]
+        dp[1] = max(nums[0],nums[1])
+        for i in range(2,l):
+            dp[i] = max(dp[i-1], dp[i-2]+nums[i])
+        return dp[-1]
+</code></pre>
+
+<h2 id="12-28日打卡">12.28日打卡</h2>
+
+<h3 id="188-best-time-to-buy-and-sell-stock-iv">188. Best Time to Buy and Sell Stock IV</h3>
+
+<p>Say you have an array for which the *i*th element is the price of a given stock on day <em>i</em>.</p>
+
+<p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong>transactions.</p>
+
+<p><strong>Note:</strong>
+You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+
+<p>这道题主要问题在与k值的大小，当k值比整个数组都要大的时候，使用dp其复杂度就远远大于使用直接循环判断了，因为当k很大的时候，你完全可以今天买入，明天高价卖出，当有更高价时再高价卖出，这样就可以实现利润的最大化</p>
+
+<pre><code class="language-python">class Solution(object):
+    def maxProfit(self, k, prices):
+        &quot;&quot;&quot;
+        :type k: int
+        :type prices: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+        if k == 0:
+            return 0
+        if prices == [] and len(prices) == 0:
+            return 0
+        if k &gt;= len(prices):
+            res = 0
+            for i in range(len(prices)-1):
+                if prices[i] &lt; prices[i+1]:
+                    res += prices[i+1] - prices[i]
+            return res
+        lc = [0 for i in range(k+1)]
+        gb = [0 for i in range(k+1)]
+        for i in range(len(prices)-1):
+            diff = prices[i+1] - prices[i]
+            for j in range(k,0,-1):
+                lc[j] = max((gb[j-1] + diff if diff &gt; 0 else 0),lc[j]+diff);
+                gb[j] = max(lc[j],gb[j])
+        return gb[-1]
+</code></pre>
+
+<h3 id="70-climbing-stairs">70. Climbing Stairs</h3>
+
+<p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>
+
+<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
+
+<p><strong>Note:</strong> Given <em>n</em> will be a positive integer.</p>
+
+<p>这是一个eazy，但是不知道我提交过好多越来越慢越来越慢。。。</p>
+
+<pre><code class="language-python">class Solution(object):
+    def climbStairs(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        dp = [0 for i in range(n+1)]
+        dp[0], dp[1] = 1, 1
+        
+        for i in range(2, n + 1):
+            dp[i] = dp[i - 2] + dp[i - 1]
+        return dp[n]
+</code></pre>
+
+<h3 id="139-word-break">139. Word Break</h3>
+
+<p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary <em>wordDict</em> containing a list of <strong>non-empty</strong>words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.</p>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
+<li>You may assume the dictionary does not contain duplicate words.</li>
+</ul>
+
+<p>简单的dp</p>
+
+<pre><code class="language-python">class Solution(object):
+    def wordBreak(self, s, wordDict):
+        &quot;&quot;&quot;
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        &quot;&quot;&quot;
+        w = [False for i in s+'0']
+        w[0] = True
+        for i in range(1,len(s)+1):
+            for j in range(i-1,-1,-1):
+                if w[j] and s[j:i] in wordDict:
+                    w[i] = True
+                    break
+        return w[-1]
+</code></pre>
+
+<h2 id="12-29日打卡">12.29日打卡</h2>
+
+<p>破三百了233333，将近两个月没有写题，终于吧题数刷到了300</p>
+
+<h3 id="304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</h3>
+
+<p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (*row*1, *col*1) and lower right corner (*row*2, *col*2).</p>
+
+<p><img src="https://leetcode.com/static/images/courses/range_sum_query_2d.png" alt="Range Sum Query 2D" />
+The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.</p>
+
+<p>因为会多次调用sum函数，所以我们在初始化的时候不可以直接存入矩阵，而是将矩阵进行一系列处理，其重点就是吧（i，j）处的数据改为（0，0）到（i，j）的所有元素之和，在调用sum的时候只需要对其进行相减就行了，道理是很简单，但是时间判断有毒，我的都很慢，不知道为啥.</p>
+
+<pre><code class="language-python">class NumMatrix(object):
+
+    def __init__(self, matrix):
+        &quot;&quot;&quot;
+        :type matrix: List[List[int]]
+        &quot;&quot;&quot;
+        if len(matrix) == 0 or len(matrix[0]) == 0:
+            self.height = 0
+            self.width = 0
+            self.matrix = []
+        else:
+            self.matrix = [[0 for i in matrix[0]+[0]] for j in matrix+[[0]]]
+            print(self.matrix)
+            for i in range(1,len(matrix)+1):
+                for j in range(1,len(matrix[i-1])+1):
+                    print(i,j)
+                    self.matrix[i][j] = self.matrix[i-1][j] + self.matrix[i][j-1] - self.matrix[i-1][j-1] + matrix[i-1][j-1]
+            self.height = len(matrix)
+            self.width = len(matrix[0])
+                
+                    
+                    
+                
+
+    def sumRegion(self, row1, col1, row2, col2):
+        &quot;&quot;&quot;
+        :type row1: int
+        :type col1: int
+        :type row2: int
+        :type col2: int
+        :rtype: int
+        &quot;&quot;&quot;
+        if row2 &gt;= self.height or col2 &gt;= self.width or row1 &lt; 0 or col2 &lt; 0:
+            return 0
+        else:
+            return self.matrix[row2+1][col2+1] - self.matrix[row2+1][col1] - self.matrix[row1][col2+1] + self.matrix[row1][col1]
+        
+        
+
+
+# Your NumMatrix object will be instantiated and called as such:
+# obj = NumMatrix(matrix)
+# param_1 = obj.sumRegion(row1,col1,row2,col2)
+</code></pre>
+
+<p>这个错误处理有点多，所以时间很慢</p>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fleetcode_dp%2f - leetcode_python%20dp by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
