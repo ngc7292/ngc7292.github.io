@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Convolution on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/convolution/</link>
+    <description>Recent content in Convolution on ngc7293&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ngc7292.github.io/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>the sample solution of convolution function</title>
+      <link>https://ngc7292.github.io/posts/convolution/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/convolution/</guid>
+      <description>&lt;p&gt;信号与系统两种题型例题&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
