@@ -39,6 +39,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
    <body>
@@ -80,16 +116,7 @@
                      
                         <li>
                            <a href="https://ngc7292.github.io/tags/python">
-                              PYTHON <span>(22)</span>
-                           </a>
-
-                        </li>
-                     
-                  
-                     
-                        <li>
-                           <a href="https://ngc7292.github.io/tags/django">
-                              DJANGO <span>(9)</span>
+                              PYTHON <span>(20)</span>
                            </a>
 
                         </li>
@@ -99,6 +126,15 @@
                         <li>
                            <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
                               数据结构 <span>(9)</span>
+                           </a>
+
+                        </li>
+                     
+                  
+                     
+                        <li>
+                           <a href="https://ngc7292.github.io/tags/django">
+                              DJANGO <span>(8)</span>
                            </a>
 
                         </li>
@@ -178,8 +214,8 @@
                   
                      
                         <li>
-                           <a href="https://ngc7292.github.io/tags/flask">
-                              FLASK <span>(1)</span>
+                           <a href="https://ngc7292.github.io/tags/infomation-security">
+                              INFOMATION-SECURITY <span>(1)</span>
                            </a>
 
                         </li>
@@ -299,8 +335,6 @@
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
        </section>

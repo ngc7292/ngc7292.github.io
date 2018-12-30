@@ -39,6 +39,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
 	<body>
@@ -77,24 +113,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_site/'>
-                    Django文档目录
-                    
-                        
-                            <h2>Django文档内容 关于django文档的目录
-
-</h2>
-                        
-                    
-                </a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_thrid/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_thrid/'>
                     编写你的第一个Django应用程序，第三部分
                     
                         
@@ -111,7 +130,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_to_csv/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_to_csv/'>
                     django_to_csv
                     
                         
@@ -128,7 +147,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_to_pdf/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_to_pdf/'>
                     django_to_pdf
                     
                         
@@ -145,7 +164,7 @@
         
             <li>
                 <aside class="dates">Dec 27</aside>
-                <a href='https://ngc7292.github.io/posts/12_27/'>
+                <a href='https://ngc7292.github.io/posts_bak/12_27/'>
                     网络以及C&#43;&#43; debug拾遗
                     
                         
@@ -203,8 +222,6 @@
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
     </section>

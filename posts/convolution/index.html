@@ -44,6 +44,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
     <body>
@@ -72,7 +108,7 @@
                     </h1>
                     <h2 class="headline">
                     Oct 10, 2018 00:00
-                    · 87 words
+                    · 138 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -94,7 +130,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-线性时不变系统的差分方程求解">1. 线性时不变系统的差分方程求解</a></li>
+<li><a href="#1-单位冲激-单位阶跃-单位冲激函数">1. 单位冲激，单位阶跃，单位冲激函数</a>
+<ul>
+<li><a href="#离散时间单位脉冲以及单位阶跃序列">离散时间单位脉冲以及单位阶跃序列</a></li>
+<li><a href="#连续时间单位阶跃以及单位冲激函数">连续时间单位阶跃以及单位冲激函数</a></li>
+</ul></li>
+<li><a href="#2-系统的一些性质">2. 系统的一些性质</a></li>
+<li><a href="#2-线性时不变系统的差分方程求解">2. 线性时不变系统的差分方程求解</a></li>
 <li><a href="#2-单位冲击与单位阶跃函数">2. 单位冲击与单位阶跃函数</a></li>
 </ul></li>
 </ul>
@@ -103,11 +145,49 @@
                   
                 
                 <section id="post-body">
-                    <p>信号与系统两种题型例题</p>
+                    <p>信号与系统预习，要期末考试了，把要考到的点预习一下。</p>
 
 <p></p>
 
-<h2 id="1-线性时不变系统的差分方程求解">1. 线性时不变系统的差分方程求解</h2>
+<h2 id="1-单位冲激-单位阶跃-单位冲激函数">1. 单位冲激，单位阶跃，单位冲激函数</h2>
+
+<h3 id="离散时间单位脉冲以及单位阶跃序列">离散时间单位脉冲以及单位阶跃序列</h3>
+
+<p>最简单的离散时间信号——单位脉冲，或称为单位样本，用$\delta[n]$来表示，其定义为:</p>
+
+<p>$$ \delta[n] =\begin{cases}0,n\neq 1\ 1,n=0\end{cases} $$</p>
+
+<p>第二个离散时间信号为单位阶跃用$u[n]$来表示，定义为</p>
+
+<p>$$ u[n] =\begin{cases}0,n\lt 0\ 1,n\ge0\end{cases} $$</p>
+
+<p>其中离散时间的单位阶跃是单位脉冲的求和，单位脉冲是单位阶跃的一次差分，即：</p>
+
+<p>$$ \delta[n] = u[n]-u[n-1] $$</p>
+
+<p>$$u[n] = \sum_{k=-\infty}^{n}\delta[k]$$</p>
+
+<h3 id="连续时间单位阶跃以及单位冲激函数">连续时间单位阶跃以及单位冲激函数</h3>
+
+<p>连续时间单位阶跃函数$u(t)$定义为：</p>
+
+<p>$$ u(t) = \begin{cases}0,n\lt 0\ 1,n\gt0\end{cases}$$</p>
+
+<p>连续时间单位冲激与离散时间下的一致，为连续时间单位阶跃的一次微分</p>
+
+<p>$$\delta(t) = \dfrac{du(t)}{dt}$$</p>
+
+<p>同理，连续时间单位阶跃函数是单位冲激的积分。</p>
+
+<h2 id="2-系统的一些性质">2. 系统的一些性质</h2>
+
+<p>一个系统可以由一个输出$y(t)$一个输入$x(t)$来表示为：</p>
+
+<p>$$x(t) -&gt; y(t) $$</p>
+
+<p>其系统可以由卷积积分来表示</p>
+
+<h2 id="2-线性时不变系统的差分方程求解">2. 线性时不变系统的差分方程求解</h2>
 
 <p>信号与系统第二版p77页例题</p>
 
@@ -133,15 +213,21 @@
 
 <p>所以，我们可以得到整个$y[n]$:</p>
 
-<p>$$ y[0] = x[0]+1/2y[-1] = 0 $$
-$$ y[1] = x[1]+1/2y[0] = K $$
-$$ y[2] = x[2]+1/2y[1] = (<sup>1</sup>&frasl;<sub>2</sub>)^2K $$
-$$ y[3] = x[3]+1/2y[2] = (<sup>1</sup>&frasl;<sub>2</sub>)^3K $$
-$$ &hellip; $$
-$$ y[0] = x[0]+1/2y[n-1] = (<sup>1</sup>&frasl;<sub>2</sub>)^nK $$</p>
+<p>$$ y[0] = x[0]+1/2y[-1] = 0 $$</p>
 
-<p>因为初始松弛条件，系统本就是线性时不变的，所以它的输入输出特性完全由单位脉冲响应表征的，所以该系统的单位脉冲响应为
-$$ h[n] = (<sup>1</sup>&frasl;<sub>2</sub>)^nKu[n] $$</p>
+<p>$$ y[1] = x[1]+1/2y[0] = K $$</p>
+
+<p>$$ y[2] = x[2]+1/2y[1] = (\dfrac {1}{2})^{2}K $$</p>
+
+<p>$$ y[3] = x[3]+1/2y[2] = (\dfrac {1}{2})^{3}K $$</p>
+
+<p>$$ &hellip; $$</p>
+
+<p>$$ y[0] = x[0]+1/2y[n-1] = (\dfrac {1}{2})^{n}K $$</p>
+
+<p>因为初始松弛条件，系统本就是线性时不变的，所以它的输入输出特性完全由单位脉冲响应表征的，所以该系统的单位脉冲响应为</p>
+
+<p>$$ h[n] = (\dfrac {1}{2})^nKu[n] $$</p>
 
 <h2 id="2-单位冲击与单位阶跃函数">2. 单位冲击与单位阶跃函数</h2>
 
@@ -215,8 +301,6 @@ $$</p>
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
         </section>

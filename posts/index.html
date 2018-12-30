@@ -39,6 +39,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
 	<body>
@@ -78,6 +114,13 @@
 			<ul>
 					
 					<div class="post-item">
+						<div class="post-time">Dec 30</div>
+						<a href="https://ngc7292.github.io/posts/network_security/" class="post-link">
+							infomation security
+						</a>
+					</div>
+					
+					<div class="post-item">
 						<div class="post-time">Dec 28</div>
 						<a href="https://ngc7292.github.io/posts/leetcode_dp/" class="post-link">
 							leetcode dp
@@ -106,20 +149,6 @@
 					</div>
 					
 					<div class="post-item">
-						<div class="post-time">Oct 3</div>
-						<a href="https://ngc7292.github.io/posts/vue_learn/" class="post-link">
-							vue-learning
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Oct 2</div>
-						<a href="https://ngc7292.github.io/posts/10_02/" class="post-link">
-							纯粹水文
-						</a>
-					</div>
-					
-					<div class="post-item">
 						<div class="post-time">Sep 28</div>
 						<a href="https://ngc7292.github.io/posts/leetcode_array/" class="post-link">
 							leetcode array
@@ -141,13 +170,6 @@
 					</div>
 					
 					<div class="post-item">
-						<div class="post-time">Aug 9</div>
-						<a href="https://ngc7292.github.io/posts/flask_read/" class="post-link">
-							flask&#39;s code reading
-						</a>
-					</div>
-					
-					<div class="post-item">
 						<div class="post-time">Aug 7</div>
 						<a href="https://ngc7292.github.io/posts/leetcode-python5/" class="post-link">
 							leetcode python刷题记录5
@@ -158,20 +180,6 @@
 						<div class="post-time">Aug 7</div>
 						<a href="https://ngc7292.github.io/posts/leetcode-python4/" class="post-link">
 							leetcode python刷题记录4
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Aug 7</div>
-						<a href="https://ngc7292.github.io/posts/django_rest_token/" class="post-link">
-							django rest_framework token
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Aug 4</div>
-						<a href="https://ngc7292.github.io/posts/pycharm_error/" class="post-link">
-							Unresolved reference 问题及解决
 						</a>
 					</div>
 					
@@ -225,107 +233,9 @@
 					</div>
 					
 					<div class="post-item">
-						<div class="post-time">Feb 26</div>
-						<a href="https://ngc7292.github.io/posts/jinja/" class="post-link">
-							jinja模版注入
-						</a>
-					</div>
-					
-					<div class="post-item">
 						<div class="post-time">Feb 13</div>
 						<a href="https://ngc7292.github.io/posts/leetcode-database/" class="post-link">
 							leetcode database刷题记录
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Feb 9</div>
-						<a href="https://ngc7292.github.io/posts/django_settings/" class="post-link">
-							django 设置
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Jan 4</div>
-						<a href="https://ngc7292.github.io/posts/01_04/" class="post-link">
-							纯粹水文
-						</a>
-					</div>
-					
-			</ul>
-		</div>
-		
-		<div class="archive">
-			<h3>2017</h3>
-			<ul>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 30</div>
-						<a href="https://ngc7292.github.io/posts/12_30/" class="post-link">
-							概率论提纲
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 29</div>
-						<a href="https://ngc7292.github.io/posts/12_29/" class="post-link">
-							scrapy 以及bs4拾遗
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_to_pdf/" class="post-link">
-							django_to_pdf
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_to_csv/" class="post-link">
-							django_to_csv
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_thrid/" class="post-link">
-							编写你的第一个Django应用程序，第三部分
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_site/" class="post-link">
-							Django文档目录
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_second/" class="post-link">
-							编写你的第一个Django应用程序，第二部分
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_frist/" class="post-link">
-							编写你的第一个Django应用程序，第一部分
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 28</div>
-						<a href="https://ngc7292.github.io/posts/django_api/" class="post-link">
-							Django api 一览
-						</a>
-					</div>
-					
-					<div class="post-item">
-						<div class="post-time">Dec 27</div>
-						<a href="https://ngc7292.github.io/posts/12_27/" class="post-link">
-							网络以及C&#43;&#43; debug拾遗
 						</a>
 					</div>
 					
@@ -363,8 +273,6 @@
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
 	</section>

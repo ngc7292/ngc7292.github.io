@@ -39,6 +39,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
 	<body>
@@ -94,7 +130,7 @@
         
             <li>
                 <aside class="dates">Feb 26</aside>
-                <a href='https://ngc7292.github.io/posts/jinja/'>
+                <a href='https://ngc7292.github.io/posts_bak/jinja/'>
                     jinja模版注入
                     
                         
@@ -128,7 +164,7 @@
         
             <li>
                 <aside class="dates">Feb 9</aside>
-                <a href='https://ngc7292.github.io/posts/django_settings/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_settings/'>
                     django 设置
                     
                         
@@ -144,7 +180,7 @@
         
             <li>
                 <aside class="dates">Jan 4</aside>
-                <a href='https://ngc7292.github.io/posts/01_04/'>
+                <a href='https://ngc7292.github.io/posts_bak/01_04/'>
                     纯粹水文
                     
                         
@@ -160,7 +196,7 @@
         
             <li>
                 <aside class="dates">Dec 30</aside>
-                <a href='https://ngc7292.github.io/posts/12_30/'>
+                <a href='https://ngc7292.github.io/posts_bak/12_30/'>
                     概率论提纲
                     
                         
@@ -176,7 +212,7 @@
         
             <li>
                 <aside class="dates">Dec 29</aside>
-                <a href='https://ngc7292.github.io/posts/12_29/'>
+                <a href='https://ngc7292.github.io/posts_bak/12_29/'>
                     scrapy 以及bs4拾遗
                     
                         
@@ -193,7 +229,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_api/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_api/'>
                     Django api 一览
                     
                         
@@ -211,7 +247,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_frist/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_frist/'>
                     编写你的第一个Django应用程序，第一部分
                     
                         
@@ -229,7 +265,7 @@
         
             <li>
                 <aside class="dates">Dec 28</aside>
-                <a href='https://ngc7292.github.io/posts/django_second/'>
+                <a href='https://ngc7292.github.io/posts_bak/django_second/'>
                     编写你的第一个Django应用程序，第二部分
                     
                         
@@ -293,8 +329,6 @@
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
     </section>

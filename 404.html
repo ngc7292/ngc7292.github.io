@@ -39,6 +39,42 @@
 		
 
 		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 	</head>
 
 	<body>
@@ -73,7 +109,11 @@
     
     
         <li>
-            <a href="/posts/10_02/">2018_10_02<aside class="dates">Oct 2 2018</aside></a>
+            <a href="/posts_bak/10_02/">2018_10_02<aside class="dates">Oct 2 2018</aside></a>
+        </li>
+    
+        <li>
+            <a href="/posts/network_security/">infomation security<aside class="dates">Dec 30 2018</aside></a>
         </li>
     
         <li>
@@ -93,7 +133,7 @@
         </li>
     
         <li>
-            <a href="/posts/vue_learn/">vue learing by ngc7293<aside class="dates">Oct 3 2018</aside></a>
+            <a href="/posts_bak/vue_learn/">vue learing by ngc7293<aside class="dates">Oct 3 2018</aside></a>
         </li>
     
         <li>
@@ -106,10 +146,6 @@
     
         <li>
             <a href="/posts/leetcode-narytree/">leetcode_python n_ary_tree<aside class="dates">Aug 30 2018</aside></a>
-        </li>
-    
-        <li>
-            <a href="/posts/flask_read/">flask 源码分析<aside class="dates">Aug 9 2018</aside></a>
         </li>
     
 </ul>
@@ -147,8 +183,6 @@
     <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
 </footer>
 
     </section>
