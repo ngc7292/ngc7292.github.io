@@ -6,21 +6,10 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>纯粹水文</title>
-      <link>https://ngc7292.github.io/posts_bak/10_02/</link>
-      <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/10_02/</guid>
-      <description>&lt;p&gt;今天在等webstorm下载的时候，我看了一下朋友们的博客，有的还在持续更新有的更新几次便没了下文，有的直接整站404了。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>infomation security</title>
@@ -76,17 +65,6 @@
     </item>
     
     <item>
-      <title>vue-learning</title>
-      <link>https://ngc7292.github.io/posts_bak/vue_learn/</link>
-      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/vue_learn/</guid>
-      <description>&lt;p&gt;暑假里我好像准备写一个关于地图的app但是在学习了vue之后发现我并不需要给后台，单靠前端就可以画一个很好看的app。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>leetcode array</title>
       <link>https://ngc7292.github.io/posts/leetcode_array/</link>
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
@@ -120,17 +98,6 @@
     </item>
     
     <item>
-      <title>django rest_framework token</title>
-      <link>https://ngc7292.github.io/posts_bak/django_rest_token/</link>
-      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_rest_token/</guid>
-      <description>&lt;p&gt;今天学习的时候用到了django的rest_framework的token机制，吐槽一下。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>leetcode python刷题记录4</title>
       <link>https://ngc7292.github.io/posts/leetcode-python4/</link>
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
@@ -148,17 +115,6 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-python5/</guid>
       <description>&lt;p&gt;没有介绍&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Unresolved reference 问题及解决</title>
-      <link>https://ngc7292.github.io/posts_bak/pycharm_error/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/pycharm_error/</guid>
-      <description>&lt;p&gt;前几天在熟悉外加测试ODA的代码的时候就发现这个错误&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -247,19 +203,6 @@
     </item>
     
     <item>
-      <title>jinja模版注入</title>
-      <link>https://ngc7292.github.io/posts_bak/jinja/</link>
-      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/jinja/</guid>
-      <description>&lt;h1 id=&#34;jinja模版注入入门&#34;&gt;jinja模版注入入门&lt;/h1&gt;
-
-&lt;p&gt;放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>leetcode database刷题记录</title>
       <link>https://ngc7292.github.io/posts/leetcode-database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
@@ -268,143 +211,6 @@
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>django 设置</title>
-      <link>https://ngc7292.github.io/posts_bak/django_settings/</link>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_settings/</guid>
-      <description>&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>纯粹水文</title>
-      <link>https://ngc7292.github.io/posts_bak/01_04/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/01_04/</guid>
-      <description>&lt;h1 id=&#34;2018-01-04&#34;&gt;2018-01-04&lt;/h1&gt;
-
-&lt;h2 id=&#34;今年真是颓废啊-233333&#34;&gt;今年真是颓废啊，233333&lt;/h2&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>概率论提纲</title>
-      <link>https://ngc7292.github.io/posts_bak/12_30/</link>
-      <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/12_30/</guid>
-      <description>&lt;h1 id=&#34;2017-12-27&#34;&gt;2017-12-27&lt;/h1&gt;
-
-&lt;p&gt;今天写完了爬虫的解析部分，但是发现居然还要模拟登陆，虽然说不是很麻烦，但是拖着还是没有写，debug了一下，基本上功能是可以了，但是怕不到东西，，，23333&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>scrapy 以及bs4拾遗</title>
-      <link>https://ngc7292.github.io/posts_bak/12_29/</link>
-      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/12_29/</guid>
-      <description>&lt;p&gt;昨天放django的文档忘记写日记了，那就今天这样记录一下心情吧233333&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Django api 一览</title>
-      <link>https://ngc7292.github.io/posts_bak/django_api/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_api/</guid>
-      <description>&lt;p&gt;API参考&lt;/p&gt;
-
-&lt;p&gt;关于api的目录&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>编写你的第一个Django应用程序，第一部分</title>
-      <link>https://ngc7292.github.io/posts_bak/django_frist/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_frist/</guid>
-      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第一部分&#34;&gt;编写你的第一个Django应用程序，第一部分&lt;/h1&gt;
-
-&lt;p&gt;让我们通过例子来学习。&lt;/p&gt;
-
-&lt;p&gt;在本教程中，我们将引导您完成基本的轮询应用程序的创建。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>编写你的第一个Django应用程序，第二部分</title>
-      <link>https://ngc7292.github.io/posts_bak/django_second/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_second/</guid>
-      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第2部分&#34;&gt;编写你的第一个Django应用程序，第2部分&lt;/h1&gt;
-
-&lt;p&gt;本教程从教程1停止的地方开始。我们将设置数据库，创建您的第一个模型，并快速介绍Django自动生成的管理站点。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>编写你的第一个Django应用程序，第三部分</title>
-      <link>https://ngc7292.github.io/posts_bak/django_thrid/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_thrid/</guid>
-      <description>&lt;h1 id=&#34;编写你的第一个django应用程序-第3部分&#34;&gt;编写你的第一个Django应用程序，第3部分&lt;/h1&gt;
-
-&lt;p&gt;本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>django_to_csv</title>
-      <link>https://ngc7292.github.io/posts_bak/django_to_csv/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_to_csv/</guid>
-      <description>&lt;h2 id=&#34;输出csv和django&#34;&gt;输出CSV和Django&lt;/h2&gt;
-
-&lt;p&gt;本文档介绍了如何使用Django视图动态输出CSV（逗号分隔值）。为此，您可以使用Python CSV库或Django模板系统。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>django_to_pdf</title>
-      <link>https://ngc7292.github.io/posts_bak/django_to_pdf/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/django_to_pdf/</guid>
-      <description>&lt;h3 id=&#34;输出pdf文件和django&#34;&gt;输出PDF文件和Django&lt;/h3&gt;
-
-&lt;p&gt;本文档介绍了如何使用Django视图动态输出PDF文件。这是由优秀的开源ReportLab Python PDF库实现的。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>网络以及C&#43;&#43; debug拾遗</title>
-      <link>https://ngc7292.github.io/posts_bak/12_27/</link>
-      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/12_27/</guid>
-      <description>&lt;p&gt;#2017-12-27&lt;/p&gt;
-
-&lt;p&gt;我也忘记为什么想要学习网络了，可能是有一天突然找到了大黑客学长的博客&lt;a href=&#34;http://old.lazysheep.cc/2015/01/04/0x01/&#34;&gt;how to study network&lt;/a&gt;，也有可能是突发奇想，就像h姓黑客说的，你想做什么就学什么，学着玩唄。。。。。&lt;/p&gt;</description>
     </item>
     
   </channel>

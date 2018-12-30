@@ -22,18 +22,5 @@
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
-    <item>
-      <title>jinja模版注入</title>
-      <link>https://ngc7292.github.io/posts_bak/jinja/</link>
-      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts_bak/jinja/</guid>
-      <description>&lt;h1 id=&#34;jinja模版注入入门&#34;&gt;jinja模版注入入门&lt;/h1&gt;
-
-&lt;p&gt;放假前几天在写我自己的一个django项目，了解了一下这方面的漏洞，正好在这里做个笔记&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>

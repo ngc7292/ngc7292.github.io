@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ngc7292.github.io/posts_bak/10_02/</loc>
-    <lastmod>2018-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/posts/network_security/</loc>
     <lastmod>2018-12-30T00:00:00+00:00</lastmod>
   </url>
@@ -33,11 +28,6 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts_bak/vue_learn/</loc>
-    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/posts/leetcode_array/</loc>
     <lastmod>2018-09-28T00:00:00+00:00</lastmod>
   </url>
@@ -53,11 +43,6 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_rest_token/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/posts/leetcode-python4/</loc>
     <lastmod>2018-08-07T00:00:00+00:00</lastmod>
   </url>
@@ -65,11 +50,6 @@
   <url>
     <loc>https://ngc7292.github.io/posts/leetcode-python5/</loc>
     <lastmod>2018-08-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/pycharm_error/</loc>
-    <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -108,68 +88,8 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts_bak/jinja/</loc>
-    <lastmod>2018-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/posts/leetcode-database/</loc>
     <lastmod>2018-02-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_settings/</loc>
-    <lastmod>2018-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/01_04/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/12_30/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/12_29/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_api/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_frist/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_second/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_thrid/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_to_csv/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/django_to_pdf/</loc>
-    <lastmod>2017-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/12_27/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -180,12 +100,6 @@
   <url>
     <loc>https://ngc7292.github.io/tags/algorithm/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -207,12 +121,6 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/daily/</loc>
-    <lastmod>2018-10-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/tags/data-structures/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -225,20 +133,8 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/django/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/tags/infomation-security/</loc>
     <lastmod>2018-12-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/javascript/</loc>
-    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -255,26 +151,8 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/network/</loc>
-    <lastmod>2017-12-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/posts/</loc>
     <lastmod>2018-12-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts_bak/</loc>
-    <lastmod>2018-10-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/pycharm/</loc>
-    <lastmod>2018-08-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -285,32 +163,14 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/scrapy/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/spider/</loc>
-    <lastmod>2017-12-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/tags/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/vue.js/</loc>
-    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2018-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -323,12 +183,6 @@
   <url>
     <loc>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2018-12-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/</loc>
-    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
