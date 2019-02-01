@@ -6,10 +6,35 @@
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pat learning</title>
+      <link>https://ngc7292.github.io/posts/pat_learn/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/pat_learn/</guid>
+      <description>&lt;p&gt;pat刷一些题来做一点点算法&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>tf 学习笔记</title>
+      <link>https://ngc7292.github.io/posts/tf_learn/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/tf_learn/</guid>
+      <description>函数 tf.expand(input, axis=None, name=None, dim=None) 拓展数组的形状
+tf.placehold(dtypr,[sharp]) 用于设置真实的输入以及输出。
+tf.Variable()用于对偏置以及权重等的占位符，必须给定初始值。
+np.hstack() 用于顺序堆叠数组
+narray.resharp()用于改变数组形状
+np.any 或运算 np.all 与运算</description>
+    </item>
     
     <item>
       <title>leetcode dp</title>

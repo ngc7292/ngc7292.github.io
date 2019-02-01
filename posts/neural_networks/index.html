@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Jul 27, 2018 00:00
-                    · 189 words
-                    · 1 minute read
+                    · 351 words
+                    · 2 minute read
                       <span class="tags">
                       
                       
@@ -130,6 +130,11 @@ code.has-jax {
 <ul>
 <li>
 <ul>
+<li>
+<ul>
+<li><a href="#梯度下降法">梯度下降法</a></li>
+</ul></li>
+<li><a href="#西瓜书笔记">西瓜书笔记</a></li>
 <li><a href="#感知机与多重神经网络">感知机与多重神经网络</a></li>
 <li><a href="#bp-误差逆传播算法">BP(误差逆传播算法)</a></li>
 </ul></li>
@@ -142,6 +147,70 @@ code.has-jax {
                     <p>前几天回顾了一下西瓜书中的第五章 神经网络，而且发现还有一些基本概念我也想写一下，例如梯度下降法，最小二乘法，牛顿法等</p>
 
 <p></p>
+
+<h3 id="梯度下降法">梯度下降法</h3>
+
+<p>参考文章：<a href="https://www.jianshu.com/p/c7e642877b0e">深入浅出&ndash;梯度下降法及其实现</a></p>
+
+<p>梯度下降法是最小二乘法的一种，用于求解无约束规划问题，用于获得损失函数或者代价函数的最小化。</p>
+
+<p>定义一个函数$$ C = f(v_1,&hellip;,v_m)$$</p>
+
+<p>梯度的定义为 $$∇C≡(∂C/∂v_1,…,∂C/∂v_m)^{T}$$</p>
+
+<p>更新梯度$$ v \rightarrow  v&rsquo; = v - \eta \nabla C$$</p>
+
+<p>直到v到无穷小的时候，我们可以最小化C。</p>
+
+<p>例如我们对一组数据进行线性回归拟合，其线性函数为</p>
+
+<p>$$ y = b+w*x$$</p>
+
+<p>$w$ 作为权重，$b$作为偏置，我们定义一个loss函数为$loss = 1/2m\sum_n(w*x-y)^2$</p>
+
+<p>我们将loss函数改变一个写法 $loss = 1/2m\sum_n(W*X-Y)^{T}(W*X-Y)$，便于计算，计算loss函数的微分：$loss = 1/m \sum_n (W*X-Y)X^{T}$</p>
+
+<p>通过数据计算loss函数的值，不断逼近loss函数的最小化</p>
+
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+m = 20
+
+X0 = np.ones((m, 1))
+X1 = np.arange(1, m + 1).reshape(m, 1)
+
+X = np.hstack((X0, X1))
+
+Y = np.array([
+    3, 4, 5, 5, 2, 4, 7, 8, 11, 8, 12,
+    11, 13, 13, 16, 17, 18, 17, 19, 21
+]).reshape(m, 1)
+
+lr = 0.01
+
+
+def error_function(theta, x, y):
+    diff = np.dot(x, theta) - y
+    return (1 / 2. * m) * (np.dot(np.transpose(diff), diff))
+
+
+def gradient_function(theta, x, y):
+    diff = np.dot(x, theta) - y
+    return (1 / m) * (np.dot(np.transpose(x), diff))
+
+def gradient_descent(x,y,lr):
+    theta = np.array([1,1]).reshape(2,1)
+    index = 0
+    gradient = gradient_function(theta,x,y)
+    while not np.all(np.absolute(gradient) &lt;= 1e-5):
+        index += 1
+        theta = theta - lr*gradient
+        gradient = gradient_function(theta,x,y)
+    print(&quot;gradient descent finish &quot;+str(index)+&quot; traing&quot;)
+    return theta
+</code></pre>
+
+<h2 id="西瓜书笔记">西瓜书笔记</h2>
 
 <p>神经网络最基本组成成分是神经元，每个神经元输入的信号通过带权连接进入相应的神经元，并将总输入值与阈值进行比较，并通过激活函数进行输出。</p>
 
@@ -166,8 +235,6 @@ code.has-jax {
 <p><img src="http://ngcimage.tan90.me/image/blog/mLP.jpg" alt="" /></p>
 
 <h2 id="bp-误差逆传播算法">BP(误差逆传播算法)</h2>
-
-<p>好说歹说也是看了好长时间ml的人，刚开始沉迷于使用库函数，完全不管其中包含的算法细节，结果很多算法还是不会，现在刷《机器学习》的时候来复习（学习）一下这些算法。</p>
 
 <p>首先给定一个训练集</p>
 
@@ -291,7 +358,7 @@ code.has-jax {
     
     <p class="small">
     
-       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
     <p class="small">

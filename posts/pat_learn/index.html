@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="pat learning"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>pat learning &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        pat learning
+                    </h1>
+                    <h2 class="headline">
+                    Feb 1, 2019 00:00
+                    · 3370 words
+                    · 16 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/c&#43;&#43;">c&#43;&#43;</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1018-public-bike-management">1018 Public Bike Management</a>
+<ul>
+<li><a href="#input-specification">Input Specification:</a></li>
+<li><a href="#output-specification">Output Specification:</a></li>
+<li><a href="#sample-input">Sample Input:</a></li>
+<li><a href="#sample-output">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1017-queueing-at-bank-25-分">1017 Queueing at Bank （25 分）</a>
+<ul>
+<li><a href="#input-specification-1">Input Specification:</a></li>
+<li><a href="#output-specification-1">Output Specification:</a></li>
+<li><a href="#sample-input-1">Sample Input:</a></li>
+<li><a href="#sample-output-1">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1015-reversible-primes-20-分">1015 Reversible Primes （20 分）</a>
+<ul>
+<li><a href="#input-specification-2">Input Specification:</a></li>
+<li><a href="#output-specification-2">Output Specification:</a></li>
+<li><a href="#sample-input-2">Sample Input:</a></li>
+<li><a href="#sample-output-2">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1011-world-cup-betting-20-分">1011 World Cup Betting （20 分）</a>
+<ul>
+<li><a href="#input-specification-3">Input Specification:</a></li>
+<li><a href="#output-specification-3">Output Specification:</a></li>
+<li><a href="#sample-input-3">Sample Input:</a></li>
+<li><a href="#sample-output-3">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1013-battle-over-cities-25-分">1013 Battle Over Cities （25 分）</a>
+<ul>
+<li><a href="#input-specification-4">Input Specification:</a></li>
+<li><a href="#output-specification-4">Output Specification:</a></li>
+<li><a href="#sample-input-4">Sample Input:</a></li>
+<li><a href="#sample-output-4">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1001-a-b-format-20-分">1001 A+B Format （20 分）</a>
+<ul>
+<li><a href="#input-specification-5">Input Specification:</a></li>
+<li><a href="#output-specification-5">Output Specification:</a></li>
+<li><a href="#sample-input-5">Sample Input:</a></li>
+<li><a href="#sample-output-5">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1002-a-b-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</a>
+<ul>
+<li><a href="#input-specification-6">Input Specification:</a></li>
+<li><a href="#output-specification-6">Output Specification:</a></li>
+<li><a href="#sample-input-6">Sample Input:</a></li>
+<li><a href="#sample-output-6">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1005-spell-it-right-20-分">1005 Spell It Right （20 分）</a>
+<ul>
+<li><a href="#input-specification-7">Input Specification:</a></li>
+<li><a href="#output-specification-7">Output Specification:</a></li>
+<li><a href="#sample-input-7">Sample Input:</a></li>
+<li><a href="#sample-output-7">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</a>
+<ul>
+<li><a href="#input-specification-8">Input Specification:</a></li>
+<li><a href="#output-specification-8">Output Specification:</a></li>
+<li><a href="#sample-input-8">Sample Input:</a></li>
+<li><a href="#sample-output-8">Sample Output:</a></li>
+</ul></li>
+<li><a href="#007-maximum-subsequence-sum-25-分">007 Maximum Subsequence Sum （25 分）</a>
+<ul>
+<li><a href="#input-specification-9">Input Specification:</a></li>
+<li><a href="#output-specification-9">Output Specification:</a></li>
+<li><a href="#sample-input-9">Sample Input:</a></li>
+<li><a href="#sample-output-9">Sample Output:</a></li>
+</ul></li>
+<li><a href="#1008-elevator-20-分">1008 Elevator （20 分）</a>
+<ul>
+<li><a href="#input-specification-10">Input Specification:</a></li>
+<li><a href="#output-specification-10">Output Specification:</a></li>
+<li><a href="#sample-input-10">Sample Input:</a></li>
+<li><a href="#sample-output-10">Sample Output:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>pat刷一些题来做一点点算法</p>
+
+<p></p>
+
+<h2 id="1018-public-bike-management">1018 Public Bike Management</h2>
+
+<p>There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the city.</p>
+
+<p>The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity of all the stations. A station is said to be in <strong>perfect</strong> condition if it is exactly half-full. If a station is full or empty, PBMC will collect or send bikes to adjust the condition of that station to perfect. And more, all the stations on the way will be adjusted as well.</p>
+
+<p>When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.</p>
+
+<p><img src="https://images.ptausercontent.com/213" alt="img" /></p>
+
+<p>The above figure illustrates an example. The stations are represented by vertices and the roads correspond to the edges. The number on an edge is the time taken to reach one end station from another. The number written inside a vertex S is the current number of bikes stored at S. Given that the maximum capacity of each station is 10. To solve the problem at S3, we have 2 different shortest paths:</p>
+
+<ol>
+<li>PBMC -&gt; S1 -&gt; S3. In this case, 4 bikes must be sent from PBMC, because we can collect 1 bike from S1 and then take 5 bikes to S3, so that both stations will be in perfect conditions.</li>
+<li>PBMC -&gt; S2 -&gt; S3. This path requires the same time as path 1, but only 3 bikes sent from PBMC and hence is the one that will be chosen.</li>
+</ol>
+
+<h3 id="input-specification">Input Specification:</h3>
+
+<p>Each input file contains one test case. For each case, the first line contains 4 numbers: Cmax (≤100), always an even number, is the maximum capacity of each station; N (≤500), the total number of stations; Sp, the index of the problem station (the stations are numbered from 1 to N, and PBMC is represented by the vertex 0); and M, the number of roads. The second line contains N non-negative numbers Ci (i=1,⋯,N) where each Ci is the current number of bikes at Si respectively. Then Mlines follow, each contains 3 numbers: Si, Sj, and Tij which describe the time Tij taken to move betwen stations Si and Sj. All the numbers in a line are separated by a space.</p>
+
+<h3 id="output-specification">Output Specification:</h3>
+
+<p>For each test case, print your results in one line. First output the number of bikes that PBMC must send. Then after one space, output the path in the format: 0−&gt;S1−&gt;⋯−&gt;Sp. Finally after another space, output the number of bikes that we must take back to PBMC after the condition of Sp is adjusted to perfect.</p>
+
+<p>Note that if such a path is not unique, output the one that requires minimum number of bikes that we must take back to PBMC. The judge&rsquo;s data guarantee that such a path is unique.</p>
+
+<h3 id="sample-input">Sample Input:</h3>
+
+<pre><code>10 3 3 5
+6 7 0
+0 1 1
+0 2 1
+0 3 3
+1 3 1
+2 3 1
+</code></pre>
+
+<h3 id="sample-output">Sample Output:</h3>
+
+<pre><code>3 0-&gt;2-&gt;3 0
+</code></pre>
+
+<p>题目大意为存在一个指挥中心，几个城市（即图上几个节点），给定各个城市之间路径的权值，若某个指定城市损坏，需要找到指挥中心到指定城市的最短路径，并将其路径上的所有城市的车辆数转换为最佳数量，若有同样权值的路线，返回需要返还最少的路径。</p>
+
+<p>很明显就是一个经过处理的寻找最短路的问题，通过狄杰斯特拉即可完成。</p>
+
+<pre><code class="language-python">import sys
+
+INT_MAX = sys.maxsize
+
+c_max, n, s_p, m = [int(i) for i in input().split(&quot; &quot;)]
+
+v = [[INT_MAX if i != j else 0 for j in range(0, n + 1)] for i in range(n + 1)]
+cap = [0] + [c_max//2 - int(i) for i in input().split(&quot; &quot;)]
+
+for i in range(m):
+    c1, c2, p = [int(i) for i in input().split(&quot; &quot;)]
+    v[c1][c2] = p
+    v[c2][c1] = p
+
+res = v[0]
+flag = [1] + [0 for i in range(n)]
+
+ways = [[0,i] for i in range(n+1)]
+b_num = [0] + [cap[i] for i in range(1,n+1)]
+
+t_flag = [1 for i in range(n+1)]
+min_tar = 0
+while True:
+    if flag == t_flag:
+        break
+    min_way = INT_MAX
+    for i in range(1,n+1):
+        if res[i] &lt; min_way and flag[i] == 0:
+            min_way = res[i]
+            min_tar = i
+    flag[min_tar] = 1
+    if min_tar == 3:
+        pass
+    for i in range(1,n+1):
+        if i == min_tar:
+            continue
+        if min_way + v[min_tar][i] &lt; res[i]:
+            res[i] = min_way+v[min_tar][i]
+            ways[i] = ways[min_tar] + ways[i][1:]
+            b_num[i] = b_num[min_tar] + b_num[i]
+        elif min_way + v[min_tar][i] == res[i] and b_num[min_tar] + cap[i] &gt; 0 and  b_num[min_tar] + cap[i] &lt; b_num[i]:
+            b_num[i] = b_num[min_tar] + cap[i]
+            ways[i] = ways[min_tar]+[i]
+
+way = &quot;0&quot;
+for i in ways[s_p][1:]:
+    way += &quot;-&gt;&quot;+str(i)
+
+if b_num[s_p] &lt; 0:
+    print(&quot;0 &quot;+way+&quot; &quot;+str(-b_num[s_p]))
+else:
+    print(str(b_num[s_p]) + &quot; &quot; + way + &quot; 0&quot;)
+
+</code></pre>
+
+<h2 id="1017-queueing-at-bank-25-分">1017 Queueing at Bank （25 分）</h2>
+
+<p>1017 Queueing at Bank （25 分）</p>
+
+<p>Suppose a bank has K windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. All the customers have to wait in line behind the yellow line, until it is his/her turn to be served and there is a window available. It is assumed that no window can be occupied by a single customer for more than 1 hour.</p>
+
+<p>Now given the arriving time T and the processing time P of each customer, you are supposed to tell the average waiting time of all the customers.</p>
+
+<h3 id="input-specification-1">Input Specification:</h3>
+
+<p>Each input file contains one test case. For each case, the first line contains 2 numbers: N (≤104) - the total number of customers, and K (≤100) - the number of windows. Then N lines follow, each contains 2 times: <code>HH:MM:SS</code> - the arriving time, and P - the processing time in minutes of a customer. Here <code>HH</code> is in the range [00, 23], <code>MM</code> and <code>SS</code> are both in [00, 59]. It is assumed that no two customers arrives at the same time.</p>
+
+<p>Notice that the bank opens from 08:00 to 17:00. Anyone arrives early will have to wait in line till 08:00, and anyone comes too late (at or after 17:00:01) will not be served nor counted into the average.</p>
+
+<h3 id="output-specification-1">Output Specification:</h3>
+
+<p>For each test case, print in one line the average waiting time of all the customers, in minutes and accurate up to 1 decimal place.</p>
+
+<h3 id="sample-input-1">Sample Input:</h3>
+
+<pre><code>7 3
+07:55:00 16
+17:00:01 2
+07:59:59 15
+08:01:00 60
+08:00:00 30
+08:00:02 2
+08:03:00 10
+</code></pre>
+
+<h3 id="sample-output-1">Sample Output:</h3>
+
+<pre><code>8.2
+</code></pre>
+
+<p>每个顾客在8点之前的都要进行排队，在16点之后的忽略不计，然后给一个窗口数量的一个列表，算就行了，超级简单的</p>
+
+<pre><code class="language-python">n, k = [int(i) for i in input().split(&quot; &quot;)]
+
+n_dict = {}
+
+k_list = [0 for i in range(k)]
+
+wait_time = 0
+
+start_time = 8 * 3600
+end_time = 17 * 3600
+for i in range(n):
+    a_time, p_time = input().split(&quot; &quot;)
+    a_time = a_time.split(&quot;:&quot;)
+    a_time = int(a_time[0]) * 3600 + int(a_time[1]) * 60 + int(a_time[2])
+    if a_time &gt; end_time:
+        continue
+    if a_time &lt; start_time:
+        wait_time += start_time - a_time
+    n_dict[a_time] = int(p_time) * 60
+
+
+for i in sorted(n_dict):
+    min_f_time = k_list[0]
+    min_tar = 0
+    for j in range(1, k):
+        if min_f_time &gt; k_list[j]:
+            min_f_time = k_list[j]
+            min_tar = j
+    
+    p_time = n_dict[i]
+    if i &lt; start_time:
+        i = start_time
+    if i &lt; min_f_time:
+        wait_time += min_f_time - i
+        i = min_f_time
+    k_list[min_tar] = i + p_time
+    
+print(round((wait_time/60)/len(n_dict),1))
+</code></pre>
+
+<h2 id="1015-reversible-primes-20-分">1015 Reversible Primes （20 分）</h2>
+
+<p>A <strong>reversible prime</strong> in any number system is a prime whose &ldquo;reverse&rdquo; in that number system is also a prime. For example in the decimal system 73 is a reversible prime because its reverse 37 is also a prime.</p>
+
+<p>Now given any two positive integers N (&lt;105) and D (1&lt;D≤10), you are supposed to tell if N is a reversible prime with radix D.</p>
+
+<h3 id="input-specification-2">Input Specification:</h3>
+
+<p>The input file consists of several test cases. Each case occupies a line which contains two integers N and D. The input is finished by a negative N.</p>
+
+<h3 id="output-specification-2">Output Specification:</h3>
+
+<p>For each test case, print in one line <code>Yes</code> if N is a reversible prime with radix D, or <code>No</code> if not.</p>
+
+<h3 id="sample-input-2">Sample Input:</h3>
+
+<pre><code>73 10
+23 2
+23 10
+-2
+</code></pre>
+
+<h3 id="sample-output-2">Sample Output:</h3>
+
+<pre><code>Yes
+Yes
+No
+</code></pre>
+
+<p>这道题大概考的是素数筛吧，大意是给定一个十进制数跟一个radix，根据这个radix来反转数字，若反转以及未反转之前都是素数，输出YES，否则输出No</p>
+
+<pre><code class="language-python">import math
+
+
+def is_prime(n):
+    if n &lt;= 1:
+      return False
+    for i in range(2, int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
+
+
+n_list = []
+d_list = []
+
+while True:
+    a = input()
+    if int(a.split(&quot; &quot;)[0]) &lt; 0:
+        break
+    n, d = [int(i) for i in a.split(&quot; &quot;)]
+    if not is_prime(n) or n == 0:
+        print(&quot;No&quot;)
+    else:
+        r = &quot;&quot;
+        while n!= 0:
+            r += str(n%d)
+            n = n//d
+        n = int(r,d)
+        if is_prime(n):
+            print(&quot;Yes&quot;)
+        else:
+            print(&quot;No&quot;)
+</code></pre>
+
+<h2 id="1011-world-cup-betting-20-分">1011 World Cup Betting （20 分）</h2>
+
+<p>With the 2010 FIFA World Cup running, football fans the world over were becoming increasingly excited as the best players from the best teams doing battles for the World Cup trophy in South Africa. Similarly, football betting fans were putting their money where their mouths were, by laying all manner of World Cup bets.</p>
+
+<p>Chinese Football Lottery provided a &ldquo;Triple Winning&rdquo; game. The rule of winning was simple: first select any three of the games. Then for each selected game, bet on one of the three possible results &ndash; namely <code>W</code> for win, <code>T</code> for tie, and <code>L</code> for lose. There was an odd assigned to each result. The winner&rsquo;s odd would be the product of the three odds times 65%.</p>
+
+<p>For example, 3 games&rsquo; odds are given as the following:</p>
+
+<pre><code> W    T    L
+1.1  2.5  1.7
+1.2  3.1  1.6
+4.1  1.2  1.1
+</code></pre>
+
+<p>To obtain the maximum profit, one must buy <code>W</code> for the 3rd game, <code>T</code> for the 2nd game, and <code>T</code> for the 1st game. If each bet takes 2 yuans, then the maximum profit would be (4.1×3.1×2.5×65%−1)×2=39.31 yuans (accurate up to 2 decimal places).</p>
+
+<h3 id="input-specification-3">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains the betting information of 3 games. Each game occupies a line with three distinct odds corresponding to <code>W</code>, <code>T</code> and <code>L</code>.</p>
+
+<h3 id="output-specification-3">Output Specification:</h3>
+
+<p>For each test case, print in one line the best bet of each game, and the maximum profit accurate up to 2 decimal places. The characters and the number must be separated by one space.</p>
+
+<h3 id="sample-input-3">Sample Input:</h3>
+
+<pre><code>1.1 2.5 1.7
+1.2 3.1 1.6
+4.1 1.2 1.1
+</code></pre>
+
+<h3 id="sample-output-3">Sample Output:</h3>
+
+<pre><code>T T W 39.31
+</code></pre>
+
+<p>AC代码：</p>
+
+<pre><code class="language-python">a = ['W','T','L']
+
+n1 = [float(i) for i in input().split(' ')]
+n2 = [float(i) for i in input().split(' ')]
+n3 = [float(i) for i in input().split(' ')]
+
+m1 = max(n1)
+m2 = max(n2)
+m3 = max(n3)
+
+res = (m1*m2*m3*0.65-1)*2
+for i in range(0,3):
+  if n1[i] == m1:
+    m1 = a[i]
+  if n2[i] == m2:
+    m2 = a[i]
+  if n3[i] == m3:
+    m3 = a[i]
+
+print(m1,m2,m3,round(res,2))
+</code></pre>
+
+<h2 id="1013-battle-over-cities-25-分">1013 Battle Over Cities （25 分）</h2>
+
+<p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
+
+<p>For example, if we have 3 cities and 2 highways connecting city1-city2 and city1-city3. Then if city1 is occupied by the enemy, we must have 1 highway repaired, that is the highway city2-city3.</p>
+
+<h3 id="input-specification-4">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case starts with a line containing 3 numbers N (&lt;1000), M and K, which are the total number of cities, the number of remaining highways, and the number of cities to be checked, respectively. Then M lines follow, each describes a highway by 2 integers, which are the numbers of the cities the highway connects. The cities are numbered from 1 to N. Finally there is a line containing K numbers, which represent the cities we concern.</p>
+
+<h3 id="output-specification-4">Output Specification:</h3>
+
+<p>For each of the K cities, output in a line the number of highways need to be repaired if that city is lost.</p>
+
+<h3 id="sample-input-4">Sample Input:</h3>
+
+<pre><code>3 2 3
+1 2
+1 3
+1 2 3
+</code></pre>
+
+<h3 id="sample-output-4">Sample Output:</h3>
+
+<pre><code>1
+0
+0
+</code></pre>
+
+<p>dfs找联通图</p>
+
+<pre><code class="language-c++">#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+int n,v[1001][1001];
+bool visit[1001];
+
+void dfs(int c3){
+  visit[c3] = true;
+  for(int i=1;i&lt;=n;i++)
+  {
+    if(visit[i] == false &amp;&amp; v[c3][i] == 1)
+    {
+      dfs(i);
+    }
+  }
+}
+int main()
+{
+  int m,k;
+  scanf(&quot;%d %d %d&quot;,&amp;n,&amp;m,&amp;k);
+  for(int i=0;i&lt;m;i++)
+  {
+    int c1,c2;
+    scanf(&quot;%d %d&quot;,&amp;c1,&amp;c2);
+    v[c1][c2] = 1;
+    v[c2][c1] = 1;
+  }
+  
+  for(int i=0;i&lt;k;i++)
+  {
+    int c3;
+    scanf(&quot;%d&quot;,&amp;c3);
+    fill(visit,visit+1001,false);
+    visit[c3] = true;
+    int res = 0;
+    for(int i=1;i&lt;=n;i++)
+    {
+      if(visit[i] == false)
+      {
+        dfs(i);
+        res++;
+      }
+    }
+    printf(&quot;%d\n&quot;,res-1);
+  }
+  return 0;
+}
+</code></pre>
+
+<h2 id="1001-a-b-format-20-分">1001 A+B Format （20 分）</h2>
+
+<p>Calculate a+b and output the sum in standard format &ndash; that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p>
+
+<h3 id="input-specification-5">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains a pair of integers a and b where −106≤a,b≤106. The numbers are separated by a space.</p>
+
+<h3 id="output-specification-5">Output Specification:</h3>
+
+<p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p>
+
+<h3 id="sample-input-5">Sample Input:</h3>
+
+<pre><code>-1000000 9
+</code></pre>
+
+<h3 id="sample-output-5">Sample Output:</h3>
+
+<pre><code>-999,991
+</code></pre>
+
+<p>主要就是第一题，所以注意下输出格式就行了</p>
+
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+int main(){
+    int a,b;
+    cin&gt;&gt;a&gt;&gt;b;
+    int c=a+b;
+    if(c&lt;0){cout&lt;&lt;'-';c=-c;}
+    if(c&gt;=1000000){
+        printf(&quot;%d,%03d,%03d&quot;,c/1000000,c%1000000/1000,c%1000);
+    }else if(c&gt;=1000){
+        printf(&quot;%d,%03d&quot;,c/1000,c%1000);
+    }else{
+        printf(&quot;%d&quot;,c);
+    }
+    return 0;
+}
+
+</code></pre>
+
+<h2 id="1002-a-b-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</h2>
+
+<p>This time, you are supposed to find A+B where A and B are two polynomials.</p>
+
+<h3 id="input-specification-6">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial:</p>
+
+<p>K N1 aN1 N2 aN2 &hellip; NK aNK</p>
+
+<p>where K is the number of nonzero terms in the polynomial, Ni and aNi (i=1,2,⋯,K) are the exponents and coefficients, respectively. It is given that 1≤K≤10，0≤NK&lt;⋯&lt;N2&lt;N1≤1000.</p>
+
+<h3 id="output-specification-6">Output Specification:</h3>
+
+<p>For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.</p>
+
+<h3 id="sample-input-6">Sample Input:</h3>
+
+<pre><code>2 1 2.4 0 3.2
+2 2 1.5 1 0.5
+</code></pre>
+
+<h3 id="sample-output-6">Sample Output:</h3>
+
+<pre><code>3 2 1.5 1 2.9 0 3.2
+</code></pre>
+
+<p>多项式相加，定义两个数组，相加。</p>
+
+<pre><code class="language-c++">#include&lt;cstdio&gt;
+
+struct number
+{
+  int an;
+  double n;
+}a[10],b[10];
+
+double c[2001] = {0};
+
+int main()
+{
+  int m,n,sum=0;
+  scanf(&quot;%d&quot;,&amp;m);
+  for(int i=0;i&lt;m;i++)
+  {
+    scanf(&quot;%d %lf&quot;,&amp;a[i].an,&amp;a[i].n);
+    c[a[i].an] += a[i].n;
+    sum += 1;
+  }
+  scanf(&quot;%d&quot;,&amp;n);
+  for(int i=0;i&lt;n;i++)
+  {
+    scanf(&quot;%d %lf&quot;,&amp;b[i].an,&amp;b[i].n);
+    if(c[b[i].an] != 0 &amp;&amp; c[b[i].an] + b[i].n == 0)
+    {
+      sum -= 1;
+      c[b[i].an] = 0;
+    }
+    else if(c[b[i].an] != 0)
+    {
+      c[b[i].an] += b[i].n;
+    }
+    else
+    {
+      sum += 1;
+      c[b[i].an] += b[i].n;
+    }
+  }
+  printf(&quot;%d&quot;,sum);
+  for(int i=2000;i&gt;=0;i--)
+  {
+    if(c[i]!=0)
+      printf(&quot; %d %.1lf&quot;,i,c[i]);
+  }
+  return 0;
+}
+</code></pre>
+
+<h2 id="1005-spell-it-right-20-分">1005 Spell It Right （20 分）</h2>
+
+<p>Given a non-negative integer N, your task is to compute the sum of all the digits of N, and output every digit of the sum in English.</p>
+
+<h3 id="input-specification-7">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case occupies one line which contains an N (≤10100).</p>
+
+<h3 id="output-specification-7">Output Specification:</h3>
+
+<p>For each test case, output in one line the digits of the sum in English words. There must be one space between two consecutive words, but no extra space at the end of a line.</p>
+
+<h3 id="sample-input-7">Sample Input:</h3>
+
+<pre><code>12345
+</code></pre>
+
+<h3 id="sample-output-7">Sample Output:</h3>
+
+<pre><code>one five
+</code></pre>
+
+<p>和改为文字输出</p>
+
+<pre><code class="language-python">index_number = ['zero','one','two','three','four','five','six','seven','eight','nine']
+
+number_sum = str(sum([int(i) for i in input()]))
+
+res = &quot;&quot;
+for j in number_sum:
+  res += index_number[int(j)]+&quot; &quot;
+
+print(res[:-1])
+</code></pre>
+
+<h2 id="1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</h2>
+
+<p>At the beginning of every day, the first person who signs in the computer room will unlock the door, and the last one who signs out will lock the door. Given the records of signing in&rsquo;s and out&rsquo;s, you are supposed to find the ones who have unlocked and locked the door on that day.</p>
+
+<h3 id="input-specification-8">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains the records for one day. The case starts with a positive integer M, which is the total number of records, followed by M lines, each in the format:</p>
+
+<pre><code>ID_number Sign_in_time Sign_out_time
+</code></pre>
+
+<p>where times are given in the format <code>HH:MM:SS</code>, and <code>ID_number</code> is a string with no more than 15 characters.</p>
+
+<h3 id="output-specification-8">Output Specification:</h3>
+
+<p>For each test case, output in one line the ID numbers of the persons who have unlocked and locked the door on that day. The two ID numbers must be separated by one space.</p>
+
+<p>Note: It is guaranteed that the records are consistent. That is, the sign in time must be earlier than the sign out time for each person, and there are no two persons sign in or out at the same moment.</p>
+
+<h3 id="sample-input-8">Sample Input:</h3>
+
+<pre><code>3
+CS301111 15:30:28 17:00:10
+SC3021234 08:00:00 11:25:25
+CS301133 21:45:00 21:58:40
+</code></pre>
+
+<h3 id="sample-output-8">Sample Output:</h3>
+
+<pre><code>SC3021234 CS301133
+</code></pre>
+
+<pre><code class="language-python">number = int(input())
+ids = []
+start_times = []
+end_times = []
+for i in range(number):
+  id_number,start_time,end_time = input().split(&quot; &quot;)
+  start_time = start_time.split(&quot;:&quot;)
+  start_time = start_time[0]*3600+start_time[1]*60+start_time[2]
+  end_time = end_time.split(&quot;:&quot;)
+  end_time = end_time[0]*3600 + end_time[1]*60+end_time[2]
+  ids.append(id_number)
+  start_times.append(start_time)
+  end_times.append(end_time)
+
+min_s_tar = 0
+min_end_tar = 0
+for i in range(number):
+  if start_times[i] &lt; start_times[min_s_tar]:
+    min_s_tar = i
+  if end_times[i] &gt; end_times[min_end_tar]:
+    min_end_tar = i
+  
+print(ids[min_s_tar]+&quot; &quot;+ids[min_end_tar])
+</code></pre>
+
+<h2 id="007-maximum-subsequence-sum-25-分">007 Maximum Subsequence Sum （25 分）</h2>
+
+<p>Given a sequence of K integers { N1, N2, &hellip;, NK }. A continuous subsequence is defined to be { Ni, Ni+1, &hellip;, Nj } where 1≤i≤j≤K. The Maximum Subsequence is the continuous subsequence which has the largest sum of its elements. For example, given sequence { -2, 11, -4, 13, -5, -2 }, its maximum subsequence is { 11, -4, 13 } with the largest sum being 20.</p>
+
+<p>Now you are supposed to find the largest sum, together with the first and the last numbers of the maximum subsequence.</p>
+
+<h3 id="input-specification-9">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case occupies two lines. The first line contains a positive integer K (≤10000). The second line contains K numbers, separated by a space.</p>
+
+<h3 id="output-specification-9">Output Specification:</h3>
+
+<p>For each test case, output in one line the largest sum, together with the first and the last numbers of the maximum subsequence. The numbers must be separated by one space, but there must be no extra space at the end of a line. In case that the maximum subsequence is not unique, output the one with the smallest indices i and j (as shown by the sample case). If all the K numbers are negative, then its maximum sum is defined to be 0, and you are supposed to output the first and the last numbers of the whole sequence.</p>
+
+<h3 id="sample-input-9">Sample Input:</h3>
+
+<pre><code>10
+-10 1 2 3 4 -5 -23 3 7 -21
+</code></pre>
+
+<h3 id="sample-output-9">Sample Output:</h3>
+
+<pre><code>10 1 4
+</code></pre>
+
+<p>滑动窗口</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main() {
+  int n;
+  scanf(&quot;%d&quot;, &amp;n);
+  vector&lt;int&gt; v(n);
+  int leftindex = 0, rightindex = n - 1, sum = -1, temp = 0, tempindex = 0;
+  for (int i = 0; i &lt; n; i++) {
+    scanf(&quot;%d&quot;, &amp;v[i]);
+    temp = temp + v[i];
+    if (temp &lt; 0) {
+      temp = 0;
+      tempindex = i + 1;
+    } else if (temp &gt; sum) {
+      sum = temp;
+      leftindex = tempindex;
+      rightindex = i;
+    }
+  }
+  if (sum &lt; 0) sum = 0;
+  printf(&quot;%d %d %d&quot;, sum, v[leftindex], v[rightindex]);
+  return 0;
+}
+</code></pre>
+
+<h2 id="1008-elevator-20-分">1008 Elevator （20 分）</h2>
+
+<p>The highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It costs 6 seconds to move the elevator up one floor, and 4 seconds to move down one floor. The elevator will stay for 5 seconds at each stop.</p>
+
+<p>For a given request list, you are to compute the total time spent to fulfill the requests on the list. The elevator is on the 0th floor at the beginning and does not have to return to the ground floor when the requests are fulfilled.</p>
+
+<h3 id="input-specification-10">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains a positive integer N, followed by N positive numbers. All the numbers in the input are less than 100.</p>
+
+<h3 id="output-specification-10">Output Specification:</h3>
+
+<p>For each test case, print the total time on a single line.</p>
+
+<h3 id="sample-input-10">Sample Input:</h3>
+
+<pre><code>3 2 3 1
+</code></pre>
+
+<h3 id="sample-output-10">Sample Output:</h3>
+
+<pre><code>41
+</code></pre>
+
+<p>电梯？？？</p>
+
+<pre><code class="language-python">floow_list = [int(i) for i in input().split(&quot; &quot;)[1:]]
+
+res = 0
+from_floow = 0
+
+for i in floow_list:
+  if i &gt; from_floow:
+    res += (i-from_floow)*6
+  elif i &lt; from_floow:
+    res += (from_floow-i)*4
+  
+  res += 5
+  from_floow = i
+
+print(res)
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fpat_learn%2f - pat_learn by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>
