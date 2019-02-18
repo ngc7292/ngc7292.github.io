@@ -23,6 +23,15 @@
     </item>
     
     <item>
+      <title>test</title>
+      <link>https://ngc7292.github.io/posts/testci/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/testci/</guid>
+      <description>this is test ci</description>
+    </item>
+    
+    <item>
       <title>tf 学习笔记</title>
       <link>https://ngc7292.github.io/posts/tf_learn/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
