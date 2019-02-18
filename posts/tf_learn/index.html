@@ -108,7 +108,7 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Jan 27, 2019 00:00
-                    · 16 words
+                    · 106 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -125,22 +125,92 @@ code.has-jax {
                 </header>
                 
                   
-                    <div id="toc">
-                      <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#函数">函数</a></li>
-</ul></li>
-</ul>
-</nav>
-                    </div>
-                  
                 
                 <section id="post-body">
-                    
+                    <p>tf学习笔记啊啊啊啊啊</p>
 
-<h2 id="函数">函数</h2>
+<p></p>
+
+<p>基于tf的nn搭建，用张量来表示数据，用会话，优化线上的权值来得到模型。</p>
+
+<p>tf的数据类型 float32 float64 int32 。。。</p>
+
+<p>tf.constant(list) 设置tf的常数</p>
+
+<p>计算图（Graph）：搭建神经网络的计算过程，只搭建不计算。</p>
+
+<p>tf.matmul 计算矩阵的乘加和</p>
+
+<p>参数 ：指神经网络上的权重,用变量来表示，随机赋予初始值</p>
+
+<p>tf.random_normal(shape,mean=0.0,stddev=1.0,dtype=tf.float32,seed=None,name=None) 用于获取成正态分布的随机数</p>
+
+<p>tf.truncated_normal 去掉过大偏离点的正态分布</p>
+
+<p>tf.random_uniform() 获取平均分布</p>
+
+<p>tf.fill 全定值数组</p>
+
+<p>tf.constant</p>
+
+<p>神经网络实现过程：</p>
+
+<ol>
+<li>准备数据集，提取特征</li>
+<li>搭建NN结构，从输入到输出（搭建计算图，并用会话执行）《NN前向传播算法，计算输出》</li>
+<li>将数据喂给NN，迭代优化NN参数 《NN反向传播优化参数》</li>
+<li>使用训练好的模型进行预测以及分类</li>
+</ol>
+
+<p>前向传播eg：</p>
+
+<pre><code class="language-python">a = tf.matmul(x, w1)
+y = tf.matmul(a, w2)
+</code></pre>
+
+<p>a 为隐藏层的输出，y为最终前向传播计算后的结果</p>
+
+<p>反向传播eg：</p>
+
+<p>反向传播是为了减低NN模型在训练数据上损失函数降到最小，常用的损失函数有均方误差，交叉熵，对数似然函数等。。</p>
+
+<p>常用的训练方法有梯度下降，Adam等</p>
+
+<pre><code class="language-python"># 损失函数为均方误差
+loss = tf.reduce_mean(tf.squre(Y_-y))
+# 损失函数为交叉熵
+loss = tf.reduce_mean(y_*tf.log(tf.clip_by_value(y,1e-12,1.0 )))
+
+cem = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=y,labels=tf.arg_max(y_, 1)))
+
+训练方法：
+train_step = tf.train.GradientDescentOptimizer(learning_rate=0.01).minimize(loss)
+train_step = tf.train.AdamOptimizer(learning_rate=0.01).minimize(loss)
+</code></pre>
+
+<p>激活函数 activation function</p>
+
+<p>relu sigmoid tanh</p>
+
+<p>tf.nn.relu() tf.nn.sigmoid() tf.nn.tanh()</p>
+
+<p>NN复杂度：NN的层数以及NN参数的个数</p>
+
+<p>损失函数： 前向传播得出的结果与一只答案作出的差距，优化的目标即loss最小</p>
+
+<p>学习率的优化：</p>
+
+<p>学习率太大不收敛，学习率小收敛速度慢 指数衰减学习率</p>
+
+<pre><code class="language-python">global_step = tf.Variable(1,trainable=False)
+learning_rate = tf.train.exponential_decay(0.1,global_step,decay_steps,decay_rate, staircase=True)
+</code></pre>
+
+<p>滑动平均值，针对w以及b进行优化</p>
+
+<p>tf.trainable_variables([]) 将带训练的参数汇总成列表</p>
+
+<p>函数</p>
 
 <p>tf.expand(input, axis=None, name=None, dim=None) 拓展数组的形状</p>
 
@@ -153,7 +223,6 @@ code.has-jax {
 <p>narray.resharp()用于改变数组形状</p>
 
 <p>np.any 或运算 np.all 与运算</p>
-
                 </section>
             </article>
 

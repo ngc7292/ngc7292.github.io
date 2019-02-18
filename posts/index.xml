@@ -28,12 +28,9 @@
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/tf_learn/</guid>
-      <description>函数 tf.expand(input, axis=None, name=None, dim=None) 拓展数组的形状
-tf.placehold(dtypr,[sharp]) 用于设置真实的输入以及输出。
-tf.Variable()用于对偏置以及权重等的占位符，必须给定初始值。
-np.hstack() 用于顺序堆叠数组
-narray.resharp()用于改变数组形状
-np.any 或运算 np.all 与运算</description>
+      <description>&lt;p&gt;tf学习笔记啊啊啊啊啊&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
