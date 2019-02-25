@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ngc7292.github.io/posts/pat_learn/</loc>
-    <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+    <loc>https://ngc7292.github.io/posts/pat_learn_java/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts/testci/</loc>
+    <loc>https://ngc7292.github.io/posts/pat_learn/</loc>
     <lastmod>2019-02-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -119,8 +119,8 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+    <loc>https://ngc7292.github.io/tags/algorithms/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -160,6 +160,12 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/tags/java/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/tags/math/</loc>
     <lastmod>2018-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -173,7 +179,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -190,14 +196,8 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/test/</loc>
-    <lastmod>2019-02-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -209,7 +209,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2019-01-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

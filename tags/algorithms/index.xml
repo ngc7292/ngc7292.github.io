@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据结构 on ngc7293&#39;s blog</title>
-    <link>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-    <description>Recent content in 数据结构 on ngc7293&#39;s blog</description>
+    <title>Algorithms on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/algorithms/</link>
+    <description>Recent content in Algorithms on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ngc7292.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,61 +29,6 @@
       
       <guid>https://ngc7292.github.io/posts/pat_learn/</guid>
       <description>&lt;p&gt;pat刷一些题来做一点点算法，这里大多数是python。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>tf 学习笔记</title>
-      <link>https://ngc7292.github.io/posts/tf_learn/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/tf_learn/</guid>
-      <description>&lt;p&gt;tf学习笔记啊啊啊啊啊&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode dp</title>
-      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
-      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode array</title>
-      <link>https://ngc7292.github.io/posts/leetcode_array/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_array/</guid>
-      <description>&lt;p&gt;leetcode problem of array.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode bst</title>
-      <link>https://ngc7292.github.io/posts/leetcode-bst/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-bst/</guid>
-      <description>&lt;p&gt;这里放一些关于BST的题目。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode n ary tree</title>
-      <link>https://ngc7292.github.io/posts/leetcode-narytree/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-narytree/</guid>
-      <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

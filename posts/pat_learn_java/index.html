@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="pat learning"/>
+  <meta name="twitter:description" content="pat learning"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.42.2" />
+		<title>pat learning &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        pat learning
+                    </h1>
+                    <h2 class="headline">
+                    Feb 24, 2019 00:00
+                    · 1214 words
+                    · 6 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/java">java</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1036-boys-vs-girls-25-分">1036 Boys vs Girls （25 分）</a>
+<ul>
+<li><a href="#input-specification">Input Specification:</a></li>
+<li><a href="#output-specification">Output Specification:</a></li>
+<li><a href="#sample-input-1">Sample Input 1:</a></li>
+<li><a href="#sample-output-1">Sample Output 1:</a></li>
+<li><a href="#sample-input-2">Sample Input 2:</a></li>
+<li><a href="#sample-output-2">Sample Output 2:</a></li>
+</ul></li>
+<li><a href="#1036-boys-vs-girls-25-分-1">1036 Boys vs Girls （25 分）</a>
+<ul>
+<li><a href="#input-specification-1">Input Specification:</a></li>
+<li><a href="#output-specification-1">Output Specification:</a></li>
+<li><a href="#sample-input-1-1">Sample Input 1:</a></li>
+<li><a href="#sample-output-1-1">Sample Output 1:</a></li>
+<li><a href="#sample-input-2-1">Sample Input 2:</a></li>
+<li><a href="#sample-output-2-1">Sample Output 2:</a></li>
+</ul></li>
+<li><a href="#1035-password-20-分">1035 Password （20 分）</a>
+<ul>
+<li><a href="#input-specification-2">Input Specification:</a></li>
+<li><a href="#output-specification-2">Output Specification:</a></li>
+<li><a href="#sample-input-1-2">Sample Input 1:</a></li>
+<li><a href="#sample-output-1-2">Sample Output 1:</a></li>
+<li><a href="#sample-input-2-2">Sample Input 2:</a></li>
+<li><a href="#sample-output-2-2">Sample Output 2:</a></li>
+<li><a href="#sample-input-3">Sample Input 3:</a></li>
+<li><a href="#sample-output-3">Sample Output 3:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>JAVA刷pat</p>
+
+<p></p>
+
+<h2 id="1036-boys-vs-girls-25-分">1036 Boys vs Girls （25 分）</h2>
+
+<p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
+
+<h3 id="input-specification">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains a positive integer N, followed by N lines of student information. Each line contains a student&rsquo;s <code>name</code>, <code>gender</code>, <code>ID</code> and <code>grade</code>, separated by a space, where <code>name</code> and <code>ID</code> are strings of no more than 10 characters with no space, <code>gender</code> is either <code>F</code> (female) or <code>M</code> (male), and <code>grade</code> is an integer between 0 and 100. It is guaranteed that all the grades are distinct.</p>
+
+<h3 id="output-specification">Output Specification:</h3>
+
+<p>For each test case, output in 3 lines. The first line gives the name and ID of the female student with the highest grade, and the second line gives that of the male student with the lowest grade. The third line gives the difference gradeF−gradeM. If one such kind of student is missing, output <code>Absent</code> in the corresponding line, and output <code>NA</code> in the third line instead.</p>
+
+<h3 id="sample-input-1">Sample Input 1:</h3>
+
+<pre><code>3
+Joe M Math990112 89
+Mike M CS991301 100
+Mary F EE990830 95
+</code></pre>
+
+<h3 id="sample-output-1">Sample Output 1:</h3>
+
+<pre><code>Mary EE990830
+Joe Math990112
+6
+</code></pre>
+
+<h3 id="sample-input-2">Sample Input 2:</h3>
+
+<pre><code>1
+Jean M AA980920 60
+</code></pre>
+
+<h3 id="sample-output-2">Sample Output 2:</h3>
+
+<pre><code>Absent
+Jean AA980920
+NA
+</code></pre>
+
+<p>水题，学习下如何使用java，噗～～～</p>
+
+<pre><code class="language-java">import java.util.*;
+
+class Stu{
+    String name;
+    String gender;
+    String Id;
+    int grade;
+}
+
+public class demo1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        List&lt;Stu&gt; male = new ArrayList&lt;Stu&gt;();
+        List&lt;Stu&gt; female = new ArrayList&lt;Stu&gt;();
+        Stu s[] = new Stu[N];
+        for(int i=0;i&lt;N;i++)
+        {
+            s[i] = new Stu();
+            s[i].name = in.next();
+            s[i].gender = in.next();
+            s[i].Id = in.next();
+            s[i].grade = in.nextInt();
+            if(s[i].gender.equals(&quot;F&quot;))
+            {
+                female.add(s[i]);
+            } else if(s[i].gender.equals(&quot;M&quot;))
+            {
+                male.add(s[i]);
+            }
+        }
+        in.close();
+
+        boolean femaleIsEmpty = true, maleIsEmpty = true;
+        if(!female.isEmpty())
+        {
+            Collections.sort(female, new Comparator&lt;Stu&gt;() {
+                @Override
+                public int compare(Stu o1, Stu o2) {
+                    if(o1.grade &lt; o2.grade)
+                        return 1;
+                    else
+                        return -1;
+                }
+            });
+            femaleIsEmpty = false;
+        }
+        if(!male.isEmpty())
+        {
+            Collections.sort(male, new Comparator&lt;Stu&gt;() {
+                @Override
+                public int compare(Stu o1, Stu o2) {
+                    if(o1.grade &lt; o2.grade)
+                        return -1;
+                    else
+                        return 1;
+                }
+            });
+            maleIsEmpty = false;
+        }
+        if (femaleIsEmpty){
+            System.out.println(&quot;Absent&quot;);
+        } else {
+            System.out.println(female.get(0).name+&quot; &quot;+female.get(0).Id);
+        }
+        if (maleIsEmpty){
+            System.out.println(&quot;Absent&quot;);
+        } else {
+            System.out.println(male.get(0).name+&quot; &quot;+male.get(0).Id);
+        }
+
+        if(maleIsEmpty || femaleIsEmpty){
+            System.out.println(&quot;NA&quot;);
+        } else {
+            System.out.println(female.get(0).grade - male.get(0).grade);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="1036-boys-vs-girls-25-分-1">1036 Boys vs Girls （25 分）</h2>
+
+<p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
+
+<h3 id="input-specification-1">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains a positive integer N, followed by N lines of student information. Each line contains a student&rsquo;s <code>name</code>, <code>gender</code>, <code>ID</code> and <code>grade</code>, separated by a space, where <code>name</code> and <code>ID</code> are strings of no more than 10 characters with no space, <code>gender</code> is either <code>F</code> (female) or <code>M</code> (male), and <code>grade</code> is an integer between 0 and 100. It is guaranteed that all the grades are distinct.</p>
+
+<h3 id="output-specification-1">Output Specification:</h3>
+
+<p>For each test case, output in 3 lines. The first line gives the name and ID of the female student with the highest grade, and the second line gives that of the male student with the lowest grade. The third line gives the difference gradeF−gradeM. If one such kind of student is missing, output <code>Absent</code> in the corresponding line, and output <code>NA</code> in the third line instead.</p>
+
+<h3 id="sample-input-1-1">Sample Input 1:</h3>
+
+<pre><code>3
+Joe M Math990112 89
+Mike M CS991301 100
+Mary F EE990830 95
+</code></pre>
+
+<h3 id="sample-output-1-1">Sample Output 1:</h3>
+
+<pre><code>Mary EE990830
+Joe Math990112
+6
+</code></pre>
+
+<h3 id="sample-input-2-1">Sample Input 2:</h3>
+
+<pre><code>1
+Jean M AA980920 60
+</code></pre>
+
+<h3 id="sample-output-2-1">Sample Output 2:</h3>
+
+<pre><code>Absent
+Jean AA980920
+NA
+</code></pre>
+
+<p>水题</p>
+
+<pre><code class="language-java">import java.util.*;
+
+class Stu{
+    String name;
+    String gender;
+    String Id;
+    int grade;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        List&lt;Stu&gt; male = new ArrayList&lt;Stu&gt;();
+        List&lt;Stu&gt; female = new ArrayList&lt;Stu&gt;();
+        Stu s[] = new Stu[N];
+        for(int i=0;i&lt;N;i++)
+        {
+            s[i] = new Stu();
+            s[i].name = in.next();
+            s[i].gender = in.next();
+            s[i].Id = in.next();
+            s[i].grade = in.nextInt();
+            if(s[i].gender.equals(&quot;F&quot;))
+            {
+                female.add(s[i]);
+            } else if(s[i].gender.equals(&quot;M&quot;))
+            {
+                male.add(s[i]);
+            }
+        }
+        in.close();
+
+        boolean femaleIsEmpty = true, maleIsEmpty = true;
+        if(!female.isEmpty())
+        {
+            Collections.sort(female, new Comparator&lt;Stu&gt;() {
+                @Override
+                public int compare(Stu o1, Stu o2) {
+                    if(o1.grade &lt; o2.grade)
+                        return 1;
+                    else
+                        return -1;
+                }
+            });
+            femaleIsEmpty = false;
+        }
+        if(!male.isEmpty())
+        {
+            Collections.sort(male, new Comparator&lt;Stu&gt;() {
+                @Override
+                public int compare(Stu o1, Stu o2) {
+                    if(o1.grade &lt; o2.grade)
+                        return -1;
+                    else
+                        return 1;
+                }
+            });
+            maleIsEmpty = false;
+        }
+        if (femaleIsEmpty){
+            System.out.println(&quot;Absent&quot;);
+        } else {
+            System.out.println(female.get(0).name+&quot; &quot;+female.get(0).Id);
+        }
+        if (maleIsEmpty){
+            System.out.println(&quot;Absent&quot;);
+        } else {
+            System.out.println(male.get(0).name+&quot; &quot;+male.get(0).Id);
+        }
+
+        if(maleIsEmpty || femaleIsEmpty){
+            System.out.println(&quot;NA&quot;);
+        } else {
+            System.out.println(female.get(0).grade - male.get(0).grade);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="1035-password-20-分">1035 Password （20 分）</h2>
+
+<p>To prepare for PAT, the judge sometimes has to generate random passwords for the users. The problem is that there are always some confusing passwords since it is hard to distinguish <code>1</code> (one) from <code>l</code> (<code>L</code> in lowercase), or <code>0</code> (zero) from <code>O</code> (<code>o</code> in uppercase). One solution is to replace <code>1</code> (one) by <code>@</code>, <code>0</code> (zero) by <code>%</code>, <code>l</code> by <code>L</code>, and <code>O</code> by <code>o</code>. Now it is your job to write a program to check the accounts generated by the judge, and to help the juge modify the confusing passwords.</p>
+
+<h3 id="input-specification-2">Input Specification:</h3>
+
+<p>Each input file contains one test case. Each case contains a positive integer N (≤1000), followed by N lines of accounts. Each account consists of a user name and a password, both are strings of no more than 10 characters with no space.</p>
+
+<h3 id="output-specification-2">Output Specification:</h3>
+
+<p>For each test case, first print the number M of accounts that have been modified, then print in the following M lines the modified accounts info, that is, the user names and the corresponding modified passwords. The accounts must be printed in the same order as they are read in. If no account is modified, print in one line <code>There are N accounts and no account is modified</code> where <code>N</code> is the total number of accounts. However, if <code>N</code> is one, you must print <code>There is 1 account and no account is modified</code> instead.</p>
+
+<h3 id="sample-input-1-2">Sample Input 1:</h3>
+
+<pre><code>3
+Team000002 Rlsp0dfa
+Team000003 perfectpwd
+Team000001 R1spOdfa
+</code></pre>
+
+<h3 id="sample-output-1-2">Sample Output 1:</h3>
+
+<pre><code>2
+Team000002 RLsp%dfa
+Team000001 R@spodfa
+</code></pre>
+
+<h3 id="sample-input-2-2">Sample Input 2:</h3>
+
+<pre><code>1
+team110 abcdefg332
+</code></pre>
+
+<h3 id="sample-output-2-2">Sample Output 2:</h3>
+
+<pre><code>There is 1 account and no account is modified
+</code></pre>
+
+<h3 id="sample-input-3">Sample Input 3:</h3>
+
+<pre><code>2
+team110 abcdefg222
+team220 abcdefg333
+</code></pre>
+
+<h3 id="sample-output-3">Sample Output 3:</h3>
+
+<pre><code>There are 2 accounts and no account is modified
+</code></pre>
+
+<pre><code class="language-java">import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        List&lt;String&gt; stuList = new ArrayList&lt;&gt;();
+        int N = in.nextInt();
+        Boolean flag = true;
+        for(int i=0;i&lt;N;i++)
+        {
+            String teamId = in.next();
+            String teamPass = in.next();
+            Boolean teamFlag = false;
+            if(teamPass.contains(&quot;1&quot;))
+            {
+                teamPass = teamPass.replace(&quot;1&quot;,&quot;@&quot;);
+                teamFlag = true;
+            }
+            if(teamPass.contains(&quot;l&quot;))
+            {
+                teamPass = teamPass.replace(&quot;l&quot;,&quot;L&quot;);
+                teamFlag = true;
+            }
+            if(teamPass.contains(&quot;O&quot;)) {
+                teamPass = teamPass.replace(&quot;O&quot;,&quot;o&quot;);
+                teamFlag = true;
+            }
+            if(teamPass.contains(&quot;0&quot;))
+            {
+                teamPass = teamPass.replace(&quot;0&quot;,&quot;%&quot;);
+                teamFlag = true;
+            }
+            if(teamFlag.equals(true)){
+                flag = false;
+                String resStr = teamId + &quot; &quot; + teamPass;
+                stuList.add(resStr);
+            }
+        }
+        in.close();
+        if(flag.equals(true)){
+            if(N == 1)
+            {
+                System.out.println(&quot;There is 1 account and no account is modified&quot;);
+            }
+            else {
+                System.out.println(&quot;There are &quot;+N+&quot; accounts and no account is modified&quot;);
+            }
+        } else {
+            System.out.println(stuList.size());
+            for(String resStr : stuList){
+                System.out.println(resStr);
+            }
+        }
+    }
+}
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fpat_learn_java%2f - pat_learn_java by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+    </body>
+</html>
