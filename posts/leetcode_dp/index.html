@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Dec 28, 2018 00:00
-                    · 1014 words
-                    · 5 minute read
+                    · 1147 words
+                    · 6 minute read
                       <span class="tags">
                       
                       
@@ -145,6 +145,7 @@ code.has-jax {
 <li><a href="#304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</a></li>
 <li><a href="#322-coin-change">322. Coin Change</a></li>
 <li><a href="#338-counting-bits">338. Counting Bits</a></li>
+<li><a href="#221-maximal-square">221. Maximal Square</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -425,6 +426,64 @@ Output: [0,1,1,2,1,2]
             res[i] = res[i/2] + (i%2);
 
         return res;
+    }
+}
+</code></pre>
+
+<h3 id="221-maximal-square">221. Maximal Square</h3>
+
+<p>Medium</p>
+
+<p>Given a 2D binary matrix filled with 0&rsquo;s and 1&rsquo;s, find the largest square containing only 1&rsquo;s and return its area.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>Input: 
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+
+Output: 4
+</code></pre>
+
+<p>DP公式：</p>
+
+<pre><code>A[i][j] = min(A[i-1][j-1]+A[i-1][j] + A[i][j-1])
+</code></pre>
+
+<pre><code class="language-java">class Solution {
+    public int maximalSquare(char[][] matrix) {
+        if(matrix.length == 0)
+            return 0;
+        int width = matrix[0].length;
+        int heighth = matrix.length;
+
+
+        int[][] A = new int[heighth][width];
+        for(int i = 0;i&lt;heighth;i++){
+            for(int j = 0;j&lt;width;j++) {
+                if(matrix[i][j] == '0')
+                    A[i][j] = 0;
+                else
+                    A[i][j] = 1;
+            }
+        }
+
+        int maxNum = 0;
+
+        for(int i=0;i&lt;heighth;i++){
+            for(int j = 0;j&lt;width;j++){
+                if(A[i][j] == 1)
+                    if(i&gt;0&amp;&amp;j&gt;0)
+                        A[i][j] = Math.min(A[i-1][j-1],Math.min(A[i][j-1],A[i-1][j])) + 1;
+                if(maxNum &lt; A[i][j])
+                    maxNum = A[i][j];
+            }
+        }
+
+        return maxNum*maxNum;
     }
 }
 </code></pre>
