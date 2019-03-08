@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Dec 28, 2018 00:00
-                    · 727 words
-                    · 4 minute read
+                    · 1014 words
+                    · 5 minute read
                       <span class="tags">
                       
                       
@@ -143,6 +143,8 @@ code.has-jax {
 <li><a href="#12-29日打卡">12.29日打卡</a>
 <ul>
 <li><a href="#304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</a></li>
+<li><a href="#322-coin-change">322. Coin Change</a></li>
+<li><a href="#338-counting-bits">338. Counting Bits</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -342,6 +344,90 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
 </code></pre>
 
 <p>这个错误处理有点多，所以时间很慢</p>
+
+<h3 id="322-coin-change">322. Coin Change</h3>
+
+<p>Medium</p>
+
+<p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: coins = [1, 2, 5], amount = 11
+Output: 3 
+Explanation: 11 = 5 + 5 + 1
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: coins = [2], amount = 3
+Output: -1
+</code></pre>
+
+<p><strong>Note</strong>:
+You may assume that you have an infinite number of each kind of coin.</p>
+
+<p>dp，维护一个amount大小的列表，表示到某个数字需要几步</p>
+
+<p>dp[i] = min(dp[i],dp[i-coin]+1)我们列表的初始值赋给的是-1，所以需要判断下是否大于0.</p>
+
+<pre><code class="language-java">class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount+1];
+
+        Arrays.fill(dp,-1);
+        dp[0] = 0;
+        for(int i=1;i&lt;=amount;i++)
+        {
+            for(int coin:coins)
+            {
+                if(i-coin &gt;= 0 &amp;&amp; dp[i-coin] != -1)
+                    dp[i] = dp[i] &gt; 0?Math.min(dp[i], dp[i-coin] + 1):dp[i-coin] + 1;
+            }
+        }
+
+        return dp[amount];
+    }
+}
+</code></pre>
+
+<h3 id="338-counting-bits">338. Counting Bits</h3>
+
+<p>Medium</p>
+
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1&rsquo;s in their binary representation and return them as an array.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: 2
+Output: [0,1,1]
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: 5
+Output: [0,1,1,2,1,2]
+</code></pre>
+
+<p><strong>Follow up:</strong></p>
+
+<ul>
+<li>It is very easy to come up with a solution with run time <strong>O(n*sizeof(integer))</strong>. But can you do it in linear time <strong>O(n)</strong> /possibly in a single pass?</li>
+<li>Space complexity should be <strong>O(n)</strong>.</li>
+<li>Can you do it like a boss? Do it without using any builtin function like <strong>__builtin_popcount</strong> in c++ or in any other language.</li>
+</ul>
+
+<pre><code class="language-java">class Solution {
+    public int[] countBits(int num) {
+        int[] res = new int[num+1];
+        res[0] = 0;
+        for(int i=0;i&lt;=num;i++)
+            res[i] = res[i/2] + (i%2);
+
+        return res;
+    }
+}
+</code></pre>
                 </section>
             </article>
 
