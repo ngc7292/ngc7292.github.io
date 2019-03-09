@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Mar 8, 2019 00:00
-                    · 1583 words
-                    · 8 minute read
+                    · 1729 words
+                    · 9 minute read
                       <span class="tags">
                       
                       
@@ -148,6 +148,7 @@ code.has-jax {
 <li><a href="#221-maximal-square">221. Maximal Square</a></li>
 <li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
 <li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
+<li><a href="#368-largest-divisible-subset">368. Largest Divisible Subset</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -608,6 +609,67 @@ Output: 2
 </code></pre>
 
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g0wceneoz2j30fh03ijrr.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
+
+<h3 id="368-largest-divisible-subset">368. Largest Divisible Subset</h3>
+
+<p>Medium</p>
+
+<p>Given a set of <strong>distinct</strong> positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:</p>
+
+<p>Si % Sj = 0 or Sj % Si = 0.</p>
+
+<p>If there are multiple solutions, return any subset is fine.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1,2,3]
+Output: [1,2] (of course, [1,3] will also be ok)
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1,2,4,8]
+Output: [1,2,4,8]
+</code></pre>
+
+<pre><code class="language-java">class Solution {
+    public List&lt;Integer&gt; largestDivisibleSubset(int[] nums) {
+        Arrays.sort(nums);
+
+        List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;();
+        if(nums.length &lt;= 0){
+            return new ArrayList&lt;&gt;();
+        }
+
+        for(int i=0;i&lt;nums.length;i++){
+            list.add(i,new ArrayList&lt;Integer&gt;());
+        }
+
+
+        int maxSize = 0;
+        int maxIndex = 0;
+        for(int i=0;i&lt;nums.length;i++){
+            for(int j=i-1;j&gt;=0;j--){
+                if(nums[i]%nums[j] == 0 &amp;&amp; nums[i] &gt; nums[j]){
+                    if(list.get(i).size() &lt; list.get(j).size()+1) {
+                        list.set(i, new ArrayList&lt;&gt;(list.get(j)));
+                        list.get(i).add(nums[i]);
+                        if (maxSize &lt; list.get(i).size()) {
+                            maxSize = list.get(i).size();
+                            maxIndex = i;
+                        }
+                    }
+                }
+            }
+            if(list.get(i).size() == 0){
+                list.get(i).add(nums[i]);
+            }
+        }
+
+        return list.get(maxIndex);
+    }
+}
+</code></pre>
                 </section>
             </article>
 
