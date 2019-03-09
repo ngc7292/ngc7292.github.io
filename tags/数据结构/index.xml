@@ -6,10 +6,25 @@
     <description>Recent content in 数据结构 on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode dp</title>
+      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
+      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>
@@ -40,17 +55,6 @@
       
       <guid>https://ngc7292.github.io/posts/tf_learn/</guid>
       <description>&lt;p&gt;tf学习笔记啊啊啊啊啊&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode dp</title>
-      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
-      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

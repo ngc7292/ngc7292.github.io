@@ -107,9 +107,9 @@ code.has-jax {
                         leetcode dp
                     </h1>
                     <h2 class="headline">
-                    Dec 28, 2018 00:00
-                    · 1147 words
-                    · 6 minute read
+                    Mar 8, 2019 00:00
+                    · 1583 words
+                    · 8 minute read
                       <span class="tags">
                       
                       
@@ -146,6 +146,8 @@ code.has-jax {
 <li><a href="#322-coin-change">322. Coin Change</a></li>
 <li><a href="#338-counting-bits">338. Counting Bits</a></li>
 <li><a href="#221-maximal-square">221. Maximal Square</a></li>
+<li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
+<li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -155,6 +157,10 @@ code.has-jax {
                 
                 <section id="post-body">
                     <p>关于dp的一些题目汇总</p>
+
+<hr />
+
+<p>还是leetcode好啊，pat好辣鸡。</p>
 
 <p></p>
 
@@ -487,6 +493,121 @@ Output: 4
     }
 }
 </code></pre>
+
+<h3 id="375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</h3>
+
+<p>Medium</p>
+
+<p>We are playing the Guess Game. The game is as follows:</p>
+
+<p>I pick a number from <strong>1</strong> to <strong>n</strong>. You have to guess which number I picked.</p>
+
+<p>Every time you guess wrong, I&rsquo;ll tell you whether the number I picked is higher or lower.</p>
+
+<p>However, when you guess a particular number x, and you guess wrong, you pay <strong>$x</strong>. You win the game when you guess the number I picked.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>n = 10, I pick 8.
+
+First round:  You guess 5, I tell you that it's higher. You pay $5.
+Second round: You guess 7, I tell you that it's higher. You pay $7.
+Third round:  You guess 9, I tell you that it's lower. You pay $9.
+
+Game over. 8 is the number I picked.
+
+You end up paying $5 + $7 + $9 = $21.
+</code></pre>
+
+<p>这个好难，我不会做，去抄了个作业。</p>
+
+<p>其实明白之后也不是特别的难，就是通过二分法，得到left到right之间代价最高的代价，然后把递归求出整个数组最高的代价。</p>
+
+<p>公式$ dp[left][right] = MIN({MAX_{i=0}^{n}(dp[left][i-1],dp[i+1][right]) }) $</p>
+
+<pre><code class="language-java">class Solution {
+    public int getMoneyAmount(int n) {
+        if(n==0) return 0;
+        int[][] dp = new int[n+1][n+1];
+        for(int i=0;i&lt;=n;i++)
+            Arrays.fill(dp[i],0);
+
+        return DFS(dp,1,n);
+    }
+    
+    static int DFS(int[][] dp,int left, int right){
+        if(left&gt;=right)
+            return 0;
+        if(dp[left][right] &gt; 0)
+            return dp[left][right];
+        int ans = 100000;
+        for(int i=left;i&lt;=right;i++)
+            ans = Math.min(ans, i+Math.max(DFS(dp,left,i-1),DFS(dp,i+1,right)));
+
+        return dp[left][right] = ans;
+    }
+}
+</code></pre>
+
+<h3 id="376-wiggle-subsequence">376. Wiggle Subsequence</h3>
+
+<p>Medium</p>
+
+<p>A sequence of numbers is called a <strong>wiggle sequence</strong> if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.</p>
+
+<p>For example, <code>[1,7,4,9,2,5]</code> is a wiggle sequence because the differences <code>(6,-3,5,-7,3)</code> are alternately positive and negative. In contrast, <code>[1,4,7,2,5]</code>and <code>[1,7,4,5,5]</code> are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero.</p>
+
+<p>Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1,7,4,9,2,5]
+Output: 6
+Explanation: The entire sequence is a wiggle sequence.
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1,17,5,10,13,15,10,5,16,8]
+Output: 7
+Explanation: There are several subsequences that achieve this length. One is [1,17,10,13,10,16,8].
+</code></pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre><code>Input: [1,2,3,4,5,6,7,8,9]
+Output: 2
+</code></pre>
+
+<p>遍历一下，找到所有的拐点数字（即当前差与前一个的差不同）即可。</p>
+
+<pre><code class="language-java">class Solution {
+    public int wiggleMaxLength(int[] nums) {
+        if(nums.length == 0)
+            return 0;
+        int length = 1;
+
+        int pre = nums[0];
+        int flag = -1;
+        int pre_flag = -1;
+        for(int i=0;i&lt;nums.length;i++)
+        {
+            if(nums[i] == pre){
+                continue;
+            }
+            flag = nums[i]-pre&gt;0?1:0;
+            if(pre_flag != flag){
+                length+=1;
+                pre_flag = flag;
+            }
+            pre = nums[i];
+        }
+        return length;
+    }
+}
+</code></pre>
+
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g0wceneoz2j30fh03ijrr.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
                 </section>
             </article>
 

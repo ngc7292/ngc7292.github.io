@@ -6,10 +6,25 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode dp</title>
+      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
+      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>
@@ -53,17 +68,6 @@
       <description>&lt;h2 id=&#34;网络安全技术与实践-课程预习-我也不知道上的什么东西-反正吧所有的都弄下来好了&#34;&gt;网络安全技术与实践 课程预习（我也不知道上的什么东西，反正吧所有的都弄下来好了）&lt;/h2&gt;
 
 &lt;p&gt;我已经3年没有背过这些没有什么意义的东西了，哎。。。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode dp</title>
-      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
-      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
