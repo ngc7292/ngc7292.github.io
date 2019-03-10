@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Mar 8, 2019 00:00
-                    · 1729 words
-                    · 9 minute read
+                    · 2264 words
+                    · 11 minute read
                       <span class="tags">
                       
                       
@@ -146,9 +146,18 @@ code.has-jax {
 <li><a href="#322-coin-change">322. Coin Change</a></li>
 <li><a href="#338-counting-bits">338. Counting Bits</a></li>
 <li><a href="#221-maximal-square">221. Maximal Square</a></li>
+</ul></li>
+<li><a href="#2019-3-9">2019.3.9</a>
+<ul>
 <li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
 <li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
 <li><a href="#368-largest-divisible-subset">368. Largest Divisible Subset</a></li>
+</ul></li>
+<li><a href="#3-10">3.10</a>
+<ul>
+<li><a href="#392-is-subsequence">392. Is Subsequence</a></li>
+<li><a href="#377-combination-sum-iv">377. Combination Sum IV</a></li>
+<li><a href="#416-partition-equal-subset-sum">416. Partition Equal Subset Sum</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -495,6 +504,8 @@ Output: 4
 }
 </code></pre>
 
+<h2 id="2019-3-9">2019.3.9</h2>
+
 <h3 id="375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</h3>
 
 <p>Medium</p>
@@ -667,6 +678,177 @@ Output: [1,2,4,8]
         }
 
         return list.get(maxIndex);
+    }
+}
+</code></pre>
+
+<h2 id="3-10">3.10</h2>
+
+<h3 id="392-is-subsequence">392. Is Subsequence</h3>
+
+<p>Medium</p>
+
+<p>Given a string <strong>s</strong> and a string <strong>t</strong>, check if <strong>s</strong> is subsequence of <strong>t</strong>.</p>
+
+<p>You may assume that there is only lower case English letters in both <strong>s</strong> and <strong>t</strong>. <strong>t</strong> is potentially a very long (length ~= 500,000) string, and <strong>s</strong> is a short string (&lt;=100).</p>
+
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;abcde&quot;</code> while <code>&quot;aec&quot;</code>is not).</p>
+
+<p><strong>Example 1:</strong>
+<strong>s</strong> = <code>&quot;abc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
+
+<p>Return <code>true</code>.</p>
+
+<p><strong>Example 2:</strong>
+<strong>s</strong> = <code>&quot;axc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
+
+<p>Return <code>false</code>.</p>
+
+<p><strong>Follow up:</strong>
+If there are lots of incoming S, say S1, S2, &hellip; , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
+
+<p><strong>Credits:</strong>
+Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
+
+<p>模式匹配，</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean isSubsequence(String s, String t) {
+        if(s.length() == 0)
+            return true;
+        if(t.length() == 0)
+            return false;
+        int s_index = 0,t_index = 0;
+        while(t_index != t.length() &amp;&amp; s_index != s.length())
+        {
+            if (s.charAt(s_index) == t.charAt(t_index)) {
+                s_index += 1;
+                t_index += 1;
+            } else {
+                t_index += 1;
+            }
+
+            if(s_index == s.length())
+                return true;
+        }
+
+        return false;
+    }
+}
+</code></pre>
+
+<h3 id="377-combination-sum-iv">377. Combination Sum IV</h3>
+
+<p>Medium</p>
+
+<p>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>nums = [1, 2, 3]
+target = 4
+
+The possible combination ways are:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+
+Note that different sequences are counted as different combinations.
+
+Therefore the output is 7.
+</code></pre>
+
+<p>维护一个target长度的数组，表示所有可以到达该target的路径数量，返回taget就可以了</p>
+
+<p>dp公式$ dp[i] = \sum_{k=0}^{i-1}dp[k]$</p>
+
+<pre><code class="language-java">class Solution {
+    public int combinationSum4(int[] nums, int target) {  
+        if(nums.length == 0)
+            return 0;
+        int[] res = new int[target+1];
+        Arrays.fill(res,0);
+        res[0] = 1;
+        for(int i =0;i&lt;=target;i++){
+            for(int num:nums)
+                if(num &lt;= i)
+                    res[i] += res[i-num];
+        }
+        return res[target];
+    }
+}
+</code></pre>
+
+<h3 id="416-partition-equal-subset-sum">416. Partition Equal Subset Sum</h3>
+
+<p>Medium</p>
+
+<p>Given a <strong>non-empty</strong> array containing <strong>only positive integers</strong>, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.</p>
+
+<p><strong>Note:</strong></p>
+
+<ol>
+<li>Each of the array element will not exceed 100.</li>
+<li>The array size will not exceed 200.</li>
+</ol>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1, 5, 11, 5]
+
+Output: true
+
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1, 2, 3, 5]
+
+Output: false
+
+Explanation: The array cannot be partitioned into equal sum subsets.
+</code></pre>
+
+<p>好像是啥背包问题，我也不是很懂的，看了好多大佬的解题过程，弄清楚了一星半点。</p>
+
+<p>首先题目问将整个数组分成两个子数组，其和相等，所以我们确保在整个数组的和是可以被二整除的，若不能被二整除，直接返回false。之后创建一个nums.length 行，sum/2列的数列，其中dp[i][j] 表示在拿过i个数字并其和小于等于j的最大数字之和，emmm，比如说dp[2][3]指拿过第三个数字之后和小于3的最大数字，以本题为例，dp[2][3] = 0</p>
+
+<p>可以得到dp公式 $ dp[i][j] = max(dp[i-1][j] , dp[i-1][j-nums[i]] + nums[i])$</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean canPartition(int[] nums) {
+        int sum = 0;
+        for(int num:nums)
+            sum += num;
+
+        if(sum % 2 == 1)
+            return false;
+        else{
+            sum = sum/2;
+            int[][] dp = new int[nums.length][sum+1];
+            for(int i = 0;i&lt;nums.length;i++)
+                Arrays.fill(dp[i],0);
+
+            for(int i = nums[0];i&lt;=sum;i++){
+                dp[0][i] = nums[0];
+            }
+
+            for(int i=1;i&lt;nums.length;i++){
+                for(int j=nums[i];j&lt;=sum;j++){
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-nums[i]] + nums[i]);
+                }
+            }
+
+            if(dp[nums.length-1][sum] == sum)
+                return true;
+            else
+                return false;
+        }
     }
 }
 </code></pre>
