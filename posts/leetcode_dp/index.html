@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Mar 8, 2019 00:00
-                    · 2264 words
-                    · 11 minute read
+                    · 2566 words
+                    · 13 minute read
                       <span class="tags">
                       
                       
@@ -158,6 +158,10 @@ code.has-jax {
 <li><a href="#392-is-subsequence">392. Is Subsequence</a></li>
 <li><a href="#377-combination-sum-iv">377. Combination Sum IV</a></li>
 <li><a href="#416-partition-equal-subset-sum">416. Partition Equal Subset Sum</a></li>
+</ul></li>
+<li><a href="#3-11">3.11</a>
+<ul>
+<li><a href="#464-can-i-win">464. Can I Win</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -310,7 +314,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 
 <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (*row*1, *col*1) and lower right corner (*row*2, *col*2).</p>
 
-<p><img src="https://leetcode.com/static/images/courses/range_sum_query_2d.png" alt="Range Sum Query 2D" />
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg" alt="Range Sum Query 2D" />
 The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.</p>
 
 <p>因为会多次调用sum函数，所以我们在初始化的时候不可以直接存入矩阵，而是将矩阵进行一系列处理，其重点就是吧（i，j）处的数据改为（0，0）到（i，j）的所有元素之和，在调用sum的时候只需要对其进行相减就行了，道理是很简单，但是时间判断有毒，我的都很慢，不知道为啥.</p>
@@ -619,7 +623,7 @@ Output: 2
 }
 </code></pre>
 
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g0wceneoz2j30fh03ijrr.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
 
 <h3 id="368-largest-divisible-subset">368. Largest Divisible Subset</h3>
 
@@ -852,6 +856,76 @@ Explanation: The array cannot be partitioned into equal sum subsets.
     }
 }
 </code></pre>
+
+<h2 id="3-11">3.11</h2>
+
+<h3 id="464-can-i-win">464. Can I Win</h3>
+
+<p>Medium</p>
+
+<p>In the &ldquo;100 game,&rdquo; two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
+
+<p>What if we change the game so that players cannot re-use integers?</p>
+
+<p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total &gt;= 100.</p>
+
+<p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally.</p>
+
+<p>You can always assume that <code>maxChoosableInteger</code> will not be larger than 20 and <code>desiredTotal</code> will not be larger than 300.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>Input:
+maxChoosableInteger = 10
+desiredTotal = 11
+
+Output:
+false
+
+Explanation:
+No matter which integer the first player choose, the first player will lose.
+The first player can choose an integer from 1 up to 10.
+If the first player choose 1, the second player can only choose integers from 2 up to 10.
+The second player will win by choosing 10 and get a total = 11, which is &gt;= desiredTotal.
+Same with other integers chosen by the first player, the second player will always win.
+</code></pre>
+
+<p>哎，抄了一下<a href="https://blog.csdn.net/liuchuo/article/details/54729227">柳婼大佬的博客</a></p>
+
+<p>先把特殊情况分出来，其一是若给定的maxChoosableInteger大于desiredTotal时，先发直接就可以获胜，或者是$ (1+maxChoosableInteger)*maxChoosableInteger/2 &gt; desiredTotal$  哪位都不会获胜。</p>
+
+<p>排除掉这两个特殊情况，讨论剩下情况，把每个情况拿出来讨论，遍历max，所选择i之后，把所选择的数字与visited进行或运算，保证所选择的数字没有经过选择，然后可以获胜的条件有两个，一是加上i之后大于desiredTotal，或者递归 <code>!canWin(target - i, mask | visited, maxC, map)</code> 返回true即可。</p>
+
+<p>代码（我发现我位运算真的不是很常用，但是看起来好像位运算效率很高的样子）</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+        int maxC = maxChoosableInteger;
+        if(maxC &gt; desiredTotal) return true;
+        if((1+maxC)*maxC/2 &lt;desiredTotal) return false;
+
+        HashMap&lt;Integer, Boolean&gt; map = new HashMap&lt;&gt;();
+
+        return canWin(desiredTotal,0,maxC,map);
+
+    }
+
+    static boolean canWin(int target, int visited, int maxC,HashMap&lt;Integer,Boolean&gt; map){
+        if(map.containsKey(visited)) return map.get(visited);
+        for (int i=1;i&lt;=maxC;i++){
+            int mask = 1&lt;&lt; i;
+            if((mask &amp; visited) == 0 &amp;&amp; (i&gt;=target || !canWin(target - i, mask | visited, maxC, map)) ){
+                map.put(visited,true);
+                return true;
+            }
+        }
+        map.put(visited,false);
+        return false;
+    }
+}
+</code></pre>
+
+<p>累了，今天就一道吧。。。。</p>
                 </section>
             </article>
 
