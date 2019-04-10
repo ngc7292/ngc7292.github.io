@@ -6,10 +6,23 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>算法学习总结</title>
+      <link>https://ngc7292.github.io/posts/algorithms/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/algorithms/</guid>
+      <description>算法分析 problem ： sort （input sequnce  of numbers, output permutation 
+make a1&amp;rsquo; &amp;lt;= a2&amp;rsquo;&amp;hellip;
+such that
+insertion sort:
+insertion sort(A,n) //sort array A for j &amp;lt;- 2 to n do key &amp;lt;- A[j] i &amp;lt;- j-1 while i &amp;gt; 0 and A[i] &amp;gt; key do a[i+1] &amp;lt;- A[i] i &amp;lt;- i-1 A[i+1] &amp;lt;- key  插入排序：将每个值循环向前比对并插入。</description>
+    </item>
     
     <item>
       <title>leetcode dp</title>
@@ -99,6 +112,15 @@
       <description>&lt;p&gt;信号与系统预习，要期末考试了，把要考到的点预习一下。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>the sample solution of convolution function</title>
+      <link>https://ngc7292.github.io/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -248,6 +270,15 @@
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/untitled/</guid>
+      <description></description>
     </item>
     
   </channel>
