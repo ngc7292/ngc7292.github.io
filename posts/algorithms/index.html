@@ -14,11 +14,7 @@
   
   
   <meta name="twitter:title" content="算法学习总结"/>
-  <meta name="twitter:description" content="算法分析 problem ： sort （input sequnce  of numbers, output permutation 
-make a1&rsquo; &lt;= a2&rsquo;&hellip;
-such that
-insertion sort:
-insertion sort(A,n) //sort array A for j &lt;- 2 to n do key &lt;- A[j] i &lt;- j-1 while i &gt; 0 and A[i] &gt; key do a[i&#43;1] &lt;- A[i] i &lt;- i-1 A[i&#43;1] &lt;- key  插入排序：将每个值循环向前比对并插入。"/>
+  <meta name="twitter:description" content="算法导论第二章"/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -112,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Apr 2, 2019 00:00
-                    · 55 words
-                    · 1 minute read
+                    · 614 words
+                    · 3 minute read
                       <span class="tags">
                       
                       </span>
@@ -124,9 +120,19 @@ code.has-jax {
                     <div id="toc">
                       <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#算法基础">算法基础</a>
 <ul>
-<li><a href="#算法分析">算法分析</a></li>
+<li><a href="#2-1-插入排序">2.1 插入排序</a></li>
+<li><a href="#2-3-设计算法">2.3 设计算法</a>
+<ul>
+<li><a href="#分治法">分治法</a></li>
+<li><a href="#归并排序">归并排序</a>
+<ul>
+<li><a href="#分析归并排序">分析归并排序</a></li>
+<li><a href="#归并排序c-实现">归并排序C++实现</a></li>
+<li><a href="#练习题">练习题</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -136,27 +142,260 @@ code.has-jax {
                 <section id="post-body">
                     
 
-<h2 id="算法分析">算法分析</h2>
+<h1 id="算法基础">算法基础</h1>
 
-<p>problem ： sort （input sequnce <a1,a2,…,an> of numbers, output permutation <a1',a2',…,an'></p>
+<h2 id="2-1-插入排序">2.1 插入排序</h2>
 
-<p>make a1&rsquo; &lt;= a2&rsquo;&hellip;</p>
-
-<p>such that</p>
-
-<p>insertion sort:</p>
-
-<pre><code class="language-code">insertion sort(A,n) //sort array A
-	for j &lt;- 2 to n
-		do key &lt;- A[j]
-			i &lt;- j-1
-				while i &gt; 0 and A[i] &gt; key
-        	do a[i+1] &lt;- A[i]
-        	i &lt;- i-1
-        A[i+1] &lt;- key
+<pre><code>for j=2 to A.length:
+	key = A[j]
+	i = j-1
+	while i&gt;0 and a[i] &gt; key:
+		A[i+1] = A[i]
+		i = i-1
+	A[i+1] = key
 </code></pre>
 
-<p>插入排序：将每个值循环向前比对并插入。</p>
+<p>算法分析</p>
+
+<p>插入排序的时间复杂度很依赖与输入，即依据已经被排序的程度会有不同的数量级的时间来排序相同规模的数据，我们对每一个语句的运行时间做汇总：</p>
+
+<p>$$ T(n) = c_1n+c_2(n-1)+c_3(n-1)+c_5 \sum _{j=2}^{n}(t_j-1) + c_6 \sum _{j=2}^{n}(t_j-1) +c7(n-1) $$</p>
+
+<p>如果已经排好序，则最佳运行时间为$ an+b $，若反向排好序，则最坏运行时间为$an^2+bn+c$</p>
+
+<p>一个算法的最坏情况给出了算法的上界，确保算法不需要更多的时间并且不需要对运行时间做复杂的猜测来判断器更坏的情况。</p>
+
+<p>平均状态与最坏的情况大致一样，随机选定n个数并插入序列，平均来说，我们有一半的元素少于A[j]，另一半大于，所以$ t_i = j/2$ ，所以平均情况与最坏情况时间一样，也是一个二次函数。</p>
+
+<p>作出更简单一个抽象，只关注其中程序的运行时间的增长量级，考虑阶数最高的项，我们记最坏的运行时间为$ \theta(n^2)​$。</p>
+
+<p>由于常数项以及低阶项，对于小的输入运行时间具有较高增长量级的一个算法可能比运行时间较低的增长量级的算法需要更少的时间，但是对于足够大的输入，较小量级的输入一定比较快。</p>
+
+<h2 id="2-3-设计算法">2.3 设计算法</h2>
+
+<h3 id="分治法">分治法</h3>
+
+<p>对于很多有用的算法在结构上是递归的，为了解决一个给定的问题，算法一次或者多次递归调用以解决若干子问题</p>
+
+<p>分治模型的步骤：</p>
+
+<ol>
+<li>分解原问题的若干子问题，</li>
+<li>解决子问题</li>
+<li>合并子问题的解</li>
+</ol>
+
+<h3 id="归并排序">归并排序</h3>
+
+<p>分解将待排序的序列分成各自有n/2个元素的子序列，归并排序递归的完成子序列，合并两个已经排序的子序列。</p>
+
+<pre><code>MERGE(A,p,q,r):
+	n1 = 0
+	n2 = 0
+	L = A[p:q] + [intfy]
+	R = A[q+1:r] + [intfy]
+	for i = p to r:
+		if L[n1] &lt;= R[n1]:
+			A[i] = L[n1]
+			n1 += 1
+		else:
+			A[i] = L[n2]
+			n2 += 1
+</code></pre>
+
+<p>所以我们可以得到MERGE的时间复杂度为$ \theta(n) $。</p>
+
+<p>我们可以得到：</p>
+
+<pre><code>MERGE-SORT(A,p,r):
+if p&lt;r:
+	q = [(p+r)/2]
+	MERGE-SORT(A,p,q)
+	MERGE-SORT(A,q+1,r)
+	MERGE(A,p,q,r)
+</code></pre>
+
+<p>对于递归的算法，我们可以用递归方程的方式来描述其运行方式</p>
+
+<p>若将整个算法问题分为$a$个子问题，每个子问题的规模是原问题规模的$1/b$，未来求解$n/b$即一个子问题的一个问题，我们需要的时间复杂度为$T(n/b)$ ，所以需要$ aT(n/b)$的时间来求解$a$个子问题，分解子问题合并子问题的解的时间复杂度为$C(n)$ 那么得到递归式：</p>
+
+<p>$$ T(n) = \begin{cases}\theta(1) , &amp;\text{if  n$\leq$c }\ aT(n/b)+D(n)+C(n) , &amp; else\end{cases}​$$</p>
+
+<h4 id="分析归并排序">分析归并排序</h4>
+
+<p>假定原问题为2的幂次，所以基于递归式的分析将被简化</p>
+
+<p>分解： 计算子数组中间位置，时间复杂度为$ \theta(1)$</p>
+
+<p>解决：递归求解两个规模为$n/2$规模的数组，时间复杂度为$2T(n/2)$</p>
+
+<p>合并：MERGE时间复杂度为$\theta(n)​$</p>
+
+<p>总体上时间复杂度为$$  T(n) = \begin{cases}\theta(1) , &amp;\text{if  n=1 }\ 2T(n/2)+\theta(n) , &amp; else\end{cases}$$</p>
+
+<p>为分析递归的时间复杂度，我们可以来进行拓展结果递归树，每一层的代价为$cn$ ，总层数为$lgn + 1$，其中$n$ 为叶数，所以总代价为$cn(lgn+1) = cnlgn + cn $ ,忽略低阶项和常量c 即得到问题的时间复杂度$$ T(n) = \theta(nlgn)$$。</p>
+
+<h4 id="归并排序c-实现">归并排序C++实现</h4>
+
+<pre><code class="language-c++">void merge(int A[], int p, int q, int r){
+    // 不使用哨兵元素来对A[p,q],A[q+1,r]进行合并
+    int n1 = q-p+1;
+    int n2 = r-q;
+
+
+    int left_list[100000];
+    for (int l = 0; l &lt; n1; ++l) {
+        left_list[l] = A[p+l];
+    }
+    int right_list[100000];
+    for (int m = 0; m &lt; n2; ++m) {
+        right_list[m] = A[q+1+m];
+    }
+    int i = 0,j = 0;
+    for(int k=p; k &lt;= r; k++){
+        if(i &gt;= n1){
+            A[k] = right_list[j];
+            j++;
+        } else if(j &gt;= n2){
+            A[k] = left_list[i];
+            i++;
+        } else if(left_list[i] &lt;= right_list[j]){
+            A[k] = left_list[i];
+            i++;
+        } else {
+            A[k] = right_list[j];
+            j++;
+        }
+    }
+}
+
+void merge_guard(int A[], int p,int q,int r){
+    // 使用哨兵元素来对A[p,q],A[q+1,r]进行合并
+    int n1 = q-p+1;
+    int n2 = r-q;
+
+
+    int left_list[100000];
+    for (int l = 0; l &lt; n1; ++l) {
+        left_list[l] = A[p+l];
+    }
+    left_list[n1] = 1000000000;
+    int right_list[100000];
+    for (int m = 0; m &lt; n2; ++m) {
+        right_list[m] = A[q+1+m];
+    }
+    right_list[n2] = 100000000;
+    int i = 0,j = 0;
+    for(int k=p; k &lt;= r; k++){
+        if(left_list[i] &lt;= right_list[j]){
+            A[k] = left_list[i];
+            i++;
+        } else {
+            A[k] = right_list[j];
+            j++;
+        }
+    }
+}
+
+void merge_sort(int A[],int p,int q,int r){
+    if(p&lt;r) {
+        int p1 = p, r1 = q, q1 = (r1 - p1) / 2+p1;
+        int p2 = q + 1, r2 = r, q2 = (r2 - p2) / 2+p2;
+        merge_sort(A, p1, q1, r1);
+        merge_sort(A, p2, q2, r2);
+        merge(A, p, q, r);
+    }
+}
+</code></pre>
+
+<h4 id="练习题">练习题</h4>
+
+<p>2.3-2 重写MERGE，不使用哨兵而是将L或者R的所有元素均被复制回A就停止，并将另一个的剩余部分复制进A。</p>
+
+<pre><code class="language-c++">int* merge(int A[], int p, int q, int r){
+    // 不使用哨兵元素来对A[p,q],A[q+1,r]进行合并
+    int n1 = q-p+1;
+    int n2 = r-q;
+
+    show_list(A,4);
+
+    int left_list[100000];
+    for (int l = 0; l &lt; n1; ++l) {
+        left_list[l] = A[p+l];
+    }
+    int right_list[100000];
+    for (int m = 0; m &lt; n2; ++m) {
+        right_list[m] = A[q+1+m];
+    }
+    int i = 0,j = 0;
+    for(int k=p; k &lt;= r; k++){
+        if(i &gt;= n1){
+            A[k] = right_list[j];
+            j++;
+        } else if(j &gt;= n2){
+            A[k] = left_list[i];
+            i++;
+        } else if(left_list[i] &lt;= right_list[j]){
+            A[k] = left_list[i];
+            i++;
+        } else {
+            A[k] = right_list[j];
+            j++;
+        }
+    }
+    return A;
+}
+</code></pre>
+
+<p>2.3-5实现二分查找</p>
+
+<pre><code class="language-c++">int bin_search(int* A,int p,int s,int n){
+    //A是一个已经排好序的数列，p为查找数字，n为A的大小
+
+    int m = (s+n)/2;
+    if(p == A[m]){
+        return m;
+    }
+    else if(p&lt;A[m]){
+        return bin_search(A,p,s,m);
+    } else {
+        return bin_search(A,p,m+1,n);
+    }
+}
+</code></pre>
+
+<p>2.3-7 给定n个整数的集合S以及另外一个整数x，使其可以确定S中是否存在两个其中和为x的元素。</p>
+
+<pre><code class="language-c++">bool get_twosum(int A[],int n,int p){
+    int m = n/2;
+    int left = m;
+    int right = m+1;
+
+    while(left &gt;= 0 &amp;&amp; right &lt;= n) {
+        if (p == A[left] + A[right])
+            return true;
+        if (p &gt; A[left] + A[right]){
+            if(right == n){
+                left++;
+            } else {
+                right ++;
+            }
+        } else if(p &lt; A[left] + A[right])
+            if(left == 0){
+                right--;
+            } else{
+                left--;
+            }
+    }
+    return false;
+}
+</code></pre>
+
+<p>2.4 逆序对 对于每个不同数的数组，若$i<j$且$A[i]>A[j]$称为逆序对。</p>
+
+<p>​   c. 插入排序的运行时间与输入数组的逆序对有什么关系</p>
+
+<p>​       每一个逆序对代表着插入排序中多一个循环，假设一个数组有d个逆序对，则代价为$T(n+d)$</p>
 
                 </section>
             </article>

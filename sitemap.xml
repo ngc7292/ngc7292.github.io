@@ -118,12 +118,12 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/about/</loc>
-    <lastmod>2015-06-20T14:02:37+02:00</lastmod>
+    <loc>https://ngc7292.github.io/posts/csapp1/</loc>
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts/untitled/</loc>
+    <loc>https://ngc7292.github.io/about/</loc>
+    <lastmod>2015-06-20T14:02:37+02:00</lastmod>
   </url>
   
   <url>
@@ -146,6 +146,11 @@
   <url>
     <loc>https://ngc7292.github.io/tags/convolution/</loc>
     <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/tags/csapp/</loc>
     <priority>0</priority>
   </url>
   
