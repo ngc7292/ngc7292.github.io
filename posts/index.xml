@@ -25,6 +25,19 @@
     </item>
     
     <item>
+      <title>算法学习第三章学习笔记</title>
+      <link>https://ngc7292.github.io/posts/algorithms3/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/algorithms3/</guid>
+      <description>&lt;h1 id=&#34;函数的增长&#34;&gt;函数的增长&lt;/h1&gt;
+
+&lt;p&gt;算法的运行时间的增长量级简单的刻画算法效率，并允许我们比较可选算法的相对性能。第三章我们给出集中标准方法来简化算法的渐进分析，来研究函数的渐进效率&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>leetcode dp</title>
       <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
