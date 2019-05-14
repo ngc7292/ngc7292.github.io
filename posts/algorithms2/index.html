@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="算法学习第四章总结"/>
+  <meta name="twitter:description" content="算法导论第四章"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.42.2" />
+		<title>算法学习第四章总结 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        算法学习第四章总结
+                    </h1>
+                    <h2 class="headline">
+                    Apr 23, 2019 00:00
+                    · 199 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#分治策略">分治策略</a>
+<ul>
+<li>
+<ul>
+<li><a href="#4-1-最大子数组问题">4.1 最大子数组问题</a></li>
+<li><a href="#4-2-矩阵乘法的strassen算法">4.2 矩阵乘法的STRASSEN算法</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<h1 id="分治策略">分治策略</h1>
+
+<p>在分治策略中，我们在每层递归应用了如下三个步骤：</p>
+
+<p>分解：将问题划分为一些子问题，形式一样，规模更小</p>
+
+<p>解决：步骤递归的求解出子问题，如果子问题够小，则停止递归</p>
+
+<p>合并：步骤将子问题的解组成原问题的解</p>
+
+<h3 id="4-1-最大子数组问题">4.1 最大子数组问题</h3>
+
+<p>问题：我们获得一个数组，需要得到其中最大的子数组</p>
+
+<p>将问题分解，得到三个子问题：</p>
+
+<ol>
+<li>最大子数组位于 left 到mid 之间</li>
+<li>最大子数组在mid+1到right之间</li>
+<li>最大子数组跨越了mid</li>
+</ol>
+
+<p>在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$O(n)$的算法来计算跨越中点的子数组。</p>
+
+<pre><code class="language-c++">void find_max_crossing_subarray(int A[],int low,int mid,int high ,int &amp;max_left,int &amp;max_right,int &amp;sum_max){
+    int left_sum = -1000000;
+    int sum = 0;
+    max_left = 0;
+    for(int i=mid;i&gt;low;i--){
+        sum = sum + A[i];
+        if(sum &gt; left_sum){
+            left_sum = sum;
+            max_left = i;
+        }
+    }
+
+    int right_sum = -1000000;
+    for(int j=mid;j&lt;high;j++){
+        sum = sum+A[j];
+        if(sum &gt; right_sum){
+            right_sum = sum;
+            max_right = j;
+        }
+    }
+    sum_max = right_sum + left_sum;
+}
+</code></pre>
+
+<p>我们有了一个线性的计算跨越中点的最大子数组的算法，我们很容易的得到寻找整个子数组的算法。</p>
+
+<pre><code class="language-c++">void find_max_subarray(int A[],int low,int mid,int high,int &amp;max_left, int &amp;max_right, int &amp;max_sum){
+
+    if(low == high){
+        max_sum = A[low];
+        max_left = low;
+        max_right = high;
+    } else {
+        int left_max, left_max_left, left_max_right;
+        int right_max , right_max_left, right_max_right;
+        int mid_max, mid_max_left,mid_max_right;
+        find_max_subarray(A,low,(low+mid)/2,mid,left_max_left,left_max_right,left_max);
+        find_max_subarray(A,mid+1,(high+mid+1)/2,high,right_max_left,right_max_right,right_max);
+        find_max_crossing_subarray(A,low,mid,high,mid_max_left,mid_max_right,mid_max);
+        if(left_max &gt; right_max){
+            if(left_max &gt; mid_max) {
+                max_left = left_max_left;
+                max_right = right_max_right;
+                max_sum = left_max;
+                return ;
+            }
+        } else {
+            if(right_max &gt; mid_max) {
+                max_left = right_max_left;
+                max_right = right_max_right;
+                max_sum = right_max;
+                return ;
+            }
+        }
+        max_left = mid_max_left;
+        max_right = mid_max_right;
+        max_sum = mid_max;
+        return ;
+    }
+}
+</code></pre>
+
+<h3 id="4-2-矩阵乘法的strassen算法">4.2 矩阵乘法的STRASSEN算法</h3>
+
+<p>对于矩阵乘法，我们知道</p>
+
+<p>若 $ A=(a<em>{ij}) $和 $ B = (b</em>{ij})$ 是 $ n*n $的矩阵，对于$C = A*B$我们有</p>
+
+<p>​                       $$ c<em>{ij} = \sum^n</em>{k=i}a<em>{ik}*b</em>{kj} $$</p>
+
+<p>也就是说我们对于两个$n*n$的矩阵，需要计算$n^3$次</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2falgorithms2%2f - algorithms4 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+    </body>
+</html>

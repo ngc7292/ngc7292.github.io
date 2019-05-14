@@ -6,10 +6,39 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cskaoyan</title>
+      <link>https://ngc7292.github.io/posts/cskaoyan/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/cskaoyan/</guid>
+      <description>&lt;h1 id=&#34;考研部分资料汇总&#34;&gt;考研部分资料汇总&lt;/h1&gt;
+
+&lt;p&gt;因为自身菜素太多导致没有工作，所以准备考个研，在大学的象牙塔里面再呆个两三年这个样子，目标院校是复旦跟上交（暂时没有想好要考哪一个），把所有的东西放在这里整理一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>算法学习第四章总结</title>
+      <link>https://ngc7292.github.io/posts/algorithms2/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/algorithms2/</guid>
+      <description>分治策略 在分治策略中，我们在每层递归应用了如下三个步骤：
+分解：将问题划分为一些子问题，形式一样，规模更小
+解决：步骤递归的求解出子问题，如果子问题够小，则停止递归
+合并：步骤将子问题的解组成原问题的解
+4.1 最大子数组问题 问题：我们获得一个数组，需要得到其中最大的子数组
+将问题分解，得到三个子问题：
+ 最大子数组位于 left 到mid 之间 最大子数组在mid+1到right之间 最大子数组跨越了mid  在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$O(n)$的算法来计算跨越中点的子数组。
+void find_max_crossing_subarray(int A[],int low,int mid,int high ,int &amp;amp;max_left,int &amp;amp;max_right,int &amp;amp;sum_max){ int left_sum = -1000000; int sum = 0; max_left = 0; for(int i=mid;i&amp;gt;low;i--){ sum = sum + A[i]; if(sum &amp;gt; left_sum){ left_sum = sum; max_left = i; } } int right_sum = -1000000; for(int j=mid;j&amp;lt;high;j++){ sum = sum+A[j]; if(sum &amp;gt; right_sum){ right_sum = sum; max_right = j; } } sum_max = right_sum + left_sum; }  我们有了一个线性的计算跨越中点的最大子数组的算法，我们很容易的得到寻找整个子数组的算法。</description>
+    </item>
     
     <item>
       <title>算法学习总结</title>
@@ -20,19 +49,6 @@
       <description>&lt;h1 id=&#34;算法基础&#34;&gt;算法基础&lt;/h1&gt;
 
 &lt;p&gt;算法导论第二章学习笔记&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>算法学习第三章学习笔记</title>
-      <link>https://ngc7292.github.io/posts/algorithms3/</link>
-      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/algorithms3/</guid>
-      <description>&lt;h1 id=&#34;函数的增长&#34;&gt;函数的增长&lt;/h1&gt;
-
-&lt;p&gt;算法的运行时间的增长量级简单的刻画算法效率，并允许我们比较可选算法的相对性能。第三章我们给出集中标准方法来简化算法的渐进分析，来研究函数的渐进效率&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -125,15 +141,6 @@
       <description>&lt;p&gt;信号与系统预习，要期末考试了，把要考到的点预习一下。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>the sample solution of convolution function</title>
-      <link>https://ngc7292.github.io/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/</link>
-      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -283,15 +290,6 @@
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>csapp 学习笔记</title>
-      <link>https://ngc7292.github.io/posts/csapp1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/csapp1/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
