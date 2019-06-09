@@ -19,7 +19,7 @@
       <guid>https://ngc7292.github.io/posts/cskaoyan/</guid>
       <description>&lt;h1 id=&#34;考研部分资料汇总&#34;&gt;考研部分资料汇总&lt;/h1&gt;
 
-&lt;p&gt;因为自身菜素太多导致没有工作，所以准备考个研，在大学的象牙塔里面再呆个两三年这个样子，目标院校是复旦跟上交（暂时没有想好要考哪一个），把所有的东西放在这里整理一下。&lt;/p&gt;
+&lt;p&gt;因为自身菜素太多找不到工作，只能考个研维持生活这个样子，目标院校是复旦，把备考时买的资料放在这里整理一下。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -30,14 +30,17 @@
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/algorithms2/</guid>
-      <description>分治策略 在分治策略中，我们在每层递归应用了如下三个步骤：
-分解：将问题划分为一些子问题，形式一样，规模更小
-解决：步骤递归的求解出子问题，如果子问题够小，则停止递归
-合并：步骤将子问题的解组成原问题的解
-4.1 最大子数组问题 问题：我们获得一个数组，需要得到其中最大的子数组
-将问题分解，得到三个子问题：
- 最大子数组位于 left 到mid 之间 最大子数组在mid+1到right之间 最大子数组跨越了mid  在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$O(n)$的算法来计算跨越中点的子数组。
-void find_max_crossing_subarray(int A[],int low,int mid,int high ,int &amp;amp;max_left,int &amp;amp;max_right,int &amp;amp;sum_max){ int left_sum = -1000000; int sum = 0; max_left = 0; for(int i=mid;i&amp;gt;low;i--){ sum = sum + A[i]; if(sum &amp;gt; left_sum){ left_sum = sum; max_left = i; } } int right_sum = -1000000; for(int j=mid;j&amp;lt;high;j++){ sum = sum+A[j]; if(sum &amp;gt; right_sum){ right_sum = sum; max_right = j; } } sum_max = right_sum + left_sum; }  我们有了一个线性的计算跨越中点的最大子数组的算法，我们很容易的得到寻找整个子数组的算法。</description>
+      <description>&lt;h1 id=&#34;分治策略&#34;&gt;分治策略&lt;/h1&gt;
+
+&lt;p&gt;在分治策略中，我们在每层递归应用了如下三个步骤：&lt;/p&gt;
+
+&lt;p&gt;分解(divide)：将问题划分为一些子问题，形式一样，规模更小&lt;/p&gt;
+
+&lt;p&gt;解决(conquer) ：步骤递归的求解出子问题，如果子问题够小，则停止递归&lt;/p&gt;
+
+&lt;p&gt;合并：步骤将子问题的解组成原问题的解&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

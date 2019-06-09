@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Apr 23, 2019 00:00
-                    · 199 words
-                    · 1 minute read
+                    · 491 words
+                    · 3 minute read
                       <span class="tags">
                       
                       </span>
@@ -126,6 +126,7 @@ code.has-jax {
 <ul>
 <li><a href="#4-1-最大子数组问题">4.1 最大子数组问题</a></li>
 <li><a href="#4-2-矩阵乘法的strassen算法">4.2 矩阵乘法的STRASSEN算法</a></li>
+<li><a href="#求解递归式的三种方法">求解递归式的三种方法</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -134,17 +135,17 @@ code.has-jax {
                   
                 
                 <section id="post-body">
-                    
-
-<h1 id="分治策略">分治策略</h1>
+                    <h1 id="分治策略">分治策略</h1>
 
 <p>在分治策略中，我们在每层递归应用了如下三个步骤：</p>
 
-<p>分解：将问题划分为一些子问题，形式一样，规模更小</p>
+<p>分解(divide)：将问题划分为一些子问题，形式一样，规模更小</p>
 
-<p>解决：步骤递归的求解出子问题，如果子问题够小，则停止递归</p>
+<p>解决(conquer) ：步骤递归的求解出子问题，如果子问题够小，则停止递归</p>
 
 <p>合并：步骤将子问题的解组成原问题的解</p>
+
+<p></p>
 
 <h3 id="4-1-最大子数组问题">4.1 最大子数组问题</h3>
 
@@ -226,12 +227,113 @@ code.has-jax {
 
 <p>对于矩阵乘法，我们知道</p>
 
-<p>若 $ A=(a<em>{ij}) $和 $ B = (b</em>{ij})$ 是 $ n*n $的矩阵，对于$C = A*B$我们有</p>
+<p>若 $ A=(a<em>{ij}) $和 $ B = (b</em>{ij})$ 是 $ n*n $的矩阵，对于$C = A*B​$我们有</p>
 
 <p>​                       $$ c<em>{ij} = \sum^n</em>{k=i}a<em>{ik}*b</em>{kj} $$</p>
 
-<p>也就是说我们对于两个$n*n$的矩阵，需要计算$n^3$次</p>
+<p>也就是说我们对于两个$n*n$的矩阵，需要计算$n^3$次, 但是著名的STRASSEN公式，可以将算法的时间复杂度降低至$n^{log7}$ 所以相比于普通的矩阵乘法算法，其渐进复杂度比较优于简单的递归过程。</p>
 
+<p>我们首先来分析简单的分支算法，我们将A，B，C均分为4个$n/2*n/2$ 的子矩阵，这样我们可以得到$C = A \cdot B$：</p>
+
+<p>​               $$C = \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} , A = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} , B = \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}​$$</p>
+
+<p>​</p>
+
+<p>​                   $$\Rightarrow  \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} \cdot \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}$$</p>
+
+<p>​                       $$C<em>{11} = A</em>{11} \cdot B<em>{11} + A</em>{12}\cdot B_{21}$$</p>
+
+<p>​                       $$ … ​$$</p>
+
+<p>由此，我们可以根据上面的式子来写出简单的分支算法来计算矩阵的乘法：</p>
+
+<pre><code>function square_matrix:
+n = A.rows
+let c be a new n*n matrix
+if n == 1:
+	c11 = a11*b11
+else:
+	c11 = square_matrix(a11,b11) + square_matrix(a12,b21)
+	c12 = square_matrix(a11,b12) + square_matrix(a12,b22)
+	c21 = square_matrix(a21,b11) + square_matrix(a22,b21)
+	c22 = square_matrix(a21,b12) + square_matrix(a22,b22)
+return c
+</code></pre>
+
+<p>令$T(n)$作为计算两个n*n矩阵的时间，对于n=1的情况，我们可以得到$T(n) = \theta(1)$</p>
+
+<p>当$n &gt; 1$时，需要进行递归分析。在7～10行，进行了8次递归运算，第6行通过下标运算对矩阵进行分割，时间之和为：$T(n) = \theta(1) + 8T(n/2)+\theta(n^2)$</p>
+
+<p>对于STRASSEN算法，我们尽量减少$T(n/2)$的常数项，（我也不知道是怎么得出来的结论），不需要经过8次递归每次只需要7次递归即可完成矩阵的乘法运算。</p>
+
+<pre><code>function strassen():
+n = A.rows
+let c be a new n*n matrix
+if n == 1:
+	c11 = a11*b11
+else:
+	//创建10个不同的矩阵，用于计算下面的P
+	s1 = b12 - b22
+	s2 = a11 + a12
+	s3 = a21 + a22
+	s4 = b21 - b11
+	s5 = a11 + a22
+	s6 = b11 + b22
+	s7 = a12 - a22
+	s8 = b21 + b22
+	s9 = a11 - a21
+	s10 = b11 + b12
+	
+	//继而根据s矩阵计算p矩阵
+	p1 = a11*s1
+	p2 = s2*b22
+	p3 = s3*b11
+	p4 = a22*s4
+	p5 = s5*s6
+	p6 = s7*s8
+	p7 = s9*s10
+	//通过p计算c的子矩阵
+	c11 = p5+p4-p2+p6
+	c12 = p1+p2
+	c21 = p3+p4
+	c22 = p5+p1-p3-p7
+
+return c
+</code></pre>
+
+<p>我们可以看到，在计算s矩阵以及c矩阵，只是进行了矩阵加法，而在计算p矩阵时，是递归时间复杂度，对总的时间复杂度的时间贡献为$7T(n/2)$ 所以，STRASSEN算法的总时间复杂度为：</p>
+
+<p>$$T(n) = 7T(n/2) + \theta(n^2)$$</p>
+
+<p>同简单的分治法相比减少了一次递归的时间。</p>
+
+<h3 id="求解递归式的三种方法">求解递归式的三种方法</h3>
+
+<ol>
+<li>代入式</li>
+</ol>
+
+<p>需要对递归式的结果进行猜解，计算其上界或者下界，对猜解的值进行带入。</p>
+
+<p>猜解时比较困难，可以通过递归树或者逐渐缩小不确定位置来对结果进行计算。（具体的懒得写了，大概就是通过猜来计算时间复杂度）</p>
+
+<ol>
+<li>递归树方式</li>
+</ol>
+
+<p>在递归树中，每一个递归节点代表单一子问题的规模，将每层所有代价求和，从而得到所有式子的代价总和。</p>
+
+<p>例如，我们计算$T(n) = 3T(n/4) + cn^2$的复杂度：</p>
+
+<p>通过T（n）我们可以得到</p>
+
+<p><img src="/Users/ralph/Desktop/blog/content/posts/assets/0111CAFC-B0A9-4703-8CAE-448760F48E65.png" alt="0111CAFC-B0A9-4703-8CAE-448760F48E65" /></p>
+
+<p>将所有层次的所有代价相加，即可得到$T(n)$</p>
+
+<p>$$T(n) = cn^2 + 3/16cn^2 + … + (<sup>3</sup>&frasl;<sub>16</sub>)^{log_{4}{n-1}} + \theta(n^{log_43}) $$</p>
+
+<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$T(n) = 16/13cn^2 + \theta(n^log_43) = O(n^2)$$</p>
                 </section>
             </article>
 
