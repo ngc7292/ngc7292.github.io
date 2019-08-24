@@ -13,8 +13,8 @@
     
   
   
-  <meta name="twitter:title" content="vue-learning"/>
-  <meta name="twitter:description" content="vue learing by ngc7293"/>
+  <meta name="twitter:title" content="vue 学习笔记啊"/>
+  <meta name="twitter:description" content=" vue learn    v-if, v-else-if, v-else 没有 有条件的渲染 &lt;g v-if=&quot;flourish === &#39;A&#39;&quot;&gt;&lt;/g&gt;&lt;g v-else-if=&quot;flourish === &#39;B&#39;&quot;&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;     v-bind ： 动态绑定属性，或传递道具 &lt;div :style=&quot;{ background: color }&quot;&gt;&lt;/div&gt;   v-on @ 将事件侦听器附加到元素 &lt;button @click=&quot;fnName&quot;&gt;&lt;/button&gt;   v-model 没有 创建双向绑定 &lt;textarea rows=&quot;5&quot; v-model=&quot;message&quot; maxlength=&quot;72&quot;&gt;&lt;/textarea&gt;   v-pre 没有 跳过编译原始内容，可以提高性能 &lt;div v-pre&gt;{{ raw content with no methods}}&lt;/div&gt;   v-once 没有 不要退缩 &lt;div class=”v-once”&gt;Keep me from rerendering&lt;/div&gt;   v-show 没有 将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同） &lt;child v-show=”showComponent”&gt;&lt;/child&gt;（当showComponent为true时切换可见性）    "/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -29,8 +29,8 @@
 		
 		<meta name="author" content="ngc7293">
 		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title>vue-learning &middot; ngc7293&#39;s blog</title>
+		<meta name="generator" content="Hugo 0.42.2" />
+		<title>vue 学习笔记啊 &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
@@ -104,19 +104,17 @@ code.has-jax {
             <article>
                 <header>
                     <h1>
-                        vue-learning
+                        vue 学习笔记啊
                     </h1>
                     <h2 class="headline">
-                    Oct 3, 2018 00:00
-                    · 6 words
+                    Aug 13, 2019 00:00
+                    · 58 words
                     · 1 minute read
                       <span class="tags">
                       
                       
                           
-                              <a href="https://ngc7292.github.io/tags/javascript">javascript</a>
-                          
-                              <a href="https://ngc7292.github.io/tags/vue.js">vue.js</a>
+                              <a href="https://ngc7292.github.io/tags/vue">vue</a>
                           
                       
                       
@@ -125,20 +123,80 @@ code.has-jax {
                 </header>
                 
                   
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#vue-learn">vue learn</a></li>
+</ul>
+</nav>
+                    </div>
+                  
                 
                 <section id="post-body">
-                    <p>暑假里我好像准备写一个关于地图的app但是在学习了vue之后发现我并不需要给后台，单靠前端就可以画一个很好看的app。</p>
+                    
 
-<p></p>
+<h1 id="vue-learn">vue learn</h1>
 
-<p>原本是想django做back end 然后vue做front end，但是发现并不需要这么麻烦，但是我的js还不是特别的熟练，所以在很多方面，概念，以及编码方式我都不是很熟悉，所以，导致我学习vue的道路异常曲折。</p>
+<table>
+<thead>
+<tr>
+<th><code>v-if, v-else-if, v-else</code></th>
+<th>没有</th>
+<th>有条件的渲染</th>
+<th><code>&lt;g v-if=&quot;flourish === 'A'&quot;&gt;&lt;/g&gt;&lt;g v-else-if=&quot;flourish === 'B'&quot;&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;</code></th>
+</tr>
+</thead>
 
-<p>首先这个app是这样子的，给定城市，然后画一下整个城市的一个地图，所以就需要提交表单以及vuex来对整个app的数据进行管理，在另一方面，还用到echarts进行绘制，用vue-router进行管理app，其实逻辑并不复杂，如果用单文件的话很容易，所以现在webpack+vue+vuex+echarts已经这么我很长时间了，23333.</p>
+<tbody>
+<tr>
+<td><code>v-bind</code></td>
+<td>：</td>
+<td>动态绑定属性，或传递道具</td>
+<td><code>&lt;div :style=&quot;{ background: color }&quot;&gt;&lt;/div&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>v-on</code></td>
+<td>@</td>
+<td>将事件侦听器附加到元素</td>
+<td><code>&lt;button @click=&quot;fnName&quot;&gt;&lt;/button&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>v-model</code></td>
+<td>没有</td>
+<td>创建双向绑定</td>
+<td><code>&lt;textarea rows=&quot;5&quot; v-model=&quot;message&quot; maxlength=&quot;72&quot;&gt;&lt;/textarea&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>v-pre</code></td>
+<td>没有</td>
+<td>跳过编译原始内容，可以提高性能</td>
+<td><code>&lt;div v-pre&gt;{{ raw content with no methods}}&lt;/div&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>v-once</code></td>
+<td>没有</td>
+<td>不要退缩</td>
+<td><code>&lt;div class=”v-once”&gt;Keep me from rerendering&lt;/div&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>v-show</code></td>
+<td>没有</td>
+<td>将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同）</td>
+<td><code>&lt;child v-show=”showComponent”&gt;&lt;/child&gt;</code>（当showComponent为true时切换可见性）</td>
+</tr>
+</tbody>
+</table>
+
                 </section>
             </article>
 
             
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fvue_learn%2f - vue%20learing%20by%20ngc7293 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fvue_learn%2f - vue_learn by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
@@ -193,7 +251,7 @@ code.has-jax {
     
     <p class="small">
     
-       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
     <p class="small">
@@ -213,13 +271,16 @@ code.has-jax {
 
   
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/vue/</link>
+    <description>Recent content in Vue on ngc7293&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ngc7292.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vue 学习笔记啊</title>
+      <link>https://ngc7292.github.io/posts/vue_learn/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/vue_learn/</guid>
+      <description> vue learn    v-if, v-else-if, v-else 没有 有条件的渲染 &amp;lt;g v-if=&amp;quot;flourish === &#39;A&#39;&amp;quot;&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g v-else-if=&amp;quot;flourish === &#39;B&#39;&amp;quot;&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g v-else&amp;gt;&amp;lt;/g&amp;gt;     v-bind ： 动态绑定属性，或传递道具 &amp;lt;div :style=&amp;quot;{ background: color }&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;   v-on @ 将事件侦听器附加到元素 &amp;lt;button @click=&amp;quot;fnName&amp;quot;&amp;gt;&amp;lt;/button&amp;gt;   v-model 没有 创建双向绑定 &amp;lt;textarea rows=&amp;quot;5&amp;quot; v-model=&amp;quot;message&amp;quot; maxlength=&amp;quot;72&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;   v-pre 没有 跳过编译原始内容，可以提高性能 &amp;lt;div v-pre&amp;gt;{{ raw content with no methods}}&amp;lt;/div&amp;gt;   v-once 没有 不要退缩 &amp;lt;div class=”v-once”&amp;gt;Keep me from rerendering&amp;lt;/div&amp;gt;   v-show 没有 将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同） &amp;lt;child v-show=”showComponent”&amp;gt;&amp;lt;/child&amp;gt;（当showComponent为true时切换可见性）    </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -108,7 +108,7 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Apr 23, 2019 00:00
-                    · 491 words
+                    · 490 words
                     · 3 minute read
                       <span class="tags">
                       
@@ -329,11 +329,9 @@ return c
 
 <p><img src="/Users/ralph/Desktop/blog/content/posts/assets/0111CAFC-B0A9-4703-8CAE-448760F48E65.png" alt="0111CAFC-B0A9-4703-8CAE-448760F48E65" /></p>
 
-<p>将所有层次的所有代价相加，即可得到$T(n)$</p>
+<p>将所有层次的所有代价相加，即可得到$T(n) = cn^2 + 3/16cn^2 + … + (<sup>3</sup>&frasl;<sub>16</sub>)^{log_{4}{n-1}} + \theta(n^{log_43}) $$</p>
 
-<p>$$T(n) = cn^2 + 3/16cn^2 + … + (<sup>3</sup>&frasl;<sub>16</sub>)^{log_{4}{n-1}} + \theta(n^{log_43}) $$</p>
-
-<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$T(n) = 16/13cn^2 + \theta(n^log_43) = O(n^2)$$</p>
+<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$T(n) = 16/13cn^2 + \theta(n^log_43) = O(n^2)​$$</p>
                 </section>
             </article>
 

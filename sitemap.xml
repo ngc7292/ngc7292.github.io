@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ngc7292.github.io/posts/cskaoyan/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <loc>https://ngc7292.github.io/posts/vue_learn/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -45,11 +45,6 @@
   <url>
     <loc>https://ngc7292.github.io/posts/data_structures/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts/basic_calculus/</loc>
-    <lastmod>2018-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -128,6 +123,14 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/posts/cskaoyan/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/wenban/</loc>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/tags/algorithm/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -147,12 +150,6 @@
   <url>
     <loc>https://ngc7292.github.io/tags/convolution/</loc>
     <lastmod>2018-10-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/cskaoyan/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -187,12 +184,6 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/math/</loc>
-    <lastmod>2018-11-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ngc7292.github.io/tags/mechine-learning/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -200,7 +191,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -217,8 +208,14 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/tags/vue/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
