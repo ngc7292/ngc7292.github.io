@@ -6,18 +6,22 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>vue 学习笔记啊</title>
-      <link>https://ngc7292.github.io/posts/vue_learn/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      <title>cskaoyan</title>
+      <link>https://ngc7292.github.io/posts/cskaoyan/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/posts/vue_learn/</guid>
-      <description> vue learn    v-if, v-else-if, v-else 没有 有条件的渲染 &amp;lt;g v-if=&amp;quot;flourish === &#39;A&#39;&amp;quot;&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g v-else-if=&amp;quot;flourish === &#39;B&#39;&amp;quot;&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g v-else&amp;gt;&amp;lt;/g&amp;gt;     v-bind ： 动态绑定属性，或传递道具 &amp;lt;div :style=&amp;quot;{ background: color }&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;   v-on @ 将事件侦听器附加到元素 &amp;lt;button @click=&amp;quot;fnName&amp;quot;&amp;gt;&amp;lt;/button&amp;gt;   v-model 没有 创建双向绑定 &amp;lt;textarea rows=&amp;quot;5&amp;quot; v-model=&amp;quot;message&amp;quot; maxlength=&amp;quot;72&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;   v-pre 没有 跳过编译原始内容，可以提高性能 &amp;lt;div v-pre&amp;gt;{{ raw content with no methods}}&amp;lt;/div&amp;gt;   v-once 没有 不要退缩 &amp;lt;div class=”v-once”&amp;gt;Keep me from rerendering&amp;lt;/div&amp;gt;   v-show 没有 将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同） &amp;lt;child v-show=”showComponent”&amp;gt;&amp;lt;/child&amp;gt;（当showComponent为true时切换可见性）    </description>
+      <guid>https://ngc7292.github.io/posts/cskaoyan/</guid>
+      <description>&lt;h1 id=&#34;考研部分资料汇总&#34;&gt;考研部分资料汇总&lt;/h1&gt;
+
+&lt;p&gt;因为自身菜素太多找不到工作，只能考个研维持生活这个样子，目标院校是复旦，把备考时买的资料放在这里整理一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,10 +35,6 @@
 &lt;p&gt;在分治策略中，我们在每层递归应用了如下三个步骤：&lt;/p&gt;
 
 &lt;p&gt;分解(divide)：将问题划分为一些子问题，形式一样，规模更小&lt;/p&gt;
-
-&lt;p&gt;解决(conquer) ：步骤递归的求解出子问题，如果子问题够小，则停止递归&lt;/p&gt;
-
-&lt;p&gt;合并：步骤将子问题的解组成原问题的解&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -278,19 +278,6 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-database/</guid>
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ngc7292.github.io/posts/cskaoyan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/cskaoyan/</guid>
-      <description>&lt;h1 id=&#34;考研部分资料汇总&#34;&gt;考研部分资料汇总&lt;/h1&gt;
-
-&lt;p&gt;因为自身菜素太多找不到工作，只能考个研维持生活这个样子，目标院校是复旦，把备考时买的资料放在这里整理一下。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
