@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Feb 1, 2019 00:00
-                    · 5224 words
-                    · 25 minute read
+                    · 5639 words
+                    · 27 minute read
                       <span class="tags">
                       
                       
@@ -1686,6 +1686,181 @@ int main() {
     return 0;
 }
 </code></pre>
+
+<p>数字黑洞 可能会有3个数字的，需要先填数字再判断。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+using namespace std;
+
+bool sort_function(char s1,char s2) { return s1&gt;s2; }
+bool rever_function(char s1, char s2) { return s1&lt;s2; }
+
+
+int s_to_n(string s){
+    int res = 0;
+    for (int i = 0; i &lt; 4; ++i) {
+        res += (s[i]-'0')*pow(10,3-i);
+    }
+    return res;
+}
+
+string n_to_s(int n){
+    string res=&quot;0000&quot;;
+    for (int i = 0; i &lt; 4; ++i) {
+        res[i] = static_cast&lt;char&gt;('0' + n / pow(10, 3 - i));
+        n = n % int(pow(10,3-i));
+    }
+    return res;
+}
+
+string function1(string s){
+    string res,temp = s;
+    sort(s.begin(),s.end(),sort_function);
+    sort(temp.begin(),temp.end(),rever_function);
+
+    cout&lt;&lt;s&lt;&lt;&quot; - &quot;&lt;&lt;temp;
+    res = n_to_s(s_to_n(s) - s_to_n(temp));
+    cout&lt;&lt;&quot; = &quot;&lt;&lt;res;
+    return res;
+
+}
+int main() {
+
+    string n;
+    cin&gt;&gt;n;
+    while(n.size() != 4){
+        n += &quot;0&quot;;
+    }
+    n = function1(n);
+    if(n != &quot;6174&quot; &amp;&amp; n!= &quot;0000&quot;){
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    while(n != &quot;0000&quot; &amp;&amp; n!= &quot;6174&quot;){
+        n = function1(n);
+        if(n != &quot;6174&quot; &amp;&amp; n!= &quot;0000&quot;)
+            cout&lt;&lt;&quot;\n&quot;;
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>忘记吧max值为-1了，好彩</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+bool check_out(char c){
+    if(c &lt;= 'z' &amp;&amp; c &gt;= 'a') return true;
+    if(c &lt;= 'Z' &amp;&amp; c &gt;= 'A') return true;
+    if(c &lt;= '9' &amp;&amp; c &gt;= '0') return true;
+    return false;
+}
+
+int main(){
+    string s;
+    map&lt;string,int&gt; str_map;
+    getline(cin,s);
+
+    int i = 0,str_length = s.length();
+    while (i&lt;str_length){
+        string word;
+        bool flag = true;
+        if(check_out(s[i])) {
+            while (i &lt; str_length &amp;&amp; check_out(s[i])) {
+
+                word += tolower(s[i]);
+                i++;
+            }
+
+            if (str_map.find(word) == str_map.end()) {
+                str_map[word] = 1;
+            } else {
+                str_map[word]++;
+            }
+        }
+        i++;
+    }
+
+    int max=-1;
+    string max_str;
+    for (auto a:str_map) {
+        if(a.second &gt; max){
+            max = a.second;
+            max_str = a.first;
+        }
+    }
+
+    cout&lt;&lt;max_str&lt;&lt;&quot; &quot;&lt;&lt;max;
+
+    return 0;
+}
+
+
+</code></pre>
+
+<p>1074 Reversing Linked List (25 分)</p>
+
+<pre><code class="language-c++">
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+ 
+ 
+int node[100002][2];
+ 
+int main()
+{
+	int list[100002];
+	int i;
+	int st, k;
+	int n;
+	cin &gt;&gt; st &gt;&gt; n &gt;&gt; k;
+	for (i = 0; i&lt;n; i++)
+	{
+		int add, data, next;
+		cin &gt;&gt; add &gt;&gt; data &gt;&gt; next;
+		node[add][0] = data;
+		node[add][1] = next;
+	}
+	int cnt = 0;
+	int cur = st;
+	while (cur != -1)
+	{
+		list[cnt++] = cur;
+		cur = node[cur][1];
+	}
+	
+	i = 0;
+	while (i + k &lt;= cnt)
+	{
+		reverse(list + i, list + i + k);
+		i += k;
+	}
+	for (i = 0; i &lt; cnt - 1; i++)
+	{
+		printf(&quot;%05d %d %05d\n&quot;, list[i], node[list[i]][0], list[i+1]);
+	}
+	printf(&quot;%05d %d -1\n&quot;, list[i], node[list[i]][0]);
+	return 0;
+}
+</code></pre>
+
+<p>每k个都要转置一下啊啊啊啊啊。</p>
                 </section>
             </article>
 
