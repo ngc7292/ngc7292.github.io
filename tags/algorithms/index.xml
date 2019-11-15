@@ -6,10 +6,21 @@
     <description>Recent content in Algorithms on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>stego_with_gncnn</title>
+      <link>https://ngc7292.github.io/posts/stego_and_gsgan/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/stego_and_gsgan/</guid>
+      <description>&lt;p&gt;目前的隐写分析研究领域通常将隐写分析看成一个二分类问题，目标是区分正常载体和含密载体。虽然人类感知器官无法进行区分，研究者可以借助机器学习、模式识别等工具，并通过对图像统计特性进行分析来实现有效判别。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>

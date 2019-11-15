@@ -6,20 +6,18 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>cskaoyan</title>
-      <link>https://ngc7292.github.io/posts/cskaoyan/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <title>stego_with_gncnn</title>
+      <link>https://ngc7292.github.io/posts/stego_and_gsgan/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/posts/cskaoyan/</guid>
-      <description>&lt;h1 id=&#34;考研部分资料汇总&#34;&gt;考研部分资料汇总&lt;/h1&gt;
-
-&lt;p&gt;因为自身菜素太多找不到工作，只能考个研维持生活这个样子，目标院校是复旦，把备考时买的资料放在这里整理一下。&lt;/p&gt;
+      <guid>https://ngc7292.github.io/posts/stego_and_gsgan/</guid>
+      <description>&lt;p&gt;目前的隐写分析研究领域通常将隐写分析看成一个二分类问题，目标是区分正常载体和含密载体。虽然人类感知器官无法进行区分，研究者可以借助机器学习、模式识别等工具，并通过对图像统计特性进行分析来实现有效判别。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -120,17 +118,6 @@
       
       <guid>https://ngc7292.github.io/posts/data_structures/</guid>
       <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>the sample solution of convolution function</title>
-      <link>https://ngc7292.github.io/posts/convolution/</link>
-      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/convolution/</guid>
-      <description>&lt;p&gt;信号与系统预习，要期末考试了，把要考到的点预习一下。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -256,17 +243,6 @@
       <description>&lt;h1 id=&#34;shapley合作对策&#34;&gt;shapley合作对策&lt;/h1&gt;
 
 &lt;p&gt;shapley值作为一种利益分配算法，考虑到了所有的人对总目标的贡献程度，避免分配上的平均主义，但是，首先需要对其中所有成员的组合利益有着较为准确的预期，每个参与者在参与的时候每个组合的贡献都会影响到最后的输出结果，对于总效益不确定的情况下可以采用AHP法，ANP法以及模糊数学等方法来估算个联盟之间的可能效用值，再进行具体利益上的分配。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>hgame_week4</title>
-      <link>https://ngc7292.github.io/posts/misc/</link>
-      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/misc/</guid>
-      <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
