@@ -6,10 +6,46 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/p/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/p/</guid>
+      <description>习近平新时代中国特色社会主义思想 八个明确 十四个坚持 ​ 党对一切工作的领导以人民为中心
+​ 人民民主专政
+​ 全面深化改革
+​ 新发展理念
+​ 依法治国
+​ 从严治党
+​ 生态文明建设
+​ 社会主义核心价值体系
+​ 在发展中保障和改善民生
+​ 总体国家安全观
+​ 党对军队的绝对领导
+​ 一国两制推进国家统一
+​ 推动构建人类命运共同体
+五位一体总体布局 经济 ​ 新发展理念
+​ 供给侧结构性改革
+​ 现代化经济体系
+​ 创新是现代化经济体系的战略支撑
+​ 乡村振兴战略
+​ 首要任务是推进农业供给侧结构性改革
+​ 做好三农工作的总抓手是实施乡村振兴战略
+​ 坚持农业农村有限发展是实施乡村振兴战略的总方针
+​ 农业农村现代化是总目标
+​ 产业兴旺 生态宜居 乡风文明 治理有效 生活富裕是总要求
+​
+​
+政治 ​ 走中国特色社会主义政治发展道路，必须坚持党的领导，人民当家做主，依法治国有机统一。
+​ 中国特色社会主义国家制度和法律制度的优势在于坚持党的领导，坚持人民当家做主，坚持全面依法治国，坚持实行民主集中制
+​ 中特制度优势在于1. 有效保证人民享有更加广泛，更加充实的权利和自由 2. 有效调节国家政治关系 3. 集中力量办大事 4.</description>
+    </item>
     
     <item>
       <title>stego_with_gncnn</title>
@@ -235,19 +271,6 @@
     </item>
     
     <item>
-      <title>shapley合作对策</title>
-      <link>https://ngc7292.github.io/posts/shapley/</link>
-      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/shapley/</guid>
-      <description>&lt;h1 id=&#34;shapley合作对策&#34;&gt;shapley合作对策&lt;/h1&gt;
-
-&lt;p&gt;shapley值作为一种利益分配算法，考虑到了所有的人对总目标的贡献程度，避免分配上的平均主义，但是，首先需要对其中所有成员的组合利益有着较为准确的预期，每个参与者在参与的时候每个组合的贡献都会影响到最后的输出结果，对于总效益不确定的情况下可以采用AHP法，ANP法以及模糊数学等方法来估算个联盟之间的可能效用值，再进行具体利益上的分配。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>leetcode database刷题记录</title>
       <link>https://ngc7292.github.io/posts/leetcode-database/</link>
       <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
@@ -256,20 +279,6 @@
       <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ngc7292.github.io/posts/wenban/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/wenban/</guid>
-      <description>文本分类 教师：邱锡鹏 微博：@邱锡鹏
-版权声明：本文为复旦nlp组施展根据课堂内容整理的原创文章，转载请注明出处。
-1 文本分类任务简介 ​ 在有监督学习中,需要提供一组有类别标记的样本用来学习模型以及检验模型的好 坏。这组样本集合就称为数据集。数据集用 $X$ 表示,$X = {(x^1 , y^1 ), · · · , (x^N , y^N )}$,N 为 样本个数。$y^i$ 为样本实例 $x^i$ 的类别标记。在自然语言处理中,数据集也经常称为语料库。
-其中$x^i$的为一组文本，$y^i$可以是一组标签如词性，也可以是一个标签如文本的类别 $$ x^i = (w_1&amp;hellip;w_t&amp;hellip;w_T)\ y^i=(p_1&amp;hellip;p_t&amp;hellip;p_T) $$ 使用机器学习方法－即找到这样一个映射f， 使得$x^{i}-&amp;gt;y^{i}$
-2 向量化 ​ 在机器学习算法中,样本实例一般是以连续变量或离散变量的形式存在的(也称为 特征),而在自然语言处理中一般都是文字形式。因此,在进行学习模型之前,需要进行 特征提取,将样本的原始表示转换为特征向量。
-​ 在机器学习中,为了更好地表示样本的属性,一般将样本表示成代数形式,称为样 本的特征,我们用$\phi(x)$。样本特征可以是一维或多维向量,$\phi(x) ∈ R_m,m$是向量维数。 $$ \phi(x) = \left( \begin{array} {ccc} \phi_1(x) \ \phi_2 (x) \ .\ .\ \phi_m(x) \end{array} \right) $$ 自然语言处理中,数据都是以字符形式存在的。样本的原始表示一般是字符串序 列。为了便于使用机器学习方法,首先要把样本表示为向量形式。下面我们介绍几种常 用的特征表示方法。自然语言处理的,在构造了样本和样本集合之后,为了和后面的机 器学习算法相结合,我们将样本x 转变成向量φ(x)。在将字符表示转换成向量表示的过 程中需要很多中间步骤,我们把这些中间步骤都成为数据处理,并且尽可能的模块化。</description>
     </item>
     
   </channel>
