@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Dec 26, 2019 00:00
-                    · 3064 words
-                    · 15 minute read
+                    · 3827 words
+                    · 18 minute read
                       <span class="tags">
                       
                       
@@ -139,6 +139,8 @@ code.has-jax {
 <li><a href="#1001-a-b-format-20分">1001 A+B Format (20分)</a></li>
 <li><a href="#1008-elevator-20分">1008 Elevator (20分)</a></li>
 <li><a href="#1009-product-of-polynomials-25分">1009 Product of Polynomials (25分)</a></li>
+<li><a href="#1012-the-best-rank-25分">1012 The Best Rank (25分)</a></li>
+<li><a href="#1015-reversible-primes-20分">1015 Reversible Primes (20分)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -871,6 +873,63 @@ int main() {
 
 </code></pre>
 
+<h4 id="1012-the-best-rank-25分">1012 The Best Rank (25分)</h4>
+
+<p>To evaluate the performance of our first year CS majored students, we consider their grades of three courses only: <code>C</code> - C Programming Language, <code>M</code> - Mathematics (Calculus or Linear Algrbra), and <code>E</code> - English. At the mean time, we encourage students by emphasizing on their best ranks &ndash; that is, among the four ranks with respect to the three courses and the average grade, we print the best rank for each student.</p>
+
+<p>For example, The grades of <code>C</code>, <code>M</code>, <code>E</code> and <code>A</code> - Average of 4 students are given as the following:</p>
+
+<pre><code>StudentID  C  M  E  A
+310101     98 85 88 90
+310102     70 95 88 84
+310103     82 87 94 88
+310104     91 91 91 91
+
+
+      
+    
+</code></pre>
+
+<p>Then the best ranks for all the students are No.1 since the 1st one has done the best in C Programming Language, while the 2nd one in Mathematics, the 3rd one in English, and the last one in average.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case starts with a line containing 2 numbers <em>N</em> and <em>M</em> (≤2000), which are the total number of students, and the number of students who would check their ranks, respectively. Then <em>N</em> lines follow, each contains a student ID which is a string of 6 digits, followed by the three integer grades (in the range of [0, 100]) of that student in the order of <code>C</code>, <code>M</code> and <code>E</code>. Then there are <em>M</em> lines, each containing a student ID.</p>
+
+<p>Output Specification:</p>
+
+<p>For each of the <em>M</em> students, print in one line the best rank for him/her, and the symbol of the corresponding rank, separated by a space.</p>
+
+<p>The priorities of the ranking methods are ordered as <code>A</code> &gt; <code>C</code> &gt; <code>M</code> &gt; <code>E</code>. Hence if there are two or more ways for a student to obtain the same best rank, output the one with the highest priority.</p>
+
+<p>If a student is not on the grading list, simply output <code>N/A</code>.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">5 6
+310101 98 85 88
+310102 70 95 88
+310103 82 87 94
+310104 91 91 91
+310105 85 90 90
+310101
+310102
+310103
+310104
+310105
+999999
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">1 C
+1 M
+1 E
+1 A
+3 A
+N/A
+</code></pre>
+
 <p>####  1013 Battle Over Cities (25分)</p>
 
 <p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
@@ -950,6 +1009,142 @@ int main() {
 </code></pre>
 
 <p>####</p>
+
+<h4 id="1015-reversible-primes-20分">1015 Reversible Primes (20分)</h4>
+
+<p>A <strong>reversible prime</strong> in any number system is a prime whose &ldquo;reverse&rdquo; in that number system is also a prime. For example in the decimal system 73 is a reversible prime because its reverse 37 is also a prime.</p>
+
+<p>Now given any two positive integers <em>N</em> (&lt;105) and <em>D</em> (1&lt;*D*≤10), you are supposed to tell if <em>N</em> is a reversible prime with radix <em>D</em>.</p>
+
+<p>Input Specification:</p>
+
+<p>The input file consists of several test cases. Each case occupies a line which contains two integers <em>N</em> and <em>D</em>. The input is finished by a negative <em>N</em>.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line <code>Yes</code> if <em>N</em> is a reversible prime with radix <em>D</em>, or <code>No</code> if not.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">73 10
+23 2
+23 10
+-2
+
+
+      
+    
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">Yes
+Yes
+No
+</code></pre>
+
+<p>三天不做题，啥也不会了。</p>
+
+<p>素数筛</p>
+
+<p>可以将所有的合数筛选出来，放入一个布尔列表中，筛选方法如下，将所有素数的倍数都求出来就可以了</p>
+
+<pre><code class="language-c++">void get_prime(){
+    prime[0] = true;
+    prime[1] = true;
+    for (int i = 2; i &lt; sqrt(MAX_N); ++i) {
+        if(prime[i]) {continue;}
+        for (int j = i; j*i &lt; MAX_N; ++j) {
+            prime[i*j] = true;
+        }
+    }
+}
+</code></pre>
+
+<p>进制转换 itoa不知道可不可以，这里通过如下方式进行计算的，直接算出来倒数的n进制表示。</p>
+
+<pre><code class="language-c++">int reverse_number(int number, int radix){
+    string number_s ;
+    while (number &gt; 0){
+        int t = number%radix;
+        number_s += to_string(t);
+        number = number/radix;
+    }
+    int res = 0;
+    int number_s_length = static_cast&lt;int&gt;(number_s.length());
+    for (int i = 0; i &lt; number_s_length; ++i) {
+        res += (number_s[i]-'0')*pow(radix,number_s_length-i-1);
+    }
+    return res;
+}
+</code></pre>
+
+<p>AC code</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;cstring&gt;
+#include &lt;math.h&gt;
+#include &lt;stdlib.h&gt;
+
+
+#define ll long long
+#define MAX_N 100000
+
+using namespace std;
+
+bool prime[MAX_N] = {false};
+
+void get_prime(){
+    prime[0] = true;
+    prime[1] = true;
+    for (int i = 2; i &lt; sqrt(MAX_N); ++i) {
+        if(prime[i]) {continue;}
+        for (int j = i; j*i &lt; MAX_N; ++j) {
+            prime[i*j] = true;
+        }
+    }
+}
+
+int reverse_number(int number, int radix){
+    string number_s ;
+    while (number &gt; 0){
+        int t = number%radix;
+        number_s += to_string(t);
+        number = number/radix;
+    }
+    int res = 0;
+    int number_s_length = static_cast&lt;int&gt;(number_s.length());
+    for (int i = 0; i &lt; number_s_length; ++i) {
+        res += (number_s[i]-'0')*pow(radix,number_s_length-i-1);
+    }
+    return res;
+}
+
+
+int main() {
+    get_prime();
+    int n,d;
+    string res;
+    int flag = 0;
+    while(true){
+        cin&gt;&gt;n;
+        if(n &lt; 0) break;
+        else if (flag == 0) flag = 1;
+        else res += &quot;\n&quot;;
+        cin&gt;&gt;d;
+        int n_r = reverse_number(n,d);
+        if(!prime[n]&amp;&amp;!prime[n_r])
+            res += &quot;Yes&quot;;
+        else res += &quot;No&quot;;
+    }
+    cout&lt;&lt;res;
+    return 0;
+}
+</code></pre>
                 </section>
             </article>
 
@@ -1009,7 +1204,7 @@ int main() {
     
     <p class="small">
     
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
     <p class="small">
