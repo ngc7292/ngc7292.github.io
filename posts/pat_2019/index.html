@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Dec 26, 2019 00:00
-                    · 3827 words
-                    · 18 minute read
+                    · 5561 words
+                    · 27 minute read
                       <span class="tags">
                       
                       
@@ -141,6 +141,10 @@ code.has-jax {
 <li><a href="#1009-product-of-polynomials-25分">1009 Product of Polynomials (25分)</a></li>
 <li><a href="#1012-the-best-rank-25分">1012 The Best Rank (25分)</a></li>
 <li><a href="#1015-reversible-primes-20分">1015 Reversible Primes (20分)</a></li>
+<li><a href="#1017-queueing-at-bank-25分">1017 Queueing at Bank (25分)</a></li>
+<li><a href="#1019-general-palindromic-number-20分">1019 General Palindromic Number (20分)</a></li>
+<li><a href="#1021-deepest-root-25分">1021 Deepest Root (25分)</a></li>
+<li><a href="#1023-have-fun-with-numbers-20分">1023 Have Fun with Numbers (20分)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1008,8 +1012,6 @@ int main() {
 }
 </code></pre>
 
-<p>####</p>
-
 <h4 id="1015-reversible-primes-20分">1015 Reversible Primes (20分)</h4>
 
 <p>A <strong>reversible prime</strong> in any number system is a prime whose &ldquo;reverse&rdquo; in that number system is also a prime. For example in the decimal system 73 is a reversible prime because its reverse 37 is also a prime.</p>
@@ -1142,6 +1144,459 @@ int main() {
         else res += &quot;No&quot;;
     }
     cout&lt;&lt;res;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1017-queueing-at-bank-25分">1017 Queueing at Bank (25分)</h4>
+
+<p>Suppose a bank has <em>K</em> windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. All the customers have to wait in line behind the yellow line, until it is his/her turn to be served and there is a window available. It is assumed that no window can be occupied by a single customer for more than 1 hour.</p>
+
+<p>Now given the arriving time <em>T</em> and the processing time <em>P</em> of each customer, you are supposed to tell the average waiting time of all the customers.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains 2 numbers: <em>N</em> (≤104) - the total number of customers, and <em>K</em> (≤100) - the number of windows. Then <em>N</em> lines follow, each contains 2 times: <code>HH:MM:SS</code> - the arriving time, and <em>P</em> - the processing time in minutes of a customer. Here <code>HH</code> is in the range [00, 23], <code>MM</code> and <code>SS</code> are both in [00, 59]. It is assumed that no two customers arrives at the same time.</p>
+
+<p>Notice that the bank opens from 08:00 to 17:00. Anyone arrives early will have to wait in line till 08:00, and anyone comes too late (at or after 17:00:01) will not be served nor counted into the average.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line the average waiting time of all the customers, in minutes and accurate up to 1 decimal place.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">7 3
+07:55:00 16
+17:00:01 2
+07:59:59 15
+08:01:00 60
+08:00:00 30
+08:00:02 2
+08:03:00 10
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">8.2
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int start_time = 8*60*60;
+int end_time = 17*60*60;
+
+typedef struct node{
+    int time,p_time;
+}node;
+
+bool sort_function(node node1,node node2){ return node1.time&lt;node2.time; }
+
+int get_min(int windows[101],int &amp;min_minute,int k){
+    int res = 0;
+    min_minute = windows[0];
+    for (int i = 1; i &lt; k; ++i) {
+        if(windows[i] &lt; min_minute){
+            min_minute = windows[i];
+            res = i;
+        }
+    }
+    return res;
+}
+
+int main() {
+    int n,k;
+    int h,m,s,p;
+    cin&gt;&gt;n&gt;&gt;k;
+    vector&lt;node&gt; node_list;
+    for (int i = 0; i &lt; n; ++i) {
+        scanf(&quot;%d:%d:%d %d&quot;,&amp;h,&amp;m,&amp;s,&amp;p);
+        node new_node;
+        new_node.time = h*60*60+m*60+s;
+        if (new_node.time &gt; end_time)
+            continue;
+        new_node.p_time = p*60;
+        node_list.push_back(new_node);
+    }
+
+    sort(node_list.begin(),node_list.end(),sort_function);
+
+    double total_wait = 0;
+    int windows[101] = {0};
+    int index = 0;
+    int min_minute = 0;
+    for (int j = 0; j &lt; node_list.size(); ++j) {
+        node costumer = node_list[j];
+        if(costumer.time &lt; start_time){
+            if(min_minute == 0){
+                windows[index] = costumer.p_time + start_time;
+                total_wait += start_time - costumer.time;
+            } else {
+                total_wait += windows[index] - costumer.time;
+                windows[index] = windows[index] + costumer.p_time;
+            }
+        } else {
+            if(min_minute &lt; costumer.time){
+                windows[index] = costumer.time + costumer.p_time;
+            } else{
+                total_wait += windows[index] - costumer.time;
+                windows[index] = windows[index] + costumer.p_time;
+            }
+        }
+        index = get_min(windows,min_minute,k);
+    }
+    printf(&quot;%.1f&quot; ,total_wait/60/node_list.size());
+    return 0;
+}
+</code></pre>
+
+<h4 id="1019-general-palindromic-number-20分">1019 General Palindromic Number (20分)</h4>
+
+<p>A number that will be the same when it is written forwards or backwards is known as a <strong>Palindromic Number</strong>. For example, 1234321 is a palindromic number. All single digit numbers are palindromic numbers.</p>
+
+<p>Although palindromic numbers are most often considered in the decimal system, the concept of palindromicity can be applied to the natural numbers in any numeral system. Consider a number <em>N</em>&gt;0 in base *b*≥2, where it is written in standard notation with <em>k</em>+1 digits *a<strong>i* as ∑<em>i</em>=0<em>k</em>(*a</strong>i<strong>b</strong>i*). Here, as usual, 0≤*a<strong>i*&lt;<em>b</em> for all <em>i</em> and *a</strong>k* is non-zero. Then <em>N</em> is palindromic if and only if *a<strong>i*=*a</strong>k*−<em>i</em> for all <em>i</em>. Zero is written 0 in any base and is also palindromic by definition.</p>
+
+<p>Given any positive decimal integer <em>N</em> and a base <em>b</em>, you are supposed to tell if <em>N</em> is a palindromic number in base <em>b</em>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case consists of two positive numbers <em>N</em> and <em>b</em>, where 0&lt;*N*≤109 is the decimal number and 2≤*b*≤109 is the base. The numbers are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print in one line <code>Yes</code> if <em>N</em> is a palindromic number in base <em>b</em>, or <code>No</code> if not. Then in the next line, print <em>N</em> as the number in base <em>b</em> in the form &ldquo;*a<strong>k* *a</strong>k*−1 &hellip; *a*0&rdquo;. Notice that there must be no extra space at the end of output.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">27 2
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">Yes
+1 1 0 1 1
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">121 5
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">No
+4 4 1
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+string get_num(int number,int base){
+    string res = &quot;&quot;;
+    if(number == 0) return &quot;0&quot;;
+    while (number != 0){
+        res += to_string(number%base);
+        number = number/base;
+    }
+    return res;
+}
+
+int main() {
+    int num,base;
+    cin&gt;&gt;num&gt;&gt;base;
+    string res = get_num(num,base);
+    string res_r = res;
+    reverse(res.begin(),res.end( ));
+
+    
+    if(res != res_r){
+        cout&lt;&lt;&quot;No\n&quot;;
+    } else{
+        cout&lt;&lt;&quot;Yes\n&quot;;
+    }
+
+    for (int i = res.length()-1; i &gt;= 0 ; --i) {
+        cout&lt;&lt;res_r[i];
+        if(i != 0) cout&lt;&lt;&quot; &quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1021-deepest-root-25分">1021 Deepest Root (25分)</h4>
+
+<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤104) which is the number of nodes, and hence the nodes are numbered from 1 to <em>N</em>. Then *N*−1 lines follow, each describes an edge by given the two adjacent nodes&rsquo; numbers.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print <code>Error: K components</code> where <code>K</code> is the number of connected components in the graph.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">5
+1 2
+1 3
+1 4
+2 5
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">3
+4
+5
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">5
+1 3
+1 4
+2 5
+3 4
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">Error: 2 components
+</code></pre>
+
+<p>采用邻接矩阵的dfs方法好像有个点过不去，不知道是我写的原因还是因为算法自身的缺陷。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int graph[10001][10001] = {0};
+int sum;
+
+int dfs(int i,int visit[10001],int hight){
+    visit[i] = 1;
+    int max_hight = hight;
+    for (int j = 1; j &lt;= sum ; ++j) {
+        if(graph[i][j] == 1 &amp;&amp; visit[j] == 0){
+            int p_hight = dfs(j,visit,hight+1);
+            max_hight = p_hight &gt; max_hight?p_hight:max_hight;
+        }
+    }
+    return max_hight;
+}
+
+int get_max_hight(int i,int &amp;num){
+   int visit[10001] = {0};
+   num = 1;
+   int hight = dfs(i,visit,0);
+   for (int j = 1; j &lt;= sum; ++j) {
+       if (visit[j] == 1)
+           continue;
+       else{
+           num++;
+           dfs(j,visit,0);
+       }
+   }
+   return hight;
+}
+
+int main() {
+    cin&gt;&gt;sum;
+    int a,b;
+    for (int i = 0; i &lt; sum - 1; ++i) {
+        cin&gt;&gt;a&gt;&gt;b;
+        graph[a][b] = 1;
+        graph[b][a] = 1;
+    }
+    int num;
+    int max_hight = 0;
+    vector&lt;int&gt; res;
+    int hight = 0 ;
+    for (int j = 1; j &lt;= sum; ++j) {
+        hight = get_max_hight(j,num);
+        if(num != 1){
+            cout&lt;&lt;&quot;Error: &quot;&lt;&lt;num&lt;&lt;&quot; components&quot;;
+            return 0;
+        }
+        if(hight &gt; max_hight){
+            res.clear();
+            max_hight = hight;
+            res.push_back(j);
+        } else if(hight == max_hight)
+            res.push_back(j);
+    }
+    for (int k = 0; k &lt; res.size(); ++k) {
+        cout&lt;&lt;res[k];
+        if(k != res.size()-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<p>好了，临接表就过了</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+vector&lt;int&gt; graph[10001];
+int sum;
+
+int dfs(int i,int visit[10001],int hight){
+    visit[i] = 1;
+    int max_hight = hight;
+    int p_hight = 0;
+    for (int j : graph[i]) {
+        if(visit[j] == 0) {
+            p_hight = dfs(j, visit, hight+1);
+            max_hight = p_hight &gt; max_hight ? p_hight : max_hight;
+        }
+    }
+    return max_hight;
+}
+
+int get_max_hight(int i,int &amp;num){
+    int visit[10001] = {0};
+    num = 1;
+    int hight = dfs(i,visit,0);
+    for (int j = 1; j &lt;= sum; ++j) {
+        if (visit[j] == 1)
+            continue;
+        else{
+            num++;
+            dfs(j,visit,0);
+        }
+    }
+    return hight;
+}
+
+int main() {
+    cin&gt;&gt;sum;
+    int a,b;
+    for (int i = 0; i &lt; sum - 1; ++i) {
+        cin&gt;&gt;a&gt;&gt;b;
+        graph[a].push_back(b);
+        graph[b].push_back(a);
+    }
+    int num;
+    int max_hight = 0;
+    vector&lt;int&gt; res;
+    int hight = 0 ;
+    for (int j = 1; j &lt;= sum; ++j) {
+        hight = get_max_hight(j,num);
+        if(num != 1){
+            cout&lt;&lt;&quot;Error: &quot;&lt;&lt;num&lt;&lt;&quot; components&quot;;
+            return 0;
+        }
+        if(hight &gt; max_hight){
+            res.clear();
+            max_hight = hight;
+            res.push_back(j);
+        } else if(hight == max_hight)
+            res.push_back(j);
+    }
+    for (int k = 0; k &lt; res.size(); ++k) {
+        cout&lt;&lt;res[k];
+        if(k != res.size()-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1023-have-fun-with-numbers-20分">1023 Have Fun with Numbers (20分)</h4>
+
+<p>Notice that the number 123456789 is a 9-digit number consisting exactly the numbers from 1 to 9, with no duplication. Double it we will obtain 246913578, which happens to be another 9-digit number consisting exactly the numbers from 1 to 9, only in a different permutation. Check to see the result if we double it again!</p>
+
+<p>Now you are suppose to check if there are more numbers with this property. That is, double a given number with <em>k</em> digits, you are to tell if the resulting number consists of only a permutation of the digits in the original number.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input contains one test case. Each case contains one positive integer with no more than 20 digits.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print in a line &ldquo;Yes&rdquo; if doubling the input number gives a number that consists of only a permutation of the digits in the original number, or &ldquo;No&rdquo; if not. Then in the next line, print the doubled number.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">1234567899
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">Yes
+2469135798
+</code></pre>
+
+<p>20位int好像不太够，需要用大数加法，不要忘记在进位不为0的时候要加上。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+string get_double(string number,int number_list[10],int double_list[10]){
+    int carry = 0;
+    string res = &quot;&quot;;
+    for (int i = number.length()-1; i &gt;= 0; --i) {
+        int n = (number[i] - '0')*2 + carry;
+        int index = n%10;
+        res += to_string(index);
+        carry = n/10;
+        double_list[index] += 1;
+    }
+    if(carry != 0) res += to_string(carry);
+    return res;
+}
+
+int main(){
+    string number_s;
+    cin&gt;&gt;number_s;
+    int number_list[10] = {0},double_list[10] = {0};
+    for (char i : number_s) {
+        number_list[i - '0'] += 1;
+    }
+    string number_d = get_double(number_s,number_list , double_list);
+    int flag = 0;
+    for (int j = 0; j &lt; 10; ++j) {
+        if(number_list[j] != double_list[j]){
+            flag = 1;
+            break;
+        }
+    }
+    if(flag) cout&lt;&lt;&quot;No\n&quot;;
+    else cout&lt;&lt;&quot;Yes\n&quot;;
+    for (int i = number_d.length()-1; i &gt;= 0; --i) {
+        cout&lt;&lt;number_d[i];
+    }
     return 0;
 }
 </code></pre>
