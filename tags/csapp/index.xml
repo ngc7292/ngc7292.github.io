@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Csapp on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/csapp/</link>
+    <description>Recent content in Csapp on ngc7293&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://ngc7292.github.io/tags/csapp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>csapp 学习笔记</title>
+      <link>https://ngc7292.github.io/posts/csapp1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/csapp1/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
