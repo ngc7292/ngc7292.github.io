@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="算法学习第四章总结"/>
+  <meta name="twitter:description" content="算法导论第四章"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>算法学习第四章总结 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        算法学习第四章总结
+                    </h1>
+                    <h2 class="headline">
+                    Apr 23, 2019 00:00
+                    · 490 words
+                    · 3 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#分治策略">分治策略</a>
+<ul>
+<li>
+<ul>
+<li><a href="#4-1-最大子数组问题">4.1 最大子数组问题</a></li>
+<li><a href="#4-2-矩阵乘法的strassen算法">4.2 矩阵乘法的STRASSEN算法</a></li>
+<li><a href="#求解递归式的三种方法">求解递归式的三种方法</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <h1 id="分治策略">分治策略</h1>
+
+<p>在分治策略中，我们在每层递归应用了如下三个步骤：</p>
+
+<p>分解(divide)：将问题划分为一些子问题，形式一样，规模更小</p>
+
+<p></p>
+
+<p>解决(conquer) ：步骤递归的求解出子问题，如果子问题够小，则停止递归</p>
+
+<p>合并：步骤将子问题的解组成原问题的解</p>
+
+<h3 id="4-1-最大子数组问题">4.1 最大子数组问题</h3>
+
+<p>问题：我们获得一个数组，需要得到其中最大的子数组</p>
+
+<p>将问题分解，得到三个子问题：</p>
+
+<ol>
+<li>最大子数组位于 left 到mid 之间</li>
+<li>最大子数组在mid+1到right之间</li>
+<li>最大子数组跨越了mid</li>
+</ol>
+
+<p>在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$O(n)$的算法来计算跨越中点的子数组。</p>
+
+<pre><code class="language-c++">void find_max_crossing_subarray(int A[],int low,int mid,int high ,int &amp;max_left,int &amp;max_right,int &amp;sum_max){
+    int left_sum = -1000000;
+    int sum = 0;
+    max_left = 0;
+    for(int i=mid;i&gt;low;i--){
+        sum = sum + A[i];
+        if(sum &gt; left_sum){
+            left_sum = sum;
+            max_left = i;
+        }
+    }
+
+    int right_sum = -1000000;
+    for(int j=mid;j&lt;high;j++){
+        sum = sum+A[j];
+        if(sum &gt; right_sum){
+            right_sum = sum;
+            max_right = j;
+        }
+    }
+    sum_max = right_sum + left_sum;
+}
+</code></pre>
+
+<p>我们有了一个线性的计算跨越中点的最大子数组的算法，我们很容易的得到寻找整个子数组的算法。</p>
+
+<pre><code class="language-c++">void find_max_subarray(int A[],int low,int mid,int high,int &amp;max_left, int &amp;max_right, int &amp;max_sum){
+
+    if(low == high){
+        max_sum = A[low];
+        max_left = low;
+        max_right = high;
+    } else {
+        int left_max, left_max_left, left_max_right;
+        int right_max , right_max_left, right_max_right;
+        int mid_max, mid_max_left,mid_max_right;
+        find_max_subarray(A,low,(low+mid)/2,mid,left_max_left,left_max_right,left_max);
+        find_max_subarray(A,mid+1,(high+mid+1)/2,high,right_max_left,right_max_right,right_max);
+        find_max_crossing_subarray(A,low,mid,high,mid_max_left,mid_max_right,mid_max);
+        if(left_max &gt; right_max){
+            if(left_max &gt; mid_max) {
+                max_left = left_max_left;
+                max_right = right_max_right;
+                max_sum = left_max;
+                return ;
+            }
+        } else {
+            if(right_max &gt; mid_max) {
+                max_left = right_max_left;
+                max_right = right_max_right;
+                max_sum = right_max;
+                return ;
+            }
+        }
+        max_left = mid_max_left;
+        max_right = mid_max_right;
+        max_sum = mid_max;
+        return ;
+    }
+}
+</code></pre>
+
+<h3 id="4-2-矩阵乘法的strassen算法">4.2 矩阵乘法的STRASSEN算法</h3>
+
+<p>对于矩阵乘法，我们知道</p>
+
+<p>若 $ A=(a<em>{ij}) $和 $ B = (b</em>{ij})$ 是 $ n*n $的矩阵，对于$C = A*B​$我们有</p>
+
+<p>​                       $$ c<em>{ij} = \sum^n</em>{k=i}a<em>{ik}*b</em>{kj} $$</p>
+
+<p>也就是说我们对于两个$n*n$的矩阵，需要计算$n^3$次, 但是著名的STRASSEN公式，可以将算法的时间复杂度降低至$n^{log7}$ 所以相比于普通的矩阵乘法算法，其渐进复杂度比较优于简单的递归过程。</p>
+
+<p>我们首先来分析简单的分支算法，我们将A，B，C均分为4个$n/2*n/2$ 的子矩阵，这样我们可以得到$C = A \cdot B$：</p>
+
+<p>​               $$C = \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} , A = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} , B = \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}​$$</p>
+
+<p>​</p>
+
+<p>​                   $$\Rightarrow  \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} \cdot \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}$$</p>
+
+<p>​                       $$C<em>{11} = A</em>{11} \cdot B<em>{11} + A</em>{12}\cdot B_{21}$$</p>
+
+<p>​                       $$ … ​$$</p>
+
+<p>由此，我们可以根据上面的式子来写出简单的分支算法来计算矩阵的乘法：</p>
+
+<pre><code>function square_matrix:
+n = A.rows
+let c be a new n*n matrix
+if n == 1:
+	c11 = a11*b11
+else:
+	c11 = square_matrix(a11,b11) + square_matrix(a12,b21)
+	c12 = square_matrix(a11,b12) + square_matrix(a12,b22)
+	c21 = square_matrix(a21,b11) + square_matrix(a22,b21)
+	c22 = square_matrix(a21,b12) + square_matrix(a22,b22)
+return c
+</code></pre>
+
+<p>令$T(n)$作为计算两个n*n矩阵的时间，对于n=1的情况，我们可以得到$T(n) = \theta(1)$</p>
+
+<p>当$n &gt; 1$时，需要进行递归分析。在7～10行，进行了8次递归运算，第6行通过下标运算对矩阵进行分割，时间之和为：$T(n) = \theta(1) + 8T(n/2)+\theta(n^2)$</p>
+
+<p>对于STRASSEN算法，我们尽量减少$T(n/2)$的常数项，（我也不知道是怎么得出来的结论），不需要经过8次递归每次只需要7次递归即可完成矩阵的乘法运算。</p>
+
+<pre><code>function strassen():
+n = A.rows
+let c be a new n*n matrix
+if n == 1:
+	c11 = a11*b11
+else:
+	//创建10个不同的矩阵，用于计算下面的P
+	s1 = b12 - b22
+	s2 = a11 + a12
+	s3 = a21 + a22
+	s4 = b21 - b11
+	s5 = a11 + a22
+	s6 = b11 + b22
+	s7 = a12 - a22
+	s8 = b21 + b22
+	s9 = a11 - a21
+	s10 = b11 + b12
+	
+	//继而根据s矩阵计算p矩阵
+	p1 = a11*s1
+	p2 = s2*b22
+	p3 = s3*b11
+	p4 = a22*s4
+	p5 = s5*s6
+	p6 = s7*s8
+	p7 = s9*s10
+	//通过p计算c的子矩阵
+	c11 = p5+p4-p2+p6
+	c12 = p1+p2
+	c21 = p3+p4
+	c22 = p5+p1-p3-p7
+
+return c
+</code></pre>
+
+<p>我们可以看到，在计算s矩阵以及c矩阵，只是进行了矩阵加法，而在计算p矩阵时，是递归时间复杂度，对总的时间复杂度的时间贡献为$7T(n/2)$ 所以，STRASSEN算法的总时间复杂度为：</p>
+
+<p>$$T(n) = 7T(n/2) + \theta(n^2)$$</p>
+
+<p>同简单的分治法相比减少了一次递归的时间。</p>
+
+<h3 id="求解递归式的三种方法">求解递归式的三种方法</h3>
+
+<ol>
+<li>代入式</li>
+</ol>
+
+<p>需要对递归式的结果进行猜解，计算其上界或者下界，对猜解的值进行带入。</p>
+
+<p>猜解时比较困难，可以通过递归树或者逐渐缩小不确定位置来对结果进行计算。（具体的懒得写了，大概就是通过猜来计算时间复杂度）</p>
+
+<ol>
+<li>递归树方式</li>
+</ol>
+
+<p>在递归树中，每一个递归节点代表单一子问题的规模，将每层所有代价求和，从而得到所有式子的代价总和。</p>
+
+<p>例如，我们计算$T(n) = 3T(n/4) + cn^2$的复杂度：</p>
+
+<p>通过T（n）我们可以得到</p>
+
+<p><img src="/Users/ralph/Desktop/blog/content/posts/assets/0111CAFC-B0A9-4703-8CAE-448760F48E65.png" alt="0111CAFC-B0A9-4703-8CAE-448760F48E65" /></p>
+
+<p>将所有层次的所有代价相加，即可得到$T(n) = cn^2 + 3/16cn^2 + … + (<sup>3</sup>&frasl;<sub>16</sub>)^{log_{4}{n-1}} + \theta(n^{log_43}) $$</p>
+
+<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$T(n) = 16/13cn^2 + \theta(n^log_43) = O(n^2)​$$</p>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2falgorithms2%2f - algorithms4 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="pat learning"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.36.1" />
+		<title>pat learning &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        pat learning
+                    </h1>
+                    <h2 class="headline">
+                    Dec 26, 2019 00:00
+                    · 5559 words
+                    · 27 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1001-a-b-format-20分">1001 A+B Format (20分)</a></li>
+<li><a href="#1002-a-b-for-polynomials-25分">1002 A+B for Polynomials (25分)</a></li>
+<li><a href="#1005-spell-it-right-20分">1005 Spell It Right (20分)</a></li>
+<li><a href="#1008-elevator-20分">1008 Elevator (20分)</a></li>
+<li><a href="#1009-product-of-polynomials-25分">1009 Product of Polynomials (25分)</a></li>
+<li><a href="#1012-the-best-rank-25分">1012 The Best Rank (25分)</a></li>
+<li><a href="#1015-reversible-primes-20分">1015 Reversible Primes (20分)</a></li>
+<li><a href="#1017-queueing-at-bank-25分">1017 Queueing at Bank (25分)</a></li>
+<li><a href="#1019-general-palindromic-number-20分">1019 General Palindromic Number (20分)</a></li>
+<li><a href="#1021-deepest-root-25分">1021 Deepest Root (25分)</a></li>
+<li><a href="#1023-have-fun-with-numbers-20分">1023 Have Fun with Numbers (20分)</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>2019.12.26 刚考完研 大部分都忘记了GG</p>
+
+<p></p>
+
+<p>[TOC]</p>
+
+<h4 id="1001-a-b-format-20分">1001 A+B Format (20分)</h4>
+
+<p>Calculate <em>a</em>+<em>b</em> and output the sum in standard format &ndash; that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains a pair of integers <em>a</em> and <em>b</em> where −106≤<em>a</em>,*b*≤106. The numbers are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, you should output the sum of <em>a</em> and <em>b</em> in one line. The sum must be written in the standard format.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">-1000000 9
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">-999,991
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;cstring&gt;
+
+#define ll long long
+
+using namespace std;
+
+int main() {
+    ll a,b;
+    cin&gt;&gt;a&gt;&gt;b;
+    ll c = a+b;
+    string res = &quot;&quot;,r = to_string(c);
+    int i;
+    int index ;
+    index = r[0]=='-'?3:2;
+    for (i = static_cast&lt;int&gt;(r.length() - 1); i &gt; index ; i -= 3) {
+        res = r[i] + res;
+        res = r[i-1]+res;
+        res = r[i-2]+res;
+        res = &quot;,&quot; + res;
+    }
+    for (int j = i; j &gt;= 0; --j) {
+        res = r[j] + res;
+    }
+    cout&lt;&lt;res;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1002-a-b-for-polynomials-25分">1002 A+B for Polynomials (25分)</h4>
+
+<p>This time, you are supposed to find <em>A</em>+<em>B</em> where <em>A</em> and <em>B</em> are two polynomials.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial:</p>
+
+<p><em>K</em> *N*1 *a<strong>N*1 *N*2 *a</strong>N*2 &hellip; *N<strong>K* *a</strong>N**K</p>
+
+<p>where <em>K</em> is the number of nonzero terms in the polynomial, *N<strong>i* and *a</strong>N<strong>i* (<em>i</em>=1,2,⋯,<em>K</em>) are the exponents and coefficients, respectively. It is given that 1≤*K*≤10，0≤*N</strong>K*&lt;⋯&lt;*N*2&lt;*N*1≤1000.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case you should output the sum of <em>A</em> and <em>B</em> in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">2 1 2.4 0 3.2
+2 2 1.5 1 0.5
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">3 2 1.5 1 2.9 0 3.2
+</code></pre>
+
+<p>多项式加减法，有几个点需要考虑到</p>
+
+<ol>
+<li>系数相加之后等于0</li>
+<li>length为0时输出0</li>
+<li>保留1位小数</li>
+</ol>
+
+<pre><code class="language-java">import java.math.BigInteger;
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        double[] pol = new double[1001];
+        int length = 0;
+        Scanner in = new Scanner(System.in);
+        for (int i = 0; i &lt; 2; i++) {
+            int k = in.nextInt();
+            for (int j = 0; j &lt; k; j++) {
+                int n = in.nextInt();
+                double a = in.nextDouble()*1.0;
+                pol[n] += a;
+            }
+        }
+        StringBuilder s = new StringBuilder();
+        for (int i = 1000; i &gt;= 0; i--) {
+            if(pol[i] != 0) {
+                s.append(&quot; &quot;).append(i).append(&quot; &quot;).append(String.format(&quot;%.1f&quot;,pol[i]));
+                length++;
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        res.append(length).append(s);
+        System.out.println(res);
+    }
+}
+</code></pre>
+
+<h4 id="1005-spell-it-right-20分">1005 Spell It Right (20分)</h4>
+
+<p>Given a non-negative integer <em>N</em>, your task is to compute the sum of all the digits of <em>N</em>, and output every digit of the sum in English.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies one line which contains an <em>N</em> (≤10100).</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output in one line the digits of the sum in English words. There must be one space between two consecutive words, but no extra space at the end of a line.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">12345
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">one five
+</code></pre>
+
+<p>c++ to_string 函数可以用于转换为字符串形式存储，数字分割可以用遍历字符串的方法来做，刚开始的时候又想错了，直接想到的是把数字除跟模运算。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+vector&lt;int&gt; num_list;
+
+void get_number(string s){
+    for (int i = 0; i &lt; s.length() ; ++i) {
+        num_list.push_back(s[i]-'0');
+    }
+}
+
+string get_string(int num){
+    string s_list[10] = {&quot;zero&quot;,&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;,&quot;six&quot;,&quot;seven&quot;,&quot;eight&quot;,&quot;nine&quot;};
+    string s = to_string(num);
+    string res = &quot;&quot;;
+    for (int i = 0; i &lt; s.length(); ++i) {
+        res += s_list[s[i]-'0'];
+        if (i != s.length() - 1) res += &quot; &quot;;
+    }
+    return res;
+}
+
+int main() {
+    string s;
+    cin&gt;&gt;s;
+    get_number(s);
+
+    int sum = 0;
+    for (int i = 0; i &lt; num_list.size(); ++i) {
+        sum += num_list[i];
+    }
+
+
+    string res = get_string(sum);
+
+    cout&lt;&lt;res;
+    return 0;
+}
+</code></pre>
+
+<p>####  1006 Sign In and Sign Out (25分)</p>
+
+<p>At the beginning of every day, the first person who signs in the computer room will unlock the door, and the last one who signs out will lock the door. Given the records of signing in&rsquo;s and out&rsquo;s, you are supposed to find the ones who have unlocked and locked the door on that day.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains the records for one day. The case starts with a positive integer <em>M</em>, which is the total number of records, followed by <em>M</em> lines, each in the format:</p>
+
+<pre><code>ID_number Sign_in_time Sign_out_time
+</code></pre>
+
+<p>where times are given in the format <code>HH:MM:SS</code>, and <code>ID_number</code> is a string with no more than 15 characters.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output in one line the ID numbers of the persons who have unlocked and locked the door on that day. The two ID numbers must be separated by one space.</p>
+
+<p>Note: It is guaranteed that the records are consistent. That is, the sign in time must be earlier than the sign out time for each person, and there are no two persons sign in or out at the same moment.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">3
+CS301111 15:30:28 17:00:10
+SC3021234 08:00:00 11:25:25
+CS301133 21:45:00 21:58:40
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">SC3021234 CS301133
+</code></pre>
+
+<p>转换时间的操作</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int get_clock(int h,int m,int s){
+    return h*3600+m*60+s;
+}
+
+int main() {
+
+    int n,h1,m1,s1,h2,m2,s2;
+    int early=-1,late=-1;
+    string id,early_id,late_id;
+
+    cin&gt;&gt;n;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;id;
+        scanf(&quot;%d:%d:%d %d:%d:%d&quot;,&amp;h1,&amp;m1,&amp;s1,&amp;h2,&amp;m2,&amp;s2);
+        int start_time = get_clock(h1,m1,s1);
+        int end_time = get_clock(h2,m2,s2);
+        if(start_time &gt; end_time)
+            continue;
+        if (early &gt; start_time||early == -1){
+            early = start_time;
+            early_id = id;
+        }
+
+        if(late &lt; end_time||late == -1){
+            late = end_time;
+            late_id = id;
+        }
+    }
+
+    cout&lt;&lt;early_id&lt;&lt;&quot; &quot;&lt;&lt;late_id;
+    return 0;
+}
+</code></pre>
+
+<p>####  1007 Maximum Subsequence Sum (25分)</p>
+
+<p>Given a sequence of <em>K</em> integers { *N*1, *N*2, &hellip;, *N<strong>K* }. A continuous subsequence is defined to be { *N</strong>i*, *N<strong>i*+1, &hellip;, *N</strong>j* } where 1≤*i*≤*j*≤<em>K</em>. The Maximum Subsequence is the continuous subsequence which has the largest sum of its elements. For example, given sequence { -2, 11, -4, 13, -5, -2 }, its maximum subsequence is { 11, -4, 13 } with the largest sum being 20.</p>
+
+<p>Now you are supposed to find the largest sum, together with the first and the last numbers of the maximum subsequence.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies two lines. The first line contains a positive integer <em>K</em> (≤10000). The second line contains <em>K</em> numbers, separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output in one line the largest sum, together with the first and the last numbers of the maximum subsequence. The numbers must be separated by one space, but there must be no extra space at the end of a line. In case that the maximum subsequence is not unique, output the one with the smallest indices <em>i</em> and <em>j</em> (as shown by the sample case). If all the <em>K</em> numbers are negative, then its maximum sum is defined to be 0, and you are supposed to output the first and the last numbers of the whole sequence.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">10
+-10 1 2 3 4 -5 -23 3 7 -21    
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">10 1 4
+</code></pre>
+
+<p>设置一个临时总和，如果临时总和小于0直接舍弃，并将临时start置于i+1 还是打acm的比较强。</p>
+
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+
+int main() {
+    int k;
+    int flag = 0;
+    int num;
+    vector&lt;int&gt; number_list;
+    cin&gt;&gt;k;
+
+    int sum=-1,temp=0,start = 0,end = k-1,start_temp = 0;
+    for (int i = 0; i &lt; k; ++i) {
+        cin&gt;&gt;num;
+        number_list.push_back(num);
+        temp += num;
+        if(temp &lt; 0){
+            temp = 0;
+            start_temp = i+1;
+        }else if(sum &lt; temp){
+                sum = temp;
+                start = start_temp;
+                end = i;
+        }
+    }
+
+    if(sum&lt;0)
+        sum = 0;
+    cout&lt;&lt;sum&lt;&lt;&quot; &quot;&lt;&lt;number_list[start]&lt;&lt;&quot; &quot;&lt;&lt;number_list[end];
+    return 0;
+
+}
+</code></pre>
+
+<h4 id="1008-elevator-20分">1008 Elevator (20分)</h4>
+
+<p>The highest building in our city has only one elevator. A request list is made up with <em>N</em> positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It costs 6 seconds to move the elevator up one floor, and 4 seconds to move down one floor. The elevator will stay for 5 seconds at each stop.</p>
+
+<p>For a given request list, you are to compute the total time spent to fulfill the requests on the list. The elevator is on the 0th floor at the beginning and does not have to return to the ground floor when the requests are fulfilled.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains a positive integer <em>N</em>, followed by <em>N</em> positive numbers. All the numbers in the input are less than 100.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print the total time on a single line.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">3 2 3 1
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">41
+</code></pre>
+
+<p>送分题</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+
+using namespace std;
+
+int main() {
+    int n;
+    int last_floor = 0;
+    int floor;
+    int sum = 0;
+    cin&gt;&gt;n;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;floor;
+        sum += floor&gt;last_floor?6*(floor-last_floor):4*(last_floor-floor);
+        sum += 5;
+        last_floor = floor;
+    }
+    cout&lt;&lt;sum;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1009-product-of-polynomials-25分">1009 Product of Polynomials (25分)</h4>
+
+<p>This time, you are supposed to find *A*×<em>B</em> where <em>A</em> and <em>B</em> are two polynomials.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial:</p>
+
+<p><em>K</em> *N*1 *a<strong>N*1 *N*2 *a</strong>N*2 &hellip; *N<strong>K* *a</strong>N*<em>K</em></p>
+
+<p>where <em>K</em> is the number of nonzero terms in the polynomial, *N<strong>i* and *a</strong>N<strong>i* (<em>i</em>=1,2,⋯,<em>K</em>) are the exponents and coefficients, respectively. It is given that 1≤*K*≤10, 0≤*N</strong>K*&lt;⋯&lt;*N*2&lt;*N*1≤1000.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case you should output the product of <em>A</em> and <em>B</em> in one line, with the same format as the input. Notice that there must be <strong>NO</strong> extra space at the end of each line. Please be accurate up to 1 decimal place.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">2 1 2.4 0 3.2
+2 2 1.5 1 0.5 
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">3 3 3.6 2 6.0 1 1.6
+</code></pre>
+
+<p>根据多项式乘法进行计算即可</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+
+using namespace std;
+
+int main() {
+    float n_list[3][2001] = {0};
+    int k,index;
+    vector&lt;int&gt; index_list;
+    for (int i = 0; i &lt; 2; ++i) {
+        cin&gt;&gt;k;
+        for (int j = 0; j &lt; k; ++j) {
+            cin&gt;&gt;index;
+            cin&gt;&gt;n_list[i][index];
+            if(i == 0) index_list.push_back(index);
+            else{
+                for (int l = 0; l &lt; index_list.size(); ++l) {
+                    int res_index = index_list[l] + index;
+                    n_list[2][res_index] += n_list[0][index_list[l]]*n_list[1][index];
+                }
+            }
+        }
+    }
+
+    int count = 0;
+    vector&lt;int&gt; res_list;
+
+    for (int m = 2000; m &gt;= 0; --m) {
+        if(n_list[2][m] != 0){
+            count ++;
+            res_list.push_back(m);
+        }
+    }
+    cout&lt;&lt;count;
+    for (int n = 0; n &lt; res_list.size(); ++n) {
+        printf(&quot; %d %.1f&quot;,res_list[n],n_list[2][res_list[n]]);
+    }
+    return 0;
+}
+</code></pre>
+
+<p>####  1010 Radix (25分)</p>
+
+<p>Given a pair of positive integers, for example, 6 and 110, can this equation 6 = 110 be true? The answer is <code>yes</code>, if 6 is a decimal number and 110 is a binary number.</p>
+
+<p>Now for any pair of positive integers *N*1 and *N*2, your task is to find the radix of one number while that of the other is given.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies a line which contains 4 positive integers:</p>
+
+<pre><code>N1 N2 tag radix
+</code></pre>
+
+<p>Here <code>N1</code> and <code>N2</code> each has no more than 10 digits. A digit is less than its radix and is chosen from the set { 0-9, <code>a</code>-<code>z</code> } where 0-9 represent the decimal numbers 0-9, and <code>a</code>-<code>z</code> represent the decimal numbers 10-35. The last number <code>radix</code> is the radix of <code>N1</code> if <code>tag</code> is 1, or of <code>N2</code> if <code>tag</code> is 2.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line the radix of the other number so that the equation <code>N1</code> = <code>N2</code> is true. If the equation is impossible, print <code>Impossible</code>. If the solution is not unique, output the smallest possible radix.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">6 110 1 10
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">2
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">1 ab 1 2
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">Impossible
+</code></pre>
+
+<p>最开始按照下面的方法来计算，但是发现int不可以满足需求，需要使用long long int，但是long long int 在判断时需要判断是否溢出，在最后判断的时候需要进行二分查找，从n2的最大值加一查找到max(n1,min)。</p>
+
+<p>18分代码</p>
+
+<pre><code class="language-c++">using namespace std;
+
+int get_num(string s,int radix){
+    int number = 0;
+    int length = static_cast&lt;int&gt;(s.length());
+    for (int i = length - 1; i &gt;= 0; --i) {
+        number += (s[i]&gt;='a'?s[i]-'a'+10:s[i]-'0')*pow(radix,length-i-1);
+    }
+    return number;
+}
+
+int get_min(string s){
+    int min = -1;
+    int number = 0;
+    for (int i = 0; i &lt; s.length(); ++i) {
+        number = s[i]&gt;='a'?s[i]-'a'+10:s[i]-'0';
+        if(min &gt; number||min == -1) min = number;
+    }
+    return min;
+}
+int main() {
+    int tag,radix;
+    string n1,n2;
+    cin&gt;&gt;n1&gt;&gt;n2&gt;&gt;tag&gt;&gt;radix;
+
+    int res;
+    string target;
+    if (tag == 1){
+        res = get_num(n1,radix);
+        target = n2;
+    } else{
+        res = get_num(n2,radix);
+        target = n1;
+    }
+    int min = get_min(target);
+    for (int i = min+1; i &lt;= 36; ++i) {
+        if(get_num(target,i) == res){
+            cout&lt;&lt;i;
+            return 0;
+        }
+    }
+    cout&lt;&lt;&quot;Impossible&quot;;
+    return 0;
+}
+</code></pre>
+
+<p>AC代码</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+#define ll long long
+
+
+using namespace std;
+
+ll get_num(string s,ll radix){
+    ll number = 0;
+    ll length = static_cast&lt;long long int&gt;(s.length());
+    for (ll i = (length - 1); i &gt;= 0; --i) {
+        number += (s[i]&gt;='a'?s[i]-'a'+10:s[i]-'0')*pow(radix,length-i-1);
+    }
+    return number;
+}
+
+ll get_max(string s){
+    ll max = -1;
+    ll number = 0;
+    for (int i = 0; i &lt; s.length(); ++i) {
+        number = s[i]&gt;='a'?s[i]-'a'+10:s[i]-'0';
+        if(max &lt; number||max == -1) max = number;
+    }
+    return max;
+}
+int main() {
+    int tag,radix;
+    string n1,n2;
+    cin&gt;&gt;n1&gt;&gt;n2&gt;&gt;tag&gt;&gt;radix;
+
+    ll res;
+    string target;
+    if (tag == 1){
+        res = get_num(n1,radix);
+        target = n2;
+    } else{
+        res = get_num(n2,radix);
+        target = n1;
+    }
+
+
+    ll min = get_max(target)+1;
+    ll max = res&gt;min?res:min;
+
+    while (min &lt;= max){
+        ll mid = (min+max)/2;
+        ll get_res = get_num(target,mid);
+        if(get_res == res){
+            cout&lt;&lt;mid;
+            return 0;
+        } else if(get_res &gt; res||get_res &lt; 0){
+            max = mid - 1;
+        } else {
+            min = mid + 1;
+        }
+    }
+    cout&lt;&lt;&quot;Impossible&quot;;
+    return 0;
+
+}
+</code></pre>
+
+<p>####  1011 World Cup Betting (20分)</p>
+
+<p>With the 2010 FIFA World Cup running, football fans the world over were becoming increasingly excited as the best players from the best teams doing battles for the World Cup trophy in South Africa. Similarly, football betting fans were putting their money where their mouths were, by laying all manner of World Cup bets.</p>
+
+<p>Chinese Football Lottery provided a &ldquo;Triple Winning&rdquo; game. The rule of winning was simple: first select any three of the games. Then for each selected game, bet on one of the three possible results &ndash; namely <code>W</code> for win, <code>T</code> for tie, and <code>L</code> for lose. There was an odd assigned to each result. The winner&rsquo;s odd would be the product of the three odds times 65%.</p>
+
+<p>For example, 3 games&rsquo; odds are given as the following:</p>
+
+<pre><code> W    T    L
+1.1  2.5  1.7
+1.2  3.1  1.6
+4.1  1.2  1.1
+
+
+      
+    
+</code></pre>
+
+<p>To obtain the maximum profit, one must buy <code>W</code> for the 3rd game, <code>T</code> for the 2nd game, and <code>T</code> for the 1st game. If each bet takes 2 yuans, then the maximum profit would be (4.1×3.1×2.5×65%−1)×2=39.31 yuans (accurate up to 2 decimal places).</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains the betting information of 3 games. Each game occupies a line with three distinct odds corresponding to <code>W</code>, <code>T</code> and <code>L</code>.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line the best bet of each game, and the maximum profit accurate up to 2 decimal places. The characters and the number must be separated by one space.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">1.1 2.5 1.7
+1.2 3.1 1.6
+4.1 1.2 1.1
+
+
+      
+    
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">T T W 39.31
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;sstream&gt;
+
+using namespace std;
+
+int main() {
+    float max;
+    int target[3] = {0};
+    float num;
+    float sum = 1;
+    for (int i = 0; i &lt; 3; ++i) {
+        max = 0;
+        for (int j = 0; j &lt; 3; ++j) {
+            cin&gt;&gt;num;
+            if (num &gt; max){
+                max = num;
+                target[i] = j;
+            }
+        }
+        sum *= max;
+    }
+
+    string res_list[3] = {&quot;W&quot;,&quot;T&quot;,&quot;L&quot;};
+    for (int k : target) {
+        cout&lt;&lt;res_list[k]&lt;&lt;&quot; &quot;;
+    }
+    float res = static_cast&lt;float&gt;(((sum * 0.65) - 1) * 2);
+    printf(&quot;%.2f&quot;,res);
+    return 0;
+}
+
+
+</code></pre>
+
+<h4 id="1012-the-best-rank-25分">1012 The Best Rank (25分)</h4>
+
+<p>To evaluate the performance of our first year CS majored students, we consider their grades of three courses only: <code>C</code> - C Programming Language, <code>M</code> - Mathematics (Calculus or Linear Algrbra), and <code>E</code> - English. At the mean time, we encourage students by emphasizing on their best ranks &ndash; that is, among the four ranks with respect to the three courses and the average grade, we print the best rank for each student.</p>
+
+<p>For example, The grades of <code>C</code>, <code>M</code>, <code>E</code> and <code>A</code> - Average of 4 students are given as the following:</p>
+
+<pre><code>StudentID  C  M  E  A
+310101     98 85 88 90
+310102     70 95 88 84
+310103     82 87 94 88
+310104     91 91 91 91
+
+
+      
+    
+</code></pre>
+
+<p>Then the best ranks for all the students are No.1 since the 1st one has done the best in C Programming Language, while the 2nd one in Mathematics, the 3rd one in English, and the last one in average.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case starts with a line containing 2 numbers <em>N</em> and <em>M</em> (≤2000), which are the total number of students, and the number of students who would check their ranks, respectively. Then <em>N</em> lines follow, each contains a student ID which is a string of 6 digits, followed by the three integer grades (in the range of [0, 100]) of that student in the order of <code>C</code>, <code>M</code> and <code>E</code>. Then there are <em>M</em> lines, each containing a student ID.</p>
+
+<p>Output Specification:</p>
+
+<p>For each of the <em>M</em> students, print in one line the best rank for him/her, and the symbol of the corresponding rank, separated by a space.</p>
+
+<p>The priorities of the ranking methods are ordered as <code>A</code> &gt; <code>C</code> &gt; <code>M</code> &gt; <code>E</code>. Hence if there are two or more ways for a student to obtain the same best rank, output the one with the highest priority.</p>
+
+<p>If a student is not on the grading list, simply output <code>N/A</code>.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">5 6
+310101 98 85 88
+310102 70 95 88
+310103 82 87 94
+310104 91 91 91
+310105 85 90 90
+310101
+310102
+310103
+310104
+310105
+999999
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">1 C
+1 M
+1 E
+1 A
+3 A
+N/A
+</code></pre>
+
+<p>####  1013 Battle Over Cities (25分)</p>
+
+<p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
+
+<p>For example, if we have 3 cities and 2 highways connecting *c<strong>i</strong>t<strong>y*1-*c</strong>i<strong>t</strong>y*2 and *c<strong>i</strong>t<strong>y*1-*c</strong>i<strong>t</strong>y*3. Then if *c<strong>i</strong>t<strong>y*1 is occupied by the enemy, we must have 1 highway repaired, that is the highway *c</strong>i<strong>t</strong>y*2-*c<strong>i</strong>t**y*3.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case starts with a line containing 3 numbers <em>N</em> (&lt;1000), <em>M</em> and <em>K</em>, which are the total number of cities, the number of remaining highways, and the number of cities to be checked, respectively. Then <em>M</em> lines follow, each describes a highway by 2 integers, which are the numbers of the cities the highway connects. The cities are numbered from 1 to <em>N</em>. Finally there is a line containing <em>K</em> numbers, which represent the cities we concern.</p>
+
+<p>Output Specification:</p>
+
+<p>For each of the <em>K</em> cities, output in a line the number of highways need to be repaired if that city is lost.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">3 2 3
+1 2
+1 3
+1 2 3
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">1
+0
+0
+</code></pre>
+
+<p>dfs 用cin最后一个点会超时，所以用scanf，memset 需要cstring 导入，否则会编译失败。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+vector&lt;int&gt; path[1001];
+int cnt;
+bool visit[1001];
+
+void dfs(int i){
+    if(i == cnt || visit[i]) return;
+    visit[i] = true;
+    for (int j : path[i]) {
+        dfs(j);
+    }
+}
+int main() {
+    int n,m,k;
+    scanf(&quot;%d %d %d&quot;,&amp;n,&amp;m,&amp;k);
+    int c1,c2;
+    for (int i = 0; i &lt; m; ++i) {
+        scanf(&quot;%d %d&quot;,&amp;c1,&amp;c2);
+        path[c1].push_back(c2);
+        path[c2].push_back(c1);
+    }
+    for (int j = 0; j &lt; k; ++j) {
+        scanf(&quot;%d&quot;, &amp;cnt);
+        int res = 0;
+
+        memset(visit, false, sizeof(visit));
+        for (int i = 1; i &lt; n + 1; ++i) {
+            if(i != cnt &amp;&amp; !visit[i]) {
+                dfs(i);
+                res++;
+            }
+        }
+        cout&lt;&lt;res-1;
+        if(j != k-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1015-reversible-primes-20分">1015 Reversible Primes (20分)</h4>
+
+<p>A <strong>reversible prime</strong> in any number system is a prime whose &ldquo;reverse&rdquo; in that number system is also a prime. For example in the decimal system 73 is a reversible prime because its reverse 37 is also a prime.</p>
+
+<p>Now given any two positive integers <em>N</em> (&lt;105) and <em>D</em> (1&lt;*D*≤10), you are supposed to tell if <em>N</em> is a reversible prime with radix <em>D</em>.</p>
+
+<p>Input Specification:</p>
+
+<p>The input file consists of several test cases. Each case occupies a line which contains two integers <em>N</em> and <em>D</em>. The input is finished by a negative <em>N</em>.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line <code>Yes</code> if <em>N</em> is a reversible prime with radix <em>D</em>, or <code>No</code> if not.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">73 10
+23 2
+23 10
+-2
+
+
+      
+    
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">Yes
+Yes
+No
+</code></pre>
+
+<p>三天不做题，啥也不会了。</p>
+
+<p>素数筛</p>
+
+<p>可以将所有的合数筛选出来，放入一个布尔列表中，筛选方法如下，将所有素数的倍数都求出来就可以了</p>
+
+<pre><code class="language-c++">void get_prime(){
+    prime[0] = true;
+    prime[1] = true;
+    for (int i = 2; i &lt; sqrt(MAX_N); ++i) {
+        if(prime[i]) {continue;}
+        for (int j = i; j*i &lt; MAX_N; ++j) {
+            prime[i*j] = true;
+        }
+    }
+}
+</code></pre>
+
+<p>进制转换 itoa不知道可不可以，这里通过如下方式进行计算的，直接算出来倒数的n进制表示。</p>
+
+<pre><code class="language-c++">int reverse_number(int number, int radix){
+    string number_s ;
+    while (number &gt; 0){
+        int t = number%radix;
+        number_s += to_string(t);
+        number = number/radix;
+    }
+    int res = 0;
+    int number_s_length = static_cast&lt;int&gt;(number_s.length());
+    for (int i = 0; i &lt; number_s_length; ++i) {
+        res += (number_s[i]-'0')*pow(radix,number_s_length-i-1);
+    }
+    return res;
+}
+</code></pre>
+
+<p>AC code</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+#include &lt;iomanip&gt;
+#include &lt;cstring&gt;
+#include &lt;math.h&gt;
+#include &lt;stdlib.h&gt;
+
+
+#define ll long long
+#define MAX_N 100000
+
+using namespace std;
+
+bool prime[MAX_N] = {false};
+
+void get_prime(){
+    prime[0] = true;
+    prime[1] = true;
+    for (int i = 2; i &lt; sqrt(MAX_N); ++i) {
+        if(prime[i]) {continue;}
+        for (int j = i; j*i &lt; MAX_N; ++j) {
+            prime[i*j] = true;
+        }
+    }
+}
+
+int reverse_number(int number, int radix){
+    string number_s ;
+    while (number &gt; 0){
+        int t = number%radix;
+        number_s += to_string(t);
+        number = number/radix;
+    }
+    int res = 0;
+    int number_s_length = static_cast&lt;int&gt;(number_s.length());
+    for (int i = 0; i &lt; number_s_length; ++i) {
+        res += (number_s[i]-'0')*pow(radix,number_s_length-i-1);
+    }
+    return res;
+}
+
+
+int main() {
+    get_prime();
+    int n,d;
+    string res;
+    int flag = 0;
+    while(true){
+        cin&gt;&gt;n;
+        if(n &lt; 0) break;
+        else if (flag == 0) flag = 1;
+        else res += &quot;\n&quot;;
+        cin&gt;&gt;d;
+        int n_r = reverse_number(n,d);
+        if(!prime[n]&amp;&amp;!prime[n_r])
+            res += &quot;Yes&quot;;
+        else res += &quot;No&quot;;
+    }
+    cout&lt;&lt;res;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1017-queueing-at-bank-25分">1017 Queueing at Bank (25分)</h4>
+
+<p>Suppose a bank has <em>K</em> windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. All the customers have to wait in line behind the yellow line, until it is his/her turn to be served and there is a window available. It is assumed that no window can be occupied by a single customer for more than 1 hour.</p>
+
+<p>Now given the arriving time <em>T</em> and the processing time <em>P</em> of each customer, you are supposed to tell the average waiting time of all the customers.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains 2 numbers: <em>N</em> (≤104) - the total number of customers, and <em>K</em> (≤100) - the number of windows. Then <em>N</em> lines follow, each contains 2 times: <code>HH:MM:SS</code> - the arriving time, and <em>P</em> - the processing time in minutes of a customer. Here <code>HH</code> is in the range [00, 23], <code>MM</code> and <code>SS</code> are both in [00, 59]. It is assumed that no two customers arrives at the same time.</p>
+
+<p>Notice that the bank opens from 08:00 to 17:00. Anyone arrives early will have to wait in line till 08:00, and anyone comes too late (at or after 17:00:01) will not be served nor counted into the average.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print in one line the average waiting time of all the customers, in minutes and accurate up to 1 decimal place.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">7 3
+07:55:00 16
+17:00:01 2
+07:59:59 15
+08:01:00 60
+08:00:00 30
+08:00:02 2
+08:03:00 10
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">8.2
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int start_time = 8*60*60;
+int end_time = 17*60*60;
+
+typedef struct node{
+    int time,p_time;
+}node;
+
+bool sort_function(node node1,node node2){ return node1.time&lt;node2.time; }
+
+int get_min(int windows[101],int &amp;min_minute,int k){
+    int res = 0;
+    min_minute = windows[0];
+    for (int i = 1; i &lt; k; ++i) {
+        if(windows[i] &lt; min_minute){
+            min_minute = windows[i];
+            res = i;
+        }
+    }
+    return res;
+}
+
+int main() {
+    int n,k;
+    int h,m,s,p;
+    cin&gt;&gt;n&gt;&gt;k;
+    vector&lt;node&gt; node_list;
+    for (int i = 0; i &lt; n; ++i) {
+        scanf(&quot;%d:%d:%d %d&quot;,&amp;h,&amp;m,&amp;s,&amp;p);
+        node new_node;
+        new_node.time = h*60*60+m*60+s;
+        if (new_node.time &gt; end_time)
+            continue;
+        new_node.p_time = p*60;
+        node_list.push_back(new_node);
+    }
+
+    sort(node_list.begin(),node_list.end(),sort_function);
+
+    double total_wait = 0;
+    int windows[101] = {0};
+    int index = 0;
+    int min_minute = 0;
+    for (int j = 0; j &lt; node_list.size(); ++j) {
+        node costumer = node_list[j];
+        if(costumer.time &lt; start_time){
+            if(min_minute == 0){
+                windows[index] = costumer.p_time + start_time;
+                total_wait += start_time - costumer.time;
+            } else {
+                total_wait += windows[index] - costumer.time;
+                windows[index] = windows[index] + costumer.p_time;
+            }
+        } else {
+            if(min_minute &lt; costumer.time){
+                windows[index] = costumer.time + costumer.p_time;
+            } else{
+                total_wait += windows[index] - costumer.time;
+                windows[index] = windows[index] + costumer.p_time;
+            }
+        }
+        index = get_min(windows,min_minute,k);
+    }
+    printf(&quot;%.1f&quot; ,total_wait/60/node_list.size());
+    return 0;
+}
+</code></pre>
+
+<h4 id="1019-general-palindromic-number-20分">1019 General Palindromic Number (20分)</h4>
+
+<p>A number that will be the same when it is written forwards or backwards is known as a <strong>Palindromic Number</strong>. For example, 1234321 is a palindromic number. All single digit numbers are palindromic numbers.</p>
+
+<p>Although palindromic numbers are most often considered in the decimal system, the concept of palindromicity can be applied to the natural numbers in any numeral system. Consider a number <em>N</em>&gt;0 in base *b*≥2, where it is written in standard notation with <em>k</em>+1 digits *a<strong>i* as ∑<em>i</em>=0<em>k</em>(*a</strong>i<strong>b</strong>i*). Here, as usual, 0≤*a<strong>i*&lt;<em>b</em> for all <em>i</em> and *a</strong>k* is non-zero. Then <em>N</em> is palindromic if and only if *a<strong>i*=*a</strong>k*−<em>i</em> for all <em>i</em>. Zero is written 0 in any base and is also palindromic by definition.</p>
+
+<p>Given any positive decimal integer <em>N</em> and a base <em>b</em>, you are supposed to tell if <em>N</em> is a palindromic number in base <em>b</em>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case consists of two positive numbers <em>N</em> and <em>b</em>, where 0&lt;*N*≤109 is the decimal number and 2≤*b*≤109 is the base. The numbers are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print in one line <code>Yes</code> if <em>N</em> is a palindromic number in base <em>b</em>, or <code>No</code> if not. Then in the next line, print <em>N</em> as the number in base <em>b</em> in the form &ldquo;*a<strong>k* *a</strong>k*−1 &hellip; *a*0&rdquo;. Notice that there must be no extra space at the end of output.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">27 2
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">Yes
+1 1 0 1 1
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">121 5
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">No
+4 4 1
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+string get_num(int number,int base){
+    string res = &quot;&quot;;
+    if(number == 0) return &quot;0&quot;;
+    while (number != 0){
+        res += to_string(number%base);
+        number = number/base;
+    }
+    return res;
+}
+
+int main() {
+    int num,base;
+    cin&gt;&gt;num&gt;&gt;base;
+    string res = get_num(num,base);
+    string res_r = res;
+    reverse(res.begin(),res.end( ));
+
+    
+    if(res != res_r){
+        cout&lt;&lt;&quot;No\n&quot;;
+    } else{
+        cout&lt;&lt;&quot;Yes\n&quot;;
+    }
+
+    for (int i = res.length()-1; i &gt;= 0 ; --i) {
+        cout&lt;&lt;res_r[i];
+        if(i != 0) cout&lt;&lt;&quot; &quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1021-deepest-root-25分">1021 Deepest Root (25分)</h4>
+
+<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤104) which is the number of nodes, and hence the nodes are numbered from 1 to <em>N</em>. Then *N*−1 lines follow, each describes an edge by given the two adjacent nodes&rsquo; numbers.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print <code>Error: K components</code> where <code>K</code> is the number of connected components in the graph.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">5
+1 2
+1 3
+1 4
+2 5
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">3
+4
+5
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">5
+1 3
+1 4
+2 5
+3 4
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">Error: 2 components
+</code></pre>
+
+<p>采用邻接矩阵的dfs方法好像有个点过不去，不知道是我写的原因还是因为算法自身的缺陷。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int graph[10001][10001] = {0};
+int sum;
+
+int dfs(int i,int visit[10001],int hight){
+    visit[i] = 1;
+    int max_hight = hight;
+    for (int j = 1; j &lt;= sum ; ++j) {
+        if(graph[i][j] == 1 &amp;&amp; visit[j] == 0){
+            int p_hight = dfs(j,visit,hight+1);
+            max_hight = p_hight &gt; max_hight?p_hight:max_hight;
+        }
+    }
+    return max_hight;
+}
+
+int get_max_hight(int i,int &amp;num){
+   int visit[10001] = {0};
+   num = 1;
+   int hight = dfs(i,visit,0);
+   for (int j = 1; j &lt;= sum; ++j) {
+       if (visit[j] == 1)
+           continue;
+       else{
+           num++;
+           dfs(j,visit,0);
+       }
+   }
+   return hight;
+}
+
+int main() {
+    cin&gt;&gt;sum;
+    int a,b;
+    for (int i = 0; i &lt; sum - 1; ++i) {
+        cin&gt;&gt;a&gt;&gt;b;
+        graph[a][b] = 1;
+        graph[b][a] = 1;
+    }
+    int num;
+    int max_hight = 0;
+    vector&lt;int&gt; res;
+    int hight = 0 ;
+    for (int j = 1; j &lt;= sum; ++j) {
+        hight = get_max_hight(j,num);
+        if(num != 1){
+            cout&lt;&lt;&quot;Error: &quot;&lt;&lt;num&lt;&lt;&quot; components&quot;;
+            return 0;
+        }
+        if(hight &gt; max_hight){
+            res.clear();
+            max_hight = hight;
+            res.push_back(j);
+        } else if(hight == max_hight)
+            res.push_back(j);
+    }
+    for (int k = 0; k &lt; res.size(); ++k) {
+        cout&lt;&lt;res[k];
+        if(k != res.size()-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<p>好了，临接表就过了</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+vector&lt;int&gt; graph[10001];
+int sum;
+
+int dfs(int i,int visit[10001],int hight){
+    visit[i] = 1;
+    int max_hight = hight;
+    int p_hight = 0;
+    for (int j : graph[i]) {
+        if(visit[j] == 0) {
+            p_hight = dfs(j, visit, hight+1);
+            max_hight = p_hight &gt; max_hight ? p_hight : max_hight;
+        }
+    }
+    return max_hight;
+}
+
+int get_max_hight(int i,int &amp;num){
+    int visit[10001] = {0};
+    num = 1;
+    int hight = dfs(i,visit,0);
+    for (int j = 1; j &lt;= sum; ++j) {
+        if (visit[j] == 1)
+            continue;
+        else{
+            num++;
+            dfs(j,visit,0);
+        }
+    }
+    return hight;
+}
+
+int main() {
+    cin&gt;&gt;sum;
+    int a,b;
+    for (int i = 0; i &lt; sum - 1; ++i) {
+        cin&gt;&gt;a&gt;&gt;b;
+        graph[a].push_back(b);
+        graph[b].push_back(a);
+    }
+    int num;
+    int max_hight = 0;
+    vector&lt;int&gt; res;
+    int hight = 0 ;
+    for (int j = 1; j &lt;= sum; ++j) {
+        hight = get_max_hight(j,num);
+        if(num != 1){
+            cout&lt;&lt;&quot;Error: &quot;&lt;&lt;num&lt;&lt;&quot; components&quot;;
+            return 0;
+        }
+        if(hight &gt; max_hight){
+            res.clear();
+            max_hight = hight;
+            res.push_back(j);
+        } else if(hight == max_hight)
+            res.push_back(j);
+    }
+    for (int k = 0; k &lt; res.size(); ++k) {
+        cout&lt;&lt;res[k];
+        if(k != res.size()-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1023-have-fun-with-numbers-20分">1023 Have Fun with Numbers (20分)</h4>
+
+<p>Notice that the number 123456789 is a 9-digit number consisting exactly the numbers from 1 to 9, with no duplication. Double it we will obtain 246913578, which happens to be another 9-digit number consisting exactly the numbers from 1 to 9, only in a different permutation. Check to see the result if we double it again!</p>
+
+<p>Now you are suppose to check if there are more numbers with this property. That is, double a given number with <em>k</em> digits, you are to tell if the resulting number consists of only a permutation of the digits in the original number.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input contains one test case. Each case contains one positive integer with no more than 20 digits.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print in a line &ldquo;Yes&rdquo; if doubling the input number gives a number that consists of only a permutation of the digits in the original number, or &ldquo;No&rdquo; if not. Then in the next line, print the doubled number.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">1234567899
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">Yes
+2469135798
+</code></pre>
+
+<p>20位int好像不太够，需要用大数加法，不要忘记在进位不为0的时候要加上。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+string get_double(string number,int number_list[10],int double_list[10]){
+    int carry = 0;
+    string res = &quot;&quot;;
+    for (int i = number.length()-1; i &gt;= 0; --i) {
+        int n = (number[i] - '0')*2 + carry;
+        int index = n%10;
+        res += to_string(index);
+        carry = n/10;
+        double_list[index] += 1;
+    }
+    if(carry != 0) res += to_string(carry);
+    return res;
+}
+
+int main(){
+    string number_s;
+    cin&gt;&gt;number_s;
+    int number_list[10] = {0},double_list[10] = {0};
+    for (char i : number_s) {
+        number_list[i - '0'] += 1;
+    }
+    string number_d = get_double(number_s,number_list , double_list);
+    int flag = 0;
+    for (int j = 0; j &lt; 10; ++j) {
+        if(number_list[j] != double_list[j]){
+            flag = 1;
+            break;
+        }
+    }
+    if(flag) cout&lt;&lt;&quot;No\n&quot;;
+    else cout&lt;&lt;&quot;Yes\n&quot;;
+    for (int i = number_d.length()-1; i &gt;= 0; --i) {
+        cout&lt;&lt;number_d[i];
+    }
+    return 0;
+}
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fpat_2019%2f - pat_2019 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'ngc7293', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

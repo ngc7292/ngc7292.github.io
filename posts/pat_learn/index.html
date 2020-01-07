@@ -108,15 +108,17 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Feb 1, 2019 00:00
-                    · 3370 words
-                    · 16 minute read
+                    · 5639 words
+                    · 27 minute read
                       <span class="tags">
                       
                       
                           
                               <a href="https://ngc7292.github.io/tags/python">python</a>
                           
-                              <a href="https://ngc7292.github.io/tags/c&#43;&#43;">c&#43;&#43;</a>
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
                           
                       
                       
@@ -141,6 +143,14 @@ code.has-jax {
 <li><a href="#1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</a></li>
 <li><a href="#1007-maximum-subsequence-sum-25-分">1007 Maximum Subsequence Sum （25 分）</a></li>
 <li><a href="#1008-elevator-20-分">1008 Elevator （20 分）</a></li>
+<li><a href="#1048">1048</a></li>
+<li><a href="#1051">1051</a></li>
+<li><a href="#1050">1050</a>
+<ul>
+<li><a href="#1052">1052</a></li>
+<li><a href="#素数筛">素数筛</a></li>
+<li><a href="#大叔比较">大叔比较</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -148,7 +158,7 @@ code.has-jax {
                   
                 
                 <section id="post-body">
-                    <p>pat刷一些题来做一点点算法</p>
+                    <p>pat刷一些题来做一点点算法，这里大多数是python。</p>
 
 <p></p>
 
@@ -847,6 +857,1010 @@ for i in floow_list:
 
 print(res)
 </code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+vector&lt;string&gt; Crouse[2501];
+
+
+int main(){
+    int n,k=0;
+    cin&gt;&gt;n;
+    cin&gt;&gt;k;
+    string stu_name;
+
+    int c_n,r;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;stu_name&gt;&gt;c_n;
+        for (int j = 0; j &lt; c_n; ++j) {
+            cin&gt;&gt;r;
+            Crouse[r].push_back(stu_name);
+        }
+    }
+
+    for (int i = 1; i &lt; k; ++i) {
+        cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;Crouse[i].size()&lt;&lt;&quot;\n&quot;;
+        sort(Crouse[i].begin(),Crouse[i].end());
+        for (int j = 0; j &lt; Crouse[i].size(); ++j) {
+            cout&lt;&lt;Crouse[i][j]&lt;&lt;&quot;\n&quot;;
+        }
+
+    }
+
+
+    return 0;
+}
+
+</code></pre>
+
+<h2 id="1048">1048</h2>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main(){
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    vector&lt;int&gt; v;
+    int r;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;r;
+        v.push_back(r);
+    }
+
+    sort(v.begin(),v.end());
+
+    int left = 0;
+    int right = n-1;
+    int flag = 0;
+    while(true){
+        if (left == right){
+            cout&lt;&lt;&quot;No Solution&quot;;
+            return 0;
+        }
+        flag = v[left] + v[right];
+        if(flag == m){
+            break;
+        } else if(flag &gt; m){
+            right--;
+        } else if(flag &lt; m){
+            left++;
+        }
+    }
+    cout&lt;&lt;v[left]&lt;&lt;&quot; &quot;&lt;&lt;v[right];
+
+    return 0;
+}
+</code></pre>
+
+<h2 id="1051">1051</h2>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+bool check(vector&lt;int&gt; s,int n,int m)
+{
+    vector&lt;int&gt; c;
+    int index = 0;
+    for (int i = 1; i &lt; n+1; ++i) {
+        c.push_back(i);
+        while (index &lt; s.size() &amp;&amp; s[index] == c[c.size()-1]){
+            c.pop_back();
+            index++;
+        }
+        if(c.size() &gt;= m){
+            return false;
+        }
+    }
+    return c.empty();
+}
+int main(){
+    int m,n,k;
+    cin&gt;&gt;m&gt;&gt;n&gt;&gt;k;
+
+    int r;
+
+    for (int i = 0; i &lt; k; ++i) {
+        vector&lt;int&gt; s;
+        for (int j = 0; j &lt; n; ++j) {
+            cin&gt;&gt;r;
+            s.push_back(r);
+        }
+        if(check(s,n,m)){
+            cout&lt;&lt;&quot;YES&quot;;
+        } else {
+            cout&lt;&lt;&quot;NO&quot;;
+        }
+        if (i != k-1){
+            cout&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+
+</code></pre>
+
+<h2 id="1050">1050</h2>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main(){
+    string a;
+    string r_b;
+    bool ht[256] = {false};
+
+    getline(cin,a);
+    getline(cin,r_b);
+    for (int i = 0; i &lt; r_b.size(); ++i) {
+        ht[r_b[i]] = true;
+    }
+
+    for (int j = 0; j &lt; a.size(); ++j) {
+        if(!ht[a[j]]){
+            cout&lt;&lt;a[j];
+        }
+    }
+    cout&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;utility&gt;
+#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+bool sort_function(int a,int b) { return a&gt;b; }
+
+typedef class student{
+    public:
+        string id;
+        int c,m,e;
+        int a;
+
+        student(string id,int c,int m,int e){
+            this-&gt;id = id;
+            this-&gt;c = c;
+            this-&gt;e = e;
+            this-&gt;m = m;
+            this-&gt;a = (c+m+e)/3;
+        }
+} student;
+
+
+map&lt;int,int&gt; get_map(vector&lt;int&gt; numbers){
+    map&lt;int,int&gt; res;
+    sort(numbers.begin(),numbers.end(),sort_function);
+
+    for (int i = static_cast&lt;int&gt;(numbers.size() - 1); i &gt;= 0 ; i--) {
+        res[numbers[i]] = i+1;
+    }
+    return res;
+}
+
+string get_res(student stu,map&lt;int,int&gt; c_map,map&lt;int,int&gt; m_map,map&lt;int,int&gt; e_map,map&lt;int,int&gt; a_map){
+    int c_i = c_map[stu.c];
+    int m_i = m_map[stu.m];
+    int e_i = e_map[stu.e];
+    int a_i = a_map[stu.a];
+
+    int min_number = min({c_i,m_i,a_i,e_i});
+    if(a_i == min_number){
+        return to_string(a_i) + &quot; A&quot;;
+    } else if(c_i == min_number){
+        return to_string(c_i) + &quot; C&quot;;
+    } else if(m_i == min_number){
+        return to_string(m_i) + &quot; M&quot;;
+    } else if(e_i == min_number){
+        return to_string(e_i) + &quot; E&quot;;
+    }
+
+    return &quot;error&quot;;
+}
+
+int main(){
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    string id;
+    int c,math,e;
+    vector&lt;int&gt; c_list,m_list,e_list,a_list;
+    vector&lt;student&gt; stu_list;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;id&gt;&gt;c&gt;&gt;math&gt;&gt;e;
+        student stu = student(id,c,math,e);
+        stu_list.push_back(stu);
+        c_list.push_back(c);
+        m_list.push_back(math);
+        e_list.push_back(e);
+        a_list.push_back((c+math+e)/3);
+
+    }
+
+    map&lt;int,int&gt; c_map,m_map,e_map,a_map;
+
+    c_map = get_map(c_list);
+    m_map = get_map(m_list);
+    e_map = get_map(e_list);
+    a_map = get_map(a_list);
+
+
+    map&lt;string,string&gt; a;
+    for (int j = 0; j &lt; n; ++j) {
+        a[stu_list[j].id] = get_res(stu_list[j],c_map,m_map,e_map,a_map);
+    }
+
+    for (int k = 0; k &lt; m; ++k) {
+        string check_number;
+        cin&gt;&gt;check_number;
+        if(a.find(check_number) == a.end()){
+            cout&lt;&lt;&quot;N/A&quot;;
+        } else{
+            cout&lt;&lt;a[check_number];
+        }
+        if(k != m-1){
+            cout&lt;&lt;&quot;\n&quot;;
+        }
+    }
+
+
+    return 0;
+}
+
+</code></pre>
+
+<h3 id="1052">1052</h3>
+
+<p>有些链表中的节点没有在链表上，于是会有部分链表不可以被看到</p>
+
+<p>sort默认升序</p>
+
+<pre><code class="language-c++">#include &lt;utility&gt;
+#include &lt;iostream&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cmath&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+typedef struct link{
+    int start;
+    int key;
+    int next;
+    bool flag;
+} link;
+
+bool sort_function(link a,link b) { return !a.flag || !b.flag ? a.flag &gt; b.flag : a.key &lt; b.key; }
+
+
+int main(){
+    int n,addr;
+    cin&gt;&gt;n&gt;&gt;addr;
+    // vector&lt;link&gt; link_list;
+    int start,next,key;
+    int cnt = 0;
+    link link_list[100001] = {0,0,0,false};
+
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;start&gt;&gt;key&gt;&gt;next;
+        link_list[start] = {start,key,next, false};
+    }
+    for (int l = addr; l != -1; l = link_list[l].next) {
+        link_list[l].flag = true;
+        cnt++;
+    }
+    if (!cnt){
+        cout&lt;&lt;&quot;0 -1&quot;;
+    } else {
+        sort(link_list, link_list + 100000, sort_function);
+        cout&lt;&lt;cnt&lt;&lt;&quot; &quot;;
+        cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[0].start&lt;&lt;endl;
+        for (int i = 0; i &lt; cnt; ++i) {
+            cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[i].start;
+            cout&lt;&lt;&quot; &quot;&lt;&lt;link_list[i].key&lt;&lt;&quot; &quot;;
+            if(i != cnt-1)
+                cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[i+1].start&lt;&lt;&quot;\n&quot;;
+            else
+                cout&lt;&lt;&quot;-1&quot;;
+        }
+    }
+    return 0;
+}
+
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;numeric&gt;
+
+using namespace std;
+
+typedef struct line{
+    string name;
+    int m, d, h, mm, money;
+    bool status;
+} Line;
+
+bool sort_function(Line line1, Line line2){ return line1.name != line2.name ? line1.name &lt; line2.name : line1.money&lt;line2.money; }
+
+int get_minute(Line line1,Line line2){ return (line2.d - line1.d)*24*60+(line2.h - line1.h)*60 + (line2.mm - line1.mm); }
+
+int main() {
+    vector&lt;int&gt; price_list;
+    int price, sum = 0;
+    price_list.push_back(0);
+
+    for (int i = 0; i &lt; 24; ++i) {
+        cin&gt;&gt;price;
+        sum += price;
+        price_list.push_back(sum);
+    }
+
+    int n;
+    cin&gt;&gt;n;
+    string tmp;
+    vector&lt;Line&gt; lines;
+
+    for (int j = 0; j &lt; n; ++j) {
+        Line new_line;
+        cin&gt;&gt;new_line.name;
+        scanf(&quot;%2d:%2d:%2d:%2d&quot;, &amp;new_line.m, &amp;new_line.d, &amp;new_line.h, &amp;new_line.mm);
+        cin&gt;&gt;tmp;
+        new_line.status = tmp == &quot;on-line&quot;;
+        new_line.money = price_list[24]*(new_line.d-1)*60 + price_list[new_line.h]*60 + (price_list[new_line.h + 1] - price_list[new_line.h])*new_line.mm;
+        lines.push_back(new_line);
+    }
+
+    sort(lines.begin(),lines.end(),sort_function);
+
+    string name;
+    float total_money = 0, money_cha = 0;
+    for (int i=1;i&lt;lines.size();i++) {
+        if(lines[i].name == lines[i-1].name &amp;&amp; !lines[i].status &amp;&amp; lines[i - 1].status){
+            if(name != lines[i].name){
+                name = lines[i].name;
+                if(i != 1) printf(&quot;Total amount: $%.2f\n&quot;, total_money/100);
+                total_money = 0;
+                cout&lt;&lt;lines[i].name;
+                printf(&quot; %02d\n&quot;, lines[i].m);
+                // cout&lt;&lt;lines[i].name&lt;&lt;&quot; &quot;&lt;&lt;lines[i].d&lt;&lt;endl;
+            }
+
+            int minute = get_minute(lines[i-1],lines[i]);
+            money_cha = lines[i].money - lines[i-1].money;
+            printf(&quot;%02d:%02d:%02d %02d:%02d:%02d %d $%.2f\n&quot;, lines[i-1].d, lines[i-1].h, lines[i-1].mm, lines[i].d, lines[i].h, lines[i].mm, minute, money_cha/100);
+            total_money += lines[i].money - lines[i-1].money;
+        } else{
+            continue;
+        }
+    }
+
+    printf(&quot;Total amount: $%.2f&quot;, total_money/100);
+
+    return 0;
+}
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;numeric&gt;
+#include &lt;string.h&gt;
+
+#define MAX 100000
+
+using namespace std;
+
+typedef struct people{
+    string name;
+    int age,net_worth;
+} People;
+
+bool sort_function(People p1, People p2){
+    if(p1.net_worth != p2.net_worth)
+        return p1.net_worth &gt; p2.net_worth;
+    else if(p1.age != p2.age)
+        return p1.age &lt; p2.age;
+    else
+        return p1.name &lt; p2.name;
+}
+int main() {
+    People peo_list[MAX];
+    int n,k;
+    cin&gt;&gt;n&gt;&gt;k;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;peo_list[i].name&gt;&gt;peo_list[i].age&gt;&gt;peo_list[i].net_worth;
+    }
+
+    sort(peo_list,peo_list+n,sort_function);
+
+    int m,amin,amax;
+    for (int j = 0; j &lt; k; ++j) {
+        cin&gt;&gt;m&gt;&gt;amin&gt;&gt;amax;
+        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;j+1&lt;&lt;&quot;:\n&quot;;
+        int cnt = m;
+        for (int i = 0; i &lt; n; ++i) {
+            if(peo_list[i].age &gt;= amin &amp;&amp; peo_list[i].age &lt;= amax){
+                cout&lt;&lt;peo_list[i].name&lt;&lt;&quot; &quot;&lt;&lt;peo_list[i].age&lt;&lt;&quot; &quot;&lt;&lt;peo_list[i].net_worth&lt;&lt;&quot;\n&quot;;
+                cnt--;
+            }
+            if (cnt&lt;=0)
+                break;
+        }
+        if (cnt == m)
+            cout&lt;&lt;&quot;None&quot;&lt;&lt;endl;
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>1054 The Dominant Color (20 分)</p>
+
+<p>原本以为会超时 2**24次方也是比较大的一个数字，也没有办法通过定义一个千万级的数组来提高效率，只能通过索引的方式来提高读取效率。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;numeric&gt;
+
+using namespace std;
+
+int main() {
+    int m,k;
+    cin&gt;&gt;m&gt;&gt;k;
+    int num_list[480001] = {0};
+    int list_index = 0;
+    map&lt;int,int&gt; num_map;
+    int max_num=0,max_cnt = 0,num;
+
+    for (int i = 0; i &lt; k; ++i) {
+        for (int j = 0; j &lt; m; ++j) {
+            cin&gt;&gt;num;
+            if(num_map.count(num) &gt; 0){
+                num_list[num_map[num]] += 1;
+            } else {
+                num_map[num] = list_index;
+                num_list[list_index] = 1;
+                list_index += 1;
+            }
+            if(max_cnt &lt; num_list[num_map[num]]){
+                max_cnt = num_list[num_map[num]];
+                max_num = num;
+            }
+        }
+    }
+
+    cout&lt;&lt;max_num;
+    return 0;
+}
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;numeric&gt;
+
+using namespace std;
+
+map&lt;string, string&gt; get_mouth_list(){
+    map&lt;string ,string&gt; res;
+    res[&quot;A&quot;] = &quot;MON&quot;;
+    res[&quot;B&quot;] = &quot;TUE&quot;;
+    res[&quot;C&quot;] = &quot;WED&quot;;
+    res[&quot;D&quot;] = &quot;THU&quot;;
+    res[&quot;E&quot;] = &quot;FRI&quot;;
+    res[&quot;F&quot;] = &quot;SAT&quot;;
+    res[&quot;G&quot;] = &quot;SUN&quot;;
+    return res;
+}
+
+int main() {
+    string string1,string2,string3,string4;
+
+    cin&gt;&gt;string1&gt;&gt;string2&gt;&gt;string3&gt;&gt;string4;
+
+    int index1 = (int) min(string1.length(), string2.length());
+    int index2 = (int) min(string3.length(), string4.length());
+
+    map&lt;string,string&gt; mouth_list = get_mouth_list();
+
+    int flag =0;
+    string w;
+    int m = 0,h_int;
+    for (int i = 0; i &lt; index1; ++i) {
+       if (!flag) {
+           if (string1[i] == string2[i] &amp;&amp; string1.c_str()[i] &gt;= 'A' &amp;&amp; string1.c_str()[i] &lt;= 'G') {
+               w = string1[i];
+               flag = 1;
+           }
+       } else {
+           if(string1[i] == string2[i]) {
+               if(string1.c_str()[i] &gt;= '0' &amp;&amp; string1.c_str()[i] &lt;= '9'){
+                   h_int = string1.c_str()[i] - '0';
+                   break;
+               }
+               else if (string1.c_str()[i] &gt;= 'A' &amp;&amp; string1.c_str()[i] &lt;= 'N') {
+                   h_int = string1.c_str()[i] - 'A' + 10;
+                   break;
+               }
+           }
+       }
+    }
+
+    for (int j = 0; j &lt; index2; ++j) {
+        if(string3[j] == string4[j] &amp;&amp; isalpha(string3[j])){
+            m = j;
+        }
+    }
+
+    cout&lt;&lt;mouth_list[w]&lt;&lt;&quot; &quot;;
+    printf(&quot;%02d:%02d&quot;, h_int, m);
+        
+    return 0;
+}
+</code></pre>
+
+<h3 id="素数筛">素数筛</h3>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+
+
+vector&lt;int&gt; get_prime(){
+    vector&lt;int&gt; prime;
+    const int maxn = 100000+100;
+    int is_prime[maxn+100] = {0};
+
+    for (int i = 0; i &lt; 2; ++i) {
+        is_prime[i] = 0;
+    }
+
+    for (int j = 2; j*j &lt;= maxn; ++j) {
+        if(!is_prime[j]){
+            for (int i = j*j; i &lt;= maxn; i += j) {
+                is_prime[i] = 1;
+            }
+        }
+    }
+
+    for (int k = 2; k &lt; maxn; ++k) {
+        if(!is_prime[k]){
+            prime.push_back(k);
+        }
+    }
+
+    return prime;
+}
+
+int main() {
+    vector&lt;int&gt; prime = get_prime();
+    int p_count = prime.size();
+
+    long int n;
+    cin&gt;&gt;n;
+
+    if (n == 1){
+        cout&lt;&lt;&quot;1=1&quot;&lt;&lt;endl;
+        return 0;
+    }
+
+    cout&lt;&lt;n&lt;&lt;&quot;=&quot;;
+    int n_sqr = static_cast&lt;int&gt;(sqrt(1.0*n));
+    vector&lt;int&gt; count_list;
+    vector&lt;int&gt; pnum_list;
+
+    for (int i = 0; i &lt; p_count &amp;&amp; prime[i] &lt;= n_sqr; ++i) {
+        if(n%prime[i] == 0){
+            int count = 0;
+            pnum_list.push_back(prime[i]);
+            while(n%prime[i] == 0){
+                count++;
+                n/=prime[i];
+            }
+            count_list.push_back(count);
+        }
+        if(n == 1) break;
+    }
+
+    if(n != 1){
+        pnum_list.push_back(n);
+        count_list.push_back(1);
+    }
+
+    for (int j = 0; j &lt; count_list.size(); j++) {
+        if(j &gt; 0)
+            cout&lt;&lt;&quot;*&quot;;
+        cout&lt;&lt;pnum_list[j];
+        if(count_list[j] &gt; 1){
+            cout&lt;&lt;&quot;^&quot;&lt;&lt;count_list[j];
+        }
+
+    }
+    return 0;
+}
+</code></pre>
+
+<p>找到所有的质数然后从小到大求解，若有不等于1的就是质数本身。</p>
+
+<p>排序的水题</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+float get_similarity(vector&lt;int&gt; list1,vector&lt;int&gt; list2){
+    int l1=0,l2=0;
+    int count=0;
+    int total=list1.size()+list2.size();
+    while(l1 &lt; list1.size() &amp;&amp; l2 &lt; list2.size()) {
+        if (list1[l1] == list2[l2]) {
+            l1++;
+            l2++;
+            count++;
+        } else if(list1[l1] &gt; list2[l2]){
+            l2++;
+        } else{
+            l1++;
+        }
+    }
+
+    total -= count;
+    return float(count)/total;
+}
+
+int main() {
+    int n;
+    vector&lt;vector&lt;int&gt;&gt; lists;
+
+    cin&gt;&gt;n;
+    for (int i = 0; i &lt; n; ++i) {
+        int number;
+        cin&gt;&gt;number;
+        int k;
+        vector&lt;int&gt; list;
+        for (int j = 0; j &lt; number; ++j) {
+            cin&gt;&gt;k;
+            list.push_back(k);
+        }
+        if(number == 0){
+            lists.push_back(list);
+        } else{
+            sort(list.begin(),list.end());
+            int flag = list[0];
+            vector&lt;int&gt; l;
+            l.push_back(list[0]);
+            for (auto f : list) {
+                if(f != flag) {
+                    l.push_back(f);
+                    flag = f;
+                }
+            }
+            lists.push_back(l);
+        }
+    }
+
+
+
+    int n_k;
+    cin&gt;&gt;n_k;
+    for (int l = 0; l &lt; n_k; ++l) {
+        int k,h;
+        cin&gt;&gt;k&gt;&gt;h;
+        printf(&quot;%.1f%%&quot;, get_similarity(lists[k-1],lists[h-1])*100);
+        if(l != n_k-1)
+            printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="大叔比较">大叔比较</h3>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+    long long int a,b,c;
+    int n;
+    cin&gt;&gt;n;
+
+    for (int i = 0; i &lt; n; ++i) {
+        cout&lt;&lt;&quot;Case #&quot;&lt;&lt;i+1&lt;&lt;&quot;: &quot;;
+        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+        if(a&gt;0 &amp;&amp; b&gt;0){
+            (a+b&lt;0||a+b&gt;c)?cout&lt;&lt;&quot;true&quot;:cout&lt;&lt;&quot;false&quot;;
+        } else if(a&lt;0 &amp;&amp; b&lt;0){
+            (a+b&gt;=0||a+b&lt;=c)?cout&lt;&lt;&quot;false&quot;:cout&lt;&lt;&quot;true&quot;;
+        } else{
+            a+b&gt;c?cout&lt;&lt;&quot;true&quot;:cout&lt;&lt;&quot;false&quot;;
+        }
+        if (i != n-1)
+            cout&lt;&lt;&quot;\n&quot;;
+    }
+
+    return 0;
+}
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+
+using namespace std;
+
+int main() {
+    int n,c,flag = 0,index = 0;
+    cin&gt;&gt;n;
+    int b[n];
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;c;
+        b[i] = c;
+        if(c == i &amp;&amp; i!=0){
+            flag++;
+        }
+    }
+
+
+    int k = 1;
+    while (flag &lt; n-1){
+        index++;
+       if(b[0] != 0){
+           int tmp = b[0];
+           b[0] = b[b[0]];
+           b[tmp] = tmp;
+           flag ++;
+       } else{
+           for (k; k &lt; n; ++k) {
+               if(b[k] != k)
+                   break;
+           }
+           int tmp = b[0];
+           b[0] = b[k];
+           b[k] = tmp;
+           k++;
+       }
+    }
+
+    cout&lt;&lt;index;
+
+
+
+    return 0;
+}
+</code></pre>
+
+<p>数字黑洞 可能会有3个数字的，需要先填数字再判断。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+using namespace std;
+
+bool sort_function(char s1,char s2) { return s1&gt;s2; }
+bool rever_function(char s1, char s2) { return s1&lt;s2; }
+
+
+int s_to_n(string s){
+    int res = 0;
+    for (int i = 0; i &lt; 4; ++i) {
+        res += (s[i]-'0')*pow(10,3-i);
+    }
+    return res;
+}
+
+string n_to_s(int n){
+    string res=&quot;0000&quot;;
+    for (int i = 0; i &lt; 4; ++i) {
+        res[i] = static_cast&lt;char&gt;('0' + n / pow(10, 3 - i));
+        n = n % int(pow(10,3-i));
+    }
+    return res;
+}
+
+string function1(string s){
+    string res,temp = s;
+    sort(s.begin(),s.end(),sort_function);
+    sort(temp.begin(),temp.end(),rever_function);
+
+    cout&lt;&lt;s&lt;&lt;&quot; - &quot;&lt;&lt;temp;
+    res = n_to_s(s_to_n(s) - s_to_n(temp));
+    cout&lt;&lt;&quot; = &quot;&lt;&lt;res;
+    return res;
+
+}
+int main() {
+
+    string n;
+    cin&gt;&gt;n;
+    while(n.size() != 4){
+        n += &quot;0&quot;;
+    }
+    n = function1(n);
+    if(n != &quot;6174&quot; &amp;&amp; n!= &quot;0000&quot;){
+        cout&lt;&lt;&quot;\n&quot;;
+    }
+    while(n != &quot;0000&quot; &amp;&amp; n!= &quot;6174&quot;){
+        n = function1(n);
+        if(n != &quot;6174&quot; &amp;&amp; n!= &quot;0000&quot;)
+            cout&lt;&lt;&quot;\n&quot;;
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>忘记吧max值为-1了，好彩</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;cstdlib&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+bool check_out(char c){
+    if(c &lt;= 'z' &amp;&amp; c &gt;= 'a') return true;
+    if(c &lt;= 'Z' &amp;&amp; c &gt;= 'A') return true;
+    if(c &lt;= '9' &amp;&amp; c &gt;= '0') return true;
+    return false;
+}
+
+int main(){
+    string s;
+    map&lt;string,int&gt; str_map;
+    getline(cin,s);
+
+    int i = 0,str_length = s.length();
+    while (i&lt;str_length){
+        string word;
+        bool flag = true;
+        if(check_out(s[i])) {
+            while (i &lt; str_length &amp;&amp; check_out(s[i])) {
+
+                word += tolower(s[i]);
+                i++;
+            }
+
+            if (str_map.find(word) == str_map.end()) {
+                str_map[word] = 1;
+            } else {
+                str_map[word]++;
+            }
+        }
+        i++;
+    }
+
+    int max=-1;
+    string max_str;
+    for (auto a:str_map) {
+        if(a.second &gt; max){
+            max = a.second;
+            max_str = a.first;
+        }
+    }
+
+    cout&lt;&lt;max_str&lt;&lt;&quot; &quot;&lt;&lt;max;
+
+    return 0;
+}
+
+
+</code></pre>
+
+<p>1074 Reversing Linked List (25 分)</p>
+
+<pre><code class="language-c++">
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+ 
+ 
+int node[100002][2];
+ 
+int main()
+{
+	int list[100002];
+	int i;
+	int st, k;
+	int n;
+	cin &gt;&gt; st &gt;&gt; n &gt;&gt; k;
+	for (i = 0; i&lt;n; i++)
+	{
+		int add, data, next;
+		cin &gt;&gt; add &gt;&gt; data &gt;&gt; next;
+		node[add][0] = data;
+		node[add][1] = next;
+	}
+	int cnt = 0;
+	int cur = st;
+	while (cur != -1)
+	{
+		list[cnt++] = cur;
+		cur = node[cur][1];
+	}
+	
+	i = 0;
+	while (i + k &lt;= cnt)
+	{
+		reverse(list + i, list + i + k);
+		i += k;
+	}
+	for (i = 0; i &lt; cnt - 1; i++)
+	{
+		printf(&quot;%05d %d %05d\n&quot;, list[i], node[list[i]][0], list[i+1]);
+	}
+	printf(&quot;%05d %d -1\n&quot;, list[i], node[list[i]][0]);
+	return 0;
+}
+</code></pre>
+
+<p>每k个都要转置一下啊啊啊啊啊。</p>
                 </section>
             </article>
 
@@ -906,7 +1920,7 @@ print(res)
     
     <p class="small">
     
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
     <p class="small">

@@ -6,10 +6,106 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pat learning</title>
+      <link>https://ngc7292.github.io/posts/pat_2019/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/pat_2019/</guid>
+      <description>&lt;p&gt;2019.12.26 刚考完研 大部分都忘记了GG&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gan学习笔记</title>
+      <link>https://ngc7292.github.io/posts/gan_learn/</link>
+      <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/gan_learn/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>政治笔记</title>
+      <link>https://ngc7292.github.io/posts/p/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/p/</guid>
+      <description>&lt;p&gt;政治时政与重要知识点！！！&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>stego_with_gncnn</title>
+      <link>https://ngc7292.github.io/posts/stego_and_gsgan/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/stego_and_gsgan/</guid>
+      <description>&lt;p&gt;目前的隐写分析研究领域通常将隐写分析看成一个二分类问题，目标是区分正常载体和含密载体。虽然人类感知器官无法进行区分，研究者可以借助机器学习、模式识别等工具，并通过对图像统计特性进行分析来实现有效判别。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>算法学习第四章总结</title>
+      <link>https://ngc7292.github.io/posts/algorithms2/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/algorithms2/</guid>
+      <description>&lt;h1 id=&#34;分治策略&#34;&gt;分治策略&lt;/h1&gt;
+
+&lt;p&gt;在分治策略中，我们在每层递归应用了如下三个步骤：&lt;/p&gt;
+
+&lt;p&gt;分解(divide)：将问题划分为一些子问题，形式一样，规模更小&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>算法学习总结</title>
+      <link>https://ngc7292.github.io/posts/algorithms/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/algorithms/</guid>
+      <description>&lt;h1 id=&#34;算法基础&#34;&gt;算法基础&lt;/h1&gt;
+
+&lt;p&gt;算法导论第二章学习笔记&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>leetcode dp</title>
+      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
+      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pat learning</title>
+      <link>https://ngc7292.github.io/posts/pat_learn_java/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/pat_learn_java/</guid>
+      <description>&lt;p&gt;JAVA刷pat&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>
@@ -17,7 +113,7 @@
       <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/pat_learn/</guid>
-      <description>&lt;p&gt;pat刷一些题来做一点点算法&lt;/p&gt;
+      <description>&lt;p&gt;pat刷一些题来做一点点算法，这里大多数是python。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -47,43 +143,12 @@
     </item>
     
     <item>
-      <title>leetcode dp</title>
-      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
-      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>data structures</title>
       <link>https://ngc7292.github.io/posts/data_structures/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/data_structures/</guid>
       <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>basic calculus learning</title>
-      <link>https://ngc7292.github.io/posts/basic_calculus/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/basic_calculus/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>the sample solution of convolution function</title>
-      <link>https://ngc7292.github.io/posts/convolution/</link>
-      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/convolution/</guid>
-      <description>&lt;p&gt;信号与系统预习，要期末考试了，把要考到的点预习一下。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -171,7 +236,7 @@
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
-      <description>&lt;p&gt;前几天回顾了一下西瓜书中的第五章 神经网络，而且发现还有一些基本概念我也想写一下，例如梯度下降法，最小二乘法，牛顿法等&lt;/p&gt;
+      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -196,19 +261,6 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
       <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>shapley合作对策</title>
-      <link>https://ngc7292.github.io/posts/shapley/</link>
-      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/shapley/</guid>
-      <description>&lt;h1 id=&#34;shapley合作对策&#34;&gt;shapley合作对策&lt;/h1&gt;
-
-&lt;p&gt;shapley值作为一种利益分配算法，考虑到了所有的人对总目标的贡献程度，避免分配上的平均主义，但是，首先需要对其中所有成员的组合利益有着较为准确的预期，每个参与者在参与的时候每个组合的贡献都会影响到最后的输出结果，对于总效益不确定的情况下可以采用AHP法，ANP法以及模糊数学等方法来估算个联盟之间的可能效用值，再进行具体利益上的分配。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

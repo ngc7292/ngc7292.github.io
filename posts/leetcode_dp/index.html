@@ -107,9 +107,9 @@ code.has-jax {
                         leetcode dp
                     </h1>
                     <h2 class="headline">
-                    Dec 28, 2018 00:00
-                    · 727 words
-                    · 4 minute read
+                    Mar 8, 2019 00:00
+                    · 2566 words
+                    · 13 minute read
                       <span class="tags">
                       
                       
@@ -143,6 +143,25 @@ code.has-jax {
 <li><a href="#12-29日打卡">12.29日打卡</a>
 <ul>
 <li><a href="#304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</a></li>
+<li><a href="#322-coin-change">322. Coin Change</a></li>
+<li><a href="#338-counting-bits">338. Counting Bits</a></li>
+<li><a href="#221-maximal-square">221. Maximal Square</a></li>
+</ul></li>
+<li><a href="#2019-3-9">2019.3.9</a>
+<ul>
+<li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
+<li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
+<li><a href="#368-largest-divisible-subset">368. Largest Divisible Subset</a></li>
+</ul></li>
+<li><a href="#3-10">3.10</a>
+<ul>
+<li><a href="#392-is-subsequence">392. Is Subsequence</a></li>
+<li><a href="#377-combination-sum-iv">377. Combination Sum IV</a></li>
+<li><a href="#416-partition-equal-subset-sum">416. Partition Equal Subset Sum</a></li>
+</ul></li>
+<li><a href="#3-11">3.11</a>
+<ul>
+<li><a href="#464-can-i-win">464. Can I Win</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -152,6 +171,10 @@ code.has-jax {
                 
                 <section id="post-body">
                     <p>关于dp的一些题目汇总</p>
+
+<hr />
+
+<p>还是leetcode好啊，pat好辣鸡。</p>
 
 <p></p>
 
@@ -291,7 +314,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 
 <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (*row*1, *col*1) and lower right corner (*row*2, *col*2).</p>
 
-<p><img src="https://leetcode.com/static/images/courses/range_sum_query_2d.png" alt="Range Sum Query 2D" />
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg" alt="Range Sum Query 2D" />
 The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.</p>
 
 <p>因为会多次调用sum函数，所以我们在初始化的时候不可以直接存入矩阵，而是将矩阵进行一系列处理，其重点就是吧（i，j）处的数据改为（0，0）到（i，j）的所有元素之和，在调用sum的时候只需要对其进行相减就行了，道理是很简单，但是时间判断有毒，我的都很慢，不知道为啥.</p>
@@ -342,6 +365,567 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
 </code></pre>
 
 <p>这个错误处理有点多，所以时间很慢</p>
+
+<h3 id="322-coin-change">322. Coin Change</h3>
+
+<p>Medium</p>
+
+<p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: coins = [1, 2, 5], amount = 11
+Output: 3 
+Explanation: 11 = 5 + 5 + 1
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: coins = [2], amount = 3
+Output: -1
+</code></pre>
+
+<p><strong>Note</strong>:
+You may assume that you have an infinite number of each kind of coin.</p>
+
+<p>dp，维护一个amount大小的列表，表示到某个数字需要几步</p>
+
+<p>dp[i] = min(dp[i],dp[i-coin]+1)我们列表的初始值赋给的是-1，所以需要判断下是否大于0.</p>
+
+<pre><code class="language-java">class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount+1];
+
+        Arrays.fill(dp,-1);
+        dp[0] = 0;
+        for(int i=1;i&lt;=amount;i++)
+        {
+            for(int coin:coins)
+            {
+                if(i-coin &gt;= 0 &amp;&amp; dp[i-coin] != -1)
+                    dp[i] = dp[i] &gt; 0?Math.min(dp[i], dp[i-coin] + 1):dp[i-coin] + 1;
+            }
+        }
+
+        return dp[amount];
+    }
+}
+</code></pre>
+
+<h3 id="338-counting-bits">338. Counting Bits</h3>
+
+<p>Medium</p>
+
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1&rsquo;s in their binary representation and return them as an array.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: 2
+Output: [0,1,1]
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: 5
+Output: [0,1,1,2,1,2]
+</code></pre>
+
+<p><strong>Follow up:</strong></p>
+
+<ul>
+<li>It is very easy to come up with a solution with run time <strong>O(n*sizeof(integer))</strong>. But can you do it in linear time <strong>O(n)</strong> /possibly in a single pass?</li>
+<li>Space complexity should be <strong>O(n)</strong>.</li>
+<li>Can you do it like a boss? Do it without using any builtin function like <strong>__builtin_popcount</strong> in c++ or in any other language.</li>
+</ul>
+
+<pre><code class="language-java">class Solution {
+    public int[] countBits(int num) {
+        int[] res = new int[num+1];
+        res[0] = 0;
+        for(int i=0;i&lt;=num;i++)
+            res[i] = res[i/2] + (i%2);
+
+        return res;
+    }
+}
+</code></pre>
+
+<h3 id="221-maximal-square">221. Maximal Square</h3>
+
+<p>Medium</p>
+
+<p>Given a 2D binary matrix filled with 0&rsquo;s and 1&rsquo;s, find the largest square containing only 1&rsquo;s and return its area.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>Input: 
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+
+Output: 4
+</code></pre>
+
+<p>DP公式：</p>
+
+<pre><code>A[i][j] = min(A[i-1][j-1]+A[i-1][j] + A[i][j-1])
+</code></pre>
+
+<pre><code class="language-java">class Solution {
+    public int maximalSquare(char[][] matrix) {
+        if(matrix.length == 0)
+            return 0;
+        int width = matrix[0].length;
+        int heighth = matrix.length;
+
+
+        int[][] A = new int[heighth][width];
+        for(int i = 0;i&lt;heighth;i++){
+            for(int j = 0;j&lt;width;j++) {
+                if(matrix[i][j] == '0')
+                    A[i][j] = 0;
+                else
+                    A[i][j] = 1;
+            }
+        }
+
+        int maxNum = 0;
+
+        for(int i=0;i&lt;heighth;i++){
+            for(int j = 0;j&lt;width;j++){
+                if(A[i][j] == 1)
+                    if(i&gt;0&amp;&amp;j&gt;0)
+                        A[i][j] = Math.min(A[i-1][j-1],Math.min(A[i][j-1],A[i-1][j])) + 1;
+                if(maxNum &lt; A[i][j])
+                    maxNum = A[i][j];
+            }
+        }
+
+        return maxNum*maxNum;
+    }
+}
+</code></pre>
+
+<h2 id="2019-3-9">2019.3.9</h2>
+
+<h3 id="375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</h3>
+
+<p>Medium</p>
+
+<p>We are playing the Guess Game. The game is as follows:</p>
+
+<p>I pick a number from <strong>1</strong> to <strong>n</strong>. You have to guess which number I picked.</p>
+
+<p>Every time you guess wrong, I&rsquo;ll tell you whether the number I picked is higher or lower.</p>
+
+<p>However, when you guess a particular number x, and you guess wrong, you pay <strong>$x</strong>. You win the game when you guess the number I picked.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>n = 10, I pick 8.
+
+First round:  You guess 5, I tell you that it's higher. You pay $5.
+Second round: You guess 7, I tell you that it's higher. You pay $7.
+Third round:  You guess 9, I tell you that it's lower. You pay $9.
+
+Game over. 8 is the number I picked.
+
+You end up paying $5 + $7 + $9 = $21.
+</code></pre>
+
+<p>这个好难，我不会做，去抄了个作业。</p>
+
+<p>其实明白之后也不是特别的难，就是通过二分法，得到left到right之间代价最高的代价，然后把递归求出整个数组最高的代价。</p>
+
+<p>公式$ dp[left][right] = MIN({MAX_{i=0}^{n}(dp[left][i-1],dp[i+1][right]) }) $</p>
+
+<pre><code class="language-java">class Solution {
+    public int getMoneyAmount(int n) {
+        if(n==0) return 0;
+        int[][] dp = new int[n+1][n+1];
+        for(int i=0;i&lt;=n;i++)
+            Arrays.fill(dp[i],0);
+
+        return DFS(dp,1,n);
+    }
+    
+    static int DFS(int[][] dp,int left, int right){
+        if(left&gt;=right)
+            return 0;
+        if(dp[left][right] &gt; 0)
+            return dp[left][right];
+        int ans = 100000;
+        for(int i=left;i&lt;=right;i++)
+            ans = Math.min(ans, i+Math.max(DFS(dp,left,i-1),DFS(dp,i+1,right)));
+
+        return dp[left][right] = ans;
+    }
+}
+</code></pre>
+
+<h3 id="376-wiggle-subsequence">376. Wiggle Subsequence</h3>
+
+<p>Medium</p>
+
+<p>A sequence of numbers is called a <strong>wiggle sequence</strong> if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.</p>
+
+<p>For example, <code>[1,7,4,9,2,5]</code> is a wiggle sequence because the differences <code>(6,-3,5,-7,3)</code> are alternately positive and negative. In contrast, <code>[1,4,7,2,5]</code>and <code>[1,7,4,5,5]</code> are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero.</p>
+
+<p>Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1,7,4,9,2,5]
+Output: 6
+Explanation: The entire sequence is a wiggle sequence.
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1,17,5,10,13,15,10,5,16,8]
+Output: 7
+Explanation: There are several subsequences that achieve this length. One is [1,17,10,13,10,16,8].
+</code></pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre><code>Input: [1,2,3,4,5,6,7,8,9]
+Output: 2
+</code></pre>
+
+<p>遍历一下，找到所有的拐点数字（即当前差与前一个的差不同）即可。</p>
+
+<pre><code class="language-java">class Solution {
+    public int wiggleMaxLength(int[] nums) {
+        if(nums.length == 0)
+            return 0;
+        int length = 1;
+
+        int pre = nums[0];
+        int flag = -1;
+        int pre_flag = -1;
+        for(int i=0;i&lt;nums.length;i++)
+        {
+            if(nums[i] == pre){
+                continue;
+            }
+            flag = nums[i]-pre&gt;0?1:0;
+            if(pre_flag != flag){
+                length+=1;
+                pre_flag = flag;
+            }
+            pre = nums[i];
+        }
+        return length;
+    }
+}
+</code></pre>
+
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
+
+<h3 id="368-largest-divisible-subset">368. Largest Divisible Subset</h3>
+
+<p>Medium</p>
+
+<p>Given a set of <strong>distinct</strong> positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:</p>
+
+<p>Si % Sj = 0 or Sj % Si = 0.</p>
+
+<p>If there are multiple solutions, return any subset is fine.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1,2,3]
+Output: [1,2] (of course, [1,3] will also be ok)
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1,2,4,8]
+Output: [1,2,4,8]
+</code></pre>
+
+<pre><code class="language-java">class Solution {
+    public List&lt;Integer&gt; largestDivisibleSubset(int[] nums) {
+        Arrays.sort(nums);
+
+        List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;();
+        if(nums.length &lt;= 0){
+            return new ArrayList&lt;&gt;();
+        }
+
+        for(int i=0;i&lt;nums.length;i++){
+            list.add(i,new ArrayList&lt;Integer&gt;());
+        }
+
+
+        int maxSize = 0;
+        int maxIndex = 0;
+        for(int i=0;i&lt;nums.length;i++){
+            for(int j=i-1;j&gt;=0;j--){
+                if(nums[i]%nums[j] == 0 &amp;&amp; nums[i] &gt; nums[j]){
+                    if(list.get(i).size() &lt; list.get(j).size()+1) {
+                        list.set(i, new ArrayList&lt;&gt;(list.get(j)));
+                        list.get(i).add(nums[i]);
+                        if (maxSize &lt; list.get(i).size()) {
+                            maxSize = list.get(i).size();
+                            maxIndex = i;
+                        }
+                    }
+                }
+            }
+            if(list.get(i).size() == 0){
+                list.get(i).add(nums[i]);
+            }
+        }
+
+        return list.get(maxIndex);
+    }
+}
+</code></pre>
+
+<h2 id="3-10">3.10</h2>
+
+<h3 id="392-is-subsequence">392. Is Subsequence</h3>
+
+<p>Medium</p>
+
+<p>Given a string <strong>s</strong> and a string <strong>t</strong>, check if <strong>s</strong> is subsequence of <strong>t</strong>.</p>
+
+<p>You may assume that there is only lower case English letters in both <strong>s</strong> and <strong>t</strong>. <strong>t</strong> is potentially a very long (length ~= 500,000) string, and <strong>s</strong> is a short string (&lt;=100).</p>
+
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;abcde&quot;</code> while <code>&quot;aec&quot;</code>is not).</p>
+
+<p><strong>Example 1:</strong>
+<strong>s</strong> = <code>&quot;abc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
+
+<p>Return <code>true</code>.</p>
+
+<p><strong>Example 2:</strong>
+<strong>s</strong> = <code>&quot;axc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
+
+<p>Return <code>false</code>.</p>
+
+<p><strong>Follow up:</strong>
+If there are lots of incoming S, say S1, S2, &hellip; , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
+
+<p><strong>Credits:</strong>
+Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
+
+<p>模式匹配，</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean isSubsequence(String s, String t) {
+        if(s.length() == 0)
+            return true;
+        if(t.length() == 0)
+            return false;
+        int s_index = 0,t_index = 0;
+        while(t_index != t.length() &amp;&amp; s_index != s.length())
+        {
+            if (s.charAt(s_index) == t.charAt(t_index)) {
+                s_index += 1;
+                t_index += 1;
+            } else {
+                t_index += 1;
+            }
+
+            if(s_index == s.length())
+                return true;
+        }
+
+        return false;
+    }
+}
+</code></pre>
+
+<h3 id="377-combination-sum-iv">377. Combination Sum IV</h3>
+
+<p>Medium</p>
+
+<p>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>nums = [1, 2, 3]
+target = 4
+
+The possible combination ways are:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+
+Note that different sequences are counted as different combinations.
+
+Therefore the output is 7.
+</code></pre>
+
+<p>维护一个target长度的数组，表示所有可以到达该target的路径数量，返回taget就可以了</p>
+
+<p>dp公式$ dp[i] = \sum_{k=0}^{i-1}dp[k]$</p>
+
+<pre><code class="language-java">class Solution {
+    public int combinationSum4(int[] nums, int target) {  
+        if(nums.length == 0)
+            return 0;
+        int[] res = new int[target+1];
+        Arrays.fill(res,0);
+        res[0] = 1;
+        for(int i =0;i&lt;=target;i++){
+            for(int num:nums)
+                if(num &lt;= i)
+                    res[i] += res[i-num];
+        }
+        return res[target];
+    }
+}
+</code></pre>
+
+<h3 id="416-partition-equal-subset-sum">416. Partition Equal Subset Sum</h3>
+
+<p>Medium</p>
+
+<p>Given a <strong>non-empty</strong> array containing <strong>only positive integers</strong>, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.</p>
+
+<p><strong>Note:</strong></p>
+
+<ol>
+<li>Each of the array element will not exceed 100.</li>
+<li>The array size will not exceed 200.</li>
+</ol>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: [1, 5, 11, 5]
+
+Output: true
+
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: [1, 2, 3, 5]
+
+Output: false
+
+Explanation: The array cannot be partitioned into equal sum subsets.
+</code></pre>
+
+<p>好像是啥背包问题，我也不是很懂的，看了好多大佬的解题过程，弄清楚了一星半点。</p>
+
+<p>首先题目问将整个数组分成两个子数组，其和相等，所以我们确保在整个数组的和是可以被二整除的，若不能被二整除，直接返回false。之后创建一个nums.length 行，sum/2列的数列，其中dp[i][j] 表示在拿过i个数字并其和小于等于j的最大数字之和，emmm，比如说dp[2][3]指拿过第三个数字之后和小于3的最大数字，以本题为例，dp[2][3] = 0</p>
+
+<p>可以得到dp公式 $ dp[i][j] = max(dp[i-1][j] , dp[i-1][j-nums[i]] + nums[i])$</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean canPartition(int[] nums) {
+        int sum = 0;
+        for(int num:nums)
+            sum += num;
+
+        if(sum % 2 == 1)
+            return false;
+        else{
+            sum = sum/2;
+            int[][] dp = new int[nums.length][sum+1];
+            for(int i = 0;i&lt;nums.length;i++)
+                Arrays.fill(dp[i],0);
+
+            for(int i = nums[0];i&lt;=sum;i++){
+                dp[0][i] = nums[0];
+            }
+
+            for(int i=1;i&lt;nums.length;i++){
+                for(int j=nums[i];j&lt;=sum;j++){
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-nums[i]] + nums[i]);
+                }
+            }
+
+            if(dp[nums.length-1][sum] == sum)
+                return true;
+            else
+                return false;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="3-11">3.11</h2>
+
+<h3 id="464-can-i-win">464. Can I Win</h3>
+
+<p>Medium</p>
+
+<p>In the &ldquo;100 game,&rdquo; two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
+
+<p>What if we change the game so that players cannot re-use integers?</p>
+
+<p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total &gt;= 100.</p>
+
+<p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally.</p>
+
+<p>You can always assume that <code>maxChoosableInteger</code> will not be larger than 20 and <code>desiredTotal</code> will not be larger than 300.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>Input:
+maxChoosableInteger = 10
+desiredTotal = 11
+
+Output:
+false
+
+Explanation:
+No matter which integer the first player choose, the first player will lose.
+The first player can choose an integer from 1 up to 10.
+If the first player choose 1, the second player can only choose integers from 2 up to 10.
+The second player will win by choosing 10 and get a total = 11, which is &gt;= desiredTotal.
+Same with other integers chosen by the first player, the second player will always win.
+</code></pre>
+
+<p>哎，抄了一下<a href="https://blog.csdn.net/liuchuo/article/details/54729227">柳婼大佬的博客</a></p>
+
+<p>先把特殊情况分出来，其一是若给定的maxChoosableInteger大于desiredTotal时，先发直接就可以获胜，或者是$ (1+maxChoosableInteger)*maxChoosableInteger/2 &gt; desiredTotal$  哪位都不会获胜。</p>
+
+<p>排除掉这两个特殊情况，讨论剩下情况，把每个情况拿出来讨论，遍历max，所选择i之后，把所选择的数字与visited进行或运算，保证所选择的数字没有经过选择，然后可以获胜的条件有两个，一是加上i之后大于desiredTotal，或者递归 <code>!canWin(target - i, mask | visited, maxC, map)</code> 返回true即可。</p>
+
+<p>代码（我发现我位运算真的不是很常用，但是看起来好像位运算效率很高的样子）</p>
+
+<pre><code class="language-java">class Solution {
+    public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+        int maxC = maxChoosableInteger;
+        if(maxC &gt; desiredTotal) return true;
+        if((1+maxC)*maxC/2 &lt;desiredTotal) return false;
+
+        HashMap&lt;Integer, Boolean&gt; map = new HashMap&lt;&gt;();
+
+        return canWin(desiredTotal,0,maxC,map);
+
+    }
+
+    static boolean canWin(int target, int visited, int maxC,HashMap&lt;Integer,Boolean&gt; map){
+        if(map.containsKey(visited)) return map.get(visited);
+        for (int i=1;i&lt;=maxC;i++){
+            int mask = 1&lt;&lt; i;
+            if((mask &amp; visited) == 0 &amp;&amp; (i&gt;=target || !canWin(target - i, mask | visited, maxC, map)) ){
+                map.put(visited,true);
+                return true;
+            }
+        }
+        map.put(visited,false);
+        return false;
+    }
+}
+</code></pre>
+
+<p>累了，今天就一道吧。。。。</p>
                 </section>
             </article>
 
@@ -401,7 +985,7 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
     
     <p class="small">
     
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
     <p class="small">
