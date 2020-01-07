@@ -6,10 +6,21 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>neural network and BP algorithm</title>
+      <link>https://ngc7292.github.io/posts/neural_networks/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
+      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>
@@ -226,17 +237,6 @@
       
       <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
       <description>&lt;p&gt;我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>neural network and BP algorithm</title>
-      <link>https://ngc7292.github.io/posts/neural_networks/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
-      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
