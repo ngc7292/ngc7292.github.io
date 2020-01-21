@@ -108,8 +108,8 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Dec 26, 2019 00:00
-                    · 5559 words
-                    · 27 minute read
+                    · 9605 words
+                    · 46 minute read
                       <span class="tags">
                       
                       
@@ -147,6 +147,23 @@ code.has-jax {
 <li><a href="#1019-general-palindromic-number-20分">1019 General Palindromic Number (20分)</a></li>
 <li><a href="#1021-deepest-root-25分">1021 Deepest Root (25分)</a></li>
 <li><a href="#1023-have-fun-with-numbers-20分">1023 Have Fun with Numbers (20分)</a></li>
+<li><a href="#1024-palindromic-number-25分">1024 Palindromic Number (25分)</a></li>
+<li><a href="#1025-pat-ranking-25分">1025 PAT Ranking (25分)</a></li>
+<li><a href="#1027-colors-in-mars-20分">1027 Colors in Mars (20分)</a></li>
+<li><a href="#1028-list-sorting-25分">1028 List Sorting (25分)</a></li>
+<li><a href="#1029-median-25分">1029 Median (25分)</a></li>
+<li><a href="#1031-hello-world-for-u-20分">1031 Hello World for U (20分)</a></li>
+<li><a href="#1035-password-20分">1035 Password (20分)</a></li>
+<li><a href="#1036-boys-vs-girls-25分">1036 Boys vs Girls (25分)</a></li>
+<li><a href="#1037-magic-coupon-25分">1037 Magic Coupon (25分)</a></li>
+</ul></li>
+<li><a href="#input-specification">Input Specification:</a></li>
+<li><a href="#output-specification">Output Specification:</a></li>
+<li><a href="#sample-input">Sample Input:</a></li>
+<li><a href="#sample-output">Sample Output:</a>
+<ul>
+<li><a href="#1039-course-list-for-student-25分">1039 Course List for Student (25分)</a></li>
+<li><a href="#1040-longest-symmetric-string-25分">1040 Longest Symmetric String (25分)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1330,6 +1347,43 @@ int main() {
 }
 </code></pre>
 
+<p>由于base的取值范围在【2，10**9】上，因此不会每一位的值都是一位的，所以不可以用字符串而应该用数组来存储改换进制后的字符串。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+    int num,base;
+    cin&gt;&gt;num&gt;&gt;base;
+    int res[40] = {0};
+    int flag = 0,index = 0;
+    while(num != 0){
+        res[index++] = num % base;
+        num = num/base;
+    }
+    for (int j = 0; j &lt; index / 2; ++j) {
+        if(res[j] != res[index - 1 -j]){
+            cout&lt;&lt;&quot;No\n&quot;;
+            flag = 1;
+            break;
+        }
+    }
+    if(flag == 0) cout&lt;&lt;&quot;Yes\n&quot;;
+
+    for (int i = index-1; i &gt;= 0 ; --i) {
+        cout&lt;&lt;res[i];
+        if(i != 0) cout&lt;&lt;&quot; &quot;;
+    }
+    return 0;
+}
+</code></pre>
+
 <h4 id="1021-deepest-root-25分">1021 Deepest Root (25分)</h4>
 
 <p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
@@ -1591,6 +1645,961 @@ int main(){
     for (int i = number_d.length()-1; i &gt;= 0; --i) {
         cout&lt;&lt;number_d[i];
     }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1024-palindromic-number-25分">1024 Palindromic Number (25分)</h4>
+
+<p>A number that will be the same when it is written forwards or backwards is known as a <strong>Palindromic Number</strong>. For example, 1234321 is a palindromic number. All single digit numbers are palindromic numbers.</p>
+
+<p>Non-palindromic numbers can be paired with palindromic ones via a series of operations. First, the non-palindromic number is reversed and the result is added to the original number. If the result is not a palindromic number, this is repeated until it gives a palindromic number. For example, if we start from 67, we can obtain a palindromic number in 2 steps: 67 + 76 = 143, and 143 + 341 = 484.</p>
+
+<p>Given any positive integer <em>N</em>, you are supposed to find its paired palindromic number and the number of steps taken to find it.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case consists of two positive numbers <em>N</em> and <em>K</em>, where <em>N</em> (≤1010) is the initial numer and <em>K</em> (≤100) is the maximum number of steps. The numbers are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output two numbers, one in each line. The first number is the paired palindromic number of <em>N</em>, and the second number is the number of steps taken to find the palindromic number. If the palindromic number is not found after <em>K</em> steps, just output the number obtained at the *K*th step and <em>K</em> instead.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">67 3
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">484
+2
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">69 3
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">1353
+3
+</code></pre>
+
+<p>有两个点回超过longlong的范围因此需要采用字符串加法就行。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+#define ll long long int
+
+
+using namespace std;
+
+bool check_p(string s){
+    int l = static_cast&lt;int&gt;(s.length());
+    for (int i = 0; i &lt; l / 2; ++i) {
+        if(s[i] != s[l-i-1])
+            return false;
+    }
+    return true;
+}
+
+string get_d(string s){
+    int l = static_cast&lt;int&gt;(s.length());
+    int up = 0;
+    string res = &quot;&quot;;
+    for (int i = 0; i &lt; l; ++i) {
+        res = to_string(((s[i]-'0') + (s[l-i-1]-'0') + up)%10) + res;
+        up = ((s[i]-'0') + (s[l-i-1]-'0') + up)/10;
+    }
+    res = up == 0?res:to_string(up) + res;
+    return res;
+}
+
+int main(){
+    string n;
+    int k;
+    cin&gt;&gt;n&gt;&gt;k;
+    for (int i = 0; i &lt; k; ++i) {
+        if(check_p(n)){
+            cout&lt;&lt;n&lt;&lt;&quot;\n&quot;&lt;&lt;i;
+            return 0;
+        }
+        n = get_d(n);
+    }
+    cout&lt;&lt;n&lt;&lt;&quot;\n&quot;&lt;&lt;k;
+    return 0;
+}
+
+</code></pre>
+
+<h4 id="1025-pat-ranking-25分">1025 PAT Ranking (25分)</h4>
+
+<p>Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains a positive number <em>N</em> (≤100), the number of test locations. Then <em>N</em> ranklists follow, each starts with a line containing a positive integer <em>K</em> (≤300), the number of testees, and then <em>K</em> lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print in one line the total number of testees. Then print the final ranklist in the following format:</p>
+
+<pre><code>registration_number final_rank location_number local_rank
+
+
+      
+    
+</code></pre>
+
+<p>The locations are numbered from 1 to <em>N</em>. The output must be sorted in nondecreasing order of the final ranks. The testees with the same score must have the same rank, and the output must be sorted in nondecreasing order of their registration numbers.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">2 
+5
+1234567890001 95
+1234567890005 100
+1234567890003 95
+1234567890002 77
+1234567890004 85
+4
+1234567890013 65
+1234567890011 25
+1234567890014 100
+1234567890012 85
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">9
+1234567890005 1 1 1
+1234567890014 1 2 1
+1234567890001 3 1 2
+1234567890003 3 1 2
+1234567890004 5 1 4
+1234567890012 5 2 2
+1234567890002 7 1 5
+1234567890013 8 2 3
+1234567890011 9 2 4
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+#define ll long long
+
+using namespace std;
+
+typedef struct stu{
+    string stu_id;
+    int grade, local_rank, local_number, final_rank, number;
+}stu;
+
+bool local_sort(stu stu1, stu stu2){ return stu1.local_number == stu2.local_number?stu1.grade&gt;stu2.grade:stu1.local_number&lt;stu2.local_number; }
+
+bool final_sort(stu stu1, stu stu2){ return stu1.grade == stu2.grade?stu1.stu_id&lt;stu2.stu_id:stu1.grade &gt; stu2.grade; }
+
+int main() {
+    int n,k;
+    vector&lt;stu&gt; stu_list;
+    cin&gt;&gt;n;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;k;
+        for (int j = 0; j &lt; k; ++j) {
+            stu student;
+            cin&gt;&gt;student.stu_id&gt;&gt;student.grade;
+            student.local_number = i+1;
+            student.number = 300*i + j;
+            stu_list.push_back(student);
+        }
+    }
+
+    int local = -1;
+    int rank = 0,min_grade = stu_list[0].grade + 1,min_rank = 0;
+    sort(stu_list.begin(),stu_list.end(),local_sort);
+
+    for (int l = 0; l &lt; stu_list.size(); ++l) {
+        if(local != stu_list[l].local_number){
+            min_rank = l;
+            min_grade = stu_list[l].grade + 1;
+            local = stu_list[l].local_number;
+        }
+        if(min_grade != stu_list[l].grade){
+            rank = l - min_rank + 1;
+        }
+        stu_list[l].local_rank = rank;
+        min_grade = stu_list[l].grade;
+    }
+
+    sort(stu_list.begin(),stu_list.end(),final_sort);
+
+    rank = 0;
+    min_grade = stu_list[0].grade + 1;
+    for (int j = 0; j &lt; stu_list.size(); ++j) {
+        if(min_grade != stu_list[j].grade) rank = j + 1;
+        stu_list[j].final_rank = rank;
+        min_grade = stu_list[j].grade;
+    }
+
+    cout&lt;&lt;stu_list.size()&lt;&lt;endl;
+    for (int i=0 ; i &lt; stu_list.size() ;i++){
+        cout&lt;&lt;stu_list[i].stu_id&lt;&lt;&quot; &quot;&lt;&lt;stu_list[i].final_rank&lt;&lt;&quot; &quot;&lt;&lt;stu_list[i].local_number&lt;&lt;&quot; &quot;&lt;&lt;stu_list[i].local_rank;
+        if(i != stu_list.size()-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1027-colors-in-mars-20分">1027 Colors in Mars (20分)</h4>
+
+<p>People in Mars represent the colors in their computers in a similar way as the Earth people. That is, a color is represented by a 6-digit number, where the first 2 digits are for <code>Red</code>, the middle 2 digits for <code>Green</code>, and the last 2 digits for <code>Blue</code>. The only difference is that they use radix 13 (0-9 and A-C) instead of 16. Now given a color in three decimal numbers (each between 0 and 168), you are supposed to output their Mars RGB values.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case which occupies a line containing the three decimal color values.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case you should output the Mars RGB value in the following format: first output <code>#</code>, then followed by a 6-digit number where all the English characters must be upper-cased. If a single color is only 1-digit long, you must print a <code>0</code> to its left.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">15 43 71 
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">#123456
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+string get_number(int n){
+    string res = &quot;&quot;;
+    int num;
+    while (n&gt;0){
+        num = n%13;
+        if (num &gt;= 10){
+            if(num == 10) res = &quot;A&quot;+res;
+            if(num == 11) res = &quot;B&quot;+res;
+            if(num == 12) res = &quot;C&quot;+res;
+        } else res = to_string(num) + res;
+        n = n/13;
+    }
+    for (int i = res.length() ; i &lt; 2; ++i) {
+        res = &quot;0&quot; + res;
+    }
+    return res;
+}
+
+int main(){
+    int n1,n2,n3;
+    cin&gt;&gt;n1&gt;&gt;n2&gt;&gt;n3;
+    cout&lt;&lt;&quot;#&quot;&lt;&lt;get_number(n1)&lt;&lt;get_number(n2)&lt;&lt;get_number(n3);
+    return 0;
+}
+</code></pre>
+
+<h4 id="1028-list-sorting-25分">1028 List Sorting (25分)</h4>
+
+<p>Excel can sort records according to any column. Now you are supposed to imitate this function.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains two integers <em>N</em> (≤105) and <em>C</em>, where <em>N</em> is the number of records and <em>C</em> is the column that you are supposed to sort the records with. Then <em>N</em> lines follow, each contains a record of a student. A student&rsquo;s record consists of his or her distinct ID (a 6-digit number), name (a string with no more than 8 characters without space), and grade (an integer between 0 and 100, inclusive).</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output the sorting result in <em>N</em> lines. That is, if <em>C</em> = 1 then the records must be sorted in increasing order according to ID&rsquo;s; if <em>C</em> = 2 then the records must be sorted in non-decreasing order according to names; and if <em>C</em> = 3 then the records must be sorted in non-decreasing order according to grades. If there are several students who have the same name or grade, they must be sorted according to their ID&rsquo;s in increasing order.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">3 1
+000007 James 85
+000010 Amy 90
+000001 Zoe 60
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">000001 Zoe 60
+000007 James 85
+000010 Amy 90
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">4 2
+000007 James 85
+000010 Amy 90
+000001 Zoe 60
+000002 James 98
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">000010 Amy 90
+000002 James 98
+000007 James 85
+000001 Zoe 60
+</code></pre>
+
+<p>Sample Input 3:</p>
+
+<pre><code class="language-in">4 3
+000007 James 85
+000010 Amy 90
+000001 Zoe 60
+000002 James 90
+</code></pre>
+
+<p>Sample Output 3:</p>
+
+<pre><code class="language-out">000001 Zoe 60
+000007 James 85
+000002 James 90
+000010 Amy 90
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+typedef struct Stu{
+    string stu_id,stu_name;
+    int grade;
+} Stu;
+
+bool id_sort(Stu student1,Stu student2){ return student1.stu_id&lt;=student2.stu_id; }
+bool name_sort(Stu student1, Stu student2){ return student1.stu_name&lt;=student2.stu_name; }
+bool grade_sort(Stu student1, Stu student2){return student1.grade&lt;=student2.grade; }
+
+int main() {
+    int n,c;
+    cin&gt;&gt;n&gt;&gt;c;
+    vector&lt;Stu&gt; student_list;
+
+    for (int i = 0; i &lt; n; ++i) {
+        Stu student;
+        cin&gt;&gt;student.stu_id&gt;&gt;student.stu_name&gt;&gt;student.grade;
+        student_list.push_back(student);
+    }
+
+    if(c == 1) { sort(student_list.begin(),student_list.end(),id_sort); }
+    else if (c == 2){ sort(student_list.begin(),student_list.end(),name_sort); }
+    else if (c == 3){ sort(student_list.begin(), student_list.end(),grade_sort); }
+
+    for (int j = 0; j &lt; n; ++j) {
+        cout&lt;&lt;student_list[j].stu_id&lt;&lt;&quot; &quot;&lt;&lt;student_list[j].stu_name&lt;&lt;&quot; &quot;&lt;&lt;student_list[j].grade;
+        if( j != n-1) cout&lt;&lt;&quot;\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1029-median-25分">1029 Median (25分)</h4>
+
+<p>Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of S1 = { 11, 12, 13, 14 } is 12, and the median of S2 = { 9, 10, 15, 16, 17 } is 15. The median of two sequences is defined to be the median of the nondecreasing sequence which contains all the elements of both sequences. For example, the median of S1 and S2 is 13.</p>
+
+<p>Given two increasing sequences of integers, you are asked to find their median.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case occupies 2 lines, each gives the information of a sequence. For each sequence, the first positive integer N (≤2×105) is the size of that sequence. Then N integers follow, separated by a space. It is guaranteed that all the integers are in the range of <strong>long int</strong>.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case you should output the median of the two given sequences in a line.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">4 11 12 13 14
+5 9 10 15 16 17
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">13
+</code></pre>
+
+<p>priority_queue 优先队列，c++queue库中的函数，内部自带堆排序，每当push进元素后都会进行排序</p>
+
+<p>cin cout在执行的时候，c++为了兼容printf与scanf等，保证输出流不混乱，将其绑定在一起，从而使运行效率降低，可以使用std::ios::sync_with_stdio(false); 进行解除绑定，提高运行效率。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+priority_queue&lt;int&gt; q1;
+
+int main() {
+    ios::sync_with_stdio(false);
+    int n1,n2,number;
+    cin&gt;&gt;n1;
+    for (int i = 0; i &lt; n1; ++i) {
+        cin&gt;&gt;number;
+        q1.push(number);
+    }
+
+    cin&gt;&gt;n2;
+    int mid = (n1+n2+1)/2;
+    while (q1.size() &gt; mid) q1.pop();
+    for (int j = 0; j &lt; n2; ++j) {
+        cin&gt;&gt;number;
+        if(q1.size() &lt; mid) q1.push(number);
+        else if(number &lt; q1.top()){
+                q1.push(number);
+                q1.pop();
+            }
+        else break;
+    }
+    cout&lt;&lt;q1.top();
+
+    return 0;
+
+}
+
+
+</code></pre>
+
+<h4 id="1031-hello-world-for-u-20分">1031 Hello World for U (20分)</h4>
+
+<p>Given any string of <em>N</em> (≥5) characters, you are asked to form the characters into the shape of <code>U</code>. For example, <code>helloworld</code> can be printed as:</p>
+
+<pre><code>h  d
+e  l
+l  r
+lowo
+</code></pre>
+
+<p>That is, the characters must be printed in the original order, starting top-down from the left vertical line with *n*1 characters, then left to right along the bottom line with *n*2 characters, and finally bottom-up along the vertical line with *n*3 characters. And more, we would like <code>U</code> to be as squared as possible &ndash; that is, it must be satisfied that *n*1=*n*3=*m<strong>a</strong>x* { <em>k</em> | *k*≤*n*2 for all 3≤*n*2≤<em>N</em> } with *n*1+*n*2+*n*3−2=<em>N</em>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print the input string in the shape of U as specified in the description.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">helloworld! 
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">h   !
+e   d
+l   l
+lowor
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+
+#define ll long long
+
+using namespace std;
+
+int main() {
+    string s;
+    cin&gt;&gt;s;
+    int l_s = (s.length()+2)/3,bottom = (s.length()+2)%3+l_s - 2;
+    for (int i = 0; i &lt; l_s-1; ++i) {
+        cout&lt;&lt;s[i];
+        for (int j = 0; j &lt; bottom; ++j) {
+            cout&lt;&lt;&quot; &quot;;
+        }
+        cout&lt;&lt;s[s.length()-1-i]&lt;&lt;&quot;\n&quot;;
+    }
+    for (int k = l_s-1 ; k &lt;= l_s + bottom; ++k) {
+        cout&lt;&lt;s[k];
+    }
+    return 0;
+}
+</code></pre>
+
+<h4 id="1035-password-20分">1035 Password (20分)</h4>
+
+<p>To prepare for PAT, the judge sometimes has to generate random passwords for the users. The problem is that there are always some confusing passwords since it is hard to distinguish <code>1</code> (one) from <code>l</code> (<code>L</code> in lowercase), or <code>0</code> (zero) from <code>O</code> (<code>o</code> in uppercase). One solution is to replace <code>1</code> (one) by <code>@</code>, <code>0</code> (zero) by <code>%</code>, <code>l</code> by <code>L</code>, and <code>O</code> by <code>o</code>. Now it is your job to write a program to check the accounts generated by the judge, and to help the juge modify the confusing passwords.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains a positive integer <em>N</em> (≤1000), followed by <em>N</em> lines of accounts. Each account consists of a user name and a password, both are strings of no more than 10 characters with no space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, first print the number <em>M</em> of accounts that have been modified, then print in the following <em>M</em> lines the modified accounts info, that is, the user names and the corresponding modified passwords. The accounts must be printed in the same order as they are read in. If no account is modified, print in one line <code>There are N accounts and no account is modified</code> where <code>N</code> is the total number of accounts. However, if <code>N</code> is one, you must print <code>There is 1 account and no account is modified</code> instead.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">3
+Team000002 Rlsp0dfa
+Team000003 perfectpwd
+Team000001 R1spOdfa
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">2
+Team000002 RLsp%dfa
+Team000001 R@spodfa
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">1
+team110 abcdefg332
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">There is 1 account and no account is modified
+</code></pre>
+
+<p>Sample Input 3:</p>
+
+<pre><code class="language-in">2
+team110 abcdefg222
+team220 abcdefg333
+</code></pre>
+
+<p>Sample Output 3:</p>
+
+<pre><code class="language-out">There are 2 accounts and no account is modified
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+
+#define ll long long
+
+using namespace std;
+
+int main() {
+    int n=0;
+    cin&gt;&gt;n;
+    string s1,s2;
+    int flag = 0;
+    vector&lt;string&gt; s1_list,s2_list;
+    for (int i = 0; i &lt; n; ++i) {
+        int t_flag = 0;
+        cin&gt;&gt;s1&gt;&gt;s2;
+        while (s2.find(&quot;1&quot;) != -1) {
+            s2.replace(s2.find(&quot;1&quot;), 1, &quot;@&quot;);
+            t_flag = 1;
+        }
+        while (s2.find(&quot;0&quot;) != -1) {
+            s2.replace(s2.find(&quot;0&quot;), 1, &quot;%&quot;);
+            t_flag = 1;
+        }
+        while (s2.find(&quot;l&quot;) != -1) {
+            s2.replace(s2.find(&quot;l&quot;), 1, &quot;L&quot;);
+            t_flag = 1;
+        }
+        while (s2.find(&quot;O&quot;) != -1) {
+            s2.replace(s2.find(&quot;O&quot;), 1, &quot;o&quot;);
+            t_flag = 1;
+        }
+
+        if(t_flag == 1){
+            flag += 1;
+            s1_list.push_back(s1);
+            s2_list.push_back(s2);
+        }
+    }
+
+    if(flag == 0){
+        if(n == 1) cout&lt;&lt;&quot;There is 1 account and no account is modified&quot;;
+        else cout&lt;&lt;&quot;There are &quot;&lt;&lt;n&lt;&lt;&quot; accounts and no account is modified&quot;;
+    } else{
+        cout&lt;&lt;flag&lt;&lt;&quot;\n&quot;;
+        for (int i = 0; i &lt; s1_list.size(); ++i) {
+            cout&lt;&lt;s1_list[i]&lt;&lt;&quot; &quot;&lt;&lt;s2_list[i];
+            if(i != s1_list.size()-1) cout&lt;&lt;&quot;\n&quot;;
+        }
+    }
+    return 0;
+}
+
+</code></pre>
+
+<h4 id="1036-boys-vs-girls-25分">1036 Boys vs Girls (25分)</h4>
+
+<p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. Each case contains a positive integer <em>N</em>, followed by <em>N</em> lines of student information. Each line contains a student&rsquo;s <code>name</code>, <code>gender</code>, <code>ID</code> and <code>grade</code>, separated by a space, where <code>name</code> and <code>ID</code> are strings of no more than 10 characters with no space, <code>gender</code> is either <code>F</code> (female) or <code>M</code> (male), and <code>grade</code> is an integer between 0 and 100. It is guaranteed that all the grades are distinct.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, output in 3 lines. The first line gives the name and ID of the female student with the highest grade, and the second line gives that of the male student with the lowest grade. The third line gives the difference *g<strong>r</strong>a<strong>d</strong>e<strong>F*−*g</strong>r<strong>a</strong>d<strong>e</strong>M*. If one such kind of student is missing, output <code>Absent</code> in the corresponding line, and output <code>NA</code> in the third line instead.</p>
+
+<p>Sample Input 1:</p>
+
+<pre><code class="language-in">3
+Joe M Math990112 89
+Mike M CS991301 100
+Mary F EE990830 95
+</code></pre>
+
+<p>Sample Output 1:</p>
+
+<pre><code class="language-out">Mary EE990830
+Joe Math990112
+6
+</code></pre>
+
+<p>Sample Input 2:</p>
+
+<pre><code class="language-in">1
+Jean M AA980920 60 
+</code></pre>
+
+<p>Sample Output 2:</p>
+
+<pre><code class="language-out">Absent
+Jean AA980920
+NA
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+
+#define ll long long
+
+using namespace std;
+
+typedef struct Stu{
+    string name,sex,stu_id;
+    int grade;
+} Stu;
+
+bool sort_function(Stu student1,Stu student2) { return student1.grade&gt;student2.grade; }
+
+int main(){
+    int n;
+    vector&lt;Stu&gt; f_list,m_list;
+    string name, sex,stu_id;
+    int grade;
+
+    cin&gt;&gt;n;
+    for (int i = 0; i &lt; n; ++i) {
+        cin&gt;&gt;name&gt;&gt;sex&gt;&gt;stu_id&gt;&gt;grade;
+        Stu new_stu;
+        new_stu.name = name;
+        new_stu.grade = grade;
+        new_stu.sex = sex;
+        new_stu.stu_id = stu_id;
+        if(sex == &quot;F&quot;) f_list.push_back(new_stu);
+        else m_list.push_back(new_stu);
+    }
+
+    sort(f_list.begin(),f_list.end(),sort_function);
+    sort(m_list.begin(),m_list.end(),sort_function);
+
+    int flag = 0;
+    if(f_list.size() == 0) {
+        cout&lt;&lt;&quot;Absent&quot;&lt;&lt;endl;
+        flag = 1;
+    } else {
+        cout&lt;&lt;f_list[0].name&lt;&lt;&quot; &quot;&lt;&lt;f_list[0].stu_id&lt;&lt;endl;
+    }
+
+    if(m_list.size() == 0) {
+        cout&lt;&lt;&quot;Absent&quot;&lt;&lt;endl;
+        flag = 1;
+    } else {
+        cout&lt;&lt;m_list[m_list.size()-1].name&lt;&lt;&quot; &quot;&lt;&lt;m_list[m_list.size()-1].stu_id&lt;&lt;endl;
+    }
+    if(flag == 1) cout&lt;&lt;&quot;NA&quot;;
+    else cout&lt;&lt;f_list[0].grade - m_list[m_list.size()-1].grade;
+    return 0;
+}
+</code></pre>
+
+<h4 id="1037-magic-coupon-25分">1037 Magic Coupon (25分)</h4>
+
+<p>The magic shop in Mars is offering some magic coupons. Each coupon has an integer <em>N</em> printed on it, meaning that when you use this coupon with a product, you may get <em>N</em> times the value of that product back! What is more, the shop also offers some bonus product for free. However, if you apply a coupon with a positive <em>N</em> to this bonus product, you will have to pay the shop <em>N</em> times the value of the bonus product&hellip; but hey, magically, they have some coupons with negative <em>N</em>&rsquo;s!</p>
+
+<p>For example, given a set of coupons { 1 2 4 −1 }, and a set of product values { 7 6 −2 −3 } (in Mars dollars M$) where a negative value corresponds to a bonus product. You can apply coupon 3 (with <em>N</em> being 4) to product 1 (with value M$7) to get M$28 back; coupon 2 to product 2 to get M$12 back; and coupon 4 to product 4 to get M$3 back. On the other hand, if you apply coupon 3 to product 4, you will have to pay M$12 to the shop.</p>
+
+<p>Each coupon and each product may be selected at most once. Your task is to get as much money back as possible.</p>
+
+<h3 id="input-specification">Input Specification:</h3>
+
+<p>Each input file contains one test case. For each case, the first line contains the number of coupons *N<strong>C*, followed by a line with *N</strong>C* coupon integers. Then the next line contains the number of products *N<strong>P*, followed by a line with *N</strong>P* product values. Here 1≤*N<strong>C*,*N</strong>P*≤105, and it is guaranteed that all the numbers will not exceed 230.</p>
+
+<h3 id="output-specification">Output Specification:</h3>
+
+<p>For each test case, simply print in a line the maximum amount of money you can get back.</p>
+
+<h3 id="sample-input">Sample Input:</h3>
+
+<pre><code class="language-in">4
+1 2 4 -1
+4
+7 6 -2 -3
+</code></pre>
+
+<h3 id="sample-output">Sample Output:</h3>
+
+<pre><code class="language-out">43
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;math.h&gt;
+
+using namespace std;
+
+bool function(int i1,int i2){ return i1 &lt; i2;}
+
+
+int main(){
+    int n_c,n_p;
+    vector&lt;int&gt; n_c_up,n_c_down,n_p_up,n_p_down;
+    cin&gt;&gt;n_c;
+    int number;
+    for (int i = 0; i &lt; n_c; ++i) {
+        cin&gt;&gt;number;
+        if(number &gt; 0) n_c_up.push_back(number);
+        else n_c_down.push_back(number);
+    }
+
+    cin&gt;&gt;n_p;
+    for (int j = 0; j &lt; n_p; ++j) {
+        cin&gt;&gt;number;
+        if(number &gt; 0 )n_p_up.push_back(number);
+        else n_p_down.push_back(number);
+    }
+
+    int res = 0;
+
+    sort(n_c_down.begin(),n_c_down.end());
+    sort(n_p_down.begin(),n_p_down.end());
+    int min_length = min(n_c_down.size(),n_p_down.size());
+    for (int k = 0; k &lt; min_length; ++k) {
+        res += n_c_down[k]*n_p_down[k];
+    }
+
+    sort(n_c_up.begin(),n_c_up.end());
+    sort(n_p_up.begin(),n_p_up.end());
+    int c_size = n_c_up.size();
+    int p_size = n_p_up.size();
+    min_length = min(n_c_up.size(),n_p_up.size());
+    for (int l = 0; l &lt; min_length; ++l) {
+        res += n_c_up[c_size-l-1]*n_p_up[p_size-l-1];
+    }
+    cout&lt;&lt;res;z   
+    return 0;
+}
+</code></pre>
+
+<h4 id="1039-course-list-for-student-25分">1039 Course List for Student (25分)</h4>
+
+<p>Zhejiang University has 40000 students and provides 2500 courses. Now given the student name lists of all the courses, you are supposed to output the registered course list for each student who comes for a query.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case. For each case, the first line contains 2 positive integers: <em>N</em> (≤40,000), the number of students who look for their course lists, and <em>K</em> (≤2,500), the total number of courses. Then the student name lists are given for the courses (numbered from 1 to <em>K</em>) in the following format: for each course <em>i</em>, first the course index <em>i</em> and the number of registered students *N<strong>i* (≤200) are given in a line. Then in the next line, *N</strong>i* student names are given. A student name consists of 3 capital English letters plus a one-digit number. Finally the last line contains the <em>N</em> names of students who come for a query. All the names and numbers in a line are separated by a space.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, print your results in <em>N</em> lines. Each line corresponds to one student, in the following format: first print the student&rsquo;s name, then the total number of registered courses of that student, and finally the indices of the courses in increasing order. The query results must be printed in the same order as input. All the data in a line must be separated by a space, with no extra space at the end of the line.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">11 5
+4 7
+BOB5 DON2 FRA8 JAY9 KAT3 LOR6 ZOE1
+1 4
+ANN0 BOB5 JAY9 LOR6
+2 7
+ANN0 BOB5 FRA8 JAY9 JOE4 KAT3 LOR6
+3 1
+BOB5
+5 9
+AMY7 ANN0 BOB5 DON2 FRA8 JAY9 KAT3 LOR6 ZOE1
+ZOE1 ANN0 BOB5 JOE4 JAY9 FRA8 DON2 AMY7 KAT3 LOR6 NON9
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">ZOE1 2 4 5
+ANN0 3 1 2 5
+BOB5 5 1 2 3 4 5
+JOE4 1 2
+JAY9 4 1 2 4 5
+FRA8 3 2 4 5
+DON2 2 4 5
+AMY7 1 5
+KAT3 3 2 4 5
+LOR6 4 1 2 4 5
+NON9 0
+</code></pre>
+
+<p>采用map会有两个段错误的点，因此使用hash函数堆名字进行编码。</p>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;math.h&gt;
+
+using namespace std;
+
+int MAX_SIZE = 26*26*26*10+10;
+
+int get_id(char *s){
+    int res = 0;
+    res += (s[0] - 'A')*26*26*10;
+    res += (s[1] - 'A')*26*10;
+    res += (s[2] - 'A')*10;
+    res += (s[3] - '0');
+    return res;
+}
+
+int main(){
+    int n,k;
+    int course_id,stu_num,stu_id;
+    vector&lt;int&gt; s_list[MAX_SIZE];
+    char student_name[5];
+    scanf(&quot;%d %d&quot;,&amp;n,&amp;k);
+    for (int i = 0; i &lt; k; ++i) {
+        scanf(&quot;%d %d&quot;,&amp;course_id,&amp;stu_num);
+        for (int j = 0; j &lt; stu_num; ++j) {
+            scanf(&quot;%s&quot;,student_name);
+            stu_id = get_id(student_name);
+            s_list[stu_id].push_back(course_id);
+        }
+    }
+
+    for (int l = 0; l &lt; n; ++l) {
+        scanf(&quot;%s&quot;,student_name);
+        stu_id = get_id(student_name);
+        sort(s_list[stu_id].begin(),s_list[stu_id].end());
+        printf(&quot;%s %lu&quot;,student_name,s_list[stu_id].size());
+        for (auto i : s_list[stu_id]) {
+            printf(&quot; %d&quot;,i);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}
+
+</code></pre>
+
+<h4 id="1040-longest-symmetric-string-25分">1040 Longest Symmetric String (25分)</h4>
+
+<p>Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given <code>Is PAT&amp;TAP symmetric?</code>, the longest symmetric sub-string is <code>s PAT&amp;TAP s</code>, hence you must output <code>11</code>.</p>
+
+<p>Input Specification:</p>
+
+<p>Each input file contains one test case which gives a non-empty string of length no more than 1000.</p>
+
+<p>Output Specification:</p>
+
+<p>For each test case, simply print the maximum length in a line.</p>
+
+<p>Sample Input:</p>
+
+<pre><code class="language-in">Is PAT&amp;TAP symmetric?
+</code></pre>
+
+<p>Sample Output:</p>
+
+<pre><code class="language-out">11
+</code></pre>
+
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+int main(){
+    string s;
+    getline(cin,s);
+    int dp[1003][1003];
+    int s_len = s.length();
+    int len = 1;
+
+    for (int i = 0; i &lt; s_len; ++i) {
+        dp[i][i] = 1;
+        if(i &lt; s_len - 1 &amp;&amp; s[i] == s[i+1]){
+            dp[i][i+1] = 1;
+            len = 2;
+        }
+    }
+
+    for (int j = 3; j &lt;= s_len; ++j) {
+        for (int i = 0; i + j - 1 &lt; s_len; ++i) {
+            if(s[i] == s[i+j-1] &amp;&amp; dp[i+1][i+j-2] == 1){
+                dp[i][i+j-1] = 1;
+                len = j;
+            }
+        }
+    }
+    cout&lt;&lt;len;
     return 0;
 }
 </code></pre>
