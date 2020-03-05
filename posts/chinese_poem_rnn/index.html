@@ -47,31 +47,7 @@
 
 		
 
-		<script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+		<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
 code.has-jax {
@@ -110,7 +86,7 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Feb 18, 2020 00:00
-                    · 202 words
+                    · 208 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -188,8 +164,8 @@ code.has-jax {
 
 <p>​               $$P(S<em>{i+1}|S</em>{1:i}) = \prod^{m-1}<em>{j=1}P(w</em>{j+1}|w<em>{1:j}, S</em>{1:i})  $$</p>
 
-<p>等式(1)  将$P(Si+1|S1:i)​$分解为给定所有先前生成的字符$w<em>{1:j-1}​$和行$S</em>{1:i}​$的当前行中每个字符$w<em>j​$的概率的乘积。这意味着$P(S</em>{i + 1}|S<em>{1:i})​$对先前生成的内容和当前生成的字符都有关。
-对于$P(w</em>{j + 1} | w<em>{1:j}，S</em>{1:i})​$的估计是我们模型的核心。我们使用递归神经网络学习$S<em>{1:i}​$，S是迄今为止生成的上下文，递归神经网络的输出用作第二个递归神经网络的输入，第二个递归神经网络用于估计$P(w</em>{j + 1} | w<em>{1:j},S</em>{1:i} )​$。图2表示出了在第i + 1行$S<em>{i+1}​$中第（j + 1）个字符$w</em>{j + 1}​$的生成过程。首先，用卷积语句模型（CSM；在3.1节中描述）将行$S<em>{1:i}​$转换为向量$v</em>{1:i}​$。接下来，循环上下文模型（RCM；请参见第3.2节）以$v<em>{1:i}​$作为输入并输出$u</em>{ij}​$，即生成$w<em>{j + 1}∈S</em>{i + 1}​$所需的表示。最后，$u^1_i，u^2_i，…，u^i<em>j​$和第$S</em>{i + 1}​$行中的前j个字符$w<em>{1：j}​$用作估计$P(w</em>{j + 1} = k | w<em>{1:j}, S</em>{1:i})​$的递归生成模型（RGM）的输入，其中$k∈V​$，第（j + 1）个字符在词汇表V中所有单词上的概率分布。或者说，为了估计等式（1）中的$P(w<em>{j+1}|w</em>{1:j},S_{1:i})​$，我们采用以下过程：</p>
+<p>等式(1)  将$P(Si+1|S1:i)$分解为给定所有先前生成的字符$w<em>{1:j-1}$和行$S</em>{1:i}$的当前行中每个字符$w<em>j$的概率的乘积。这意味着$P(S</em>{i + 1}|S<em>{1:i})$对先前生成的内容和当前生成的字符都有关。
+对于$P(w</em>{j + 1} | w<em>{1:j}，S</em>{1:i})$的估计是我们模型的核心。我们使用递归神经网络学习$S<em>{1:i}$，S是迄今为止生成的上下文，递归神经网络的输出用作第二个递归神经网络的输入，第二个递归神经网络用于估计$P(w</em>{j + 1} | w<em>{1:j},S</em>{1:i} )$。图2表示出了在第i + 1行$S<em>{i+1}$中第（j + 1）个字符$w</em>{j + 1}$的生成过程。首先，用卷积语句模型（CSM；在3.1节中描述）将行$S<em>{1:i}$转换为向量$v</em>{1:i}$。接下来，循环上下文模型（RCM；请参见第3.2节）以$v<em>{1:i}$作为输入并输出$u</em>{ij}$，即生成$w<em>{j + 1}∈S</em>{i + 1}$所需的表示。最后，$ u^1_i，u^2_i，…，u^i<em>j $和第$ S</em>{i + 1} $行中的前j个字符$w<em>{1：j}$用作估计$ P(w</em>{j + 1} = k | w<em>{1:j}, S</em>{1:i}) $的递归生成模型（RGM）的输入，其中$k∈V$，第（j + 1）个字符在词汇表V中所有单词上的概率分布。或者说，为了估计等式（1）中的$P(w<em>{j+1}|w</em>{1:j},S_{1:i})$，我们采用以下过程：</p>
 
 <p>​                               $$ v_i = CSM(s_i) $$</p>
 
@@ -197,7 +173,7 @@ code.has-jax {
 
 <p>​                   $$ P(w<em>{j+1}|w</em>{i:j},S<em>{1:i}) = RGM(w</em>{1:j+1},u^{1:j}_i) $$</p>
 
-<p>通过将RGM在上式中运行m − 1次以上，我们可以获得第i +1个$P(S<em>{i + 1} | S</em>{1:i})​$的概率(另请参见公式1)。 在下文中，我们描述了如何获取模型的不同组件。</p>
+<p>通过将RGM在上式中运行m − 1次以上，我们可以获得第i +1个$P(S<em>{i + 1} | S</em>{1:i})$的概率(另请参见公式1)。 在下文中，我们描述了如何获取模型的不同组件。</p>
 
 <h4 id="convolutional-sentence-model-csm">convolutional Sentence Model (CSM)</h4>
 
