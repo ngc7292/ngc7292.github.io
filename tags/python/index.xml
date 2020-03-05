@@ -6,10 +6,21 @@
     <description>Recent content in Python on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>about python</title>
+      <link>https://ngc7292.github.io/posts/python/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/python/</guid>
+      <description>&lt;p&gt;有关python的一些问题汇总&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>pat learning</title>
@@ -29,8 +40,6 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
       <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;
 
