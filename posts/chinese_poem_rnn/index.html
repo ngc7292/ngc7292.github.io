@@ -47,15 +47,15 @@
 
 		
 
-		<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
-<script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    displayMath: [['$$','$$'], ['\[','\]']],
     processEscapes: true,
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
@@ -63,13 +63,15 @@ MathJax.Hub.Config({
          extensions: ["AMSmath.js", "AMSsymbols.js"] }
   }
 });
+</script>
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
     var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
+    for(i = 0; i &lt; all.length; i += 1) {
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
@@ -112,7 +114,7 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Feb 18, 2020 00:00
-                    · 266 words
+                    · 265 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -195,7 +197,7 @@ code.has-jax {
 
 <p>​                               $$ u^j_i = RCM(v_i:i,j) ​$$</p>
 
-<p>​                   $$ P(w<em>{j+1}|w</em>{i:j},S<em>{1:i}) = RGM(w</em>{1:j+1},u^{1:j}_i) ​$$</p>
+<p>$$ P(w<em>{j+1}|w</em>{i:j},S<em>{1:i}) = RGM(w</em>{1:j+1},u^{1:j}_i) ​$$</p>
 
 <p>通过将RGM在上式中运行m − 1次以上，我们可以获得第i +1个$ P(S<em>{i + 1} | S</em>{1:i}) $的概率(另请参见公式1)。 在下文中，我们描述了如何获取模型的不同组件。</p>
 
