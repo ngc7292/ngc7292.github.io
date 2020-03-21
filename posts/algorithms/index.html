@@ -1,52 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="算法学习总结"/>
-  <meta name="twitter:description" content="算法导论第二章"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title>算法学习总结 &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="算法学习总结" name="twitter:title"/>
+<meta content="算法导论第二章" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.36.1" name="generator"/>
+<title>算法学习总结 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -73,7 +45,6 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -83,45 +54,31 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         算法学习总结
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Apr 2, 2019 00:00
                     · 615 words
                     · 3 minute read
                       <span class="tags">
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li><a href="#算法基础">算法基础</a>
 <ul>
@@ -139,18 +96,12 @@ code.has-jax {
 </ul></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <h1 id="算法基础">算法基础</h1>
-
+</div>
+<section id="post-body">
+<h1 id="算法基础">算法基础</h1>
 <p>算法导论第二章学习笔记</p>
-
 <p></p>
-
 <h2 id="2-1-插入排序">2.1 插入排序</h2>
-
 <pre><code>for j=2 to A.length:
 	key = A[j]
 	i = j-1
@@ -159,41 +110,25 @@ code.has-jax {
 		i = i-1
 	A[i+1] = key
 </code></pre>
-
 <p>算法分析</p>
-
 <p>插入排序的时间复杂度很依赖与输入，即依据已经被排序的程度会有不同的数量级的时间来排序相同规模的数据，我们对每一个语句的运行时间做汇总：</p>
-
 <p>$$ T(n) = c_1n+c_2(n-1)+c_3(n-1)+c_5 \sum _{j=2}^{n}(t_j-1) + c_6 \sum _{j=2}^{n}(t_j-1) +c7(n-1) ​$$</p>
-
 <p>如果已经排好序，则最佳运行时间为$ an+b $，若反向排好序，则最坏运行时间为$an^2+bn+c$</p>
-
 <p>一个算法的最坏情况给出了算法的上界，确保算法不需要更多的时间并且不需要对运行时间做复杂的猜测来判断器更坏的情况。</p>
-
 <p>平均状态与最坏的情况大致一样，随机选定n个数并插入序列，平均来说，我们有一半的元素少于A[j]，另一半大于，所以$ t_i = j/2​$ ，所以平均情况与最坏情况时间一样，也是一个二次函数。</p>
-
 <p>作出更简单一个抽象，只关注其中程序的运行时间的增长量级，考虑阶数最高的项，我们记最坏的运行时间为$ \theta(n^2)​$。</p>
-
 <p>由于常数项以及低阶项，对于小的输入运行时间具有较高增长量级的一个算法可能比运行时间较低的增长量级的算法需要更少的时间，但是对于足够大的输入，较小量级的输入一定比较快。</p>
-
 <h2 id="2-3-设计算法">2.3 设计算法</h2>
-
 <h3 id="分治法">分治法</h3>
-
 <p>对于很多有用的算法在结构上是递归的，为了解决一个给定的问题，算法一次或者多次递归调用以解决若干子问题</p>
-
 <p>分治模型的步骤：</p>
-
 <ol>
 <li>分解原问题的若干子问题，</li>
 <li>解决子问题</li>
 <li>合并子问题的解</li>
 </ol>
-
 <h3 id="归并排序">归并排序</h3>
-
 <p>分解将待排序的序列分成各自有n/2个元素的子序列，归并排序递归的完成子序列，合并两个已经排序的子序列。</p>
-
 <pre><code>MERGE(A,p,q,r):
 	n1 = 0
 	n2 = 0
@@ -207,11 +142,8 @@ code.has-jax {
 			A[i] = L[n2]
 			n2 += 1
 </code></pre>
-
 <p>所以我们可以得到MERGE的时间复杂度为$ \theta(n) $。</p>
-
 <p>我们可以得到：</p>
-
 <pre><code>MERGE-SORT(A,p,r):
 if p&lt;r:
 	q = [(p+r)/2]
@@ -219,29 +151,17 @@ if p&lt;r:
 	MERGE-SORT(A,q+1,r)
 	MERGE(A,p,q,r)
 </code></pre>
-
 <p>对于递归的算法，我们可以用递归方程的方式来描述其运行方式</p>
-
 <p>若将整个算法问题分为$a$个子问题，每个子问题的规模是原问题规模的$1/b$，未来求解$n/b$即一个子问题的一个问题，我们需要的时间复杂度为$T(n/b)$ ，所以需要$ aT(n/b)$的时间来求解$a$个子问题，分解子问题合并子问题的解的时间复杂度为$C(n)$ 那么得到递归式：</p>
-
 <p>$$ T(n) = \begin{cases}\theta(1) , &amp;\text{if  n$\leq$c }\ aT(n/b)+D(n)+C(n) , &amp; else\end{cases}​$$</p>
-
 <h4 id="分析归并排序">分析归并排序</h4>
-
 <p>假定原问题为2的幂次，所以基于递归式的分析将被简化</p>
-
 <p>分解： 计算子数组中间位置，时间复杂度为$ \theta(1)$</p>
-
 <p>解决：递归求解两个规模为$n/2$规模的数组，时间复杂度为$2T(n/2)$</p>
-
 <p>合并：MERGE时间复杂度为$\theta(n)​$</p>
-
 <p>总体上时间复杂度为$$  T(n) = \begin{cases}\theta(1) , &amp;\text{if  n=1 }\ 2T(n/2)+\theta(n) , &amp; else\end{cases}$$</p>
-
 <p>为分析递归的时间复杂度，我们可以来进行拓展结果递归树，每一层的代价为$cn$ ，总层数为$lgn + 1$，其中$n$ 为叶数，所以总代价为$cn(lgn+1) = cnlgn + cn $ ,忽略低阶项和常量c 即得到问题的时间复杂度$$ T(n) = \theta(nlgn)$$。</p>
-
 <h4 id="归并排序c-实现">归并排序C++实现</h4>
-
 <pre><code class="language-c++">void merge(int A[], int p, int q, int r){
     // 不使用哨兵元素来对A[p,q],A[q+1,r]进行合并
     int n1 = q-p+1;
@@ -312,11 +232,8 @@ void merge_sort(int A[],int p,int q,int r){
     }
 }
 </code></pre>
-
 <h4 id="练习题">练习题</h4>
-
 <p>2.3-2 重写MERGE，不使用哨兵而是将L或者R的所有元素均被复制回A就停止，并将另一个的剩余部分复制进A。</p>
-
 <pre><code class="language-c++">int* merge(int A[], int p, int q, int r){
     // 不使用哨兵元素来对A[p,q],A[q+1,r]进行合并
     int n1 = q-p+1;
@@ -351,9 +268,7 @@ void merge_sort(int A[],int p,int q,int r){
     return A;
 }
 </code></pre>
-
 <p>2.3-5实现二分查找</p>
-
 <pre><code class="language-c++">int bin_search(int* A,int p,int s,int n){
     //A是一个已经排好序的数列，p为查找数字，n为A的大小
 
@@ -368,9 +283,7 @@ void merge_sort(int A[],int p,int q,int r){
     }
 }
 </code></pre>
-
 <p>2.3-7 给定n个整数的集合S以及另外一个整数x，使其可以确定S中是否存在两个其中和为x的元素。</p>
-
 <pre><code class="language-c++">bool get_twosum(int A[],int n,int p){
     int m = n/2;
     int left = m;
@@ -395,21 +308,12 @@ void merge_sort(int A[],int p,int q,int r){
     return false;
 }
 </code></pre>
-
-<p>2.4 逆序对 对于每个不同数的数组，若$i<j$且$A[i]>A[j]$称为逆序对。</p>
-
+<p>2.4 逆序对 对于每个不同数的数组，若$i<j>A[j]$称为逆序对。</j></p>
 <p>​   c. 插入排序的运行时间与输入数组的逆序对有什么关系</p>
-
 <p>​       每一个逆序对代表着插入排序中多一个循环，假设一个数组有d个逆序对，则代价为$T(n+d)$</p>
-                </section>
-            </article>
-
-            
-                
-            
-
-            
-                <div id="disqus_thread"></div>
+</section>
+</article>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -421,55 +325,32 @@ void merge_sort(int A[],int p,int q,int r){
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -479,10 +360,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'ngc7293', 'auto');
 ga('send', 'pageview');
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

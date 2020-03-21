@@ -1,52 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="leetcode dp"/>
-  <meta name="twitter:description" content="leetcode python by ngc7293"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title>leetcode dp &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="leetcode dp" name="twitter:title"/>
+<meta content="leetcode python by ngc7293" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.36.1" name="generator"/>
+<title>leetcode dp · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -73,7 +45,6 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -83,53 +54,33 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         leetcode dp
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Mar 8, 2019 00:00
                     · 2565 words
                     · 13 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="https://ngc7292.github.io/tags/python">python</a>
-                          
-                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+<a href="https://ngc7292.github.io/tags/python">python</a>
+<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li>
 <ul>
@@ -169,28 +120,20 @@ code.has-jax {
 </ul></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <p>关于dp的一些题目汇总</p>
-
+</div>
+<section id="post-body">
+<p>关于dp的一些题目汇总</p>
 <p>还是leetcode好啊，pat好辣鸡。</p>
-
 <p></p>
-
 <h3 id="213-house-robber-ii">213. House Robber II</h3>
-
 <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are <strong>arranged in a circle.</strong>That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</p>
-
 <p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
-
 <pre><code class="language-python">class Solution(object):
     def rob(self, nums):
-        &quot;&quot;&quot;
+        """
         :type nums: List[int]
         :rtype: int
-        &quot;&quot;&quot;
+        """
         l = len(nums)
         if l == 0:
             return 0
@@ -212,27 +155,20 @@ code.has-jax {
             dp[i] = max(dp[i-1], dp[i-2]+nums[i])
         return dp[-1]
 </code></pre>
-
 <h2 id="12-28日打卡">12.28日打卡</h2>
-
 <h3 id="188-best-time-to-buy-and-sell-stock-iv">188. Best Time to Buy and Sell Stock IV</h3>
-
 <p>Say you have an array for which the *i*th element is the price of a given stock on day <em>i</em>.</p>
-
 <p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong>transactions.</p>
-
 <p><strong>Note:</strong>
 You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-
 <p>这道题主要问题在与k值的大小，当k值比整个数组都要大的时候，使用dp其复杂度就远远大于使用直接循环判断了，因为当k很大的时候，你完全可以今天买入，明天高价卖出，当有更高价时再高价卖出，这样就可以实现利润的最大化</p>
-
 <pre><code class="language-python">class Solution(object):
     def maxProfit(self, k, prices):
-        &quot;&quot;&quot;
+        """
         :type k: int
         :type prices: List[int]
         :rtype: int
-        &quot;&quot;&quot;
+        """
         if k == 0:
             return 0
         if prices == [] and len(prices) == 0:
@@ -252,23 +188,17 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
                 gb[j] = max(lc[j],gb[j])
         return gb[-1]
 </code></pre>
-
 <h3 id="70-climbing-stairs">70. Climbing Stairs</h3>
-
 <p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>
-
 <p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
-
 <p><strong>Note:</strong> Given <em>n</em> will be a positive integer.</p>
-
 <p>这是一个eazy，但是不知道我提交过好多越来越慢越来越慢。。。</p>
-
 <pre><code class="language-python">class Solution(object):
     def climbStairs(self, n):
-        &quot;&quot;&quot;
+        """
         :type n: int
         :rtype: int
-        &quot;&quot;&quot;
+        """
         dp = [0 for i in range(n+1)]
         dp[0], dp[1] = 1, 1
         
@@ -276,27 +206,21 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
             dp[i] = dp[i - 2] + dp[i - 1]
         return dp[n]
 </code></pre>
-
 <h3 id="139-word-break">139. Word Break</h3>
-
 <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary <em>wordDict</em> containing a list of <strong>non-empty</strong>words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.</p>
-
 <p><strong>Note:</strong></p>
-
 <ul>
 <li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
 <li>You may assume the dictionary does not contain duplicate words.</li>
 </ul>
-
 <p>简单的dp</p>
-
 <pre><code class="language-python">class Solution(object):
     def wordBreak(self, s, wordDict):
-        &quot;&quot;&quot;
+        """
         :type s: str
         :type wordDict: List[str]
         :rtype: bool
-        &quot;&quot;&quot;
+        """
         w = [False for i in s+'0']
         w[0] = True
         for i in range(1,len(s)+1):
@@ -306,26 +230,19 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
                     break
         return w[-1]
 </code></pre>
-
 <h2 id="12-29日打卡">12.29日打卡</h2>
-
 <p>破三百了233333，将近两个月没有写题，终于吧题数刷到了300</p>
-
 <h3 id="304-range-sum-query-2d-immutable">304. Range Sum Query 2D - Immutable</h3>
-
 <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (*row*1, *col*1) and lower right corner (*row*2, *col*2).</p>
-
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg" alt="Range Sum Query 2D" />
+<p><img alt="Range Sum Query 2D" src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg"/>
 The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.</p>
-
 <p>因为会多次调用sum函数，所以我们在初始化的时候不可以直接存入矩阵，而是将矩阵进行一系列处理，其重点就是吧（i，j）处的数据改为（0，0）到（i，j）的所有元素之和，在调用sum的时候只需要对其进行相减就行了，道理是很简单，但是时间判断有毒，我的都很慢，不知道为啥.</p>
-
 <pre><code class="language-python">class NumMatrix(object):
 
     def __init__(self, matrix):
-        &quot;&quot;&quot;
+        """
         :type matrix: List[List[int]]
-        &quot;&quot;&quot;
+        """
         if len(matrix) == 0 or len(matrix[0]) == 0:
             self.height = 0
             self.width = 0
@@ -345,13 +262,13 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
                 
 
     def sumRegion(self, row1, col1, row2, col2):
-        &quot;&quot;&quot;
+        """
         :type row1: int
         :type col1: int
         :type row2: int
         :type col2: int
         :rtype: int
-        &quot;&quot;&quot;
+        """
         if row2 &gt;= self.height or col2 &gt;= self.width or row1 &lt; 0 or col2 &lt; 0:
             return 0
         else:
@@ -364,35 +281,23 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
 # obj = NumMatrix(matrix)
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 </code></pre>
-
 <p>这个错误处理有点多，所以时间很慢</p>
-
 <h3 id="322-coin-change">322. Coin Change</h3>
-
 <p>Medium</p>
-
 <p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
-
 <p><strong>Example 1:</strong></p>
-
 <pre><code>Input: coins = [1, 2, 5], amount = 11
 Output: 3 
 Explanation: 11 = 5 + 5 + 1
 </code></pre>
-
 <p><strong>Example 2:</strong></p>
-
 <pre><code>Input: coins = [2], amount = 3
 Output: -1
 </code></pre>
-
 <p><strong>Note</strong>:
 You may assume that you have an infinite number of each kind of coin.</p>
-
 <p>dp，维护一个amount大小的列表，表示到某个数字需要几步</p>
-
 <p>dp[i] = min(dp[i],dp[i-coin]+1)我们列表的初始值赋给的是-1，所以需要判断下是否大于0.</p>
-
 <pre><code class="language-java">class Solution {
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount+1];
@@ -412,33 +317,23 @@ You may assume that you have an infinite number of each kind of coin.</p>
     }
 }
 </code></pre>
-
 <h3 id="338-counting-bits">338. Counting Bits</h3>
-
 <p>Medium</p>
-
-<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1&rsquo;s in their binary representation and return them as an array.</p>
-
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1’s in their binary representation and return them as an array.</p>
 <p><strong>Example 1:</strong></p>
-
 <pre><code>Input: 2
 Output: [0,1,1]
 </code></pre>
-
 <p><strong>Example 2:</strong></p>
-
 <pre><code>Input: 5
 Output: [0,1,1,2,1,2]
 </code></pre>
-
 <p><strong>Follow up:</strong></p>
-
 <ul>
 <li>It is very easy to come up with a solution with run time <strong>O(n*sizeof(integer))</strong>. But can you do it in linear time <strong>O(n)</strong> /possibly in a single pass?</li>
 <li>Space complexity should be <strong>O(n)</strong>.</li>
 <li>Can you do it like a boss? Do it without using any builtin function like <strong>__builtin_popcount</strong> in c++ or in any other language.</li>
 </ul>
-
 <pre><code class="language-java">class Solution {
     public int[] countBits(int num) {
         int[] res = new int[num+1];
@@ -450,15 +345,10 @@ Output: [0,1,1,2,1,2]
     }
 }
 </code></pre>
-
 <h3 id="221-maximal-square">221. Maximal Square</h3>
-
 <p>Medium</p>
-
-<p>Given a 2D binary matrix filled with 0&rsquo;s and 1&rsquo;s, find the largest square containing only 1&rsquo;s and return its area.</p>
-
+<p>Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area.</p>
 <p><strong>Example:</strong></p>
-
 <pre><code>Input: 
 
 1 0 1 0 0
@@ -468,12 +358,9 @@ Output: [0,1,1,2,1,2]
 
 Output: 4
 </code></pre>
-
 <p>DP公式：</p>
-
 <pre><code>A[i][j] = min(A[i-1][j-1]+A[i-1][j] + A[i][j-1])
 </code></pre>
-
 <pre><code class="language-java">class Solution {
     public int maximalSquare(char[][] matrix) {
         if(matrix.length == 0)
@@ -508,23 +395,14 @@ Output: 4
     }
 }
 </code></pre>
-
 <h2 id="2019-3-9">2019.3.9</h2>
-
 <h3 id="375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</h3>
-
 <p>Medium</p>
-
 <p>We are playing the Guess Game. The game is as follows:</p>
-
 <p>I pick a number from <strong>1</strong> to <strong>n</strong>. You have to guess which number I picked.</p>
-
-<p>Every time you guess wrong, I&rsquo;ll tell you whether the number I picked is higher or lower.</p>
-
+<p>Every time you guess wrong, I’ll tell you whether the number I picked is higher or lower.</p>
 <p>However, when you guess a particular number x, and you guess wrong, you pay <strong>$x</strong>. You win the game when you guess the number I picked.</p>
-
 <p><strong>Example:</strong></p>
-
 <pre><code>n = 10, I pick 8.
 
 First round:  You guess 5, I tell you that it's higher. You pay $5.
@@ -535,13 +413,9 @@ Game over. 8 is the number I picked.
 
 You end up paying $5 + $7 + $9 = $21.
 </code></pre>
-
 <p>这个好难，我不会做，去抄了个作业。</p>
-
 <p>其实明白之后也不是特别的难，就是通过二分法，得到left到right之间代价最高的代价，然后把递归求出整个数组最高的代价。</p>
-
 <p>公式$ dp[left][right] = MIN({MAX_{i=0}^{n}(dp[left][i-1],dp[i+1][right]) }) $</p>
-
 <pre><code class="language-java">class Solution {
     public int getMoneyAmount(int n) {
         if(n==0) return 0;
@@ -565,39 +439,26 @@ You end up paying $5 + $7 + $9 = $21.
     }
 }
 </code></pre>
-
 <h3 id="376-wiggle-subsequence">376. Wiggle Subsequence</h3>
-
 <p>Medium</p>
-
 <p>A sequence of numbers is called a <strong>wiggle sequence</strong> if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.</p>
-
 <p>For example, <code>[1,7,4,9,2,5]</code> is a wiggle sequence because the differences <code>(6,-3,5,-7,3)</code> are alternately positive and negative. In contrast, <code>[1,4,7,2,5]</code>and <code>[1,7,4,5,5]</code> are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero.</p>
-
 <p>Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.</p>
-
 <p><strong>Example 1:</strong></p>
-
 <pre><code>Input: [1,7,4,9,2,5]
 Output: 6
 Explanation: The entire sequence is a wiggle sequence.
 </code></pre>
-
 <p><strong>Example 2:</strong></p>
-
 <pre><code>Input: [1,17,5,10,13,15,10,5,16,8]
 Output: 7
 Explanation: There are several subsequences that achieve this length. One is [1,17,10,13,10,16,8].
 </code></pre>
-
 <p><strong>Example 3:</strong></p>
-
 <pre><code>Input: [1,2,3,4,5,6,7,8,9]
 Output: 2
 </code></pre>
-
 <p>遍历一下，找到所有的拐点数字（即当前差与前一个的差不同）即可。</p>
-
 <pre><code class="language-java">class Solution {
     public int wiggleMaxLength(int[] nums) {
         if(nums.length == 0)
@@ -623,31 +484,20 @@ Output: 2
     }
 }
 </code></pre>
-
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg" alt="4EEA5E1EACA217311DEB6C615467D978" /></p>
-
+<p><img alt="4EEA5E1EACA217311DEB6C615467D978" src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg"/></p>
 <h3 id="368-largest-divisible-subset">368. Largest Divisible Subset</h3>
-
 <p>Medium</p>
-
 <p>Given a set of <strong>distinct</strong> positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:</p>
-
 <p>Si % Sj = 0 or Sj % Si = 0.</p>
-
 <p>If there are multiple solutions, return any subset is fine.</p>
-
 <p><strong>Example 1:</strong></p>
-
 <pre><code>Input: [1,2,3]
 Output: [1,2] (of course, [1,3] will also be ok)
 </code></pre>
-
 <p><strong>Example 2:</strong></p>
-
 <pre><code>Input: [1,2,4,8]
 Output: [1,2,4,8]
 </code></pre>
-
 <pre><code class="language-java">class Solution {
     public List&lt;Integer&gt; largestDivisibleSubset(int[] nums) {
         Arrays.sort(nums);
@@ -686,37 +536,23 @@ Output: [1,2,4,8]
     }
 }
 </code></pre>
-
 <h2 id="3-10">3.10</h2>
-
 <h3 id="392-is-subsequence">392. Is Subsequence</h3>
-
 <p>Medium</p>
-
 <p>Given a string <strong>s</strong> and a string <strong>t</strong>, check if <strong>s</strong> is subsequence of <strong>t</strong>.</p>
-
 <p>You may assume that there is only lower case English letters in both <strong>s</strong> and <strong>t</strong>. <strong>t</strong> is potentially a very long (length ~= 500,000) string, and <strong>s</strong> is a short string (&lt;=100).</p>
-
-<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;abcde&quot;</code> while <code>&quot;aec&quot;</code>is not).</p>
-
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>"ace"</code> is a subsequence of <code>"abcde"</code> while <code>"aec"</code>is not).</p>
 <p><strong>Example 1:</strong>
-<strong>s</strong> = <code>&quot;abc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
-
+<strong>s</strong> = <code>"abc"</code>, <strong>t</strong> = <code>"ahbgdc"</code></p>
 <p>Return <code>true</code>.</p>
-
 <p><strong>Example 2:</strong>
-<strong>s</strong> = <code>&quot;axc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
-
+<strong>s</strong> = <code>"axc"</code>, <strong>t</strong> = <code>"ahbgdc"</code></p>
 <p>Return <code>false</code>.</p>
-
 <p><strong>Follow up:</strong>
-If there are lots of incoming S, say S1, S2, &hellip; , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
-
+If there are lots of incoming S, say S1, S2, … , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
 <p><strong>Credits:</strong>
 Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
-
 <p>模式匹配，</p>
-
 <pre><code class="language-java">class Solution {
     public boolean isSubsequence(String s, String t) {
         if(s.length() == 0)
@@ -741,15 +577,10 @@ Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for add
     }
 }
 </code></pre>
-
 <h3 id="377-combination-sum-iv">377. Combination Sum IV</h3>
-
 <p>Medium</p>
-
 <p>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.</p>
-
 <p><strong>Example:</strong></p>
-
 <pre><code>nums = [1, 2, 3]
 target = 4
 
@@ -766,11 +597,8 @@ Note that different sequences are counted as different combinations.
 
 Therefore the output is 7.
 </code></pre>
-
 <p>维护一个target长度的数组，表示所有可以到达该target的路径数量，返回taget就可以了</p>
-
 <p>dp公式$ dp[i] = \sum_{k=0}^{i-1}dp[k]$</p>
-
 <pre><code class="language-java">class Solution {
     public int combinationSum4(int[] nums, int target) {  
         if(nums.length == 0)
@@ -787,44 +615,31 @@ Therefore the output is 7.
     }
 }
 </code></pre>
-
 <h3 id="416-partition-equal-subset-sum">416. Partition Equal Subset Sum</h3>
-
 <p>Medium</p>
-
 <p>Given a <strong>non-empty</strong> array containing <strong>only positive integers</strong>, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.</p>
-
 <p><strong>Note:</strong></p>
-
 <ol>
 <li>Each of the array element will not exceed 100.</li>
 <li>The array size will not exceed 200.</li>
 </ol>
-
 <p><strong>Example 1:</strong></p>
-
 <pre><code>Input: [1, 5, 11, 5]
 
 Output: true
 
 Explanation: The array can be partitioned as [1, 5, 5] and [11].
 </code></pre>
-
 <p><strong>Example 2:</strong></p>
-
 <pre><code>Input: [1, 2, 3, 5]
 
 Output: false
 
 Explanation: The array cannot be partitioned into equal sum subsets.
 </code></pre>
-
 <p>好像是啥背包问题，我也不是很懂的，看了好多大佬的解题过程，弄清楚了一星半点。</p>
-
 <p>首先题目问将整个数组分成两个子数组，其和相等，所以我们确保在整个数组的和是可以被二整除的，若不能被二整除，直接返回false。之后创建一个nums.length 行，sum/2列的数列，其中dp[i][j] 表示在拿过i个数字并其和小于等于j的最大数字之和，emmm，比如说dp[2][3]指拿过第三个数字之后和小于3的最大数字，以本题为例，dp[2][3] = 0</p>
-
 <p>可以得到dp公式 $ dp[i][j] = max(dp[i-1][j] , dp[i-1][j-nums[i]] + nums[i])$</p>
-
 <pre><code class="language-java">class Solution {
     public boolean canPartition(int[] nums) {
         int sum = 0;
@@ -857,25 +672,15 @@ Explanation: The array cannot be partitioned into equal sum subsets.
     }
 }
 </code></pre>
-
 <h2 id="3-11">3.11</h2>
-
 <h3 id="464-can-i-win">464. Can I Win</h3>
-
 <p>Medium</p>
-
-<p>In the &ldquo;100 game,&rdquo; two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
-
+<p>In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
 <p>What if we change the game so that players cannot re-use integers?</p>
-
 <p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total &gt;= 100.</p>
-
 <p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally.</p>
-
 <p>You can always assume that <code>maxChoosableInteger</code> will not be larger than 20 and <code>desiredTotal</code> will not be larger than 300.</p>
-
 <p><strong>Example</strong></p>
-
 <pre><code>Input:
 maxChoosableInteger = 10
 desiredTotal = 11
@@ -890,15 +695,10 @@ If the first player choose 1, the second player can only choose integers from 2 
 The second player will win by choosing 10 and get a total = 11, which is &gt;= desiredTotal.
 Same with other integers chosen by the first player, the second player will always win.
 </code></pre>
-
 <p>哎，抄了一下<a href="https://blog.csdn.net/liuchuo/article/details/54729227">柳婼大佬的博客</a></p>
-
 <p>先把特殊情况分出来，其一是若给定的maxChoosableInteger大于desiredTotal时，先发直接就可以获胜，或者是$ (1+maxChoosableInteger)*maxChoosableInteger/2 &gt; desiredTotal$  哪位都不会获胜。</p>
-
 <p>排除掉这两个特殊情况，讨论剩下情况，把每个情况拿出来讨论，遍历max，所选择i之后，把所选择的数字与visited进行或运算，保证所选择的数字没有经过选择，然后可以获胜的条件有两个，一是加上i之后大于desiredTotal，或者递归 <code>!canWin(target - i, mask | visited, maxC, map)</code> 返回true即可。</p>
-
 <p>代码（我发现我位运算真的不是很常用，但是看起来好像位运算效率很高的样子）</p>
-
 <pre><code class="language-java">class Solution {
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
         int maxC = maxChoosableInteger;
@@ -925,15 +725,9 @@ Same with other integers chosen by the first player, the second player will alwa
     }
 }
 </code></pre>
-                </section>
-            </article>
-
-            
-                
-            
-
-            
-                <div id="disqus_thread"></div>
+</section>
+</article>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -945,55 +739,32 @@ Same with other integers chosen by the first player, the second player will alwa
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -1003,10 +774,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'ngc7293', 'auto');
 ga('send', 'pageview');
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

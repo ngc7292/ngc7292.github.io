@@ -1,54 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="Chinese Poetry Generation with Recurrent Neural Networks"/>
-  <meta name="twitter:description" content="Xingxing Zhang and Mirella Lapata&rsquo;s paper
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="Chinese Poetry Generation with Recurrent Neural Networks" name="twitter:title"/>
+<meta content="Xingxing Zhang and Mirella Lapata’s paper
 
-"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title>Chinese Poetry Generation with Recurrent Neural Networks &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.36.1" name="generator"/>
+<title>Chinese Poetry Generation with Recurrent Neural Networks · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -75,7 +47,6 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -85,51 +56,32 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         Chinese Poetry Generation with Recurrent Neural Networks
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Feb 18, 2020 00:00
                     · 288 words
                     · 2 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+<a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li>
 <ul>
@@ -147,90 +99,49 @@ code.has-jax {
 </ul></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <p>Xingxing Zhang and Mirella Lapata&rsquo;s paper</p>
-
+</div>
+<section id="post-body">
+<p>Xingxing Zhang and Mirella Lapata’s paper</p>
 <p></p>
-
 <h3 id="abstract">Abstract</h3>
-
 <p>我们的目的是基于rnn循环神经网络创建一个中国诗词生成器，其生成的诗词不仅仅在内容上合适，在形式上也很相似，我们的诗歌通过学习具有代表性的单个字符以及他们共同限制以及约束形成的一行或者多行来形成内容选择（说什么）以及表现形式（怎么说）。诗句是通过思考整个编辑历史来形成而不是按照每一个单个的单词或者多个词汇的词法等来生成，实验结果证明我们的模型表现出的复杂中国诗词生成器系统相比于自动以及手动价值评估的方法具有明显的竞争力。</p>
-
 <h3 id="introduction">Introduction</h3>
-
 <p>经典诗歌是中国文化遗产的重要组成部分，他们的流行体现在每天生活的很多方面，例如在表达个人情感，政治观点或者在某次葬礼等活动中的信息。在各种各样的古诗中，绝句和律诗也许是最为人所知的题材。所有的诗歌的种类必须要遵循一定的结构，音律以及寓意，这使他们的作品流传后世</p>
-
 <p>一个例子展示在table1，四行诗有四行，每行4到5个字符，每个字都遵循着特别的音律形式，乃至每一行。例如在这个例子中，第二个，第四行以及（可选）第一行必须要押韵，然而第三行不必强制押韵。另外，诗歌必须遵守音律规则，在传统的中国诗词中，每一个字都有一个一调，平或者仄。图一中的诗词是一种最著名的音律。在遵守以上的规则的同时，诗歌必须表现出简洁以及灵活的语言应用，以使得读者或者听众得以发挥想象以及充实他们的感情。</p>
-
 <p>在这片论文中，我们的目的是自动的生成传统中国诗词，虽然计算机并没有像诗人那样富有创造力，但是其可以分析大量的在线富有代表性的诗词，提取统计格式并将其放入内存中，并使其产生各种形式。另外，尽管业余诗人也许很难记住以及应用正式的语调和格式，但是对机器来说检查起来相对比较直接。诗歌生成已经收到了大量的注意在过去几年中，大约12个计算系统写出来创造诗歌在不同的精密程度，除了建立能够创造有意义的诗歌的自主智能系统的长期目标之外，在电子娱乐和互动小说产业的不断发展中，计算机生成的诗歌还有潜在的短期应用，如在教育中。在辅助教育中，教师和学生可以根据自己的需求创作诗歌来增强他们的写作经验。</p>
-
 <p>我们基于rnn设计了这个中国诗歌生成器，我们的生成器不仅表现内容更精于形式。通过大量的诗歌我们学习每个字的特征以及其一行以及多行的组合来学习相互之间的约束。我们的模型概率性地在一首诗中生成行：在给定所有先前生成的行的概率的情况下，它估计当前行的概率。 我们使用递归神经网络来学习到目前为止生成的行的表示，这些行继而又作为递归语言模型的输入（Mikolov等，2010； Mikolov等，2011b； Mikolov等，2011a ），生成当前行。 与以前的方法相反（Greene等，2010； Jiang and Zhou，2008），我们的生成器没有对行内和跨行中单词的依赖性进行马尔可夫假设。</p>
-
 <p>我们评估了绝句生成任务的方法（有关人工编写的示例，请参见表1）。 实验结果表明，使用自动和手动评估方法，我们的模型均优于具有竞争力的中国诗歌生成系统。</p>
-
 <h3 id="related-work">Related work</h3>
-
 <p>在过去的几十年中，自动生成诗歌一直是热门的研究主题（参见Colton等人（2012年）及其中的参考文献）。大多数方法都结合基于语料库和词典词典的资源，采用模板根据一组限制条件（例如，押韵，音高，重音，词频）来构建诗歌。例如，Wu等人(2009年)和Tosa等人中介绍的Haiku诗歌生成器通过使用从语料库中提取的规则和其他词汇资源扩展用户查询来生成诗歌, Netzer等人（2009）使用单词协会规范生成Haiku，Agirrezabal等人（2013）使用基于词性和WordNet的模式来撰写basque poem（Fellbaum，1998），而Oliveira（2012）提出了一种利用葡萄牙语的生成算法的语义和语法模板。</p>
-
 <p>第二项研究使用遗传算法生成诗歌（Manurung，2003年Manurung等，2012 Zhou等，2010年）。 Manurung等人（2012年）认为，所有（机器生成的）诗歌都必须满足语法约束（即一首诗必须在句法上结构合理），有意义（即一首诗必须传达一种信息）的约束。在某种解释下是有意义的）和诗意性（即一首诗必须表现出与非诗性文字（例如米）相区别的特征）。他们的模型生成了几首候选诗，然后使用随机搜索来找到语法，有意义和诗意的诗。</p>
-
 <p>第三项研究从统计机器翻译（SMT）和相关的文本生成应用程序（例如摘要）中获得启发。 Greene等(2010年)从诗歌文本的语料库推断出米(重读/非重读音节序列),随后将其与IBM模型1 内插的一系列加权有限状态换能器一起用于生成。Jiang and Zhou(2008)使用基于短语的SMT方法将第一行翻译为第二行,来生成对联。并在2012年扩展该算法，通过从前一行顺序翻译当前行来生成四行绝句。严等（2013）基于查询为重点的摘要框架生成中文绝句。他们的系统以几个关键词作为输入，并从语料库中检索最相关的诗歌，检索到的诗歌被分为构成术语，然后被分组，并通过反复从因素，结构以及连贯性选择中生成诗词。</p>
-
 <p>我们的方法通过2个方面超越了以前的工作，首先通过rnn来对形式以及内容选择的任务进行建模，通过学习单个字符及其组合的表示形式，结构，语义和连贯性约束自然会在我们的框架中捕获。其次，通过考虑多句上下文而不是紧接在前的句子来进行生成。我们的工作与其他人一起使用连续表示法来表达单词和短语的含义（Socher等人，2012；Mikolov等人，2013），以及如何在语言建模上下文中将它们组合起来（Mikolov和Zweig） ，2012）。最近，有人提出了基于递归神经网络的连续翻译模型，以将句子从源语言映射到目标语言的句子（Auli等人，2013； Kahlbrenner和Blunsom，2013）。这些模型是根据记录n个最佳翻译清单的任务进行评估的。我们更直接地使用神经网络来执行实际的诗歌生成任务。</p>
-
 <h3 id="the-poem-generator">The Poem Generator</h3>
-
 <p>与以前的工作一样（Yan等，2013； He等，2012），我们假设生成器在交互式环境中运行。具体来说，用户提供关键词（例如，春天，琵琶，醉酒）以突出诗歌将围绕的主要概念。如图1所示，我们的生成器将这些关键字扩展为一组相关的短语。我们假设关键词只限于在《诗学·汉英》诗词分类法中得到证明的那些（He等，2012；Yan等，2013）。后者包含1,016个人工词组（Liu，1735）；每个群集都标有一个关键字ID，用于描述值得诗歌创作的一般主题。生成器根据这些关键字创建诗的第一行。随后的行是基于所有先前生成的行生成的，这些行受语音(例如允许的音调模式）和结构约束（例如，绝句的长度是五个或七个字符）的影响。</p>
-
 <p>要创建第一行，我们选择与用户关键字相对应的所有短语，并生成满足音调模式约束的所有可能组合。我们使用语言模型对生成的候选词进行排名，并选择排名最高的候选词作为诗歌的第一行。为了实现这一点，我们采用了基于字符的递归神经网络语言模型（Mikolov等，2010），并用Kneser-Ney进行了内插，并通过堆栈解码器找到了n个最佳候选者（请参见第3.5节有关详细信息）。然后，我们根据第一句生成第二句，根据前两句生成第三句，依此类推。我们计算每一句的概率 $ S_{i+1} = w_1,w_2,…,w_m $ 时给定每一个前置生成行 $ S_{1:i}(i\geq1) ​$:</p>
-
 <p>$$ P(S_{i+1}|S_{1:i}) = \prod^{m-1}_{j=1}P(w_{j+1}|w_{1:j}, S_{1:i}) $$</p>
-
 <p>等式(1)  将$ P(S_{i+1}|S_{1:i}) ​$分解为给定所有先前生成的字符$ w_{1:j-1} ​$和行$ S_{1:i} ​$的当前行中每个字符$ w_j ​$的概率的乘积。这意味着$ P(S_{i + 1}|S_{1:i}) ​$对先前生成的内容和当前生成的字符都有关。
 对于$ P(w_{j + 1} | w_{1:j}，S_{1:i}) ​$的估计是我们模型的核心。我们使用递归神经网络学习$ S_{1:i} ​$，S是迄今为止生成的上下文，递归神经网络的输出用作第二个递归神经网络的输入，第二个递归神经网络用于估计$ P(w_{j + 1} | w_{1:j},S_{1:i} ) ​$。图2表示出了在第i + 1行$ S_{i+1} ​$中第（j + 1）个字符$ w_{j + 1} ​$的生成过程。首先，用卷积语句模型（CSM；在3.1节中描述）将行$ S_{1:i} ​$转换为向量$ v_{1:i}​ $。接下来，循环上下文模型（RCM；请参见第3.2节）以$ v_{1:i} ​$作为输入并输出$ u_{ij} ​$，即生成$ w_{j + 1}∈S_{i + 1} ​$所需的表示。最后，$ u^1_i，u^2_i，…，u^i_j ​$和第$ S_{i + 1} ​$行中的前j个字符$ w_{1：j} ​$用作估计$ P(w_{j + 1} = k | w_{1:j}, S_{1:i}) ​$的递归生成模型（RGM）的输入，其中$ k∈V ​$，第（j + 1）个字符在词汇表V中所有单词上的概率分布。或者说，为了估计等式（1）中的$ P(w_{j+1}|w_{1:j},S_{1:i}) ​$，我们采用以下过程：</p>
-
 <p>​                               $$ v_i = CSM(s_i) ​$$
 ​                               $$ u^j_i = RCM(v_i:i,j) ​$$
 $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
-
 <p>通过将RGM在上式中运行m − 1次以上，我们可以获得第i +1个$ P(S_{i + 1} | S_{1:i}) $的概率(另请参见公式1)。 在下文中，我们描述了如何获取模型的不同组件。</p>
-
 <h4 id="convolutional-sentence-model-csm">convolutional Sentence Model (CSM)</h4>
-
 <p>CSM模型将诗句转换为向量。 原则上，可以使用产生基于矢量的短语或句子表示形式的任何模型（Mitchell和Lapata，2010； Socher等人，2012）。 因此我们选择Kalchbrenner和Blunsom（2013）中提出的基于n-gram的卷积句子模型，并且不使用任何中国诗无法使用的POS标记或分段工具。 他们的模型通过顺序合并相邻向量来计算句子的连续表示（见图3）。</p>
-
 <p>令V表示我们语料库中的字符词汇；$ L \in R^{q \times |V|} ​$表示字符嵌入矩阵，其列对应于字符向量（q表示隐藏的单位大小）。 这些向量可以随机初始化，也可以通过训练程序获得（Mikolov等，2013）。 令w表示索引为k的字符；$ e(w)\in R ^{| V |×1} ​$是除$ e(w)_k = 1 ​$以外所有位置均为零的向量； $ T \in R ​$是第l层的语句表示，其中$ N^l ​$是第l层（顶层为N = 1），$ C^{l,n} \in R^{q×n} ​$是权重矩阵的数组，将第l层中的相邻n列压缩为第（l+1）层中的一列。 给定一个句子$ S = w_1，w_2，…，w_m ​$，第一层表示为：</p>
-
 <p>​                   $$ T^1 = [L \cdot e(w_1),L \cdot e(w_2),…,L \cdot e(w_m)] ​$$</p>
-
 <p>​                   $$ N^1 = m ​$$</p>
-
 <p>第（l+1）层计算方式如下：</p>
-
 <p>​                   $$ T_{:,j}^{l+1} = \sigma(\sum^{n}_{i=1} T^l_{:,j+i+1} ⊙C^{l,n}_{:,i}) ​$$</p>
-
 <p>​                       $$ N^{l+1} = N^l - n + 1 ​$$</p>
-
 <p>​                   $$ 1\le j \le N^{ l+1 } ​$$</p>
-
 <p>其中$T^l$是前$l$层的表示，$ C^{l,n} $是权重矩阵，⊙是元素逐个矢量积，σ是非线性函数。 我们在前两层中压缩两个相邻向量，在其余层中压缩三个相邻向量。 具体来说，对于具有七个字符的绝句，在每一层中都使用$ C^{1,2},C^{2,2},C^{3,3},C^{4,3} $来合并向量（参见图3）对于具有五个字符的绝句，我们使用$ C^{1,2}，C^{2,2}，C^{3,3} $。</p>
-
 <h4 id="recurrent-context-model-rcm">Recurrent Context Model (RCM)</h4>
-
 <p>RCM将代表迄今生成的i行的向量作为输入，并将它们简化为单个上下文向量，然后将其用于生成下一个字符（参见图2）。 我们将前$i​$行压缩为一个矢量（隐藏层），然后将压缩后的矢量解码为当前行中的不同字符位置。 因此，输出层由连接在一起的多个向量组成。 这样，上下文的不同方面会调节不同字符的生成。
 设$ v_1，…，v_i(v_i∈R^{q×1}) ​$表示前$i​$行的向量；$ h_i∈R^{q×1} ​$是矩阵$M∈R^{q×2q}​$的压缩表示（隐藏层）； 矩阵$ U_j ​$在第(i +1)行中将$ h_i ​$解码为$ u_i^j∈R^{q×1} ​$。 RCM的计算过程如下：</p>
-                </section>
-            </article>
-
-            
-                
-            
-
-            
-                <div id="disqus_thread"></div>
+</section>
+</article>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -242,55 +153,32 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -300,10 +188,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'ngc7293', 'auto');
 ga('send', 'pageview');
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>
