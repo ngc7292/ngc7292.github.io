@@ -1,53 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="算法学习第三章学习笔记"/>
-  <meta name="twitter:description" content="算法导论第三章"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.42.2" />
-		<title>算法学习第三章学习笔记 &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="算法学习第三章学习笔记" name="twitter:title"/>
+<meta content="算法导论第三章" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.42.2" name="generator"/>
+<title>算法学习第三章学习笔记 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -70,7 +41,6 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -80,45 +50,31 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         算法学习第三章学习笔记
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Apr 2, 2019 00:00
                     · 21 words
                     · 1 minute read
                       <span class="tags">
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li><a href="#函数的增长">函数的增长</a>
 <ul>
@@ -126,27 +82,17 @@ code.has-jax {
 </ul></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <h1 id="函数的增长">函数的增长</h1>
-
+</div>
+<section id="post-body">
+<h1 id="函数的增长">函数的增长</h1>
 <p>算法的运行时间的增长量级简单的刻画算法效率，并允许我们比较可选算法的相对性能。第三章我们给出集中标准方法来简化算法的渐进分析，来研究函数的渐进效率</p>
-
 <p></p>
-
 <h2 id="3-1-渐进记号">3.1 渐进记号</h2>
-
 <p>定义</p>
-
 <p>$$ \theta(g(n)) = {f(n) : 存在正常量c_1, c_2和n_0,使得对所有的n_0\leq n ，有0\leq c_1g(n) \leq f(n) \leq c_2g(n) } $$</p>
-                </section>
-            </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2falgorithms3%2f - algorithms3 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
-
+</section>
+</article>
+<a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2falgorithms3%2f - algorithms3 by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 <a class="facebook" href="#" onclick="
     window.open(
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -154,11 +100,7 @@ code.has-jax {
       'width=626,height=436');
     return false;"><span class="icon-facebook-rect"> Share</span>
 </a>
-
-            
-
-            
-                <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -170,55 +112,32 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2019 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -231,10 +150,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

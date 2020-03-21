@@ -1,53 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="vue 学习笔记啊"/>
-  <meta name="twitter:description" content=" vue learn    v-if, v-else-if, v-else 没有 有条件的渲染 &lt;g v-if=&quot;flourish === &#39;A&#39;&quot;&gt;&lt;/g&gt;&lt;g v-else-if=&quot;flourish === &#39;B&#39;&quot;&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;     v-bind ： 动态绑定属性，或传递道具 &lt;div :style=&quot;{ background: color }&quot;&gt;&lt;/div&gt;   v-on @ 将事件侦听器附加到元素 &lt;button @click=&quot;fnName&quot;&gt;&lt;/button&gt;   v-model 没有 创建双向绑定 &lt;textarea rows=&quot;5&quot; v-model=&quot;message&quot; maxlength=&quot;72&quot;&gt;&lt;/textarea&gt;   v-pre 没有 跳过编译原始内容，可以提高性能 &lt;div v-pre&gt;{{ raw content with no methods}}&lt;/div&gt;   v-once 没有 不要退缩 &lt;div class=”v-once”&gt;Keep me from rerendering&lt;/div&gt;   v-show 没有 将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同） &lt;child v-show=”showComponent”&gt;&lt;/child&gt;（当showComponent为true时切换可见性）    "/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.42.2" />
-		<title>vue 学习笔记啊 &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="vue 学习笔记啊" name="twitter:title"/>
+<meta content=" vue learn    v-if, v-else-if, v-else 没有 有条件的渲染 &lt;g v-if=&quot;flourish === 'A'&quot;&gt;&lt;/g&gt;&lt;g v-else-if=&quot;flourish === 'B'&quot;&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;     v-bind ： 动态绑定属性，或传递道具 &lt;div :style=&quot;{ background: color }&quot;&gt;&lt;/div&gt;   v-on @ 将事件侦听器附加到元素 &lt;button @click=&quot;fnName&quot;&gt;&lt;/button&gt;   v-model 没有 创建双向绑定 &lt;textarea rows=&quot;5&quot; v-model=&quot;message&quot; maxlength=&quot;72&quot;&gt;&lt;/textarea&gt;   v-pre 没有 跳过编译原始内容，可以提高性能 &lt;div v-pre&gt;{{ raw content with no methods}}&lt;/div&gt;   v-once 没有 不要退缩 &lt;div class=”v-once”&gt;Keep me from rerendering&lt;/div&gt;   v-show 没有 将基于状态显示或隐藏组件/元素，但是将其保留在DOM中而不卸载（与v-if不同） &lt;child v-show=”showComponent”&gt;&lt;/child&gt;（当showComponent为true时切换可见性）    " name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.42.2" name="generator"/>
+<title>vue 学习笔记啊 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -70,7 +41,6 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -80,109 +50,79 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         vue 学习笔记啊
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Aug 13, 2019 00:00
                     · 58 words
                     · 1 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="https://ngc7292.github.io/tags/vue">vue</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+<a href="https://ngc7292.github.io/tags/vue">vue</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li><a href="#vue-learn">vue learn</a></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    
-
+</div>
+<section id="post-body">
 <h1 id="vue-learn">vue learn</h1>
-
 <table>
 <thead>
 <tr>
 <th><code>v-if, v-else-if, v-else</code></th>
 <th>没有</th>
 <th>有条件的渲染</th>
-<th><code>&lt;g v-if=&quot;flourish === 'A'&quot;&gt;&lt;/g&gt;&lt;g v-else-if=&quot;flourish === 'B'&quot;&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;</code></th>
+<th><code>&lt;g v-if="flourish === 'A'"&gt;&lt;/g&gt;&lt;g v-else-if="flourish === 'B'"&gt;&lt;/g&gt;&lt;g v-else&gt;&lt;/g&gt;</code></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>v-bind</code></td>
 <td>：</td>
 <td>动态绑定属性，或传递道具</td>
-<td><code>&lt;div :style=&quot;{ background: color }&quot;&gt;&lt;/div&gt;</code></td>
+<td><code>&lt;div :style="{ background: color }"&gt;&lt;/div&gt;</code></td>
 </tr>
-
 <tr>
 <td><code>v-on</code></td>
 <td>@</td>
 <td>将事件侦听器附加到元素</td>
-<td><code>&lt;button @click=&quot;fnName&quot;&gt;&lt;/button&gt;</code></td>
+<td><code>&lt;button @click="fnName"&gt;&lt;/button&gt;</code></td>
 </tr>
-
 <tr>
 <td><code>v-model</code></td>
 <td>没有</td>
 <td>创建双向绑定</td>
-<td><code>&lt;textarea rows=&quot;5&quot; v-model=&quot;message&quot; maxlength=&quot;72&quot;&gt;&lt;/textarea&gt;</code></td>
+<td><code>&lt;textarea rows="5" v-model="message" maxlength="72"&gt;&lt;/textarea&gt;</code></td>
 </tr>
-
 <tr>
 <td><code>v-pre</code></td>
 <td>没有</td>
 <td>跳过编译原始内容，可以提高性能</td>
 <td><code>&lt;div v-pre&gt;{{ raw content with no methods}}&lt;/div&gt;</code></td>
 </tr>
-
 <tr>
 <td><code>v-once</code></td>
 <td>没有</td>
 <td>不要退缩</td>
 <td><code>&lt;div class=”v-once”&gt;Keep me from rerendering&lt;/div&gt;</code></td>
 </tr>
-
 <tr>
 <td><code>v-show</code></td>
 <td>没有</td>
@@ -191,13 +131,9 @@ code.has-jax {
 </tr>
 </tbody>
 </table>
-
-                </section>
-            </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fvue_learn%2f - vue_learn by @ngc7293"><span class="icon-twitter"> tweet</span></a>
-
+</section>
+</article>
+<a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts%2fvue_learn%2f - vue_learn by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 <a class="facebook" href="#" onclick="
     window.open(
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -205,11 +141,7 @@ code.has-jax {
       'width=626,height=436');
     return false;"><span class="icon-facebook-rect"> Share</span>
 </a>
-
-            
-
-            
-                <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -221,55 +153,32 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2019 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -282,10 +191,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

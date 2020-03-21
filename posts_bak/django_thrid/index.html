@@ -1,53 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="编写你的第一个Django应用程序，第三部分"/>
-  <meta name="twitter:description" content="编写你的第一个Django应用程序，第三部分"/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.36.1" />
-		<title>编写你的第一个Django应用程序，第三部分 &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="编写你的第一个Django应用程序，第三部分" name="twitter:title"/>
+<meta content="编写你的第一个Django应用程序，第三部分" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.36.1" name="generator"/>
+<title>编写你的第一个Django应用程序，第三部分 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -70,7 +41,6 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -80,53 +50,33 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         编写你的第一个Django应用程序，第三部分
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Dec 28, 2017 00:00
                     · 627 words
                     · 3 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="https://ngc7292.github.io/tags/django">django</a>
-                          
-                              <a href="https://ngc7292.github.io/tags/python">python</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
+<a href="https://ngc7292.github.io/tags/django">django</a>
+<a href="https://ngc7292.github.io/tags/python">python</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li><a href="#编写你的第一个django应用程序-第3部分">编写你的第一个Django应用程序，第3部分</a>
 <ul>
@@ -139,20 +89,13 @@ code.has-jax {
 </ul></li>
 </ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <h1 id="编写你的第一个django应用程序-第3部分">编写你的第一个Django应用程序，第3部分</h1>
-
+</div>
+<section id="post-body">
+<h1 id="编写你的第一个django应用程序-第3部分">编写你的第一个Django应用程序，第3部分</h1>
 <p>本教程从教程2中断的地方开始。我们正在继续Web调查应用程序，并将重点放在创建公共接口 - “视图”上。</p>
-
 <p></p>
-
 <h3 id="概述">概述</h3>
-
 <p>视图是Django应用程序中网页的“类型”，它通常用于特定的功能并具有特定的模板。例如，在博客应用程序中，您可能有以下观点：</p>
-
 <p>博客主页 - 显示最新的几个条目。
 输入“详细信息”页面 - 永久链接页面为单个条目。
 基于年份的存档页面 - 显示给定年份中所有条目的月份。
@@ -160,40 +103,30 @@ code.has-jax {
 基于日期的归档页面 - 显示给定日期的所有条目。
 评论操作 - 处理对给定条目的发布评论。
 在我们的投票应用程序中，我们将有以下四个视图：</p>
-
 <p>问题“索引”页面 - 显示最新的几个问题。
 问题“详细”页面 - 显示一个问题文本，没有结果，但有一个表格投票。
 问题“结果”页面 - 显示特定问题的结果。
 投票行动 - 处理针对特定问题的特定选择的投票。
 在Django中，网页和其他内容由视图传递。每个视图都由一个简单的Python函数（或基于类的视图的方法）表示。Django将通过检查请求的URL（准确地说，域名后的URL部分）来选择一个视图。</p>
-
 <p>现在在网络上你可能遇到过“ME2/Sites/dirmod.asp?sid=&amp;type=gen&amp;mod=Core+Pages&amp;gid=A6CD4967199A42D9B65B1B”等美女。你会很高兴知道，Django允许我们有更优雅的 URL模式。</p>
-
 <p>URL模式只是一个URL的一般形式，例如： <code>/newsarchive/&lt;year&gt;/&lt;month&gt;/</code>。</p>
-
 <p>为了从一个URL获得一个视图，Django使用了所谓的“URLconf”。URLconf将URL模式映射到视图。</p>
-
 <p>本教程提供了有关使用URLconf的基本说明，您可以参考URL调度器以获取更多信息。</p>
-
 <h3 id="写更多的意见">写更多的意见</h3>
-
 <p>现在让我们添加更多的意见polls/views.py。这些观点略有不同，因为他们有一个论点：</p>
-
 <pre><code>polls/views.py
 
 def detail(request, question_id):
-    return HttpResponse(&quot;You're looking at question %s.&quot; % question_id)
+    return HttpResponse("You're looking at question %s." % question_id)
 
 def results(request, question_id):
-    response = &quot;You're looking at the results of question %s.&quot;
+    response = "You're looking at the results of question %s."
     return HttpResponse(response % question_id)
 
 def vote(request, question_id):
-    return HttpResponse(&quot;You're voting on question %s.&quot; % question_id)
+    return HttpResponse("You're voting on question %s." % question_id)
 </code></pre>
-
 <p>polls.urls通过添加以下path()调用将这些新视图连接到模块中 ：</p>
-
 <pre><code class="language-python">polls/urls.py
 
 from django.conf.urls import url
@@ -211,33 +144,20 @@ urlpatterns = [
     url(r'^(?P&lt;question_id&gt;[0-9]+)/vote/$', views.vote, name='vote'),
 ]
 </code></pre>
-
 <p>看看你的浏览器，在“/ polls / 34 /”。它将运行该detail() 方法并显示您在URL中提供的任何ID。尝试“/ polls / 34 / results /”和“/ polls / 34 / vote /” - 这些将显示占位符结果和投票页面。</p>
-
-<p>当有人从你的网站请求一个页面 - 比如&rdquo;/polls/34/&ldquo;时，Django将加载mysite.urlsPython模块，因为它是由ROOT_URLCONF设置指向的 。它会找到名为的变量urlpatterns 并按顺序遍历模式。找到匹配之后&rsquo;polls/&lsquo;，剥离匹配的文本（&rdquo;polls/&ldquo;），并将剩余的文本发送 &ldquo;34/&ldquo;到“polls.urls”URLconf以供进一步处理。在那里匹配r&rsquo;^(?P<question_id>[0-9]+)/$&lsquo;，导致对detail()视图的调用如下所示：</p>
-
+<p>当有人从你的网站请求一个页面 - 比如”/polls/34/“时，Django将加载mysite.urlsPython模块，因为它是由ROOT_URLCONF设置指向的 。它会找到名为的变量urlpatterns 并按顺序遍历模式。找到匹配之后’polls/‘，剥离匹配的文本（”polls/“），并将剩余的文本发送 “34/“到“polls.urls”URLconf以供进一步处理。在那里匹配r’^(?P<question_id>[0-9]+)/$‘，导致对detail()视图的调用如下所示：</question_id></p>
 <pre><code>detail(request=&lt;HttpRequest object&gt;, question_id='34')
 </code></pre>
-
-<p>The question_id=&lsquo;34&rsquo; part comes from (?P<question_id>[0-9]+). Using parentheses around a pattern “captures” the text matched by that pattern and sends it as an argument to the view function; ?P<question_id> defines the name that will be used to identify the matched pattern; and [0-9]+ is a regular expression to match a sequence of digits (i.e., a number).</p>
-
+<p>The question_id=‘34’ part comes from (?P<question_id>[0-9]+). Using parentheses around a pattern “captures” the text matched by that pattern and sends it as an argument to the view function; ?P<question_id> defines the name that will be used to identify the matched pattern; and [0-9]+ is a regular expression to match a sequence of digits (i.e., a number).</question_id></question_id></p>
 <p>Because the URL patterns are regular expressions, there really is no limit on what you can do with them. And there’s no need to add URL cruft such as .html – unless you want to, in which case you can do something like this:</p>
-
 <pre><code>url(r'^polls/latest\.html$', views.index),，
 </code></pre>
-
 <p>但是，不要这样做。这很愚蠢。</p>
-
 <p>###写视图，实际上做一些事情</p>
-
 <p>每个视图负责执行以下两项操作之一：返回HttpResponse包含所请求页面的内容的 对象，或引发异常，如Http404。其余的由你决定。</p>
-
 <p>您的视图可以从数据库中读取记录，或者不能。它可以使用一个模板系统，比如Django或者第三方的Python模板系统。它可以生成一个PDF文件，输出XML，创建一个ZIP文件，任何你想要的，使用任何你想要的Python库。</p>
-
 <p>所有的Django想要的是HttpResponse。或者是一个例外。</p>
-
 <p>因为这很方便，所以我们使用Django自己的数据库API，我们在教程2中介绍了它。这里有一个新的index() 观点，根据出版日期显示系统中最新的5个民意调查问题，用逗号分隔。</p>
-
 <pre><code>polls/views.py
 
 from django.http import HttpResponse
@@ -252,35 +172,26 @@ def index(request):
 
 # Leave the rest of the views (detail, results, vote) unchanged
 </code></pre>
-
 <p>这里有一个问题：页面的设计在视图中是硬编码的。如果你想改变页面的外观，你必须编辑这个Python代码。所以让我们使用Django的模板系统，通过创建视图可以使用的模板来将设计从Python中分离出来。</p>
-
 <p>首先，templates在您的polls目录中创建一个目录。Django将在那里寻找模板。</p>
-
 <p>您的项目TEMPLATES设置描述了Django将如何加载和呈现模板。默认设置文件配置DjangoTemplates 其APP_DIRS选项设置为 的后端True。按照惯例DjangoTemplates，在每个目录中查找一个“templates”子目录INSTALLED_APPS。</p>
-
 <p>在templates刚刚创建的目录中，创建一个名为的目录polls，并在其中创建一个名为的文件 index.html。换句话说，你的模板应该在 polls/templates/polls/index.html。由于app_directories 模板加载器的工作方式如上所述，因此您可以在Django中简单地引用此模板polls/index.html。</p>
-
 <p>模板命名空间</p>
-
 <p>现在我们可以直接将模板放入 polls/templates（而不是创建另一个polls子目录），但实际上这不是一个好主意。Django会选择它找到的名称匹配的第一个模板，如果在不同的应用程序中有一个同名的模板，Django将无法区分它们。我们需要能够将Django指向正确的位置，最简单的方法就是通过命名空间来确保这一点。也就是说，把这些模板放在为应用程序本身命名的另一个目录中。
 将下面的代码放在该模板中：</p>
-
 <pre><code class="language-python">polls/templates/polls/index.html
 
 {% if latest_question_list %}
     &lt;ul&gt;
     {% for question in latest_question_list %}
-        &lt;li&gt;&lt;a href=&quot;/polls/{{ question.id }}/&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/polls/{{ question.id }}/"&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
     {% endfor %}
     &lt;/ul&gt;
 {% else %}
     &lt;p&gt;No polls are available.&lt;/p&gt;
 {% endif %}
 </code></pre>
-
 <p>现在让我们更新我们的index视图polls/views.py来使用模板：</p>
-
 <pre><code class="language-python">polls/views.py
 
 from django.http import HttpResponse
@@ -297,15 +208,10 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 </code></pre>
-
 <p>该代码加载调用的模板<code>polls/index.html</code>并将其传递给上下文。上下文是一个将模板变量名称映射到Python对象的字典。</p>
-
-<p>通过将浏览器指向“/polls/”来加载页面，您应该看到一个包含教程2中的“What&rsquo;s up”问题的项目符号列表。链接指向问题的详细信息页面。</p>
-
+<p>通过将浏览器指向“/polls/”来加载页面，您应该看到一个包含教程2中的“What’s up”问题的项目符号列表。链接指向问题的详细信息页面。</p>
 <p>快捷方式：render()</p>
-
 <p>加载一个模板，填充一个上下文并返回一个HttpResponse包含渲染模板结果的对象是一个非常常见的习惯用法 。Django提供了一个捷径。这是完整的index()观点，重写：</p>
-
 <pre><code>polls/views.py
 
 from django.shortcuts import render
@@ -318,15 +224,10 @@ def index(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 </code></pre>
-
 <p>请注意，一旦我们在所有这些观点做到了这一点，我们不再需要进口 loader和HttpResponse（你想保留HttpResponse，如果你仍然有存根方法detail， results和vote）。</p>
-
 <p>该render()函数将请求对象作为第一个参数，将模板名称作为第二个参数，将字典作为其可选的第三个参数。它返回HttpResponse 给定的上下文给定模板的对象。</p>
-
 <h3 id="提高404错误">提高404错误</h3>
-
 <p>现在，让我们解决问题详细信息视图 - 显示给定投票的问题文本的页面。这是观点：</p>
-
 <pre><code>polls/views.py
 
 from django.http import Http404
@@ -338,25 +239,18 @@ def detail(request, question_id):
     try:
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
-        raise Http404(&quot;Question does not exist&quot;)
+        raise Http404("Question does not exist")
     return render(request, 'polls/detail.html', {'question': question})
 </code></pre>
-
 <p>这里的新概念：Http404如果所请求的ID的问题不存在，则视图引发异常。</p>
-
 <p>我们将在稍后讨论可以放在该polls/detail.html模板中的内容，但是如果您想快速获取上述示例，那么只需包含以下内容的文件：</p>
-
 <pre><code class="language-python">polls/templates/polls/detail.html
 
 {{ question }}
 </code></pre>
-
 <p>会让你现在开始。</p>
-
 <p>快捷方式：get_object_or_404()</p>
-
 <p>如果对象不存在，则使用get() 和提高是一个非常常见的习惯用法Http404。Django提供了一个捷径。这里的detail()观点，重写：</p>
-
 <pre><code class="language-python">polls/views.py
 
 from django.shortcuts import get_object_or_404, render
@@ -367,20 +261,13 @@ def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
 </code></pre>
-
 <p>该get_object_or_404()函数将Django模型作为第一个参数，并将任意数量的关键字参数传递给get()模型管理器的函数。Http404如果对象不存在，则引发。</p>
-
 <p>哲学</p>
-
 <p>为什么我们使用助手函数get_object_or_404() 而不是自动捕获ObjectDoesNotExist更高级别的 异常，或者让模型API升级Http404而不是 ObjectDoesNotExist？</p>
-
 <p>因为这会将模型图层耦合到视图图层。Django最重要的设计目标之一是保持松耦合。django.shortcuts模块中引入了一些受控耦合。
 还有一个get_list_or_404()功能，就像get_object_or_404()- 除了使用， filter()而不是 get()。Http404如果列表为空，则会引发 此问题。</p>
-
 <p>使用模板系统</p>
-
 <p>回到detail()我们的投票应用程序的视图。给定上下文变量question，以下是polls/detail.html模板的样子：</p>
-
 <pre><code class="language-python">polls/templates/polls/detail.html
 
 &lt;h1&gt;{{ question.question_text }}&lt;/h1&gt;
@@ -390,47 +277,31 @@ def detail(request, question_id):
 {% endfor %}
 &lt;/ul&gt;
 </code></pre>
-
 <p>模板系统使用点查找语法来访问变量属性。在这个例子中，首先Django在对象上进行字典查找。否则，它会尝试一个属性查找 - 在这种情况下工作。如果属性查找失败了，它会尝试一个列表索引查找。{{ question.question_text }}question</p>
-
 <p>方法调用发生在循环中：question.choice_set.all 被解释为Python代码 ，它返回一个可迭代的对象，适合在标记中使用。</p>
-
 <p>有关模板的更多信息，请参阅模板指南。</p>
-
 <p>删除硬编码的网址模板¶</p>
-
 <p>请记住，当我们在polls/index.html 模板中编写问题链接时，链接部分硬编码如下：</p>
-
-<pre><code class="language-python">&lt;li&gt;&lt;a href=&quot;/polls/{{ question.id }}/&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-python">&lt;li&gt;&lt;a href="/polls/{{ question.id }}/"&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
 </code></pre>
-
 <p>这种硬编码，紧密耦合的方法存在的问题是，使用大量模板更改项目的URL会变得非常困难。但是，由于您path()在polls.urls模块中的函数中定义了name参数，因此可以使用模板标记删除对URL配置中定义的特定URL路径的依赖：{% url %}</p>
-
-<pre><code class="language-python">&lt;li&gt;&lt;a href=&quot;{% url 'detail' question.id %}&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
+<pre><code class="language-python">&lt;li&gt;&lt;a href="{% url 'detail' question.id %}"&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
 </code></pre>
-
 <p>这样做的方式是通过查找polls.urls模块中指定的URL定义 。您可以在下面定义具体的“detail”的URL名称：</p>
-
 <pre><code class="language-python">...
 # the 'name' value as called by the {% url %} template tag
 url(r'^(?P&lt;question_id&gt;[0-9]+)/$', views.detail, name='detail'),
 ...
 </code></pre>
-
 <p>如果你想改变投票详细信息视图的URL到其他的东西，也许是polls/specifics/12/在模板（或模板），而不是在模板（或模板）中，你可以改变它polls/urls.py：</p>
-
 <pre><code class="language-python">...
 # added the word 'specifics'
 url(r'^specifics/(?P&lt;question_id&gt;[0-9]+)/$', views.detail, name='detail'),
 ...
 </code></pre>
-
 <p>命名空间URL名称</p>
-
 <p>教程项目只有一个应用程序，polls。在真正的Django项目中，可能会有五个，十个，二十个应用程序或更多。Django如何区分它们之间的URL名称？例如，该polls应用程序有一个detail 视图，同一个项目上的一个应用程序也可能是一个博客。如何让Django在使用模板标签时知道要为URL创建哪个应用视图 ?</p>
-
 <p>答案是将命名空间添加到您的URLconf。在polls/urls.py 文件中，继续添加一个app_name来设置应用程序名称空间：</p>
-
 <pre><code class="language-python">polls/urls.py
 
 from django.conf.urls import url
@@ -445,28 +316,20 @@ urlpatterns = [
     url(r'^(?P&lt;question_id&gt;[0-9]+)/vote/$', views.vote, name='vote'),
 ]
 </code></pre>
-
 <p>现在polls/index.html从以下模板更改模板：</p>
-
 <pre><code class="language-python">polls/templates/polls/index.html
 
-&lt;li&gt;&lt;a href=&quot;{% url 'detail' question.id %}&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{% url 'detail' question.id %}"&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
 </code></pre>
-
 <p>指向名称空间的细节视图：</p>
-
 <pre><code class="language-python">polls/templates/polls/index.html
 
-&lt;li&gt;&lt;a href=&quot;{% url 'polls:detail' question.id %}&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{% url 'polls:detail' question.id %}"&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;
 </code></pre>
-
 <p>如果您愿意编写视图，请阅读本教程的第4部分，以了解简单表单处理和通用视图。</p>
-                </section>
-            </article>
-
-            
-                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts_bak%2fdjango_thrid%2f - django_thrid by @ngc7293"><span class="icon-twitter"> tweet</span></a>
-
+</section>
+</article>
+<a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fngc7292.github.io%2fposts_bak%2fdjango_thrid%2f - django_thrid by @ngc7293"><span class="icon-twitter"> tweet</span></a>
 <a class="facebook" href="#" onclick="
     window.open(
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -474,11 +337,7 @@ urlpatterns = [
       'width=626,height=436');
     return false;"><span class="icon-facebook-rect"> Share</span>
 </a>
-
-            
-
-            
-                <div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -490,55 +349,32 @@ urlpatterns = [
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2018 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -548,10 +384,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'ngc7293', 'auto');
 ga('send', 'pageview');
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>

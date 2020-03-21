@@ -6,10 +6,21 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>摄影策划</title>
+      <link>https://ngc7292.github.io/posts/road_plan/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/road_plan/</guid>
+      <description>&lt;p&gt;Some text is required to be placed here.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Chinese Poetry Generation with Recurrent Neural Networks</title>
@@ -285,15 +296,6 @@
       <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ngc7292.github.io/posts/road_plan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/road_plan/</guid>
-      <description></description>
     </item>
     
   </channel>
