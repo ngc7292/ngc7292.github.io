@@ -111,7 +111,7 @@ code.has-jax {
                     </h1>
                     <h2 class="headline">
                     Apr 23, 2019 00:00
-                    · 490 words
+                    · 507 words
                     · 3 minute read
                       <span class="tags">
                       
@@ -162,7 +162,7 @@ code.has-jax {
 <li>最大子数组跨越了mid</li>
 </ol>
 
-<p>在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$O(n)$的算法来计算跨越中点的子数组。</p>
+<p>在这三个子问题中取得最大值即可，分析三种情况，1，2都可以通过递归解决，第三种情况虽然不是基本问题（递归足够小时可以直接计算的情况），但是不可以通过递归来得到结果，但是，其加入了限制，即子数组必须跨越中点，我们可以对其设计一个$ O(n) $的算法来计算跨越中点的子数组。</p>
 
 <pre><code class="language-c++">void find_max_crossing_subarray(int A[],int low,int mid,int high ,int &amp;max_left,int &amp;max_right,int &amp;sum_max){
     int left_sum = -1000000;
@@ -230,21 +230,21 @@ code.has-jax {
 
 <p>对于矩阵乘法，我们知道</p>
 
-<p>若 $ A=(a<em>{ij}) $和 $ B = (b</em>{ij})$ 是 $ n*n $的矩阵，对于$C = A*B​$我们有</p>
+<p>若 $ A=(a_{ij}) $和 $ B = (b_{ij})$ 是 $ n*n $的矩阵，对于$C = A*B​$我们有</p>
 
-<p>​                       $$ c<em>{ij} = \sum^n</em>{k=i}a<em>{ik}*b</em>{kj} $$</p>
+<p>​                       $$ c_{ij} = \sum^n_{k=i}a_{ik}*b_{kj} $$</p>
 
 <p>也就是说我们对于两个$n*n$的矩阵，需要计算$n^3$次, 但是著名的STRASSEN公式，可以将算法的时间复杂度降低至$n^{log7}$ 所以相比于普通的矩阵乘法算法，其渐进复杂度比较优于简单的递归过程。</p>
 
 <p>我们首先来分析简单的分支算法，我们将A，B，C均分为4个$n/2*n/2$ 的子矩阵，这样我们可以得到$C = A \cdot B$：</p>
 
-<p>​               $$C = \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} , A = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} , B = \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}​$$</p>
+<p>​               $$ C = \begin{bmatrix}  C_{11} &amp; C_{12} \\ C_{21} &amp; C_{22} \end {bmatrix} , A = \begin{bmatrix}  A_{11} &amp; A_{12} \\ A_{21} &amp; A_{22} \end {bmatrix} , B = \begin{bmatrix}  B_{11} &amp; B_{12} \\ B_{21} &amp; B_{22} \end{bmatrix} ​$$</p>
 
 <p>​</p>
 
-<p>​                   $$\Rightarrow  \begin{bmatrix}  C<em>{11} &amp; C</em>{12} \ C<em>{21} &amp; C</em>{22} \end{bmatrix} = \begin{bmatrix}  A<em>{11} &amp; A</em>{12} \ A<em>{21} &amp; A</em>{22} \end{bmatrix} \cdot \begin{bmatrix}  B<em>{11} &amp; B</em>{12} \ B<em>{21} &amp; B</em>{22} \end{bmatrix}$$</p>
+<p>​                   $$ \Rightarrow  \begin{bmatrix}  C_{11} &amp; C_{12} \\ C_{21} &amp; C_{22} \end{bmatrix} = \begin{bmatrix}  A_{11} &amp; A_{12} \\ A_{21} &amp; A_{22} \end{bmatrix} \cdot \begin{bmatrix}  B_{11} &amp; B_{12} \ B_{21} &amp; B_{22} \end{bmatrix} $$</p>
 
-<p>​                       $$C<em>{11} = A</em>{11} \cdot B<em>{11} + A</em>{12}\cdot B_{21}$$</p>
+<p>​                       $$ C_{11} = A_{11} \cdot B_{11} + A_{12}\cdot B_{21} $$</p>
 
 <p>​                       $$ … ​$$</p>
 
@@ -326,15 +326,16 @@ return c
 
 <p>在递归树中，每一个递归节点代表单一子问题的规模，将每层所有代价求和，从而得到所有式子的代价总和。</p>
 
-<p>例如，我们计算$T(n) = 3T(n/4) + cn^2$的复杂度：</p>
+<p>例如，我们计算$ T(n) = 3T(n/4) + cn^2 $的复杂度：</p>
 
 <p>通过T（n）我们可以得到</p>
 
-<p><img src="/Users/ralph/Desktop/blog/content/posts/assets/0111CAFC-B0A9-4703-8CAE-448760F48E65.png" alt="0111CAFC-B0A9-4703-8CAE-448760F48E65" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd1d6dkujpj30pr0k8n3b.jpg" alt="0111CAFC-B0A9-4703-8CAE-448760F48E65" /></p>
 
-<p>将所有层次的所有代价相加，即可得到$T(n) = cn^2 + 3/16cn^2 + … + (<sup>3</sup>&frasl;<sub>16</sub>)^{log_{4}{n-1}} + \theta(n^{log_43}) $$</p>
+<p>将所有层次的所有代价相加，即可得到
+   $$  T(n) = cn^2 + (\frac{3}{16})cn^2 + … + (\frac{3}{16})^{log_{4} (n-1)} + \theta(n^{log_{43}}) ​$$</p>
 
-<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$T(n) = 16/13cn^2 + \theta(n^log_43) = O(n^2)​$$</p>
+<p>通过递减的无穷级数来拓展T(n)使其便于计算，得到$$ T(n) = 16/13cn^2 + \theta(n^{log_{43}}) = O(n^2) ​$$</p>
                 </section>
             </article>
 

@@ -341,21 +341,23 @@ def gradient_descent(x,y,lr):
 
 <p>SGD，每轮迭代中都只随机优化某一条训练数据的损失，更新速度比较快，但是会更新至局部最优。</p>
 
-<p>repeat{
-    for i=1,&hellip;,m{
+<pre><code>repeat{
+    for i=1,...,m{
        𝜃𝑗:=𝜃𝑗−𝛼(ℎ𝜃(𝑥(𝑖))−𝑦(𝑖))𝑥(𝑖)𝑗θj:=θj−α(hθ(x(i))−y(i))xj(i)
       (for j =0,1)
     }
-}</p>
+}
+</code></pre>
 
 <p>MBGD，随机计算小批次的数据，是MGD以及SGD的折中版本。</p>
 
-<p>repeat{
-    for i=1,11,21,31,&hellip;,991{
+<pre><code>repeat{
+    for i=1,11,21,31,...,991{
        𝜃𝑗:=𝜃𝑗−𝛼110∑(𝑖+9)𝑘=𝑖(ℎ𝜃(𝑥(𝑘))−𝑦(𝑘))𝑥(𝑘)𝑗θj:=θj−α110∑k=i(i+9)(hθ(x(k))−y(k))xj(k)
       (for j =0,1)
     }
-  }</p>
+  }
+</code></pre>
                 </section>
             </article>
 
