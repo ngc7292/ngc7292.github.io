@@ -73,7 +73,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Feb 18, 2020 00:00
-                    · 430 words
+                    · 477 words
                     · 3 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
@@ -95,7 +95,11 @@ code.has-jax {
 <li><a href="#convolutional-sentence-model-csm">convolutional Sentence Model (CSM)</a></li>
 <li><a href="#recurrent-context-model-rcm">Recurrent Context Model (RCM)</a></li>
 <li><a href="#recurrent-generation-mode-rgm">Recurrent Generation Mode(RGM)</a></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#decoding">decoding</a></li>
 </ul></li>
+<li><a href="#result">result</a></li>
+<li><a href="#原文">原文</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -146,7 +150,7 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
 <p>$ \sigma $是非线性方程例如sigmoid，m是行长度。其中简单的是，传统中国诗歌中大部分都是五到七个字，因此，RCM的输出层只需要两个参数矩阵（每一种长度），并且参数的数量也比较容易训练。</p>
 <h4 id="recurrent-generation-mode-rgm">Recurrent Generation Mode(RGM)</h4>
 <p>如图二所示，RGM通过考虑RCM所提供的上下文向量与前面字符的N分之一编码来估计下一个字符的概率分布。RGM本质上是一个具有辅助输入层的递归神经语言模型（Mikolov et al¥¥., 2010），例如来自RCM的上下文向量，在相关的语言建模与机器翻译工作中，用于编码额外字符( Mikolov and Zweig, 2012; Kalchbrenner and Blunsom, 2013; Auli et al., 2013 )。</p>
-<p>让 $ S_{i+1} = w_1,w_2,…,w<em>m $ 表示生成的行，RGM必须估算$ P(w</em>{j+1}|w<em>{1:j},S</em>{1:i}) $ ,然而，由于前i行已经被文本向量$ u^j<em>i $编码，因此我们计算$ P(w</em>{j+1}|w_{i:j},u<em>i^j) $即可，概率$ P(S</em>{i+1}|S_{1:i}) $计算：</p>
+<p>让 $ S_{i+1} = w_1,w_2,…,w_m $ 表示生成的行，RGM必须估算$ P(w_{ j+1 }|w_{ 1:j },S_{ 1:i }) $ ,然而，由于前i行已经被文本向量$ u^j_i $编码，因此我们计算$ P(w_{ j+1 } |w_{ i:j },u_i^j) $即可，概率$ P(S_{ i+1 }|S_{ 1:i }) $计算：</p>
 <p>$$ P(S<em>{i+1}|S</em>{1:i}) = \prod<em>{j=1}^{m-1}P(w</em>{j+1}|w<em>{1:j},u</em>{i}^{j}) $$</p>
 <p>让｜V｜表示字符单词的数量，RGM通过数字矩阵所表示，矩阵$ H \in R<em>{q \times q} $ (其中q表示隐藏单位的大小)将上下文向量转换为隐藏的表现形式，矩阵$ X \in R</em>{q \times |V|} $将字符转换至隐藏层，矩阵$ R \in R<em>{q \times q} $实现循环转换，矩阵$ Y \in R</em>{q \times |V|} $将隐藏层解码为诗歌中单词的权重，令w表示在V中所因为k的字符$ e(w)\in R_{|V|\times 1} $表示在除$ e(w) k=1 $之外的所有位置都是0向量，$r<em>j$ 是RGM在步骤j处的隐藏层，$ y</em>{j+1} $是RGM的输出。RGM步骤如下</p>
 <p>$$ r_0 = 0 $$</p>
@@ -154,6 +158,18 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
 <p>$$ y_{j+1} = Y\cdot r_j $$</p>
 <p>$ \sigma $ 是非线性函数，第（j+1）个单词的可能性是基于前j个字以及前i行根据softmax函数预测的：</p>
 <p>$$ P(w<em>{j+1} = k|w</em>{1:j},u<em>i^j)  = \frac{exp(y</em>{j+1,k})}{\sum<em>{k=1}^{|V|}exp(y</em>{j+1,k})} $$</p>
+<p>我们通过等式6来获得$ P(S<em>{ i+1 }|S</em>{ 1:i }) $</p>
+<h4 id="training">Training</h4>
+<p>训练的目的是预测语料库中预测字符分布和实际字符分布的交叉熵误差。 并添加l2正则化项。该模型经过时间反向传播训练（Rumelhart等，1988），其中感知长度是时间步长。通过随机梯度下降使目标最小化。在训练期间，RGM输出层中的交叉熵误差会反向传播到其隐藏层和输入层，然后传播到RCM，最后传播到CSM。整个过程（即在RGM，RCM和CSM中）使用相同数量的隐藏单元（q = 200）。在我们的实验中，所有参数都是随机初始化的，CSM中的词嵌入矩阵除外，该矩阵使用从我们的诗集获得的word2vec嵌入（Mikolov等人，2013）进行初始化（有关详细信息，请参见第4节）。我们使用的数据）。</p>
+<p>为了加快培训速度，我们采用了单词分类（Mikolov等，2011b）。为了计算角色的概率，我们估算其类别的概率，然后将其乘以以该类别为条件的角色的概率。在我们的实验中，我们使用了82（$ |V| $的平方根）类，这些类是通过对字符嵌入应用分层聚类获得的。这种策略在我们的任务上胜过了众所周知的基于频率的分类方法（Zweig和Makarychev，2013）。</p>
+<p>我们的诗歌生成器对内容选择和词汇选择及其交互进行建模，但没有强烈的局部连贯性概念，如诗意的行间转换所体现的那样。相比之下，机器翻译模型（Jiang和Zhou，2008）在生成相邻行（小片段）方面特别成功。为了增强连贯性，我们因此在模型中插入了两个机器翻译功能（即，逆短语翻译模型功能和逆词汇权重功能）。还要注意，在我们的模型中，曲面的生成取决于最后观测到的字符以及在观测之前隐藏层的状态。这样，就没有显式定义的上下文，并且历史的重复性隐式捕获了历史。对于我们的文本而言，这可能是有问题的，这些文本必须遵守某些风格惯例并具有诗意。默认情况下，如果没有将诗性纳入我们模型的更好方法，我们会进一步使用语言模型功能（即Kneser-Ney trigram模型）进行插值。</p>
+<p>在整个实验过程中，我们使用RNNLM工具包训练基于字符的递归神经网络语言模型（Mikolov等，2010）。 Kneser-Ney n-grams受KenLM训练（Heafield，2011年）。</p>
+<h4 id="decoding">decoding</h4>
+<p>我们的解码器是类似于Koehn等人的堆栈解码器。 （2003）。此外，它可以生成格式良好的绝句的必要的音调模式和押韵约束。一旦生成一首诗的第一行，就确定了它的音调模式。在解码期间，违反该模式的短语将被忽略。如第1节所述，第二行和第四行的最后一个字符必须押韵。因此，我们在解码过程中删除了第四行，其最终字符与第二行不押韵。最后，我们使用MERT（Och，2003年）来学习解码器的特征权重。</p>
+<h3 id="result">result</h3>
+<p><img alt="result" src="https://tva1.sinaimg.cn/large/00831rSTgy1gd8alh0gd3j30ek067dgs.jpg"/></p>
+<h3 id="原文">原文</h3>
+<p><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.683.7817&amp;rep=rep1&amp;type=pdf">Chinese Poetry Generation with Recurrent Neural Networks</a></p>
 </section>
 </article>
 <div id="disqus_thread"></div>
