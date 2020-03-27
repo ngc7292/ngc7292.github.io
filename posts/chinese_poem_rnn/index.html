@@ -73,7 +73,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Feb 18, 2020 00:00
-                    · 477 words
+                    · 493 words
                     · 3 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
@@ -151,7 +151,7 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
 <h4 id="recurrent-generation-mode-rgm">Recurrent Generation Mode(RGM)</h4>
 <p>如图二所示，RGM通过考虑RCM所提供的上下文向量与前面字符的N分之一编码来估计下一个字符的概率分布。RGM本质上是一个具有辅助输入层的递归神经语言模型（Mikolov et al¥¥., 2010），例如来自RCM的上下文向量，在相关的语言建模与机器翻译工作中，用于编码额外字符( Mikolov and Zweig, 2012; Kalchbrenner and Blunsom, 2013; Auli et al., 2013 )。</p>
 <p>让 $ S_{i+1} = w_1,w_2,…,w_m $ 表示生成的行，RGM必须估算$ P(w_{ j+1 }|w_{ 1:j },S_{ 1:i }) $ ,然而，由于前i行已经被文本向量$ u^j_i $编码，因此我们计算$ P(w_{ j+1 } |w_{ i:j },u_i^j) $即可，概率$ P(S_{ i+1 }|S_{ 1:i }) $计算：</p>
-<p>$$ P(S<em>{i+1}|S</em>{1:i}) = \prod<em>{j=1}^{m-1}P(w</em>{j+1}|w<em>{1:j},u</em>{i}^{j}) $$</p>
+<p>$$ P(S_{ i+1 }|S_{ 1:i }) = \prod_{ j=1 }^{ m-1 }P(w_{ j+1 }|w_{ 1:j },u_{ i }^{ j }) $$</p>
 <p>让｜V｜表示字符单词的数量，RGM通过数字矩阵所表示，矩阵$ H \in R<em>{q \times q} $ (其中q表示隐藏单位的大小)将上下文向量转换为隐藏的表现形式，矩阵$ X \in R</em>{q \times |V|} $将字符转换至隐藏层，矩阵$ R \in R<em>{q \times q} $实现循环转换，矩阵$ Y \in R</em>{q \times |V|} $将隐藏层解码为诗歌中单词的权重，令w表示在V中所因为k的字符$ e(w)\in R_{|V|\times 1} $表示在除$ e(w) k=1 $之外的所有位置都是0向量，$r<em>j$ 是RGM在步骤j处的隐藏层，$ y</em>{j+1} $是RGM的输出。RGM步骤如下</p>
 <p>$$ r_0 = 0 $$</p>
 <p>$$ r<em>j = \sigma(R \cdot r</em>{j-1} + X\cdot e(w_j) + H\cdot u_i^j) $$</p>
