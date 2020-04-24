@@ -128,6 +128,10 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/posts/kg/</loc>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/about/</loc>
     <lastmod>2015-06-20T14:02:37+02:00</lastmod>
   </url>
@@ -182,6 +186,11 @@
   <url>
     <loc>https://ngc7292.github.io/tags/java/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/tags/knowledge-graph/</loc>
     <priority>0</priority>
   </url>
   
