@@ -6,6 +6,7 @@
     <description>Recent content in Knowledge Graph on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/knowledge-graph/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +14,7 @@
     <item>
       <title>讲座笔记</title>
       <link>https://ngc7292.github.io/posts/kg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/kg/</guid>
       <description>知识图谱 概念图谱构建 bs4中的解析器采用的lxml或者html.parse等，所以在不同编码下在同样的
