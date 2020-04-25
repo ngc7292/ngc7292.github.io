@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Apr 24, 2020 00:00
-                    · 69 words
+                    · 123 words
                     · 1 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/knowledge-graph">knowledge graph</a>
@@ -89,6 +89,7 @@ code.has-jax {
 <ul>
 <li><a href="#知识图谱">知识图谱</a></li>
 <li><a href="#概念图谱构建">概念图谱构建</a></li>
+<li><a href="#百科知识图谱">百科知识图谱</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -161,6 +162,35 @@ code.has-jax {
 <li>通过case study来寻找常见的错误（猜想：概念图谱的边存在环可能包含错误）</li>
 <li>基于图模型的纠错（删除最小权值的边使其成为有向无环图）：贪心算法，1. 删除最小权值的边，2. 按照权值从大到小排序，并对其进行重新放回，并对整个图进行探测，从而找出最小的边</li>
 </ol>
+<h4 id="百科知识图谱">百科知识图谱</h4>
+<p>百科网站的特点：知识全面，实体独立，格式统一，质量优良-》具有丰富的结构化知识</p>
+<p>意义： 支撑领域知识图谱的构建，机器语言理解提供通用知识，支撑语料自动标注</p>
+<p>构建百科知识图谱步骤可以分为5步，包括<strong>信息收集</strong>，<strong>页面识别</strong>，<strong>属性抽取</strong>（本质上就是对其中半结构化数据的抽取）【实体指代抽取，摘要属性抽取，基本属性抽取，基于正则表达式的抽取】，<strong>数据清洗</strong>（质量问题，包括属性表述不一致，数值属性值格式不统一，多个对象属性未分割）【属性对齐（生成：找到等价属性对，过滤 删除错误候选属性对，验证 人工验证）概念层级体系构建】，<strong>实体分类</strong>（基于规则【使用ifthen规则，通用推理规则以及启发式推理规则】，基于机器学习的方法）</p>
+<p>多实例实体分类 pipeline方法，基于mention typing与type fusion</p>
+<p>一种是基于人工特征的方法，</p>
+<p>另一种是基于神经网络自动特征抽取方法</p>
+<p>​   HNM，METIC，KNET</p>
+<p>融合策略：直接合并，投票，带约束合并（将其看作整数线性规划问题，目标函数是最大化所有mention的分类结果，约束包括互斥约束或概念层次化约束）</p>
+<p>多实例学习方法，包括mimlmax，mimlavg，mimlmaxavg。。。</p>
+<p>基于异构特征的实体分类</p>
+<p><img alt="13501587779129_.pic_hd" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge5rrkooyxj30uc0giq6g.jpg"/></p>
+<p>多元知识图谱的融合方法：</p>
+<p>概念融合 融合策略，1. 以英文taxonomy为主，其他的删除（dbpieda）2. 保留所有的概念，把等价概念合并</p>
+<p>实体对齐</p>
+<p>​   预处理  标点去除，同义词扩展，分块索引</p>
+<p>​   成对对齐 无监督学习方法（根据现有知识得到等价关系进行判断），无监督学习</p>
+<pre><code>集体对齐 基于简单关系的集体实体对齐，在计算实体相似性的时候将实体的关联实体属性纳入计算 基于全局集体实体对齐 相似度以及概率模型。![13511587779874_.pic_hd](https://tva1.sinaimg.cn/large/007S8ZIlgy1ge5s4cacp8j30u60glgow.jpg)
+</code></pre>
+<p>属性对齐</p>
+<p>​   通用方法 属性名称相似性，同义词相似性</p>
+<p>​   特有方法数据驱动的属性对齐方法</p>
+<p>​   删除重复知识，去除错误知识</p>
+<p>​       单值属性的属性值融合 基于异构信息网络的真值发现方法</p>
+<p>​       多值属性融合 多策略融合等</p>
+<p>基于多元异构数据的知识图谱构建</p>
+<p><img alt="13551587780662_.pic_hd" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ge5simquzuj30sv0f20vl.jpg"/></p>
+<p>​   eg：knowledge vault</p>
+<p>​       通过知识抽取器，知识推理器，知识融合器来对整个知识进行检测和构建。</p>
 </section>
 </article>
 <div id="disqus_thread"></div>
