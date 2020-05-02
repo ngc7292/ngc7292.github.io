@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ngc7292.github.io/posts/datastruct/</loc>
+    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/kg/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
   </url>
@@ -204,7 +209,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -228,7 +233,7 @@
   
   <url>
     <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

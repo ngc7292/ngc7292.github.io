@@ -6,8 +6,17 @@
 <description>Recent content on ngc7293's blog</description>
 <generator>Hugo -- gohugo.io</generator>
 <language>en</language>
-<lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>图与树的算法复习</title>
+<link>https://ngc7292.github.io/posts/datastruct/</link>
+<pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+<guid>https://ngc7292.github.io/posts/datastruct/</guid>
+<description>&lt;p&gt;部分树与图的算法回顾&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+</item>
 <item>
 <title>讲座笔记</title>
 <link>https://ngc7292.github.io/posts/kg/</link>
