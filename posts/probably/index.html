@@ -5,14 +5,16 @@
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="概率论复习" name="twitter:title"/>
+<meta content="概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。
+
+" name="twitter:description"/>
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293's blog" name="twitter:title"/>
-<meta content="" name="twitter:description"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
 <meta content="ngc7293" name="author"/>
 <meta content="Hugo 0.36.1" name="generator"/>
-<title>Tags · ngc7293's blog</title>
+<title>概率论复习 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
 <link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
@@ -63,96 +65,78 @@ code.has-jax {
 <a href="https://ngc7292.github.io/about">About</a>
 <a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-<div class="profile">
-<section id="wrapper">
-<header id="header">
-<a href="https://ngc7292.github.io/about">
-<img class="2x" id="avatar" src="https://ngc7292.github.io/images/avatar.png"/>
-</a>
-<h1>ngc7293's blog</h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        概率论复习
+                    </h1>
+<h2 class="headline">
+                    May 31, 2020 00:00
+                    · 18 words
+                    · 1 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/ml">ml</a>
+</span>
+</h2>
 </header>
-</section>
-</div>
-<section class="tags" id="wrapper">
-<div class="page-tags">
+<div id="toc">
+<nav id="TableOfContents">
 <ul>
 <li>
-<a href="https://ngc7292.github.io/tags/python">
-                              PYTHON <span>(13)</span>
-</a>
-</li>
+<ul>
+<li><a href="#多随机变量及其分布">多随机变量及其分布</a></li>
+<li><a href="#随机变量的数字特征">随机变量的数字特征</a>
+<ul>
 <li>
-<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                              数据结构 <span>(12)</span>
-</a>
-</li>
+<ul>
+<li><a href="#数字期望">数字期望</a></li>
+<li><a href="#方差">方差</a></li>
+<li><a href="#协方差以及协方差矩阵">协方差以及协方差矩阵</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#参数估计的几种方法">参数估计的几种方法</a>
+<ul>
 <li>
-<a href="https://ngc7292.github.io/tags/algorithms">
-                              ALGORITHMS <span>(9)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/mechine-learning">
-                              MECHINE-LEARNING <span>(2)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/algorithm">
-                              ALGORITHM <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/ctf">
-                              CTF <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/data-structures">
-                              DATA-STRUCTURES <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/database">
-                              DATABASE <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/hobby">
-                              HOBBY <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/infomation-security">
-                              INFOMATION-SECURITY <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/java">
-                              JAVA <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/knowledge-graph">
-                              KNOWLEDGE-GRAPH <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/ml">
-                              ML <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/stage">
-                              STAGE <span>(1)</span>
-</a>
-</li>
-<li>
-<a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">
-                              论文 <span>(1)</span>
-</a>
-</li>
+<ul>
+<li><a href="#点估计">点估计</a></li>
+<li><a href="#最大似然估计">最大似然估计</a></li>
+<li><a href="#区间估计">区间估计</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#方差分析与回归分析">方差分析与回归分析</a></li>
+</ul></li>
 </ul>
+</nav>
 </div>
+<section id="post-body">
+<p>概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。</p>
+<p></p>
+<h2 id="多随机变量及其分布">多随机变量及其分布</h2>
+<p>分布函数$$ F(x,y) = P((X \ )) ​$$</p>
+<h2 id="随机变量的数字特征">随机变量的数字特征</h2>
+<h4 id="数字期望">数字期望</h4>
+<h4 id="方差">方差</h4>
+<h4 id="协方差以及协方差矩阵">协方差以及协方差矩阵</h4>
+<h2 id="参数估计的几种方法">参数估计的几种方法</h2>
+<h4 id="点估计">点估计</h4>
+<h4 id="最大似然估计">最大似然估计</h4>
+<h4 id="区间估计">区间估计</h4>
+<h2 id="方差分析与回归分析">方差分析与回归分析</h2>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <footer id="footer">
 <div id="social">
 <a class="symbol" href="https://www.facebook.com/">

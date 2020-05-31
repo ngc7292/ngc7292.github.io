@@ -6,8 +6,17 @@
 <description>Recent content on ngc7293's blog</description>
 <generator>Hugo -- gohugo.io</generator>
 <language>en</language>
-<lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>概率论复习</title>
+<link>https://ngc7292.github.io/posts/probably/</link>
+<pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+<guid>https://ngc7292.github.io/posts/probably/</guid>
+<description>&lt;p&gt;概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+</item>
 <item>
 <title>图与树的算法复习</title>
 <link>https://ngc7292.github.io/posts/datastruct/</link>
