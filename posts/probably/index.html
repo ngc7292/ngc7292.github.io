@@ -73,7 +73,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     May 31, 2020 00:00
-                    · 255 words
+                    · 261 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/ml">ml</a>
@@ -150,26 +150,26 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <p>同样的，对于n维随机变量，其二阶混合中心矩定义为：</p>
 <p>$$c_{ij} = E{[X_i-E(X_i)][X_j-E(X_j)]}$$</p>
 <p>其协方差矩阵为：</p>
-<p>$$ \begin{vmatrix} c<em>{11}&amp;c</em>{12}&amp;c<em>{13} &amp; … &amp; c</em>{in} \ &amp;&amp;…&amp;&amp;\c<em>{n1}&amp;c</em>{n2}&amp;c<em>{n3}&amp;…&amp;c</em>{nn} \end{vmatrix} $$</p>
+<p>$$ \begin{vmatrix} c_{11}&amp;c_{12}&amp;c_{13} &amp; … &amp; c_{in} \ &amp;&amp;…&amp;&amp;\c_{n1}&amp;c_{n2}&amp;c_{n3}&amp;…&amp;c_{nn} \end{vmatrix} $$</p>
 <h2 id="参数估计的几种方法">参数估计的几种方法</h2>
 <h3 id="点估计">点估计</h3>
 <h4 id="矩估计">矩估计</h4>
 <p>矩估计通过推导涉及到的总体矩，一般来说是一阶二阶原点矩，通过样本对总体矩进行估计，之后采用样本矩来取代总体矩，并求出所需要的参数估计。</p>
 <p>我们假设总体的前k阶矩为：$ \mu_{l} = E(X^{l}) $,设$\theta$为待估计参数，因此我们可以设样本矩为：</p>
-<p>$$ \begin{cases}  \mu_1 = \mu_1(\theta_1,\theta_2,…,\theta_k)\…\\mu_k = \mu_k(\theta_1,\theta_2,…\theta_k) \end{cases} $$</p>
+<p>$$ \begin{cases}  \mu_1 = \mu_1(\theta_1,\theta_2,…,\theta_k) \\ … \\ \mu<em>k = \mu</em>{k}(\theta_1,\theta_2,…\theta_k) \end{cases} $$</p>
 <p>这是一个包含k个未知数的联立方程，我们对其进行求解可以得到：</p>
-<p>$$ \begin{cases} \theta_1 = \theta_1(\mu_1,\mu_2,…,\mu_k )\ …\ \theta_k = \theta_k(\mu_1,\mu_2,…,\mu_k ) \end{cases} $$</p>
+<p>$$ \begin{cases} \theta_1 = \theta_1(\mu_1,\mu_2,…,\mu_k ) \\ … \\ \theta_k = \theta_k(\mu_1,\mu_2,…,\mu_k ) \end{cases} $$</p>
 <p>由于我们没有总体的前k阶矩，但是由于样本矩收敛于相应的总体矩，我们可以设样本矩:</p>
-<p>$$ A<em>l = \dfrac{1}{n} \sum</em>{i=1}^{n}X_i^l ​$$</p>
+<p>$$ A_l = \dfrac{1}{n} \sum_{i=1}^{n}X_i^l ​$$</p>
 <p>将样本矩代替总体矩，从而求出我们想要求得的参数估计值，这种估计量称为矩估计值。</p>
 <h4 id="最大似然估计">最大似然估计</h4>
 <p>最大似然估计在机器学习算法中应用也较为广泛。</p>
 <p>对于一个 离散型随机变量总体分布，$ X_1,X_2,…,X_n $是其样本，且关于其联合分布律为</p>
 <p>$$ P = \prod^{n}_{i=1}p(x_i;\theta)  $$</p>
 <p>我们设$ x_1,x_2,…,x_n$为样本的观察值，可以得到样本取得观察值的概率为</p>
-<p>$$ L(\theta) = L(x_1,x_2,…,x<em>n;\theta) = \prod</em>{i=1}^{n}p(x_i;\theta),\theta \in \Theta$$</p>
+<p>$$ L(\theta) = L(x_1,x_2,…,x_n;\theta) = \prod_{i=1}^{n}p(x_i;\theta),\theta \in \Theta$$</p>
 <p>上述函数称为似然函数，最大似然顾名思义我们需要求的$ \widehat {\theta} $使得似然函数最大，即：</p>
-<p>$$ L(x_1,x_2,x_3,…,x<em>n;\widehat {\theta})  = max</em>{\theta \in \Theta}L(x_1,x_2,x_3,…,x_n;\widehat {\theta}) $$</p>
+<p>$$ L(x_1,x_2,x_3,…,x_n;\widehat {\theta})  = max_{\theta \in \Theta}L(x_1,x_2,x_3,…,x_n;\widehat {\theta}) $$</p>
 <p>对于一个连续型的随机变量分布，我们可以得到联合密度为:</p>
 <p>$$ \prod_{i=1}^{n}f(x_i,\theta) $$</p>
 <p>其概率为:</p>
