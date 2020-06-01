@@ -73,7 +73,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     May 31, 2020 00:00
-                    · 261 words
+                    · 263 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/ml">ml</a>
@@ -150,13 +150,13 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <p>同样的，对于n维随机变量，其二阶混合中心矩定义为：</p>
 <p>$$c_{ij} = E{[X_i-E(X_i)][X_j-E(X_j)]}$$</p>
 <p>其协方差矩阵为：</p>
-<p>$$ \begin{vmatrix} c_{11}&amp;c_{12}&amp;c_{13} &amp; … &amp; c_{in} \ &amp;&amp;…&amp;&amp;\c_{n1}&amp;c_{n2}&amp;c_{n3}&amp;…&amp;c_{nn} \end{vmatrix} $$</p>
+<p>$$ \begin{vmatrix} c_{11}&amp;c_{12}&amp;c_{13} &amp; … &amp; c_{in} \\ &amp;&amp;…&amp;&amp; \\ c_{n1}&amp;c_{n2}&amp;c_{n3}&amp;…&amp;c_{nn} \end{vmatrix} $$</p>
 <h2 id="参数估计的几种方法">参数估计的几种方法</h2>
 <h3 id="点估计">点估计</h3>
 <h4 id="矩估计">矩估计</h4>
 <p>矩估计通过推导涉及到的总体矩，一般来说是一阶二阶原点矩，通过样本对总体矩进行估计，之后采用样本矩来取代总体矩，并求出所需要的参数估计。</p>
 <p>我们假设总体的前k阶矩为：$ \mu_{l} = E(X^{l}) $,设$\theta$为待估计参数，因此我们可以设样本矩为：</p>
-<p>$$ \begin{cases}  \mu_1 = \mu_1(\theta_1,\theta_2,…,\theta_k) \\ … \\ \mu<em>k = \mu</em>{k}(\theta_1,\theta_2,…\theta_k) \end{cases} $$</p>
+<p>$$ \begin{cases}  \mu_1 = \mu_1(\theta_1,\theta_2,…,\theta_k) \\ … \\ \mu_k = \mu_{k}(\theta_1,\theta_2,…\theta_k) \end{cases} $$</p>
 <p>这是一个包含k个未知数的联立方程，我们对其进行求解可以得到：</p>
 <p>$$ \begin{cases} \theta_1 = \theta_1(\mu_1,\mu_2,…,\mu_k ) \\ … \\ \theta_k = \theta_k(\mu_1,\mu_2,…,\mu_k ) \end{cases} $$</p>
 <p>由于我们没有总体的前k阶矩，但是由于样本矩收敛于相应的总体矩，我们可以设样本矩:</p>
