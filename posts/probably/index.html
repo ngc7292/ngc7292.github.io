@@ -175,7 +175,7 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <p>其概率为:</p>
 <p>$$ \prod_{i=1}^{n}f(x_i;\theta)dx_i $$</p>
 <p>由于$ \prod dx_i $不随$ \theta $变化，因此我们可以得到似然函数为:</p>
-<p>$$ L( \theta ) = L(x_1,x_2,…,x<em>n;\theta) = \prod</em>{i=1}^{n}f(x_i;\theta) ​$$</p>
+<p>$$ L( \theta ) = L(x_1,x_2,…,x_n;\theta) = \prod_{i=1}^{n}f(x_i;\theta) ​$$</p>
 <p>很多情况下，$f(x_i;\theta)$与$ p(x_i;\theta) $关于$\theta$可微，因此，我们对于最大化似然函数的$ \widehat{\theta} $可以通过方程$ \dfrac{d}{d\theta}L(\theta) = 0 $</p>
 <p>因为$ L(\theta) $与$ ln(L(\theta)) $是完全映射的，我们可以通过对数似然函数来求取参数。</p>
 <h4 id="区间估计">区间估计</h4>
