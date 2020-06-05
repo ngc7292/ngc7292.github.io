@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mechine Learning on ngc7293&#39;s blog</title>
+    <title>mechine learning on ngc7293&#39;s blog</title>
     <link>https://ngc7292.github.io/tags/mechine-learning/</link>
-    <description>Recent content in Mechine Learning on ngc7293&#39;s blog</description>
+    <description>Recent content in mechine learning on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
@@ -17,9 +17,7 @@
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
-      <description>&lt;p&gt;我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -28,9 +26,7 @@
       <pubDate>Thu, 01 Jan 1970 08:33:40 +0800</pubDate>
       
       <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
-      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;</description>
     </item>
     
   </channel>

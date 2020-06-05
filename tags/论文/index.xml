@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>论文 on ngc7293&#39;s blog</title>
@@ -17,9 +17,7 @@
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/chinese_poem_rnn/</guid>
-      <description>&lt;p&gt;Xingxing Zhang and Mirella Lapata&amp;rsquo;s paper&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Xingxing Zhang and Mirella Lapata&amp;rsquo;s paper&lt;/p&gt;</description>
     </item>
     
   </channel>

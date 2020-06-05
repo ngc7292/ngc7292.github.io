@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>pat learning · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Feb 1, 2019 00:00
-                    · 5639 words
+                    · 5550 words
                     · 27 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/python">python</a>
@@ -83,15 +83,13 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#1018-public-bike-management">1018 Public Bike Management</a></li>
-<li><a href="#1017-queueing-at-bank-25-分">1017 Queueing at Bank （25 分）</a></li>
+<li><a href="#1018public-bike-management">1018 Public Bike Management</a></li>
+<li><a href="#1017queueing-at-bank25-分">1017 Queueing at Bank （25 分）</a></li>
 <li><a href="#1015-reversible-primes-20-分">1015 Reversible Primes （20 分）</a></li>
-<li><a href="#1011-world-cup-betting-20-分">1011 World Cup Betting （20 分）</a></li>
+<li><a href="#1011world-cup-betting20-分">1011 World Cup Betting （20 分）</a></li>
 <li><a href="#1013-battle-over-cities-25-分">1013 Battle Over Cities （25 分）</a></li>
-<li><a href="#1001-a-b-format-20-分">1001 A+B Format （20 分）</a></li>
-<li><a href="#1002-a-b-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</a></li>
+<li><a href="#1001-ab-format-20-分">1001 A+B Format （20 分）</a></li>
+<li><a href="#1002-ab-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</a></li>
 <li><a href="#1005-spell-it-right-20-分">1005 Spell It Right （20 分）</a></li>
 <li><a href="#1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</a></li>
 <li><a href="#1007-maximum-subsequence-sum-25-分">1007 Maximum Subsequence Sum （25 分）</a></li>
@@ -104,14 +102,12 @@ code.has-jax {
 <li><a href="#素数筛">素数筛</a></li>
 <li><a href="#大数比较">大数比较</a></li>
 <li><a href="#1074-reversing-linked-list-25-分">1074 Reversing Linked List (25 分)</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>pat刷一些题来做一点点算法，这里大多数是python。</p>
-<p></p>
-<h2 id="1018-public-bike-management">1018 Public Bike Management</h2>
+<h2 id="1018public-bike-management">1018 Public Bike Management</h2>
 <p>There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the city.</p>
 <p>The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity of all the stations. A station is said to be in <strong>perfect</strong> condition if it is exactly half-full. If a station is full or empty, PBMC will collect or send bikes to adjust the condition of that station to perfect. And more, all the stations on the way will be adjusted as well.</p>
 <p>When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.</p>
@@ -134,67 +130,64 @@ code.has-jax {
 0 3 3
 1 3 1
 2 3 1
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>3 0-&gt;2-&gt;3 0
-</code></pre>
-<p>题目大意为存在一个指挥中心，几个城市（即图上几个节点），给定各个城市之间路径的权值，若某个指定城市损坏，需要找到指挥中心到指定城市的最短路径，并将其路径上的所有城市的车辆数转换为最佳数量，若有同样权值的路线，返回需要返还最少的路径。</p>
+</code></pre><p>题目大意为存在一个指挥中心，几个城市（即图上几个节点），给定各个城市之间路径的权值，若某个指定城市损坏，需要找到指挥中心到指定城市的最短路径，并将其路径上的所有城市的车辆数转换为最佳数量，若有同样权值的路线，返回需要返还最少的路径。</p>
 <p>很明显就是一个经过处理的寻找最短路的问题，通过狄杰斯特拉即可完成。</p>
-<pre><code class="language-python">import sys
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
 
-INT_MAX = sys.maxsize
+INT_MAX <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>maxsize
 
-c_max, n, s_p, m = [int(i) for i in input().split(" ")]
+c_max, n, s_p, m <span style="color:#f92672">=</span> [int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)]
 
-v = [[INT_MAX if i != j else 0 for j in range(0, n + 1)] for i in range(n + 1)]
-cap = [0] + [c_max//2 - int(i) for i in input().split(" ")]
+v <span style="color:#f92672">=</span> [[INT_MAX <span style="color:#66d9ef">if</span> i <span style="color:#f92672">!=</span> j <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]
+cap <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> [c_max<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)]
 
-for i in range(m):
-    c1, c2, p = [int(i) for i in input().split(" ")]
-    v[c1][c2] = p
-    v[c2][c1] = p
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m):
+    c1, c2, p <span style="color:#f92672">=</span> [int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)]
+    v[c1][c2] <span style="color:#f92672">=</span> p
+    v[c2][c1] <span style="color:#f92672">=</span> p
 
-res = v[0]
-flag = [1] + [0 for i in range(n)]
+res <span style="color:#f92672">=</span> v[<span style="color:#ae81ff">0</span>]
+flag <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n)]
 
-ways = [[0,i] for i in range(n+1)]
-b_num = [0] + [cap[i] for i in range(1,n+1)]
+ways <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>,i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
+b_num <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> [cap[i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
 
-t_flag = [1 for i in range(n+1)]
-min_tar = 0
-while True:
-    if flag == t_flag:
-        break
-    min_way = INT_MAX
-    for i in range(1,n+1):
-        if res[i] &lt; min_way and flag[i] == 0:
-            min_way = res[i]
-            min_tar = i
-    flag[min_tar] = 1
-    if min_tar == 3:
-        pass
-    for i in range(1,n+1):
-        if i == min_tar:
-            continue
-        if min_way + v[min_tar][i] &lt; res[i]:
-            res[i] = min_way+v[min_tar][i]
-            ways[i] = ways[min_tar] + ways[i][1:]
-            b_num[i] = b_num[min_tar] + b_num[i]
-        elif min_way + v[min_tar][i] == res[i] and b_num[min_tar] + cap[i] &gt; 0 and  b_num[min_tar] + cap[i] &lt; b_num[i]:
-            b_num[i] = b_num[min_tar] + cap[i]
-            ways[i] = ways[min_tar]+[i]
+t_flag <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
+min_tar <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> t_flag:
+        <span style="color:#66d9ef">break</span>
+    min_way <span style="color:#f92672">=</span> INT_MAX
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> res[i] <span style="color:#f92672">&lt;</span> min_way <span style="color:#f92672">and</span> flag[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            min_way <span style="color:#f92672">=</span> res[i]
+            min_tar <span style="color:#f92672">=</span> i
+    flag[min_tar] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">if</span> min_tar <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>:
+        <span style="color:#66d9ef">pass</span>
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> min_tar:
+            <span style="color:#66d9ef">continue</span>
+        <span style="color:#66d9ef">if</span> min_way <span style="color:#f92672">+</span> v[min_tar][i] <span style="color:#f92672">&lt;</span> res[i]:
+            res[i] <span style="color:#f92672">=</span> min_way<span style="color:#f92672">+</span>v[min_tar][i]
+            ways[i] <span style="color:#f92672">=</span> ways[min_tar] <span style="color:#f92672">+</span> ways[i][<span style="color:#ae81ff">1</span>:]
+            b_num[i] <span style="color:#f92672">=</span> b_num[min_tar] <span style="color:#f92672">+</span> b_num[i]
+        <span style="color:#66d9ef">elif</span> min_way <span style="color:#f92672">+</span> v[min_tar][i] <span style="color:#f92672">==</span> res[i] <span style="color:#f92672">and</span> b_num[min_tar] <span style="color:#f92672">+</span> cap[i] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span>  b_num[min_tar] <span style="color:#f92672">+</span> cap[i] <span style="color:#f92672">&lt;</span> b_num[i]:
+            b_num[i] <span style="color:#f92672">=</span> b_num[min_tar] <span style="color:#f92672">+</span> cap[i]
+            ways[i] <span style="color:#f92672">=</span> ways[min_tar]<span style="color:#f92672">+</span>[i]
 
-way = "0"
-for i in ways[s_p][1:]:
-    way += "-&gt;"+str(i)
+way <span style="color:#f92672">=</span> <span style="color:#e6db74">"0"</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> ways[s_p][<span style="color:#ae81ff">1</span>:]:
+    way <span style="color:#f92672">+=</span> <span style="color:#e6db74">"-&gt;"</span><span style="color:#f92672">+</span>str(i)
 
-if b_num[s_p] &lt; 0:
-    print("0 "+way+" "+str(-b_num[s_p]))
-else:
-    print(str(b_num[s_p]) + " " + way + " 0")
+<span style="color:#66d9ef">if</span> b_num[s_p] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">"0 "</span><span style="color:#f92672">+</span>way<span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>str(<span style="color:#f92672">-</span>b_num[s_p]))
+<span style="color:#66d9ef">else</span>:
+    <span style="color:#66d9ef">print</span>(str(b_num[s_p]) <span style="color:#f92672">+</span> <span style="color:#e6db74">" "</span> <span style="color:#f92672">+</span> way <span style="color:#f92672">+</span> <span style="color:#e6db74">" 0"</span>)
 
-</code></pre>
-<h2 id="1017-queueing-at-bank-25-分">1017 Queueing at Bank （25 分）</h2>
+</code></pre></div><h2 id="1017queueing-at-bank25-分">1017 Queueing at Bank （25 分）</h2>
 <p>1017 Queueing at Bank （25 分）</p>
 <p>Suppose a bank has K windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. All the customers have to wait in line behind the yellow line, until it is his/her turn to be served and there is a window available. It is assumed that no window can be occupied by a single customer for more than 1 hour.</p>
 <p>Now given the arriving time T and the processing time P of each customer, you are supposed to tell the average waiting time of all the customers.</p>
@@ -212,51 +205,48 @@ else:
 08:00:00 30
 08:00:02 2
 08:03:00 10
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>8.2
-</code></pre>
-<p>每个顾客在8点之前的都要进行排队，在16点之后的忽略不计，然后给一个窗口数量的一个列表，算就行了，超级简单的</p>
-<pre><code class="language-python">n, k = [int(i) for i in input().split(" ")]
+</code></pre><p>每个顾客在8点之前的都要进行排队，在16点之后的忽略不计，然后给一个窗口数量的一个列表，算就行了，超级简单的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">n, k <span style="color:#f92672">=</span> [int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)]
 
-n_dict = {}
+n_dict <span style="color:#f92672">=</span> {}
 
-k_list = [0 for i in range(k)]
+k_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(k)]
 
-wait_time = 0
+wait_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
-start_time = 8 * 3600
-end_time = 17 * 3600
-for i in range(n):
-    a_time, p_time = input().split(" ")
-    a_time = a_time.split(":")
-    a_time = int(a_time[0]) * 3600 + int(a_time[1]) * 60 + int(a_time[2])
-    if a_time &gt; end_time:
-        continue
-    if a_time &lt; start_time:
-        wait_time += start_time - a_time
-    n_dict[a_time] = int(p_time) * 60
+start_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3600</span>
+end_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3600</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+    a_time, p_time <span style="color:#f92672">=</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)
+    a_time <span style="color:#f92672">=</span> a_time<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+    a_time <span style="color:#f92672">=</span> int(a_time[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">*</span> <span style="color:#ae81ff">3600</span> <span style="color:#f92672">+</span> int(a_time[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> int(a_time[<span style="color:#ae81ff">2</span>])
+    <span style="color:#66d9ef">if</span> a_time <span style="color:#f92672">&gt;</span> end_time:
+        <span style="color:#66d9ef">continue</span>
+    <span style="color:#66d9ef">if</span> a_time <span style="color:#f92672">&lt;</span> start_time:
+        wait_time <span style="color:#f92672">+=</span> start_time <span style="color:#f92672">-</span> a_time
+    n_dict[a_time] <span style="color:#f92672">=</span> int(p_time) <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span>
 
 
-for i in sorted(n_dict):
-    min_f_time = k_list[0]
-    min_tar = 0
-    for j in range(1, k):
-        if min_f_time &gt; k_list[j]:
-            min_f_time = k_list[j]
-            min_tar = j
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sorted(n_dict):
+    min_f_time <span style="color:#f92672">=</span> k_list[<span style="color:#ae81ff">0</span>]
+    min_tar <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, k):
+        <span style="color:#66d9ef">if</span> min_f_time <span style="color:#f92672">&gt;</span> k_list[j]:
+            min_f_time <span style="color:#f92672">=</span> k_list[j]
+            min_tar <span style="color:#f92672">=</span> j
     
-    p_time = n_dict[i]
-    if i &lt; start_time:
-        i = start_time
-    if i &lt; min_f_time:
-        wait_time += min_f_time - i
-        i = min_f_time
-    k_list[min_tar] = i + p_time
+    p_time <span style="color:#f92672">=</span> n_dict[i]
+    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;</span> start_time:
+        i <span style="color:#f92672">=</span> start_time
+    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;</span> min_f_time:
+        wait_time <span style="color:#f92672">+=</span> min_f_time <span style="color:#f92672">-</span> i
+        i <span style="color:#f92672">=</span> min_f_time
+    k_list[min_tar] <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> p_time
     
-print(round((wait_time/60)/len(n_dict),1))
-</code></pre>
-<h2 id="1015-reversible-primes-20-分">1015 Reversible Primes （20 分）</h2>
+<span style="color:#66d9ef">print</span>(round((wait_time<span style="color:#f92672">/</span><span style="color:#ae81ff">60</span>)<span style="color:#f92672">/</span>len(n_dict),<span style="color:#ae81ff">1</span>))
+</code></pre></div><h2 id="1015-reversible-primes-20-分">1015 Reversible Primes （20 分）</h2>
 <p>A <strong>reversible prime</strong> in any number system is a prime whose “reverse” in that number system is also a prime. For example in the decimal system 73 is a reversible prime because its reverse 37 is also a prime.</p>
 <p>Now given any two positive integers N (&lt;105) and D (1&lt;D≤10), you are supposed to tell if N is a reversible prime with radix D.</p>
 <p>Input Specification:</p>
@@ -268,47 +258,44 @@ print(round((wait_time/60)/len(n_dict),1))
 23 2
 23 10
 -2
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>Yes
 Yes
 No
-</code></pre>
-<p>这道题大概考的是素数筛吧，大意是给定一个十进制数跟一个radix，根据这个radix来反转数字，若反转以及未反转之前都是素数，输出YES，否则输出No</p>
-<pre><code class="language-python">import math
+</code></pre><p>这道题大概考的是素数筛吧，大意是给定一个十进制数跟一个radix，根据这个radix来反转数字，若反转以及未反转之前都是素数，输出YES，否则输出No</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
 
 
-def is_prime(n):
-    if n &lt;= 1:
-      return False
-    for i in range(2, int(math.sqrt(n))+1):
-        if n % i == 0:
-            return False
-    return True
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_prime</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
+      <span style="color:#66d9ef">return</span> False
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, int(math<span style="color:#f92672">.</span>sqrt(n))<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            <span style="color:#66d9ef">return</span> False
+    <span style="color:#66d9ef">return</span> True
 
 
-n_list = []
-d_list = []
+n_list <span style="color:#f92672">=</span> []
+d_list <span style="color:#f92672">=</span> []
 
-while True:
-    a = input()
-    if int(a.split(" ")[0]) &lt; 0:
-        break
-    n, d = [int(i) for i in a.split(" ")]
-    if not is_prime(n) or n == 0:
-        print("No")
-    else:
-        r = ""
-        while n!= 0:
-            r += str(n%d)
-            n = n//d
-        n = int(r,d)
-        if is_prime(n):
-            print("Yes")
-        else:
-            print("No")
-</code></pre>
-<h2 id="1011-world-cup-betting-20-分">1011 World Cup Betting （20 分）</h2>
+<span style="color:#66d9ef">while</span> True:
+    a <span style="color:#f92672">=</span> input()
+    <span style="color:#66d9ef">if</span> int(a<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">break</span>
+    n, d <span style="color:#f92672">=</span> [int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> a<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)]
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> is_prime(n) <span style="color:#f92672">or</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">"No"</span>)
+    <span style="color:#66d9ef">else</span>:
+        r <span style="color:#f92672">=</span> <span style="color:#e6db74">""</span>
+        <span style="color:#66d9ef">while</span> n<span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+            r <span style="color:#f92672">+=</span> str(n<span style="color:#f92672">%</span>d)
+            n <span style="color:#f92672">=</span> n<span style="color:#f92672">//</span>d
+        n <span style="color:#f92672">=</span> int(r,d)
+        <span style="color:#66d9ef">if</span> is_prime(n):
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">"Yes"</span>)
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">"No"</span>)
+</code></pre></div><h2 id="1011world-cup-betting20-分">1011 World Cup Betting （20 分）</h2>
 <p>With the 2010 FIFA World Cup running, football fans the world over were becoming increasingly excited as the best players from the best teams doing battles for the World Cup trophy in South Africa. Similarly, football betting fans were putting their money where their mouths were, by laying all manner of World Cup bets.</p>
 <p>Chinese Football Lottery provided a “Triple Winning” game. The rule of winning was simple: first select any three of the games. Then for each selected game, bet on one of the three possible results – namely <code>W</code> for win, <code>T</code> for tie, and <code>L</code> for lose. There was an odd assigned to each result. The winner’s odd would be the product of the three odds times 65%.</p>
 <p>For example, 3 games’ odds are given as the following:</p>
@@ -316,8 +303,7 @@ while True:
 1.1  2.5  1.7
 1.2  3.1  1.6
 4.1  1.2  1.1
-</code></pre>
-<p>To obtain the maximum profit, one must buy <code>W</code> for the 3rd game, <code>T</code> for the 2nd game, and <code>T</code> for the 1st game. If each bet takes 2 yuans, then the maximum profit would be (4.1×3.1×2.5×65%−1)×2=39.31 yuans (accurate up to 2 decimal places).</p>
+</code></pre><p>To obtain the maximum profit, one must buy <code>W</code> for the 3rd game, <code>T</code> for the 2nd game, and <code>T</code> for the 1st game. If each bet takes 2 yuans, then the maximum profit would be (4.1×3.1×2.5×65%−1)×2=39.31 yuans (accurate up to 2 decimal places).</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case contains the betting information of 3 games. Each game occupies a line with three distinct odds corresponding to <code>W</code>, <code>T</code> and <code>L</code>.</p>
 <p>Output Specification:</p>
@@ -326,33 +312,30 @@ while True:
 <pre><code>1.1 2.5 1.7
 1.2 3.1 1.6
 4.1 1.2 1.1
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>T T W 39.31
-</code></pre>
-<p>AC代码：</p>
-<pre><code class="language-python">a = ['W','T','L']
+</code></pre><p>AC代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> [<span style="color:#e6db74">'W'</span>,<span style="color:#e6db74">'T'</span>,<span style="color:#e6db74">'L'</span>]
 
-n1 = [float(i) for i in input().split(' ')]
-n2 = [float(i) for i in input().split(' ')]
-n3 = [float(i) for i in input().split(' ')]
+n1 <span style="color:#f92672">=</span> [float(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">' '</span>)]
+n2 <span style="color:#f92672">=</span> [float(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">' '</span>)]
+n3 <span style="color:#f92672">=</span> [float(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">' '</span>)]
 
-m1 = max(n1)
-m2 = max(n2)
-m3 = max(n3)
+m1 <span style="color:#f92672">=</span> max(n1)
+m2 <span style="color:#f92672">=</span> max(n2)
+m3 <span style="color:#f92672">=</span> max(n3)
 
-res = (m1*m2*m3*0.65-1)*2
-for i in range(0,3):
-  if n1[i] == m1:
-    m1 = a[i]
-  if n2[i] == m2:
-    m2 = a[i]
-  if n3[i] == m3:
-    m3 = a[i]
+res <span style="color:#f92672">=</span> (m1<span style="color:#f92672">*</span>m2<span style="color:#f92672">*</span>m3<span style="color:#f92672">*</span><span style="color:#ae81ff">0.65</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">3</span>):
+  <span style="color:#66d9ef">if</span> n1[i] <span style="color:#f92672">==</span> m1:
+    m1 <span style="color:#f92672">=</span> a[i]
+  <span style="color:#66d9ef">if</span> n2[i] <span style="color:#f92672">==</span> m2:
+    m2 <span style="color:#f92672">=</span> a[i]
+  <span style="color:#66d9ef">if</span> n3[i] <span style="color:#f92672">==</span> m3:
+    m3 <span style="color:#f92672">=</span> a[i]
 
-print(m1,m2,m3,round(res,2))
-</code></pre>
-<h2 id="1013-battle-over-cities-25-分">1013 Battle Over Cities （25 分）</h2>
+<span style="color:#66d9ef">print</span>(m1,m2,m3,round(res,<span style="color:#ae81ff">2</span>))
+</code></pre></div><h2 id="1013-battle-over-cities-25-分">1013 Battle Over Cities （25 分）</h2>
 <p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
 <p>For example, if we have 3 cities and 2 highways connecting city1-city2 and city1-city3. Then if city1 is occupied by the enemy, we must have 1 highway repaired, that is the highway city2-city3.</p>
 <p>Input Specification:</p>
@@ -364,64 +347,61 @@ print(m1,m2,m3,round(res,2))
 1 2
 1 3
 1 2 3
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>1
 0
 0
-</code></pre>
-<p>dfs找联通图</p>
-<pre><code class="language-c++">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
+</code></pre><p>dfs找联通图</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
+<span style="color:#66d9ef">int</span> n,v[<span style="color:#ae81ff">1001</span>][<span style="color:#ae81ff">1001</span>];
+<span style="color:#66d9ef">bool</span> visit[<span style="color:#ae81ff">1001</span>];
 
-int n,v[1001][1001];
-bool visit[1001];
-
-void dfs(int c3){
-  visit[c3] = true;
-  for(int i=1;i&lt;=n;i++)
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> c3){
+  visit[c3] <span style="color:#f92672">=</span> true;
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>n;i<span style="color:#f92672">++</span>)
   {
-    if(visit[i] == false &amp;&amp; v[c3][i] == 1)
+    <span style="color:#66d9ef">if</span>(visit[i] <span style="color:#f92672">==</span> false <span style="color:#f92672">&amp;&amp;</span> v[c3][i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
     {
       dfs(i);
     }
   }
 }
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-  int m,k;
-  scanf("%d %d %d",&amp;n,&amp;m,&amp;k);
-  for(int i=0;i&lt;m;i++)
+  <span style="color:#66d9ef">int</span> m,k;
+  scanf(<span style="color:#e6db74">"%d %d %d"</span>,<span style="color:#f92672">&amp;</span>n,<span style="color:#f92672">&amp;</span>m,<span style="color:#f92672">&amp;</span>k);
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>m;i<span style="color:#f92672">++</span>)
   {
-    int c1,c2;
-    scanf("%d %d",&amp;c1,&amp;c2);
-    v[c1][c2] = 1;
-    v[c2][c1] = 1;
+    <span style="color:#66d9ef">int</span> c1,c2;
+    scanf(<span style="color:#e6db74">"%d %d"</span>,<span style="color:#f92672">&amp;</span>c1,<span style="color:#f92672">&amp;</span>c2);
+    v[c1][c2] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    v[c2][c1] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
   }
   
-  for(int i=0;i&lt;k;i++)
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>k;i<span style="color:#f92672">++</span>)
   {
-    int c3;
-    scanf("%d",&amp;c3);
-    fill(visit,visit+1001,false);
-    visit[c3] = true;
-    int res = 0;
-    for(int i=1;i&lt;=n;i++)
+    <span style="color:#66d9ef">int</span> c3;
+    scanf(<span style="color:#e6db74">"%d"</span>,<span style="color:#f92672">&amp;</span>c3);
+    fill(visit,visit<span style="color:#f92672">+</span><span style="color:#ae81ff">1001</span>,false);
+    visit[c3] <span style="color:#f92672">=</span> true;
+    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>n;i<span style="color:#f92672">++</span>)
     {
-      if(visit[i] == false)
+      <span style="color:#66d9ef">if</span>(visit[i] <span style="color:#f92672">==</span> false)
       {
         dfs(i);
-        res++;
+        res<span style="color:#f92672">++</span>;
       }
     }
-    printf("%d\n",res-1);
+    printf(<span style="color:#e6db74">"%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>,res<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
   }
-  return 0;
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="1001-a-b-format-20-分">1001 A+B Format （20 分）</h2>
+</code></pre></div><h2 id="1001-ab-format-20-分">1001 A+B Format （20 分）</h2>
 <p>Calculate a+b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case contains a pair of integers a and b where −106≤a,b≤106. The numbers are separated by a space.</p>
@@ -429,31 +409,28 @@ int main()
 <p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p>
 <p>Sample Input:</p>
 <pre><code>-1000000 9
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>-999,991
-</code></pre>
-<p>主要就是第一题，所以注意下输出格式就行了</p>
-<pre><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-using namespace std;
-int main(){
-    int a,b;
-    cin&gt;&gt;a&gt;&gt;b;
-    int c=a+b;
-    if(c&lt;0){cout&lt;&lt;'-';c=-c;}
-    if(c&gt;=1000000){
-        printf("%d,%03d,%03d",c/1000000,c%1000000/1000,c%1000);
-    }else if(c&gt;=1000){
-        printf("%d,%03d",c/1000,c%1000);
-    }else{
-        printf("%d",c);
+</code></pre><p>主要就是第一题，所以注意下输出格式就行了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> a,b;
+    cin<span style="color:#f92672">&gt;&gt;</span>a<span style="color:#f92672">&gt;&gt;</span>b;
+    <span style="color:#66d9ef">int</span> c<span style="color:#f92672">=</span>a<span style="color:#f92672">+</span>b;
+    <span style="color:#66d9ef">if</span>(c<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>){cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">'-'</span>;c<span style="color:#f92672">=-</span>c;}
+    <span style="color:#66d9ef">if</span>(c<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1000000</span>){
+        printf(<span style="color:#e6db74">"%d,%03d,%03d"</span>,c<span style="color:#f92672">/</span><span style="color:#ae81ff">1000000</span>,c<span style="color:#f92672">%</span><span style="color:#ae81ff">1000000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>,c<span style="color:#f92672">%</span><span style="color:#ae81ff">1000</span>);
+    }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(c<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">1000</span>){
+        printf(<span style="color:#e6db74">"%d,%03d"</span>,c<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>,c<span style="color:#f92672">%</span><span style="color:#ae81ff">1000</span>);
+    }<span style="color:#66d9ef">else</span>{
+        printf(<span style="color:#e6db74">"%d"</span>,c);
     }
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-</code></pre>
-<h2 id="1002-a-b-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</h2>
+</code></pre></div><h2 id="1002-ab-for-polynomials-25-分">1002 A+B for Polynomials （25 分）</h2>
 <p>This time, you are supposed to find A+B where A and B are two polynomials.</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial:</p>
@@ -464,60 +441,57 @@ int main(){
 <p>Sample Input:</p>
 <pre><code>2 1 2.4 0 3.2
 2 2 1.5 1 0.5
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>3 2 1.5 1 2.9 0 3.2
-</code></pre>
-<p>多项式相加，定义两个数组，相加。</p>
-<pre><code class="language-c++">#include&lt;cstdio&gt;
-
-struct number
+</code></pre><p>多项式相加，定义两个数组，相加。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">number</span>
 {
-  int an;
-  double n;
-}a[10],b[10];
+  <span style="color:#66d9ef">int</span> an;
+  <span style="color:#66d9ef">double</span> n;
+}a[<span style="color:#ae81ff">10</span>],b[<span style="color:#ae81ff">10</span>];
 
-double c[2001] = {0};
+<span style="color:#66d9ef">double</span> c[<span style="color:#ae81ff">2001</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
 
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-  int m,n,sum=0;
-  scanf("%d",&amp;m);
-  for(int i=0;i&lt;m;i++)
+  <span style="color:#66d9ef">int</span> m,n,sum<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+  scanf(<span style="color:#e6db74">"%d"</span>,<span style="color:#f92672">&amp;</span>m);
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>m;i<span style="color:#f92672">++</span>)
   {
-    scanf("%d %lf",&amp;a[i].an,&amp;a[i].n);
-    c[a[i].an] += a[i].n;
-    sum += 1;
+    scanf(<span style="color:#e6db74">"%d %lf"</span>,<span style="color:#f92672">&amp;</span>a[i].an,<span style="color:#f92672">&amp;</span>a[i].n);
+    c[a[i].an] <span style="color:#f92672">+=</span> a[i].n;
+    sum <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
   }
-  scanf("%d",&amp;n);
-  for(int i=0;i&lt;n;i++)
+  scanf(<span style="color:#e6db74">"%d"</span>,<span style="color:#f92672">&amp;</span>n);
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
   {
-    scanf("%d %lf",&amp;b[i].an,&amp;b[i].n);
-    if(c[b[i].an] != 0 &amp;&amp; c[b[i].an] + b[i].n == 0)
+    scanf(<span style="color:#e6db74">"%d %lf"</span>,<span style="color:#f92672">&amp;</span>b[i].an,<span style="color:#f92672">&amp;</span>b[i].n);
+    <span style="color:#66d9ef">if</span>(c[b[i].an] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> c[b[i].an] <span style="color:#f92672">+</span> b[i].n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
     {
-      sum -= 1;
-      c[b[i].an] = 0;
+      sum <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
+      c[b[i].an] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     }
-    else if(c[b[i].an] != 0)
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(c[b[i].an] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
     {
-      c[b[i].an] += b[i].n;
+      c[b[i].an] <span style="color:#f92672">+=</span> b[i].n;
     }
-    else
+    <span style="color:#66d9ef">else</span>
     {
-      sum += 1;
-      c[b[i].an] += b[i].n;
+      sum <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+      c[b[i].an] <span style="color:#f92672">+=</span> b[i].n;
     }
   }
-  printf("%d",sum);
-  for(int i=2000;i&gt;=0;i--)
+  printf(<span style="color:#e6db74">"%d"</span>,sum);
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>;i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">--</span>)
   {
-    if(c[i]!=0)
-      printf(" %d %.1lf",i,c[i]);
+    <span style="color:#66d9ef">if</span>(c[i]<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)
+      printf(<span style="color:#e6db74">" %d %.1lf"</span>,i,c[i]);
   }
-  return 0;
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="1005-spell-it-right-20-分">1005 Spell It Right （20 分）</h2>
+</code></pre></div><h2 id="1005-spell-it-right-20-分">1005 Spell It Right （20 分）</h2>
 <p>Given a non-negative integer N, your task is to compute the sum of all the digits of N, and output every digit of the sum in English.</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case occupies one line which contains an N (≤10100).</p>
@@ -525,28 +499,24 @@ int main()
 <p>For each test case, output in one line the digits of the sum in English words. There must be one space between two consecutive words, but no extra space at the end of a line.</p>
 <p>Sample Input:</p>
 <pre><code>12345
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>one five
-</code></pre>
-<p>和改为文字输出</p>
-<pre><code class="language-python">index_number = ['zero','one','two','three','four','five','six','seven','eight','nine']
+</code></pre><p>和改为文字输出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">index_number <span style="color:#f92672">=</span> [<span style="color:#e6db74">'zero'</span>,<span style="color:#e6db74">'one'</span>,<span style="color:#e6db74">'two'</span>,<span style="color:#e6db74">'three'</span>,<span style="color:#e6db74">'four'</span>,<span style="color:#e6db74">'five'</span>,<span style="color:#e6db74">'six'</span>,<span style="color:#e6db74">'seven'</span>,<span style="color:#e6db74">'eight'</span>,<span style="color:#e6db74">'nine'</span>]
 
-number_sum = str(sum([int(i) for i in input()]))
+number_sum <span style="color:#f92672">=</span> str(sum([int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()]))
 
-res = ""
-for j in number_sum:
-  res += index_number[int(j)]+" "
+res <span style="color:#f92672">=</span> <span style="color:#e6db74">""</span>
+<span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> number_sum:
+  res <span style="color:#f92672">+=</span> index_number[int(j)]<span style="color:#f92672">+</span><span style="color:#e6db74">" "</span>
 
-print(res[:-1])
-</code></pre>
-<h2 id="1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</h2>
+<span style="color:#66d9ef">print</span>(res[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</code></pre></div><h2 id="1006-sign-in-and-sign-out-25-分">1006 Sign In and Sign Out （25 分）</h2>
 <p>At the beginning of every day, the first person who signs in the computer room will unlock the door, and the last one who signs out will lock the door. Given the records of signing in’s and out’s, you are supposed to find the ones who have unlocked and locked the door on that day.</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case contains the records for one day. The case starts with a positive integer M, which is the total number of records, followed by M lines, each in the format:</p>
 <pre><code>ID_number Sign_in_time Sign_out_time
-</code></pre>
-<p>where times are given in the format <code>HH:MM:SS</code>, and <code>ID_number</code> is a string with no more than 15 characters.</p>
+</code></pre><p>where times are given in the format <code>HH:MM:SS</code>, and <code>ID_number</code> is a string with no more than 15 characters.</p>
 <p>Output Specification:</p>
 <p>For each test case, output in one line the ID numbers of the persons who have unlocked and locked the door on that day. The two ID numbers must be separated by one space.</p>
 <p>Note: It is guaranteed that the records are consistent. That is, the sign in time must be earlier than the sign out time for each person, and there are no two persons sign in or out at the same moment.</p>
@@ -555,35 +525,32 @@ print(res[:-1])
 CS301111 15:30:28 17:00:10
 SC3021234 08:00:00 11:25:25
 CS301133 21:45:00 21:58:40
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>SC3021234 CS301133
-</code></pre>
-<pre><code class="language-python">number = int(input())
-ids = []
-start_times = []
-end_times = []
-for i in range(number):
-  id_number,start_time,end_time = input().split(" ")
-  start_time = start_time.split(":")
-  start_time = start_time[0]*3600+start_time[1]*60+start_time[2]
-  end_time = end_time.split(":")
-  end_time = end_time[0]*3600 + end_time[1]*60+end_time[2]
-  ids.append(id_number)
-  start_times.append(start_time)
-  end_times.append(end_time)
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">number <span style="color:#f92672">=</span> int(input())
+ids <span style="color:#f92672">=</span> []
+start_times <span style="color:#f92672">=</span> []
+end_times <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(number):
+  id_number,start_time,end_time <span style="color:#f92672">=</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)
+  start_time <span style="color:#f92672">=</span> start_time<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+  start_time <span style="color:#f92672">=</span> start_time[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">3600</span><span style="color:#f92672">+</span>start_time[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">60</span><span style="color:#f92672">+</span>start_time[<span style="color:#ae81ff">2</span>]
+  end_time <span style="color:#f92672">=</span> end_time<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+  end_time <span style="color:#f92672">=</span> end_time[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">3600</span> <span style="color:#f92672">+</span> end_time[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">60</span><span style="color:#f92672">+</span>end_time[<span style="color:#ae81ff">2</span>]
+  ids<span style="color:#f92672">.</span>append(id_number)
+  start_times<span style="color:#f92672">.</span>append(start_time)
+  end_times<span style="color:#f92672">.</span>append(end_time)
 
-min_s_tar = 0
-min_end_tar = 0
-for i in range(number):
-  if start_times[i] &lt; start_times[min_s_tar]:
-    min_s_tar = i
-  if end_times[i] &gt; end_times[min_end_tar]:
-    min_end_tar = i
+min_s_tar <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+min_end_tar <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(number):
+  <span style="color:#66d9ef">if</span> start_times[i] <span style="color:#f92672">&lt;</span> start_times[min_s_tar]:
+    min_s_tar <span style="color:#f92672">=</span> i
+  <span style="color:#66d9ef">if</span> end_times[i] <span style="color:#f92672">&gt;</span> end_times[min_end_tar]:
+    min_end_tar <span style="color:#f92672">=</span> i
   
-print(ids[min_s_tar]+" "+ids[min_end_tar])
-</code></pre>
-<h2 id="1007-maximum-subsequence-sum-25-分">1007 Maximum Subsequence Sum （25 分）</h2>
+<span style="color:#66d9ef">print</span>(ids[min_s_tar]<span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>ids[min_end_tar])
+</code></pre></div><h2 id="1007-maximum-subsequence-sum-25-分">1007 Maximum Subsequence Sum （25 分）</h2>
 <p>Given a sequence of K integers { N1, N2, …, NK }. A continuous subsequence is defined to be { Ni, Ni+1, …, Nj } where 1≤i≤j≤K. The Maximum Subsequence is the continuous subsequence which has the largest sum of its elements. For example, given sequence { -2, 11, -4, 13, -5, -2 }, its maximum subsequence is { 11, -4, 13 } with the largest sum being 20.</p>
 <p>Now you are supposed to find the largest sum, together with the first and the last numbers of the maximum subsequence.</p>
 <p>Input Specification:</p>
@@ -593,37 +560,34 @@ print(ids[min_s_tar]+" "+ids[min_end_tar])
 <p>Sample Input:</p>
 <pre><code>10
 -10 1 2 3 4 -5 -23 3 7 -21
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>10 1 4
-</code></pre>
-<p>滑动窗口</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
-int main() {
-  int n;
-  scanf("%d", &amp;n);
-  vector&lt;int&gt; v(n);
-  int leftindex = 0, rightindex = n - 1, sum = -1, temp = 0, tempindex = 0;
-  for (int i = 0; i &lt; n; i++) {
-    scanf("%d", &amp;v[i]);
-    temp = temp + v[i];
-    if (temp &lt; 0) {
-      temp = 0;
-      tempindex = i + 1;
-    } else if (temp &gt; sum) {
-      sum = temp;
-      leftindex = tempindex;
-      rightindex = i;
+</code></pre><p>滑动窗口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#66d9ef">int</span> n;
+  scanf(<span style="color:#e6db74">"%d"</span>, <span style="color:#f92672">&amp;</span>n);
+  vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v(n);
+  <span style="color:#66d9ef">int</span> leftindex <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, rightindex <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, sum <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, tempindex <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+    scanf(<span style="color:#e6db74">"%d"</span>, <span style="color:#f92672">&amp;</span>v[i]);
+    temp <span style="color:#f92672">=</span> temp <span style="color:#f92672">+</span> v[i];
+    <span style="color:#66d9ef">if</span> (temp <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+      temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+      tempindex <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (temp <span style="color:#f92672">&gt;</span> sum) {
+      sum <span style="color:#f92672">=</span> temp;
+      leftindex <span style="color:#f92672">=</span> tempindex;
+      rightindex <span style="color:#f92672">=</span> i;
     }
   }
-  if (sum &lt; 0) sum = 0;
-  printf("%d %d %d", sum, v[leftindex], v[rightindex]);
-  return 0;
+  <span style="color:#66d9ef">if</span> (sum <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  printf(<span style="color:#e6db74">"%d %d %d"</span>, sum, v[leftindex], v[rightindex]);
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="1008-elevator-20-分">1008 Elevator （20 分）</h2>
+</code></pre></div><h2 id="1008-elevator-20-分">1008 Elevator （20 分）</h2>
 <p>The highest building in our city has only one elevator. A request list is made up with N positive numbers. The numbers denote at which floors the elevator will stop, in specified order. It costs 6 seconds to move the elevator up one floor, and 4 seconds to move down one floor. The elevator will stay for 5 seconds at each stop.</p>
 <p>For a given request list, you are to compute the total time spent to fulfill the requests on the list. The elevator is on the 0th floor at the beginning and does not have to return to the ground floor when the requests are fulfilled.</p>
 <p>Input Specification:</p>
@@ -632,729 +596,715 @@ int main() {
 <p>For each test case, print the total time on a single line.</p>
 <p>Sample Input:</p>
 <pre><code>3 2 3 1
-</code></pre>
-<p>Sample Output:</p>
+</code></pre><p>Sample Output:</p>
 <pre><code>41
-</code></pre>
-<p>电梯？？？</p>
-<pre><code class="language-python">floow_list = [int(i) for i in input().split(" ")[1:]]
+</code></pre><p>电梯？？？</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">floow_list <span style="color:#f92672">=</span> [int(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> input()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)[<span style="color:#ae81ff">1</span>:]]
 
-res = 0
-from_floow = 0
+res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+from_floow <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
-for i in floow_list:
-  if i &gt; from_floow:
-    res += (i-from_floow)*6
-  elif i &lt; from_floow:
-    res += (from_floow-i)*4
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> floow_list:
+  <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> from_floow:
+    res <span style="color:#f92672">+=</span> (i<span style="color:#f92672">-</span>from_floow)<span style="color:#f92672">*</span><span style="color:#ae81ff">6</span>
+  <span style="color:#66d9ef">elif</span> i <span style="color:#f92672">&lt;</span> from_floow:
+    res <span style="color:#f92672">+=</span> (from_floow<span style="color:#f92672">-</span>i)<span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>
   
-  res += 5
-  from_floow = i
+  res <span style="color:#f92672">+=</span> <span style="color:#ae81ff">5</span>
+  from_floow <span style="color:#f92672">=</span> i
 
-print(res)
-</code></pre>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
+<span style="color:#66d9ef">print</span>(res)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> Crouse[<span style="color:#ae81ff">2501</span>];
 
-using namespace std;
-vector&lt;string&gt; Crouse[2501];
 
-
-int main(){
-    int n,k=0;
-    cin&gt;&gt;n;
-    cin&gt;&gt;k;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> n,k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
+    cin<span style="color:#f92672">&gt;&gt;</span>k;
     string stu_name;
 
-    int c_n,r;
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;stu_name&gt;&gt;c_n;
-        for (int j = 0; j &lt; c_n; ++j) {
-            cin&gt;&gt;r;
+    <span style="color:#66d9ef">int</span> c_n,r;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>stu_name<span style="color:#f92672">&gt;&gt;</span>c_n;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> c_n; <span style="color:#f92672">++</span>j) {
+            cin<span style="color:#f92672">&gt;&gt;</span>r;
             Crouse[r].push_back(stu_name);
         }
     }
 
-    for (int i = 1; i &lt; k; ++i) {
-        cout&lt;&lt;i&lt;&lt;" "&lt;&lt;Crouse[i].size()&lt;&lt;"\n";
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> k; <span style="color:#f92672">++</span>i) {
+        cout<span style="color:#f92672">&lt;&lt;</span>i<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>Crouse[i].size()<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
         sort(Crouse[i].begin(),Crouse[i].end());
-        for (int j = 0; j &lt; Crouse[i].size(); ++j) {
-            cout&lt;&lt;Crouse[i][j]&lt;&lt;"\n";
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> Crouse[i].size(); <span style="color:#f92672">++</span>j) {
+            cout<span style="color:#f92672">&lt;&lt;</span>Crouse[i][j]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
         }
 
     }
 
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-</code></pre>
-<h2 id="1048">1048</h2>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
+</code></pre></div><h2 id="1048">1048</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-int main(){
-    int n,m;
-    cin&gt;&gt;n&gt;&gt;m;
-    vector&lt;int&gt; v;
-    int r;
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;r;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> n,m;
+    cin<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>m;
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v;
+    <span style="color:#66d9ef">int</span> r;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>r;
         v.push_back(r);
     }
 
     sort(v.begin(),v.end());
 
-    int left = 0;
-    int right = n-1;
-    int flag = 0;
-    while(true){
-        if (left == right){
-            cout&lt;&lt;"No Solution";
-            return 0;
+    <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">while</span>(true){
+        <span style="color:#66d9ef">if</span> (left <span style="color:#f92672">==</span> right){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"No Solution"</span>;
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
         }
-        flag = v[left] + v[right];
-        if(flag == m){
-            break;
-        } else if(flag &gt; m){
-            right--;
-        } else if(flag &lt; m){
-            left++;
+        flag <span style="color:#f92672">=</span> v[left] <span style="color:#f92672">+</span> v[right];
+        <span style="color:#66d9ef">if</span>(flag <span style="color:#f92672">==</span> m){
+            <span style="color:#66d9ef">break</span>;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(flag <span style="color:#f92672">&gt;</span> m){
+            right<span style="color:#f92672">--</span>;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(flag <span style="color:#f92672">&lt;</span> m){
+            left<span style="color:#f92672">++</span>;
         }
     }
-    cout&lt;&lt;v[left]&lt;&lt;" "&lt;&lt;v[right];
+    cout<span style="color:#f92672">&lt;&lt;</span>v[left]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>v[right];
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="1051">1051</h2>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
+</code></pre></div><h2 id="1051">1051</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-bool check(vector&lt;int&gt; s,int n,int m)
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">check</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> s,<span style="color:#66d9ef">int</span> n,<span style="color:#66d9ef">int</span> m)
 {
-    vector&lt;int&gt; c;
-    int index = 0;
-    for (int i = 1; i &lt; n+1; ++i) {
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> c;
+    <span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>; <span style="color:#f92672">++</span>i) {
         c.push_back(i);
-        while (index &lt; s.size() &amp;&amp; s[index] == c[c.size()-1]){
+        <span style="color:#66d9ef">while</span> (index <span style="color:#f92672">&lt;</span> s.size() <span style="color:#f92672">&amp;&amp;</span> s[index] <span style="color:#f92672">==</span> c[c.size()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]){
             c.pop_back();
-            index++;
+            index<span style="color:#f92672">++</span>;
         }
-        if(c.size() &gt;= m){
-            return false;
+        <span style="color:#66d9ef">if</span>(c.size() <span style="color:#f92672">&gt;=</span> m){
+            <span style="color:#66d9ef">return</span> false;
         }
     }
-    return c.empty();
+    <span style="color:#66d9ef">return</span> c.empty();
 }
-int main(){
-    int m,n,k;
-    cin&gt;&gt;m&gt;&gt;n&gt;&gt;k;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> m,n,k;
+    cin<span style="color:#f92672">&gt;&gt;</span>m<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>k;
 
-    int r;
+    <span style="color:#66d9ef">int</span> r;
 
-    for (int i = 0; i &lt; k; ++i) {
-        vector&lt;int&gt; s;
-        for (int j = 0; j &lt; n; ++j) {
-            cin&gt;&gt;r;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> k; <span style="color:#f92672">++</span>i) {
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> s;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>j) {
+            cin<span style="color:#f92672">&gt;&gt;</span>r;
             s.push_back(r);
         }
-        if(check(s,n,m)){
-            cout&lt;&lt;"YES";
-        } else {
-            cout&lt;&lt;"NO";
+        <span style="color:#66d9ef">if</span>(check(s,n,m)){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"YES"</span>;
+        } <span style="color:#66d9ef">else</span> {
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"NO"</span>;
         }
-        if (i != k-1){
-            cout&lt;&lt;"\n";
+        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">!=</span> k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
         }
     }
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-</code></pre>
-<h2 id="1050">1050</h2>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
+</code></pre></div><h2 id="1050">1050</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-int main(){
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
     string a;
     string r_b;
-    bool ht[256] = {false};
+    <span style="color:#66d9ef">bool</span> ht[<span style="color:#ae81ff">256</span>] <span style="color:#f92672">=</span> {false};
 
     getline(cin,a);
     getline(cin,r_b);
-    for (int i = 0; i &lt; r_b.size(); ++i) {
-        ht[r_b[i]] = true;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r_b.size(); <span style="color:#f92672">++</span>i) {
+        ht[r_b[i]] <span style="color:#f92672">=</span> true;
     }
 
-    for (int j = 0; j &lt; a.size(); ++j) {
-        if(!ht[a[j]]){
-            cout&lt;&lt;a[j];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> a.size(); <span style="color:#f92672">++</span>j) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>ht[a[j]]){
+            cout<span style="color:#f92672">&lt;&lt;</span>a[j];
         }
     }
-    cout&lt;&lt;endl;
-    return 0;
+    cout<span style="color:#f92672">&lt;&lt;</span>endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<pre><code class="language-c++">#include &lt;utility&gt;
-#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">sort_function</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b) { <span style="color:#66d9ef">return</span> a<span style="color:#f92672">&gt;</span>b; }
 
-bool sort_function(int a,int b) { return a&gt;b; }
-
-typedef class student{
-    public:
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">student</span>{
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
         string id;
-        int c,m,e;
-        int a;
+        <span style="color:#66d9ef">int</span> c,m,e;
+        <span style="color:#66d9ef">int</span> a;
 
-        student(string id,int c,int m,int e){
-            this-&gt;id = id;
-            this-&gt;c = c;
-            this-&gt;e = e;
-            this-&gt;m = m;
-            this-&gt;a = (c+m+e)/3;
+        student(string id,<span style="color:#66d9ef">int</span> c,<span style="color:#66d9ef">int</span> m,<span style="color:#66d9ef">int</span> e){
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>id <span style="color:#f92672">=</span> id;
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>c <span style="color:#f92672">=</span> c;
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>e <span style="color:#f92672">=</span> e;
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>m <span style="color:#f92672">=</span> m;
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>a <span style="color:#f92672">=</span> (c<span style="color:#f92672">+</span>m<span style="color:#f92672">+</span>e)<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>;
         }
 } student;
 
 
-map&lt;int,int&gt; get_map(vector&lt;int&gt; numbers){
-    map&lt;int,int&gt; res;
+map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> get_map(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> numbers){
+    map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> res;
     sort(numbers.begin(),numbers.end(),sort_function);
 
-    for (int i = static_cast&lt;int&gt;(numbers.size() - 1); i &gt;= 0 ; i--) {
-        res[numbers[i]] = i+1;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(numbers.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>); i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> ; i<span style="color:#f92672">--</span>) {
+        res[numbers[i]] <span style="color:#f92672">=</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
     }
-    return res;
+    <span style="color:#66d9ef">return</span> res;
 }
 
-string get_res(student stu,map&lt;int,int&gt; c_map,map&lt;int,int&gt; m_map,map&lt;int,int&gt; e_map,map&lt;int,int&gt; a_map){
-    int c_i = c_map[stu.c];
-    int m_i = m_map[stu.m];
-    int e_i = e_map[stu.e];
-    int a_i = a_map[stu.a];
+string <span style="color:#a6e22e">get_res</span>(student stu,map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> c_map,map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> m_map,map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> e_map,map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a_map){
+    <span style="color:#66d9ef">int</span> c_i <span style="color:#f92672">=</span> c_map[stu.c];
+    <span style="color:#66d9ef">int</span> m_i <span style="color:#f92672">=</span> m_map[stu.m];
+    <span style="color:#66d9ef">int</span> e_i <span style="color:#f92672">=</span> e_map[stu.e];
+    <span style="color:#66d9ef">int</span> a_i <span style="color:#f92672">=</span> a_map[stu.a];
 
-    int min_number = min({c_i,m_i,a_i,e_i});
-    if(a_i == min_number){
-        return to_string(a_i) + " A";
-    } else if(c_i == min_number){
-        return to_string(c_i) + " C";
-    } else if(m_i == min_number){
-        return to_string(m_i) + " M";
-    } else if(e_i == min_number){
-        return to_string(e_i) + " E";
+    <span style="color:#66d9ef">int</span> min_number <span style="color:#f92672">=</span> min({c_i,m_i,a_i,e_i});
+    <span style="color:#66d9ef">if</span>(a_i <span style="color:#f92672">==</span> min_number){
+        <span style="color:#66d9ef">return</span> to_string(a_i) <span style="color:#f92672">+</span> <span style="color:#e6db74">" A"</span>;
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(c_i <span style="color:#f92672">==</span> min_number){
+        <span style="color:#66d9ef">return</span> to_string(c_i) <span style="color:#f92672">+</span> <span style="color:#e6db74">" C"</span>;
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(m_i <span style="color:#f92672">==</span> min_number){
+        <span style="color:#66d9ef">return</span> to_string(m_i) <span style="color:#f92672">+</span> <span style="color:#e6db74">" M"</span>;
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(e_i <span style="color:#f92672">==</span> min_number){
+        <span style="color:#66d9ef">return</span> to_string(e_i) <span style="color:#f92672">+</span> <span style="color:#e6db74">" E"</span>;
     }
 
-    return "error";
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">"error"</span>;
 }
 
-int main(){
-    int n,m;
-    cin&gt;&gt;n&gt;&gt;m;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> n,m;
+    cin<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>m;
     string id;
-    int c,math,e;
-    vector&lt;int&gt; c_list,m_list,e_list,a_list;
-    vector&lt;student&gt; stu_list;
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;id&gt;&gt;c&gt;&gt;math&gt;&gt;e;
-        student stu = student(id,c,math,e);
+    <span style="color:#66d9ef">int</span> c,math,e;
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> c_list,m_list,e_list,a_list;
+    vector<span style="color:#f92672">&lt;</span>student<span style="color:#f92672">&gt;</span> stu_list;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>id<span style="color:#f92672">&gt;&gt;</span>c<span style="color:#f92672">&gt;&gt;</span>math<span style="color:#f92672">&gt;&gt;</span>e;
+        student stu <span style="color:#f92672">=</span> student(id,c,math,e);
         stu_list.push_back(stu);
         c_list.push_back(c);
         m_list.push_back(math);
         e_list.push_back(e);
-        a_list.push_back((c+math+e)/3);
+        a_list.push_back((c<span style="color:#f92672">+</span>math<span style="color:#f92672">+</span>e)<span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>);
 
     }
 
-    map&lt;int,int&gt; c_map,m_map,e_map,a_map;
+    map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> c_map,m_map,e_map,a_map;
 
-    c_map = get_map(c_list);
-    m_map = get_map(m_list);
-    e_map = get_map(e_list);
-    a_map = get_map(a_list);
+    c_map <span style="color:#f92672">=</span> get_map(c_list);
+    m_map <span style="color:#f92672">=</span> get_map(m_list);
+    e_map <span style="color:#f92672">=</span> get_map(e_list);
+    a_map <span style="color:#f92672">=</span> get_map(a_list);
 
 
-    map&lt;string,string&gt; a;
-    for (int j = 0; j &lt; n; ++j) {
-        a[stu_list[j].id] = get_res(stu_list[j],c_map,m_map,e_map,a_map);
+    map<span style="color:#f92672">&lt;</span>string,string<span style="color:#f92672">&gt;</span> a;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>j) {
+        a[stu_list[j].id] <span style="color:#f92672">=</span> get_res(stu_list[j],c_map,m_map,e_map,a_map);
     }
 
-    for (int k = 0; k &lt; m; ++k) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; k <span style="color:#f92672">&lt;</span> m; <span style="color:#f92672">++</span>k) {
         string check_number;
-        cin&gt;&gt;check_number;
-        if(a.find(check_number) == a.end()){
-            cout&lt;&lt;"N/A";
-        } else{
-            cout&lt;&lt;a[check_number];
+        cin<span style="color:#f92672">&gt;&gt;</span>check_number;
+        <span style="color:#66d9ef">if</span>(a.find(check_number) <span style="color:#f92672">==</span> a.end()){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"N/A"</span>;
+        } <span style="color:#66d9ef">else</span>{
+            cout<span style="color:#f92672">&lt;&lt;</span>a[check_number];
         }
-        if(k != m-1){
-            cout&lt;&lt;"\n";
+        <span style="color:#66d9ef">if</span>(k <span style="color:#f92672">!=</span> m<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
         }
     }
 
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-</code></pre>
-<h2 id="1052">1052</h2>
+</code></pre></div><h2 id="1052">1052</h2>
 <p>有些链表中的节点没有在链表上，于是会有部分链表不可以被看到</p>
 <p>sort默认升序</p>
-<pre><code class="language-c++">#include &lt;utility&gt;
-#include &lt;iostream&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string&gt;
-#include &lt;algorithm&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;cmath&gt;
-#include &lt;iomanip&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iomanip&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-typedef struct link{
-    int start;
-    int key;
-    int next;
-    bool flag;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">link</span>{
+    <span style="color:#66d9ef">int</span> start;
+    <span style="color:#66d9ef">int</span> key;
+    <span style="color:#66d9ef">int</span> next;
+    <span style="color:#66d9ef">bool</span> flag;
 } link;
 
-bool sort_function(link a,link b) { return !a.flag || !b.flag ? a.flag &gt; b.flag : a.key &lt; b.key; }
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">sort_function</span>(link a,link b) { <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span>a.flag <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>b.flag <span style="color:#f92672">?</span> a.flag <span style="color:#f92672">&gt;</span> b.flag : a.key <span style="color:#f92672">&lt;</span> b.key; }
 
 
-int main(){
-    int n,addr;
-    cin&gt;&gt;n&gt;&gt;addr;
-    // vector&lt;link&gt; link_list;
-    int start,next,key;
-    int cnt = 0;
-    link link_list[100001] = {0,0,0,false};
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> n,addr;
+    cin<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>addr;
+    <span style="color:#75715e">// vector&lt;link&gt; link_list;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> start,next,key;
+    <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    link link_list[<span style="color:#ae81ff">100001</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,false};
 
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;start&gt;&gt;key&gt;&gt;next;
-        link_list[start] = {start,key,next, false};
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>start<span style="color:#f92672">&gt;&gt;</span>key<span style="color:#f92672">&gt;&gt;</span>next;
+        link_list[start] <span style="color:#f92672">=</span> {start,key,next, false};
     }
-    for (int l = addr; l != -1; l = link_list[l].next) {
-        link_list[l].flag = true;
-        cnt++;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> addr; l <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; l <span style="color:#f92672">=</span> link_list[l].next) {
+        link_list[l].flag <span style="color:#f92672">=</span> true;
+        cnt<span style="color:#f92672">++</span>;
     }
-    if (!cnt){
-        cout&lt;&lt;"0 -1";
-    } else {
-        sort(link_list, link_list + 100000, sort_function);
-        cout&lt;&lt;cnt&lt;&lt;" ";
-        cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[0].start&lt;&lt;endl;
-        for (int i = 0; i &lt; cnt; ++i) {
-            cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[i].start;
-            cout&lt;&lt;" "&lt;&lt;link_list[i].key&lt;&lt;" ";
-            if(i != cnt-1)
-                cout&lt;&lt;setw(5)&lt;&lt;setfill('0')&lt;&lt;link_list[i+1].start&lt;&lt;"\n";
-            else
-                cout&lt;&lt;"-1";
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>cnt){
+        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"0 -1"</span>;
+    } <span style="color:#66d9ef">else</span> {
+        sort(link_list, link_list <span style="color:#f92672">+</span> <span style="color:#ae81ff">100000</span>, sort_function);
+        cout<span style="color:#f92672">&lt;&lt;</span>cnt<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span>;
+        cout<span style="color:#f92672">&lt;&lt;</span>setw(<span style="color:#ae81ff">5</span>)<span style="color:#f92672">&lt;&lt;</span>setfill(<span style="color:#e6db74">'0'</span>)<span style="color:#f92672">&lt;&lt;</span>link_list[<span style="color:#ae81ff">0</span>].start<span style="color:#f92672">&lt;&lt;</span>endl;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> cnt; <span style="color:#f92672">++</span>i) {
+            cout<span style="color:#f92672">&lt;&lt;</span>setw(<span style="color:#ae81ff">5</span>)<span style="color:#f92672">&lt;&lt;</span>setfill(<span style="color:#e6db74">'0'</span>)<span style="color:#f92672">&lt;&lt;</span>link_list[i].start;
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>link_list[i].key<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span>;
+            <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">!=</span> cnt<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+                cout<span style="color:#f92672">&lt;&lt;</span>setw(<span style="color:#ae81ff">5</span>)<span style="color:#f92672">&lt;&lt;</span>setfill(<span style="color:#e6db74">'0'</span>)<span style="color:#f92672">&lt;&lt;</span>link_list[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>].start<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
+            <span style="color:#66d9ef">else</span>
+                cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"-1"</span>;
         }
     }
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
-</code></pre>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;numeric&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-typedef struct line{
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">line</span>{
     string name;
-    int m, d, h, mm, money;
-    bool status;
+    <span style="color:#66d9ef">int</span> m, d, h, mm, money;
+    <span style="color:#66d9ef">bool</span> status;
 } Line;
 
-bool sort_function(Line line1, Line line2){ return line1.name != line2.name ? line1.name &lt; line2.name : line1.money&lt;line2.money; }
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">sort_function</span>(Line line1, Line line2){ <span style="color:#66d9ef">return</span> line1.name <span style="color:#f92672">!=</span> line2.name <span style="color:#f92672">?</span> line1.name <span style="color:#f92672">&lt;</span> line2.name : line1.money<span style="color:#f92672">&lt;</span>line2.money; }
 
-int get_minute(Line line1,Line line2){ return (line2.d - line1.d)*24*60+(line2.h - line1.h)*60 + (line2.mm - line1.mm); }
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get_minute</span>(Line line1,Line line2){ <span style="color:#66d9ef">return</span> (line2.d <span style="color:#f92672">-</span> line1.d)<span style="color:#f92672">*</span><span style="color:#ae81ff">24</span><span style="color:#f92672">*</span><span style="color:#ae81ff">60</span><span style="color:#f92672">+</span>(line2.h <span style="color:#f92672">-</span> line1.h)<span style="color:#f92672">*</span><span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> (line2.mm <span style="color:#f92672">-</span> line1.mm); }
 
-int main() {
-    vector&lt;int&gt; price_list;
-    int price, sum = 0;
-    price_list.push_back(0);
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> price_list;
+    <span style="color:#66d9ef">int</span> price, sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    price_list.push_back(<span style="color:#ae81ff">0</span>);
 
-    for (int i = 0; i &lt; 24; ++i) {
-        cin&gt;&gt;price;
-        sum += price;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">24</span>; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>price;
+        sum <span style="color:#f92672">+=</span> price;
         price_list.push_back(sum);
     }
 
-    int n;
-    cin&gt;&gt;n;
+    <span style="color:#66d9ef">int</span> n;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
     string tmp;
-    vector&lt;Line&gt; lines;
+    vector<span style="color:#f92672">&lt;</span>Line<span style="color:#f92672">&gt;</span> lines;
 
-    for (int j = 0; j &lt; n; ++j) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>j) {
         Line new_line;
-        cin&gt;&gt;new_line.name;
-        scanf("%2d:%2d:%2d:%2d", &amp;new_line.m, &amp;new_line.d, &amp;new_line.h, &amp;new_line.mm);
-        cin&gt;&gt;tmp;
-        new_line.status = tmp == "on-line";
-        new_line.money = price_list[24]*(new_line.d-1)*60 + price_list[new_line.h]*60 + (price_list[new_line.h + 1] - price_list[new_line.h])*new_line.mm;
+        cin<span style="color:#f92672">&gt;&gt;</span>new_line.name;
+        scanf(<span style="color:#e6db74">"%2d:%2d:%2d:%2d"</span>, <span style="color:#f92672">&amp;</span>new_line.m, <span style="color:#f92672">&amp;</span>new_line.d, <span style="color:#f92672">&amp;</span>new_line.h, <span style="color:#f92672">&amp;</span>new_line.mm);
+        cin<span style="color:#f92672">&gt;&gt;</span>tmp;
+        new_line.status <span style="color:#f92672">=</span> tmp <span style="color:#f92672">==</span> <span style="color:#e6db74">"on-line"</span>;
+        new_line.money <span style="color:#f92672">=</span> price_list[<span style="color:#ae81ff">24</span>]<span style="color:#f92672">*</span>(new_line.d<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> price_list[new_line.h]<span style="color:#f92672">*</span><span style="color:#ae81ff">60</span> <span style="color:#f92672">+</span> (price_list[new_line.h <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> price_list[new_line.h])<span style="color:#f92672">*</span>new_line.mm;
         lines.push_back(new_line);
     }
 
     sort(lines.begin(),lines.end(),sort_function);
 
     string name;
-    float total_money = 0, money_cha = 0;
-    for (int i=1;i&lt;lines.size();i++) {
-        if(lines[i].name == lines[i-1].name &amp;&amp; !lines[i].status &amp;&amp; lines[i - 1].status){
-            if(name != lines[i].name){
-                name = lines[i].name;
-                if(i != 1) printf("Total amount: $%.2f\n", total_money/100);
-                total_money = 0;
-                cout&lt;&lt;lines[i].name;
-                printf(" %02d\n", lines[i].m);
-                // cout&lt;&lt;lines[i].name&lt;&lt;" "&lt;&lt;lines[i].d&lt;&lt;endl;
-            }
+    <span style="color:#66d9ef">float</span> total_money <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, money_cha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;</span>lines.size();i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span>(lines[i].name <span style="color:#f92672">==</span> lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].name <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>lines[i].status <span style="color:#f92672">&amp;&amp;</span> lines[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>].status){
+            <span style="color:#66d9ef">if</span>(name <span style="color:#f92672">!=</span> lines[i].name){
+                name <span style="color:#f92672">=</span> lines[i].name;
+                <span style="color:#66d9ef">if</span>(i <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) printf(<span style="color:#e6db74">"Total amount: $%.2f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, total_money<span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>);
+                total_money <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+                cout<span style="color:#f92672">&lt;&lt;</span>lines[i].name;
+                printf(<span style="color:#e6db74">" %02d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, lines[i].m);
+                <span style="color:#75715e">// cout&lt;&lt;lines[i].name&lt;&lt;" "&lt;&lt;lines[i].d&lt;&lt;endl;
+</span><span style="color:#75715e"></span>            }
 
-            int minute = get_minute(lines[i-1],lines[i]);
-            money_cha = lines[i].money - lines[i-1].money;
-            printf("%02d:%02d:%02d %02d:%02d:%02d %d $%.2f\n", lines[i-1].d, lines[i-1].h, lines[i-1].mm, lines[i].d, lines[i].h, lines[i].mm, minute, money_cha/100);
-            total_money += lines[i].money - lines[i-1].money;
-        } else{
-            continue;
+            <span style="color:#66d9ef">int</span> minute <span style="color:#f92672">=</span> get_minute(lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],lines[i]);
+            money_cha <span style="color:#f92672">=</span> lines[i].money <span style="color:#f92672">-</span> lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].money;
+            printf(<span style="color:#e6db74">"%02d:%02d:%02d %02d:%02d:%02d %d $%.2f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].d, lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].h, lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].mm, lines[i].d, lines[i].h, lines[i].mm, minute, money_cha<span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>);
+            total_money <span style="color:#f92672">+=</span> lines[i].money <span style="color:#f92672">-</span> lines[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].money;
+        } <span style="color:#66d9ef">else</span>{
+            <span style="color:#66d9ef">continue</span>;
         }
     }
 
-    printf("Total amount: $%.2f", total_money/100);
+    printf(<span style="color:#e6db74">"Total amount: $%.2f"</span>, total_money<span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>);
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;numeric&gt;
-#include &lt;string.h&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define MAX 100000
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-#define MAX 100000
-
-using namespace std;
-
-typedef struct people{
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">people</span>{
     string name;
-    int age,net_worth;
+    <span style="color:#66d9ef">int</span> age,net_worth;
 } People;
 
-bool sort_function(People p1, People p2){
-    if(p1.net_worth != p2.net_worth)
-        return p1.net_worth &gt; p2.net_worth;
-    else if(p1.age != p2.age)
-        return p1.age &lt; p2.age;
-    else
-        return p1.name &lt; p2.name;
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">sort_function</span>(People p1, People p2){
+    <span style="color:#66d9ef">if</span>(p1.net_worth <span style="color:#f92672">!=</span> p2.net_worth)
+        <span style="color:#66d9ef">return</span> p1.net_worth <span style="color:#f92672">&gt;</span> p2.net_worth;
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(p1.age <span style="color:#f92672">!=</span> p2.age)
+        <span style="color:#66d9ef">return</span> p1.age <span style="color:#f92672">&lt;</span> p2.age;
+    <span style="color:#66d9ef">else</span>
+        <span style="color:#66d9ef">return</span> p1.name <span style="color:#f92672">&lt;</span> p2.name;
 }
-int main() {
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
     People peo_list[MAX];
-    int n,k;
-    cin&gt;&gt;n&gt;&gt;k;
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;peo_list[i].name&gt;&gt;peo_list[i].age&gt;&gt;peo_list[i].net_worth;
+    <span style="color:#66d9ef">int</span> n,k;
+    cin<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>k;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>peo_list[i].name<span style="color:#f92672">&gt;&gt;</span>peo_list[i].age<span style="color:#f92672">&gt;&gt;</span>peo_list[i].net_worth;
     }
 
-    sort(peo_list,peo_list+n,sort_function);
+    sort(peo_list,peo_list<span style="color:#f92672">+</span>n,sort_function);
 
-    int m,amin,amax;
-    for (int j = 0; j &lt; k; ++j) {
-        cin&gt;&gt;m&gt;&gt;amin&gt;&gt;amax;
-        cout&lt;&lt;"Case #"&lt;&lt;j+1&lt;&lt;":\n";
-        int cnt = m;
-        for (int i = 0; i &lt; n; ++i) {
-            if(peo_list[i].age &gt;= amin &amp;&amp; peo_list[i].age &lt;= amax){
-                cout&lt;&lt;peo_list[i].name&lt;&lt;" "&lt;&lt;peo_list[i].age&lt;&lt;" "&lt;&lt;peo_list[i].net_worth&lt;&lt;"\n";
-                cnt--;
+    <span style="color:#66d9ef">int</span> m,amin,amax;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> k; <span style="color:#f92672">++</span>j) {
+        cin<span style="color:#f92672">&gt;&gt;</span>m<span style="color:#f92672">&gt;&gt;</span>amin<span style="color:#f92672">&gt;&gt;</span>amax;
+        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"Case #"</span><span style="color:#f92672">&lt;&lt;</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">":</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
+        <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> m;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+            <span style="color:#66d9ef">if</span>(peo_list[i].age <span style="color:#f92672">&gt;=</span> amin <span style="color:#f92672">&amp;&amp;</span> peo_list[i].age <span style="color:#f92672">&lt;=</span> amax){
+                cout<span style="color:#f92672">&lt;&lt;</span>peo_list[i].name<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>peo_list[i].age<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>peo_list[i].net_worth<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
+                cnt<span style="color:#f92672">--</span>;
             }
-            if (cnt&lt;=0)
-                break;
+            <span style="color:#66d9ef">if</span> (cnt<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">0</span>)
+                <span style="color:#66d9ef">break</span>;
         }
-        if (cnt == m)
-            cout&lt;&lt;"None"&lt;&lt;endl;
+        <span style="color:#66d9ef">if</span> (cnt <span style="color:#f92672">==</span> m)
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"None"</span><span style="color:#f92672">&lt;&lt;</span>endl;
     }
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="1054-the-dominant-color-20-分">1054 The Dominant Color (20 分)</h2>
+</code></pre></div><h2 id="1054-the-dominant-color-20-分">1054 The Dominant Color (20 分)</h2>
 <p>原本以为会超时 2**24次方也是比较大的一个数字，也没有办法通过定义一个千万级的数组来提高效率，只能通过索引的方式来提高读取效率。</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;numeric&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> m,k;
+    cin<span style="color:#f92672">&gt;&gt;</span>m<span style="color:#f92672">&gt;&gt;</span>k;
+    <span style="color:#66d9ef">int</span> num_list[<span style="color:#ae81ff">480001</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+    <span style="color:#66d9ef">int</span> list_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> num_map;
+    <span style="color:#66d9ef">int</span> max_num<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,max_cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,num;
 
-int main() {
-    int m,k;
-    cin&gt;&gt;m&gt;&gt;k;
-    int num_list[480001] = {0};
-    int list_index = 0;
-    map&lt;int,int&gt; num_map;
-    int max_num=0,max_cnt = 0,num;
-
-    for (int i = 0; i &lt; k; ++i) {
-        for (int j = 0; j &lt; m; ++j) {
-            cin&gt;&gt;num;
-            if(num_map.count(num) &gt; 0){
-                num_list[num_map[num]] += 1;
-            } else {
-                num_map[num] = list_index;
-                num_list[list_index] = 1;
-                list_index += 1;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> k; <span style="color:#f92672">++</span>i) {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> m; <span style="color:#f92672">++</span>j) {
+            cin<span style="color:#f92672">&gt;&gt;</span>num;
+            <span style="color:#66d9ef">if</span>(num_map.count(num) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+                num_list[num_map[num]] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+            } <span style="color:#66d9ef">else</span> {
+                num_map[num] <span style="color:#f92672">=</span> list_index;
+                num_list[list_index] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+                list_index <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
             }
-            if(max_cnt &lt; num_list[num_map[num]]){
-                max_cnt = num_list[num_map[num]];
-                max_num = num;
+            <span style="color:#66d9ef">if</span>(max_cnt <span style="color:#f92672">&lt;</span> num_list[num_map[num]]){
+                max_cnt <span style="color:#f92672">=</span> num_list[num_map[num]];
+                max_num <span style="color:#f92672">=</span> num;
             }
         }
     }
 
-    cout&lt;&lt;max_num;
-    return 0;
+    cout<span style="color:#f92672">&lt;&lt;</span>max_num;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;numeric&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-map&lt;string, string&gt; get_mouth_list(){
-    map&lt;string ,string&gt; res;
-    res["A"] = "MON";
-    res["B"] = "TUE";
-    res["C"] = "WED";
-    res["D"] = "THU";
-    res["E"] = "FRI";
-    res["F"] = "SAT";
-    res["G"] = "SUN";
-    return res;
+map<span style="color:#f92672">&lt;</span>string, string<span style="color:#f92672">&gt;</span> get_mouth_list(){
+    map<span style="color:#f92672">&lt;</span>string ,string<span style="color:#f92672">&gt;</span> res;
+    res[<span style="color:#e6db74">"A"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"MON"</span>;
+    res[<span style="color:#e6db74">"B"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"TUE"</span>;
+    res[<span style="color:#e6db74">"C"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"WED"</span>;
+    res[<span style="color:#e6db74">"D"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"THU"</span>;
+    res[<span style="color:#e6db74">"E"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"FRI"</span>;
+    res[<span style="color:#e6db74">"F"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"SAT"</span>;
+    res[<span style="color:#e6db74">"G"</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">"SUN"</span>;
+    <span style="color:#66d9ef">return</span> res;
 }
 
-int main() {
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
     string string1,string2,string3,string4;
 
-    cin&gt;&gt;string1&gt;&gt;string2&gt;&gt;string3&gt;&gt;string4;
+    cin<span style="color:#f92672">&gt;&gt;</span>string1<span style="color:#f92672">&gt;&gt;</span>string2<span style="color:#f92672">&gt;&gt;</span>string3<span style="color:#f92672">&gt;&gt;</span>string4;
 
-    int index1 = (int) min(string1.length(), string2.length());
-    int index2 = (int) min(string3.length(), string4.length());
+    <span style="color:#66d9ef">int</span> index1 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) min(string1.length(), string2.length());
+    <span style="color:#66d9ef">int</span> index2 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) min(string3.length(), string4.length());
 
-    map&lt;string,string&gt; mouth_list = get_mouth_list();
+    map<span style="color:#f92672">&lt;</span>string,string<span style="color:#f92672">&gt;</span> mouth_list <span style="color:#f92672">=</span> get_mouth_list();
 
-    int flag =0;
+    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
     string w;
-    int m = 0,h_int;
-    for (int i = 0; i &lt; index1; ++i) {
-       if (!flag) {
-           if (string1[i] == string2[i] &amp;&amp; string1.c_str()[i] &gt;= 'A' &amp;&amp; string1.c_str()[i] &lt;= 'G') {
-               w = string1[i];
-               flag = 1;
+    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,h_int;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> index1; <span style="color:#f92672">++</span>i) {
+       <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>flag) {
+           <span style="color:#66d9ef">if</span> (string1[i] <span style="color:#f92672">==</span> string2[i] <span style="color:#f92672">&amp;&amp;</span> string1.c_str()[i] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'A'</span> <span style="color:#f92672">&amp;&amp;</span> string1.c_str()[i] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'G'</span>) {
+               w <span style="color:#f92672">=</span> string1[i];
+               flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
            }
-       } else {
-           if(string1[i] == string2[i]) {
-               if(string1.c_str()[i] &gt;= '0' &amp;&amp; string1.c_str()[i] &lt;= '9'){
-                   h_int = string1.c_str()[i] - '0';
-                   break;
+       } <span style="color:#66d9ef">else</span> {
+           <span style="color:#66d9ef">if</span>(string1[i] <span style="color:#f92672">==</span> string2[i]) {
+               <span style="color:#66d9ef">if</span>(string1.c_str()[i] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'0'</span> <span style="color:#f92672">&amp;&amp;</span> string1.c_str()[i] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'9'</span>){
+                   h_int <span style="color:#f92672">=</span> string1.c_str()[i] <span style="color:#f92672">-</span> <span style="color:#e6db74">'0'</span>;
+                   <span style="color:#66d9ef">break</span>;
                }
-               else if (string1.c_str()[i] &gt;= 'A' &amp;&amp; string1.c_str()[i] &lt;= 'N') {
-                   h_int = string1.c_str()[i] - 'A' + 10;
-                   break;
+               <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (string1.c_str()[i] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'A'</span> <span style="color:#f92672">&amp;&amp;</span> string1.c_str()[i] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'N'</span>) {
+                   h_int <span style="color:#f92672">=</span> string1.c_str()[i] <span style="color:#f92672">-</span> <span style="color:#e6db74">'A'</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+                   <span style="color:#66d9ef">break</span>;
                }
            }
        }
     }
 
-    for (int j = 0; j &lt; index2; ++j) {
-        if(string3[j] == string4[j] &amp;&amp; isalpha(string3[j])){
-            m = j;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> index2; <span style="color:#f92672">++</span>j) {
+        <span style="color:#66d9ef">if</span>(string3[j] <span style="color:#f92672">==</span> string4[j] <span style="color:#f92672">&amp;&amp;</span> isalpha(string3[j])){
+            m <span style="color:#f92672">=</span> j;
         }
     }
 
-    cout&lt;&lt;mouth_list[w]&lt;&lt;" ";
-    printf("%02d:%02d", h_int, m);
+    cout<span style="color:#f92672">&lt;&lt;</span>mouth_list[w]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span>;
+    printf(<span style="color:#e6db74">"%02d:%02d"</span>, h_int, m);
         
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="素数筛">素数筛</h2>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-
-using namespace std;
-
+</code></pre></div><h2 id="素数筛">素数筛</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
 
-vector&lt;int&gt; get_prime(){
-    vector&lt;int&gt; prime;
-    const int maxn = 100000+100;
-    int is_prime[maxn+100] = {0};
 
-    for (int i = 0; i &lt; 2; ++i) {
-        is_prime[i] = 0;
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> get_prime(){
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> prime;
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span><span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>;
+    <span style="color:#66d9ef">int</span> is_prime[maxn<span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>; <span style="color:#f92672">++</span>i) {
+        is_prime[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     }
 
-    for (int j = 2; j*j &lt;= maxn; ++j) {
-        if(!is_prime[j]){
-            for (int i = j*j; i &lt;= maxn; i += j) {
-                is_prime[i] = 1;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; j<span style="color:#f92672">*</span>j <span style="color:#f92672">&lt;=</span> maxn; <span style="color:#f92672">++</span>j) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>is_prime[j]){
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> j<span style="color:#f92672">*</span>j; i <span style="color:#f92672">&lt;=</span> maxn; i <span style="color:#f92672">+=</span> j) {
+                is_prime[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
             }
         }
     }
 
-    for (int k = 2; k &lt; maxn; ++k) {
-        if(!is_prime[k]){
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; k <span style="color:#f92672">&lt;</span> maxn; <span style="color:#f92672">++</span>k) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>is_prime[k]){
             prime.push_back(k);
         }
     }
 
-    return prime;
+    <span style="color:#66d9ef">return</span> prime;
 }
 
-int main() {
-    vector&lt;int&gt; prime = get_prime();
-    int p_count = prime.size();
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> prime <span style="color:#f92672">=</span> get_prime();
+    <span style="color:#66d9ef">int</span> p_count <span style="color:#f92672">=</span> prime.size();
 
-    long int n;
-    cin&gt;&gt;n;
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span> n;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
 
-    if (n == 1){
-        cout&lt;&lt;"1=1"&lt;&lt;endl;
-        return 0;
+    <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"1=1"</span><span style="color:#f92672">&lt;&lt;</span>endl;
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
     }
 
-    cout&lt;&lt;n&lt;&lt;"=";
-    int n_sqr = static_cast&lt;int&gt;(sqrt(1.0*n));
-    vector&lt;int&gt; count_list;
-    vector&lt;int&gt; pnum_list;
+    cout<span style="color:#f92672">&lt;&lt;</span>n<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"="</span>;
+    <span style="color:#66d9ef">int</span> n_sqr <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(sqrt(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>n));
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> count_list;
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> pnum_list;
 
-    for (int i = 0; i &lt; p_count &amp;&amp; prime[i] &lt;= n_sqr; ++i) {
-        if(n%prime[i] == 0){
-            int count = 0;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> p_count <span style="color:#f92672">&amp;&amp;</span> prime[i] <span style="color:#f92672">&lt;=</span> n_sqr; <span style="color:#f92672">++</span>i) {
+        <span style="color:#66d9ef">if</span>(n<span style="color:#f92672">%</span>prime[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){
+            <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
             pnum_list.push_back(prime[i]);
-            while(n%prime[i] == 0){
-                count++;
-                n/=prime[i];
+            <span style="color:#66d9ef">while</span>(n<span style="color:#f92672">%</span>prime[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){
+                count<span style="color:#f92672">++</span>;
+                n<span style="color:#f92672">/=</span>prime[i];
             }
             count_list.push_back(count);
         }
-        if(n == 1) break;
+        <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">break</span>;
     }
 
-    if(n != 1){
+    <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>){
         pnum_list.push_back(n);
-        count_list.push_back(1);
+        count_list.push_back(<span style="color:#ae81ff">1</span>);
     }
 
-    for (int j = 0; j &lt; count_list.size(); j++) {
-        if(j &gt; 0)
-            cout&lt;&lt;"*";
-        cout&lt;&lt;pnum_list[j];
-        if(count_list[j] &gt; 1){
-            cout&lt;&lt;"^"&lt;&lt;count_list[j];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> count_list.size(); j<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span>(j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"*"</span>;
+        cout<span style="color:#f92672">&lt;&lt;</span>pnum_list[j];
+        <span style="color:#66d9ef">if</span>(count_list[j] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>){
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"^"</span><span style="color:#f92672">&lt;&lt;</span>count_list[j];
         }
 
     }
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<p>找到所有的质数然后从小到大求解，若有不等于1的就是质数本身。</p>
+</code></pre></div><p>找到所有的质数然后从小到大求解，若有不等于1的就是质数本身。</p>
 <p>排序的水题</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-float get_similarity(vector&lt;int&gt; list1,vector&lt;int&gt; list2){
-    int l1=0,l2=0;
-    int count=0;
-    int total=list1.size()+list2.size();
-    while(l1 &lt; list1.size() &amp;&amp; l2 &lt; list2.size()) {
-        if (list1[l1] == list2[l2]) {
-            l1++;
-            l2++;
-            count++;
-        } else if(list1[l1] &gt; list2[l2]){
-            l2++;
-        } else{
-            l1++;
+<span style="color:#66d9ef">float</span> <span style="color:#a6e22e">get_similarity</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> list1,vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> list2){
+    <span style="color:#66d9ef">int</span> l1<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,l2<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">int</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">int</span> total<span style="color:#f92672">=</span>list1.size()<span style="color:#f92672">+</span>list2.size();
+    <span style="color:#66d9ef">while</span>(l1 <span style="color:#f92672">&lt;</span> list1.size() <span style="color:#f92672">&amp;&amp;</span> l2 <span style="color:#f92672">&lt;</span> list2.size()) {
+        <span style="color:#66d9ef">if</span> (list1[l1] <span style="color:#f92672">==</span> list2[l2]) {
+            l1<span style="color:#f92672">++</span>;
+            l2<span style="color:#f92672">++</span>;
+            count<span style="color:#f92672">++</span>;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(list1[l1] <span style="color:#f92672">&gt;</span> list2[l2]){
+            l2<span style="color:#f92672">++</span>;
+        } <span style="color:#66d9ef">else</span>{
+            l1<span style="color:#f92672">++</span>;
         }
     }
 
-    total -= count;
-    return float(count)/total;
+    total <span style="color:#f92672">-=</span> count;
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">float</span>(count)<span style="color:#f92672">/</span>total;
 }
 
-int main() {
-    int n;
-    vector&lt;vector&lt;int&gt;&gt; lists;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> n;
+    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> lists;
 
-    cin&gt;&gt;n;
-    for (int i = 0; i &lt; n; ++i) {
-        int number;
-        cin&gt;&gt;number;
-        int k;
-        vector&lt;int&gt; list;
-        for (int j = 0; j &lt; number; ++j) {
-            cin&gt;&gt;k;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        <span style="color:#66d9ef">int</span> number;
+        cin<span style="color:#f92672">&gt;&gt;</span>number;
+        <span style="color:#66d9ef">int</span> k;
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> list;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> number; <span style="color:#f92672">++</span>j) {
+            cin<span style="color:#f92672">&gt;&gt;</span>k;
             list.push_back(k);
         }
-        if(number == 0){
+        <span style="color:#66d9ef">if</span>(number <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>){
             lists.push_back(list);
-        } else{
+        } <span style="color:#66d9ef">else</span>{
             sort(list.begin(),list.end());
-            int flag = list[0];
-            vector&lt;int&gt; l;
-            l.push_back(list[0]);
-            for (auto f : list) {
-                if(f != flag) {
+            <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> list[<span style="color:#ae81ff">0</span>];
+            vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> l;
+            l.push_back(list[<span style="color:#ae81ff">0</span>]);
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> f : list) {
+                <span style="color:#66d9ef">if</span>(f <span style="color:#f92672">!=</span> flag) {
                     l.push_back(f);
-                    flag = f;
+                    flag <span style="color:#f92672">=</span> f;
                 }
             }
             lists.push_back(l);
@@ -1363,267 +1313,261 @@ int main() {
 
 
 
-    int n_k;
-    cin&gt;&gt;n_k;
-    for (int l = 0; l &lt; n_k; ++l) {
-        int k,h;
-        cin&gt;&gt;k&gt;&gt;h;
-        printf("%.1f%%", get_similarity(lists[k-1],lists[h-1])*100);
-        if(l != n_k-1)
-            printf("\n");
+    <span style="color:#66d9ef">int</span> n_k;
+    cin<span style="color:#f92672">&gt;&gt;</span>n_k;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; l <span style="color:#f92672">&lt;</span> n_k; <span style="color:#f92672">++</span>l) {
+        <span style="color:#66d9ef">int</span> k,h;
+        cin<span style="color:#f92672">&gt;&gt;</span>k<span style="color:#f92672">&gt;&gt;</span>h;
+        printf(<span style="color:#e6db74">"%.1f%%"</span>, get_similarity(lists[k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],lists[h<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>);
+        <span style="color:#66d9ef">if</span>(l <span style="color:#f92672">!=</span> n_k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            printf(<span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>);
     }
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<h2 id="大数比较">大数比较</h2>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
+</code></pre></div><h2 id="大数比较">大数比较</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span> a,b,c;
+    <span style="color:#66d9ef">int</span> n;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
 
-int main() {
-    long long int a,b,c;
-    int n;
-    cin&gt;&gt;n;
-
-    for (int i = 0; i &lt; n; ++i) {
-        cout&lt;&lt;"Case #"&lt;&lt;i+1&lt;&lt;": ";
-        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
-        if(a&gt;0 &amp;&amp; b&gt;0){
-            (a+b&lt;0||a+b&gt;c)?cout&lt;&lt;"true":cout&lt;&lt;"false";
-        } else if(a&lt;0 &amp;&amp; b&lt;0){
-            (a+b&gt;=0||a+b&lt;=c)?cout&lt;&lt;"false":cout&lt;&lt;"true";
-        } else{
-            a+b&gt;c?cout&lt;&lt;"true":cout&lt;&lt;"false";
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"Case #"</span><span style="color:#f92672">&lt;&lt;</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">": "</span>;
+        cin<span style="color:#f92672">&gt;&gt;</span>a<span style="color:#f92672">&gt;&gt;</span>b<span style="color:#f92672">&gt;&gt;</span>c;
+        <span style="color:#66d9ef">if</span>(a<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> b<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>){
+            (a<span style="color:#f92672">+</span>b<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">||</span>a<span style="color:#f92672">+</span>b<span style="color:#f92672">&gt;</span>c)<span style="color:#f92672">?</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"true"</span><span style="color:#f92672">:</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"false"</span>;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(a<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> b<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>){
+            (a<span style="color:#f92672">+</span>b<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">||</span>a<span style="color:#f92672">+</span>b<span style="color:#f92672">&lt;=</span>c)<span style="color:#f92672">?</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"false"</span><span style="color:#f92672">:</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"true"</span>;
+        } <span style="color:#66d9ef">else</span>{
+            a<span style="color:#f92672">+</span>b<span style="color:#f92672">&gt;</span>c<span style="color:#f92672">?</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"true"</span><span style="color:#f92672">:</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"false"</span>;
         }
-        if (i != n-1)
-            cout&lt;&lt;"\n";
+        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">!=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
     }
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;cstdlib&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-int main() {
-    int n,c,flag = 0,index = 0;
-    cin&gt;&gt;n;
-    int b[n];
-    for (int i = 0; i &lt; n; ++i) {
-        cin&gt;&gt;c;
-        b[i] = c;
-        if(c == i &amp;&amp; i!=0){
-            flag++;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> n,c,flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
+    <span style="color:#66d9ef">int</span> b[n];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        cin<span style="color:#f92672">&gt;&gt;</span>c;
+        b[i] <span style="color:#f92672">=</span> c;
+        <span style="color:#66d9ef">if</span>(c <span style="color:#f92672">==</span> i <span style="color:#f92672">&amp;&amp;</span> i<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>){
+            flag<span style="color:#f92672">++</span>;
         }
     }
 
 
-    int k = 1;
-    while (flag &lt; n-1){
-        index++;
-       if(b[0] != 0){
-           int tmp = b[0];
-           b[0] = b[b[0]];
-           b[tmp] = tmp;
-           flag ++;
-       } else{
-           for (k; k &lt; n; ++k) {
-               if(b[k] != k)
-                   break;
+    <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">while</span> (flag <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+        index<span style="color:#f92672">++</span>;
+       <span style="color:#66d9ef">if</span>(b[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>){
+           <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> b[<span style="color:#ae81ff">0</span>];
+           b[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> b[b[<span style="color:#ae81ff">0</span>]];
+           b[tmp] <span style="color:#f92672">=</span> tmp;
+           flag <span style="color:#f92672">++</span>;
+       } <span style="color:#66d9ef">else</span>{
+           <span style="color:#66d9ef">for</span> (k; k <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>k) {
+               <span style="color:#66d9ef">if</span>(b[k] <span style="color:#f92672">!=</span> k)
+                   <span style="color:#66d9ef">break</span>;
            }
-           int tmp = b[0];
-           b[0] = b[k];
-           b[k] = tmp;
-           k++;
+           <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> b[<span style="color:#ae81ff">0</span>];
+           b[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> b[k];
+           b[k] <span style="color:#f92672">=</span> tmp;
+           k<span style="color:#f92672">++</span>;
        }
     }
 
-    cout&lt;&lt;index;
+    cout<span style="color:#f92672">&lt;&lt;</span>index;
 
 
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<p>数字黑洞 可能会有3个数字的，需要先填数字再判断。</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;cstdlib&gt;
-#include &lt;string&gt;
-using namespace std;
+</code></pre></div><p>数字黑洞 可能会有3个数字的，需要先填数字再判断。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-bool sort_function(char s1,char s2) { return s1&gt;s2; }
-bool rever_function(char s1, char s2) { return s1&lt;s2; }
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">sort_function</span>(<span style="color:#66d9ef">char</span> s1,<span style="color:#66d9ef">char</span> s2) { <span style="color:#66d9ef">return</span> s1<span style="color:#f92672">&gt;</span>s2; }
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">rever_function</span>(<span style="color:#66d9ef">char</span> s1, <span style="color:#66d9ef">char</span> s2) { <span style="color:#66d9ef">return</span> s1<span style="color:#f92672">&lt;</span>s2; }
 
 
-int s_to_n(string s){
-    int res = 0;
-    for (int i = 0; i &lt; 4; ++i) {
-        res += (s[i]-'0')*pow(10,3-i);
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">s_to_n</span>(string s){
+    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; <span style="color:#f92672">++</span>i) {
+        res <span style="color:#f92672">+=</span> (s[i]<span style="color:#f92672">-</span><span style="color:#e6db74">'0'</span>)<span style="color:#f92672">*</span>pow(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">3</span><span style="color:#f92672">-</span>i);
     }
-    return res;
+    <span style="color:#66d9ef">return</span> res;
 }
 
-string n_to_s(int n){
-    string res="0000";
-    for (int i = 0; i &lt; 4; ++i) {
-        res[i] = static_cast&lt;char&gt;('0' + n / pow(10, 3 - i));
-        n = n % int(pow(10,3-i));
+string <span style="color:#a6e22e">n_to_s</span>(<span style="color:#66d9ef">int</span> n){
+    string res<span style="color:#f92672">=</span><span style="color:#e6db74">"0000"</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; <span style="color:#f92672">++</span>i) {
+        res[i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">'0'</span> <span style="color:#f92672">+</span> n <span style="color:#f92672">/</span> pow(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">3</span> <span style="color:#f92672">-</span> i));
+        n <span style="color:#f92672">=</span> n <span style="color:#f92672">%</span> <span style="color:#66d9ef">int</span>(pow(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">3</span><span style="color:#f92672">-</span>i));
     }
-    return res;
+    <span style="color:#66d9ef">return</span> res;
 }
 
-string function1(string s){
-    string res,temp = s;
+string <span style="color:#a6e22e">function1</span>(string s){
+    string res,temp <span style="color:#f92672">=</span> s;
     sort(s.begin(),s.end(),sort_function);
     sort(temp.begin(),temp.end(),rever_function);
 
-    cout&lt;&lt;s&lt;&lt;" - "&lt;&lt;temp;
-    res = n_to_s(s_to_n(s) - s_to_n(temp));
-    cout&lt;&lt;" = "&lt;&lt;res;
-    return res;
+    cout<span style="color:#f92672">&lt;&lt;</span>s<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" - "</span><span style="color:#f92672">&lt;&lt;</span>temp;
+    res <span style="color:#f92672">=</span> n_to_s(s_to_n(s) <span style="color:#f92672">-</span> s_to_n(temp));
+    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" = "</span><span style="color:#f92672">&lt;&lt;</span>res;
+    <span style="color:#66d9ef">return</span> res;
 
 }
-int main() {
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
 
     string n;
-    cin&gt;&gt;n;
-    while(n.size() != 4){
-        n += "0";
+    cin<span style="color:#f92672">&gt;&gt;</span>n;
+    <span style="color:#66d9ef">while</span>(n.size() <span style="color:#f92672">!=</span> <span style="color:#ae81ff">4</span>){
+        n <span style="color:#f92672">+=</span> <span style="color:#e6db74">"0"</span>;
     }
-    n = function1(n);
-    if(n != "6174" &amp;&amp; n!= "0000"){
-        cout&lt;&lt;"\n";
+    n <span style="color:#f92672">=</span> function1(n);
+    <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">!=</span> <span style="color:#e6db74">"6174"</span> <span style="color:#f92672">&amp;&amp;</span> n<span style="color:#f92672">!=</span> <span style="color:#e6db74">"0000"</span>){
+        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
     }
-    while(n != "0000" &amp;&amp; n!= "6174"){
-        n = function1(n);
-        if(n != "6174" &amp;&amp; n!= "0000")
-            cout&lt;&lt;"\n";
+    <span style="color:#66d9ef">while</span>(n <span style="color:#f92672">!=</span> <span style="color:#e6db74">"0000"</span> <span style="color:#f92672">&amp;&amp;</span> n<span style="color:#f92672">!=</span> <span style="color:#e6db74">"6174"</span>){
+        n <span style="color:#f92672">=</span> function1(n);
+        <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">!=</span> <span style="color:#e6db74">"6174"</span> <span style="color:#f92672">&amp;&amp;</span> n<span style="color:#f92672">!=</span> <span style="color:#e6db74">"0000"</span>)
+            cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">"</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>;
     }
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<p>忘记吧max值为-1了，好彩</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;vector&gt;
-#include &lt;map&gt;
-#include &lt;cstdlib&gt;
-#include &lt;string&gt;
+</code></pre></div><p>忘记吧max值为-1了，好彩</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
-using namespace std;
-
-bool check_out(char c){
-    if(c &lt;= 'z' &amp;&amp; c &gt;= 'a') return true;
-    if(c &lt;= 'Z' &amp;&amp; c &gt;= 'A') return true;
-    if(c &lt;= '9' &amp;&amp; c &gt;= '0') return true;
-    return false;
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">check_out</span>(<span style="color:#66d9ef">char</span> c){
+    <span style="color:#66d9ef">if</span>(c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'z'</span> <span style="color:#f92672">&amp;&amp;</span> c <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'a'</span>) <span style="color:#66d9ef">return</span> true;
+    <span style="color:#66d9ef">if</span>(c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'Z'</span> <span style="color:#f92672">&amp;&amp;</span> c <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'A'</span>) <span style="color:#66d9ef">return</span> true;
+    <span style="color:#66d9ef">if</span>(c <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">'9'</span> <span style="color:#f92672">&amp;&amp;</span> c <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">'0'</span>) <span style="color:#66d9ef">return</span> true;
+    <span style="color:#66d9ef">return</span> false;
 }
 
-int main(){
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
     string s;
-    map&lt;string,int&gt; str_map;
+    map<span style="color:#f92672">&lt;</span>string,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> str_map;
     getline(cin,s);
 
-    int i = 0,str_length = s.length();
-    while (i&lt;str_length){
+    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,str_length <span style="color:#f92672">=</span> s.length();
+    <span style="color:#66d9ef">while</span> (i<span style="color:#f92672">&lt;</span>str_length){
         string word;
-        bool flag = true;
-        if(check_out(s[i])) {
-            while (i &lt; str_length &amp;&amp; check_out(s[i])) {
+        <span style="color:#66d9ef">bool</span> flag <span style="color:#f92672">=</span> true;
+        <span style="color:#66d9ef">if</span>(check_out(s[i])) {
+            <span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> str_length <span style="color:#f92672">&amp;&amp;</span> check_out(s[i])) {
 
-                word += tolower(s[i]);
-                i++;
+                word <span style="color:#f92672">+=</span> tolower(s[i]);
+                i<span style="color:#f92672">++</span>;
             }
 
-            if (str_map.find(word) == str_map.end()) {
-                str_map[word] = 1;
-            } else {
-                str_map[word]++;
+            <span style="color:#66d9ef">if</span> (str_map.find(word) <span style="color:#f92672">==</span> str_map.end()) {
+                str_map[word] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+            } <span style="color:#66d9ef">else</span> {
+                str_map[word]<span style="color:#f92672">++</span>;
             }
         }
-        i++;
+        i<span style="color:#f92672">++</span>;
     }
 
-    int max=-1;
+    <span style="color:#66d9ef">int</span> max<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;
     string max_str;
-    for (auto a:str_map) {
-        if(a.second &gt; max){
-            max = a.second;
-            max_str = a.first;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> a:str_map) {
+        <span style="color:#66d9ef">if</span>(a.second <span style="color:#f92672">&gt;</span> max){
+            max <span style="color:#f92672">=</span> a.second;
+            max_str <span style="color:#f92672">=</span> a.first;
         }
     }
 
-    cout&lt;&lt;max_str&lt;&lt;" "&lt;&lt;max;
+    cout<span style="color:#f92672">&lt;&lt;</span>max_str<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">" "</span><span style="color:#f92672">&lt;&lt;</span>max;
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 
 
-</code></pre>
-<h2 id="1074-reversing-linked-list-25-分">1074 Reversing Linked List (25 分)</h2>
-<pre><code class="language-c++">
-#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include &lt;algorithm&gt;
-using namespace std;
+</code></pre></div><h2 id="1074-reversing-linked-list-25-分">1074 Reversing Linked List (25 分)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">
+<span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
  
  
-int node[100002][2];
+<span style="color:#66d9ef">int</span> node[<span style="color:#ae81ff">100002</span>][<span style="color:#ae81ff">2</span>];
  
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-	int list[100002];
-	int i;
-	int st, k;
-	int n;
-	cin &gt;&gt; st &gt;&gt; n &gt;&gt; k;
-	for (i = 0; i&lt;n; i++)
+	<span style="color:#66d9ef">int</span> list[<span style="color:#ae81ff">100002</span>];
+	<span style="color:#66d9ef">int</span> i;
+	<span style="color:#66d9ef">int</span> st, k;
+	<span style="color:#66d9ef">int</span> n;
+	cin <span style="color:#f92672">&gt;&gt;</span> st <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> k;
+	<span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; i<span style="color:#f92672">++</span>)
 	{
-		int add, data, next;
-		cin &gt;&gt; add &gt;&gt; data &gt;&gt; next;
-		node[add][0] = data;
-		node[add][1] = next;
+		<span style="color:#66d9ef">int</span> add, data, next;
+		cin <span style="color:#f92672">&gt;&gt;</span> add <span style="color:#f92672">&gt;&gt;</span> data <span style="color:#f92672">&gt;&gt;</span> next;
+		node[add][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> data;
+		node[add][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> next;
 	}
-	int cnt = 0;
-	int cur = st;
-	while (cur != -1)
+	<span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> st;
+	<span style="color:#66d9ef">while</span> (cur <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 	{
-		list[cnt++] = cur;
-		cur = node[cur][1];
+		list[cnt<span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> cur;
+		cur <span style="color:#f92672">=</span> node[cur][<span style="color:#ae81ff">1</span>];
 	}
 	
-	i = 0;
-	while (i + k &lt;= cnt)
+	i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">while</span> (i <span style="color:#f92672">+</span> k <span style="color:#f92672">&lt;=</span> cnt)
 	{
-		reverse(list + i, list + i + k);
-		i += k;
+		reverse(list <span style="color:#f92672">+</span> i, list <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> k);
+		i <span style="color:#f92672">+=</span> k;
 	}
-	for (i = 0; i &lt; cnt - 1; i++)
+	<span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> cnt <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>)
 	{
-		printf("%05d %d %05d\n", list[i], node[list[i]][0], list[i+1]);
+		printf(<span style="color:#e6db74">"%05d %d %05d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, list[i], node[list[i]][<span style="color:#ae81ff">0</span>], list[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]);
 	}
-	printf("%05d %d -1\n", list[i], node[list[i]][0]);
-	return 0;
+	printf(<span style="color:#e6db74">"%05d %d -1</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, list[i], node[list[i]][<span style="color:#ae81ff">0</span>]);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-<p>每k个都要转置一下啊啊啊啊啊。</p>
+</code></pre></div><p>每k个都要转置一下啊啊啊啊啊。</p>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -1664,14 +1608,17 @@ int main()
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

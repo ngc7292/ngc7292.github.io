@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>leetcode python刷题记录3 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Aug 1, 2018 00:00
-                    · 1940 words
+                    · 1939 words
                     · 10 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/python">python</a>
@@ -83,8 +83,6 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#636-exclusive-time-of-functions">636. Exclusive Time of Functions</a></li>
 <li><a href="#binary-tree-postorder-traversal">Binary Tree Postorder Traversal</a></li>
 <li><a href="#853-car-fleet">853. Car Fleet</a></li>
@@ -92,20 +90,19 @@ code.has-jax {
 <li><a href="#balanced-binary-tree">Balanced Binary Tree</a>
 <ul>
 <li><a href="#a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</a></li>
 <li><a href="#same-tree">Same Tree</a></li>
 <li><a href="#daily-temperatures">Daily Temperatures</a></li>
 <li><a href="#exclusive-time-of-functions">Exclusive Time of Functions</a></li>
 <li><a href="#asteroid-collision">Asteroid Collision</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。</p>
 <p>2018.8.3 更新 solution破百咯，立个flag：明天problem破百</p>
-<p></p>
 <h2 id="636-exclusive-time-of-functions">636. Exclusive Time of Functions</h2>
 <p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
 <p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
@@ -125,81 +122,80 @@ Function 0 starts at time 0, then it executes 2 units of time and reaches the en
 Now function 0 calls function 1, function 1 starts at time 2, executes 4 units of time and end at time 5.
 Function 0 is running again at time 6, and also end at the time 6, thus executes 1 unit of time. 
 So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally execute 4 units of time.
-</code></pre>
-<p>Note:
-1. Input logs will be sorted by timestamp, NOT log id.
-2. Your output should be sorted by function id, which means the 0th element of your output corresponds to the exclusive time of function 0.
-3. Two functions won’t start or end at the same time.
-4. Functions could be called recursively, and will always end.
-5. 1 &lt;= n &lt;= 100</p>
+</code></pre><p>Note:</p>
+<ol>
+<li>Input logs will be sorted by timestamp, NOT log id.</li>
+<li>Your output should be sorted by function id, which means the 0th element of your output corresponds to the exclusive time of function 0.</li>
+<li>Two functions won’t start or end at the same time.</li>
+<li>Functions could be called recursively, and will always end.</li>
+<li>1 &lt;= n &lt;= 100</li>
+</ol>
 <p>不得不说，python真实一个好language，大致思路便是先把log都一个个分开，然后维护一个hash表，与一个stack，hash表来存储每个进程的时间，stk来存储所有开始的进程，遍历整个logs，在start的时候结束上个进程，在end的时候开始stk最后一个进程，最后把p_dict取出来就好了。</p>
-<pre><code class="language-python">class Solution:
-    def exclusiveTime(self, n, logs):
-        """
-        :type n: int
-        :type logs: List[str]
-        :rtype: List[int]
-        """
-        p_dict = {}
-        stk = []
-        on_time = 0
-        for log in logs:
-            log = log.split(":")
-            p_id = log[0]
-            opt = log[1]
-            time = int(log[2])
-            if opt == "start":
-                if stk != []:
-                    p_dict[stk[-1]] = (time - on_time) + p_dict[stk[-1]] if on_time &gt;= 0 else time + on_time + p_dict[
-                        stk[-1]] - 1
-                on_time = time
-                stk.append(p_id)
-                if p_id not in p_dict:
-                    p_dict[p_id] = 0
-            else:
-                p_dict[stk[-1]] = time - on_time + p_dict[stk[-1]] + 1 if on_time &gt;= 0 else time + on_time + p_dict[
-                    stk[-1]]
-                on_time = -time
-                stk.pop()
-        return [p_dict[str(i)] for i in range(n)]
-</code></pre>
-<h2 id="binary-tree-postorder-traversal">Binary Tree Postorder Traversal</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exclusiveTime</span>(self, n, logs):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :type logs: List[str]
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        p_dict <span style="color:#f92672">=</span> {}
+        stk <span style="color:#f92672">=</span> []
+        on_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> log <span style="color:#f92672">in</span> logs:
+            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+            p_id <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">0</span>]
+            opt <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">1</span>]
+            time <span style="color:#f92672">=</span> int(log[<span style="color:#ae81ff">2</span>])
+            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">"start"</span>:
+                <span style="color:#66d9ef">if</span> stk <span style="color:#f92672">!=</span> []:
+                    p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> (time <span style="color:#f92672">-</span> on_time) <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
+                        stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+                on_time <span style="color:#f92672">=</span> time
+                stk<span style="color:#f92672">.</span>append(p_id)
+                <span style="color:#66d9ef">if</span> p_id <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> p_dict:
+                    p_dict[p_id] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">else</span>:
+                p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> time <span style="color:#f92672">-</span> on_time <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
+                    stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
+                on_time <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>time
+                stk<span style="color:#f92672">.</span>pop()
+        <span style="color:#66d9ef">return</span> [p_dict[str(i)] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n)]
+</code></pre></div><h2 id="binary-tree-postorder-traversal">Binary Tree Postorder Traversal</h2>
 <p>Given a binary tree, return the postorder traversal of its nodes’ values.</p>
 <p>后续遍历，</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def postorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        if root == None:
-            return []
-        stk = [root]
-        res = []
-        head = root
-        while stk != []:
-            t = stk[-1]
-            if (t.left == None and t.right == None) or t.left == head or t.right == head:
-                res.append(t.val)
-                stk.pop()
-                head = t
-            else:
-                if t.right != None:
-                    stk.append(t.right)
-                if t.left != None:
-                    stk.append(t.left)
-        return res
-</code></pre>
-<h2 id="853-car-fleet">853. Car Fleet</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">postorderTraversal</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> []
+        stk <span style="color:#f92672">=</span> [root]
+        res <span style="color:#f92672">=</span> []
+        head <span style="color:#f92672">=</span> root
+        <span style="color:#66d9ef">while</span> stk <span style="color:#f92672">!=</span> []:
+            t <span style="color:#f92672">=</span> stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+            <span style="color:#66d9ef">if</span> (t<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> t<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> None) <span style="color:#f92672">or</span> t<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> head <span style="color:#f92672">or</span> t<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> head:
+                res<span style="color:#f92672">.</span>append(t<span style="color:#f92672">.</span>val)
+                stk<span style="color:#f92672">.</span>pop()
+                head <span style="color:#f92672">=</span> t
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">if</span> t<span style="color:#f92672">.</span>right <span style="color:#f92672">!=</span> None:
+                    stk<span style="color:#f92672">.</span>append(t<span style="color:#f92672">.</span>right)
+                <span style="color:#66d9ef">if</span> t<span style="color:#f92672">.</span>left <span style="color:#f92672">!=</span> None:
+                    stk<span style="color:#f92672">.</span>append(t<span style="color:#f92672">.</span>left)
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="853-car-fleet">853. Car Fleet</h2>
 <p>N cars are going to the same destination along a one lane road.  The destination is target miles away.</p>
-<p>Each car i has a constant speed speed<a href="in miles per hour">i</a>, and initial position position[i] miles towards the target along the road.</p>
+<p>Each car i has a constant speed speed[i] (in miles per hour), and initial position position[i] miles towards the target along the road.</p>
 <p>A car can never pass another car ahead of it, but it can catch up to it, and drive bumper to bumper at the same speed.</p>
 <p>The distance between these two cars is ignored - they are assumed to have the same position.</p>
 <p>A car fleet is some non-empty set of cars driving at the same position and same speed.  Note that a single car is also a car fleet.</p>
@@ -214,172 +210,165 @@ The cars starting at 10 and 8 become a fleet, meeting each other at 12.
 The car starting at 0 doesn't catch up to any other car, so it is a fleet by itself.
 The cars starting at 5 and 3 become a fleet, meeting each other at 6.
 Note that no other cars meet these fleets before the destination, so the answer is 3.
-</code></pre>
-<pre><code class="language-python">class Solution:
-    def carFleet(self, target, position, speed):
-        """
-        :type target: int
-        :type position: List[int]
-        :type speed: List[int]
-        :rtype: int
-        """
-        status = [(-p,float(target - p ) /s) for p,s in zip(position,speed)]
-        status.sort()
-        ctime = 0
-        ans = 0
-        for p,t in status:
-            if t &gt; ctime:
-                ans += 1
-                ctime = t
-        return ans
-</code></pre>
-<h2 id="minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</h2>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">carFleet</span>(self, target, position, speed):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type target: int
+</span><span style="color:#e6db74">        :type position: List[int]
+</span><span style="color:#e6db74">        :type speed: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        status <span style="color:#f92672">=</span> [(<span style="color:#f92672">-</span>p,float(target <span style="color:#f92672">-</span> p ) <span style="color:#f92672">/</span>s) <span style="color:#66d9ef">for</span> p,s <span style="color:#f92672">in</span> zip(position,speed)]
+        status<span style="color:#f92672">.</span>sort()
+        ctime <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> p,t <span style="color:#f92672">in</span> status:
+            <span style="color:#66d9ef">if</span> t <span style="color:#f92672">&gt;</span> ctime:
+                ans <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                ctime <span style="color:#f92672">=</span> t
+        <span style="color:#66d9ef">return</span> ans
+</code></pre></div><h2 id="minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</h2>
 <p>Given a binary tree, find its minimum depth.</p>
 <p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
 <p>Note: A leaf is a node with no children.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root:
-            return 0
-        root_list = [root]
-        res = []
-        depth = 1
-        flag = 0
-        while root_list:
-            node_list = []
-            for i in root_list:
-                if not i.left and not i.right:
-                    flag = 1
-                if i.left:
-                    node_list.append(i.left)
-                if i.right:
-                    node_list.append(i.right)
-            root_list = node_list
-            if flag == 1:
-                return depth
-            depth += 1
-</code></pre>
-<h2 id="balanced-binary-tree">Balanced Binary Tree</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minDepth</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        root_list <span style="color:#f92672">=</span> [root]
+        res <span style="color:#f92672">=</span> []
+        depth <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> root_list:
+            node_list <span style="color:#f92672">=</span> []
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root_list:
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> i<span style="color:#f92672">.</span>left <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> i<span style="color:#f92672">.</span>right:
+                    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>left:
+                    node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>left)
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>right:
+                    node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>right)
+            root_list <span style="color:#f92672">=</span> node_list
+            <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                <span style="color:#66d9ef">return</span> depth
+            depth <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h2 id="balanced-binary-tree">Balanced Binary Tree</h2>
 <p>Given a binary tree, determine if it is height-balanced.</p>
 <p>For this problem, a height-balanced binary tree is defined as:</p>
 <h3 id="a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</h3>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def isBalanced(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        return True if self.check_depth(root) != -1 else False
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isBalanced</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>check_depth(root) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> False
     
-    def check_depth(self,root):
-        if not root:
-            return 0
-        left = self.check_depth(root.left)
-        right = self.check_depth(root.right)
-        if left == -1:
-            return -1
-        if right == -1:
-            return -1
-        if abs(left-right) &gt; 1:
-            return -1
-        return 1+max(left,right)
-</code></pre>
-<h2 id="binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_depth</span>(self,root):
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>check_depth(root<span style="color:#f92672">.</span>left)
+        right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>check_depth(root<span style="color:#f92672">.</span>right)
+        <span style="color:#66d9ef">if</span> left <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">if</span> right <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">if</span> abs(left<span style="color:#f92672">-</span>right) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>max(left,right)
+</code></pre></div><h2 id="binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</h2>
 <p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def levelOrderBottom(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-        if not root:
-            return []
-        res = [[root.val]]
-        root_list = [root]
-        while root_list:
-            l_node_list = []
-            num_list = []
-            for i in root_list:
-                if i.left:
-                    l_node_list.append(i.left)
-                    num_list.append(i.left.val)
-                if i.right:
-                    l_node_list.append(i.right)
-                    num_list.append(i.right.val)
-            root_list = l_node_list
-            res.append(num_list)
-        return [i for i in res[-2::-1]]
-</code></pre>
-<h2 id="same-tree">Same Tree</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">levelOrderBottom</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: List[List[int]]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+            <span style="color:#66d9ef">return</span> []
+        res <span style="color:#f92672">=</span> [[root<span style="color:#f92672">.</span>val]]
+        root_list <span style="color:#f92672">=</span> [root]
+        <span style="color:#66d9ef">while</span> root_list:
+            l_node_list <span style="color:#f92672">=</span> []
+            num_list <span style="color:#f92672">=</span> []
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root_list:
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>left:
+                    l_node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>left)
+                    num_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>left<span style="color:#f92672">.</span>val)
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>right:
+                    l_node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>right)
+                    num_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>right<span style="color:#f92672">.</span>val)
+            root_list <span style="color:#f92672">=</span> l_node_list
+            res<span style="color:#f92672">.</span>append(num_list)
+        <span style="color:#66d9ef">return</span> [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> res[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
+</code></pre></div><h2 id="same-tree">Same Tree</h2>
 <p>Given two binary trees, write a function to check if they are the same or not.</p>
 <p>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-        if p == None and q == None:
-            return True
-        if (p == None or q == None) or p.val != q.val:
-            return False
-        return True if self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right) else False
-</code></pre>
-<h2 id="daily-temperatures">Daily Temperatures</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSameTree</span>(self, p, q):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type p: TreeNode
+</span><span style="color:#e6db74">        :type q: TreeNode
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> p <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> q <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">if</span> (p <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> q <span style="color:#f92672">==</span> None) <span style="color:#f92672">or</span> p<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> q<span style="color:#f92672">.</span>val:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>isSameTree(p<span style="color:#f92672">.</span>left,q<span style="color:#f92672">.</span>left) <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>isSameTree(p<span style="color:#f92672">.</span>right,q<span style="color:#f92672">.</span>right) <span style="color:#66d9ef">else</span> False
+</code></pre></div><h2 id="daily-temperatures">Daily Temperatures</h2>
 <p>Given a list of daily temperatures, produce a list that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.</p>
 <p>For example, given the list temperatures = [73, 74, 75, 71, 69, 72, 76, 73], your output should be [1, 1, 4, 2, 1, 1, 0, 0].</p>
 <p>Note: The length of temperatures will be in the range [1, 30000]. Each temperature will be an integer in the range [30, 100].</p>
-<pre><code class="language-python">class Solution:
-    def dailyTemperatures(self, temperatures):
-        """
-        :type temperatures: List[int]
-        :rtype: List[int]
-        """
-        res = [0 for i in temperatures]
-        stk = []
-        for tem in range(len(temperatures)):
-            while stk != [] :
-                if temperatures[stk[-1]] &gt;= temperatures[tem]:
-                    break
-                n = stk.pop()
-                res[n] = tem-n
-            stk.append(tem)
-        return res 
-</code></pre>
-<h2 id="exclusive-time-of-functions">Exclusive Time of Functions</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dailyTemperatures</span>(self, temperatures):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type temperatures: List[int]
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        res <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> temperatures]
+        stk <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> tem <span style="color:#f92672">in</span> range(len(temperatures)):
+            <span style="color:#66d9ef">while</span> stk <span style="color:#f92672">!=</span> [] :
+                <span style="color:#66d9ef">if</span> temperatures[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">&gt;=</span> temperatures[tem]:
+                    <span style="color:#66d9ef">break</span>
+                n <span style="color:#f92672">=</span> stk<span style="color:#f92672">.</span>pop()
+                res[n] <span style="color:#f92672">=</span> tem<span style="color:#f92672">-</span>n
+            stk<span style="color:#f92672">.</span>append(tem)
+        <span style="color:#66d9ef">return</span> res 
+</code></pre></div><h2 id="exclusive-time-of-functions">Exclusive Time of Functions</h2>
 <p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
 <p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
 <p>A log is a string has this format : function_id:start_or_end:timestamp. For example, “0:start:0” means function 0 starts from the very beginning of time 0. “0:end:0” means function 0 ends to the very end of time 0.</p>
@@ -399,38 +388,36 @@ Explanation:
     Now function 0 calls function 1, function 1 starts at time 2, executes 4 units of time and end at time 5.
     Function 0 is running again at time 6, and also end at the time 6, thus executes 1 unit of time. 
     So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally execute 4 units of time.
-</code></pre>
-<pre><code class="language-python">class Solution:
-    def exclusiveTime(self, n, logs):
-        """
-        :type n: int
-        :type logs: List[str]
-        :rtype: List[int]
-        """
-        p_dict = {}
-        stk = []
-        on_time = 0
-        for log in logs:
-            log = log.split(":")
-            p_id = log[0]
-            opt = log[1]
-            time = int(log[2])
-            if opt == "start":
-                if stk != []:
-                    p_dict[stk[-1]] = (time - on_time) + p_dict[stk[-1]] if on_time &gt;= 0 else time + on_time + p_dict[
-                        stk[-1]] - 1
-                on_time = time
-                stk.append(p_id)
-                if p_id not in p_dict:
-                    p_dict[p_id] = 0
-            else:
-                p_dict[stk[-1]] = time - on_time + p_dict[stk[-1]] + 1 if on_time &gt;= 0 else time + on_time + p_dict[
-                    stk[-1]]
-                on_time = -time
-                stk.pop()
-        return [p_dict[str(i)] for i in range(n)]
-</code></pre>
-<h2 id="asteroid-collision">Asteroid Collision</h2>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exclusiveTime</span>(self, n, logs):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :type logs: List[str]
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        p_dict <span style="color:#f92672">=</span> {}
+        stk <span style="color:#f92672">=</span> []
+        on_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> log <span style="color:#f92672">in</span> logs:
+            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+            p_id <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">0</span>]
+            opt <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">1</span>]
+            time <span style="color:#f92672">=</span> int(log[<span style="color:#ae81ff">2</span>])
+            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">"start"</span>:
+                <span style="color:#66d9ef">if</span> stk <span style="color:#f92672">!=</span> []:
+                    p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> (time <span style="color:#f92672">-</span> on_time) <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
+                        stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+                on_time <span style="color:#f92672">=</span> time
+                stk<span style="color:#f92672">.</span>append(p_id)
+                <span style="color:#66d9ef">if</span> p_id <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> p_dict:
+                    p_dict[p_id] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">else</span>:
+                p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> time <span style="color:#f92672">-</span> on_time <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
+                    stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
+                on_time <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>time
+                stk<span style="color:#f92672">.</span>pop()
+        <span style="color:#66d9ef">return</span> [p_dict[str(i)] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n)]
+</code></pre></div><h2 id="asteroid-collision">Asteroid Collision</h2>
 <p>We are given an array asteroids of integers representing asteroids in a row.</p>
 <p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
 <p>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
@@ -440,35 +427,34 @@ Explanation:
 Output: [5, 10]
 Explanation: 
     The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
-</code></pre>
-<pre><code class="language-python">class Solution:
-    def asteroidCollision(self, asteroids):
-        """
-        :type asteroids: List[int]
-        :rtype: List[int]
-        """
-        res = []
-        stk = []
-        for i in asteroids:
-            if i &lt;= 0 and stk == []:
-                res.append(i)
-                continue
-            elif stk != [] and i &lt;= 0:
-                while stk != []:
-                    if stk[-1] &gt; -i:
-                        break
-                    elif stk[-1] == -i:
-                        stk.pop()
-                        break
-                    elif stk[-1] &lt; -i:
-                        stk.pop()
-                        if stk == []:
-                            res.append(i)
-                            break
-            else:
-                stk.append(i)
-        return res + stk  
-</code></pre>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">asteroidCollision</span>(self, asteroids):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type asteroids: List[int]
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        res <span style="color:#f92672">=</span> []
+        stk <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> asteroids:
+            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> stk <span style="color:#f92672">==</span> []:
+                res<span style="color:#f92672">.</span>append(i)
+                <span style="color:#66d9ef">continue</span>
+            <span style="color:#66d9ef">elif</span> stk <span style="color:#f92672">!=</span> [] <span style="color:#f92672">and</span> i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+                <span style="color:#66d9ef">while</span> stk <span style="color:#f92672">!=</span> []:
+                    <span style="color:#66d9ef">if</span> stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>i:
+                        <span style="color:#66d9ef">break</span>
+                    <span style="color:#66d9ef">elif</span> stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#f92672">-</span>i:
+                        stk<span style="color:#f92672">.</span>pop()
+                        <span style="color:#66d9ef">break</span>
+                    <span style="color:#66d9ef">elif</span> stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span>i:
+                        stk<span style="color:#f92672">.</span>pop()
+                        <span style="color:#66d9ef">if</span> stk <span style="color:#f92672">==</span> []:
+                            res<span style="color:#f92672">.</span>append(i)
+                            <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">else</span>:
+                stk<span style="color:#f92672">.</span>append(i)
+        <span style="color:#66d9ef">return</span> res <span style="color:#f92672">+</span> stk  
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -509,14 +495,17 @@ Explanation:
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

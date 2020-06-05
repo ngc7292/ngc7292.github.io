@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据结构 on ngc7293&#39;s blog</title>
@@ -17,9 +17,7 @@
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/pat_2019/</guid>
-      <description>&lt;p&gt;2019.12.26 刚考完研 大部分都忘记了GG&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;2019.12.26 刚考完研 大部分都忘记了GG&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,10 +27,7 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
       <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
-
-&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -41,9 +36,7 @@
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/pat_learn_java/</guid>
-      <description>&lt;p&gt;JAVA刷pat&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;JAVA刷pat&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -52,9 +45,7 @@
       <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/pat_learn/</guid>
-      <description>&lt;p&gt;pat刷一些题来做一点点算法，这里大多数是python。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;pat刷一些题来做一点点算法，这里大多数是python。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -63,9 +54,7 @@
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode_array/</guid>
-      <description>&lt;p&gt;leetcode problem of array.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;leetcode problem of array.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -74,9 +63,7 @@
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-bst/</guid>
-      <description>&lt;p&gt;这里放一些关于BST的题目。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;这里放一些关于BST的题目。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -85,9 +72,7 @@
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-narytree/</guid>
-      <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -96,9 +81,7 @@
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-python4/</guid>
-      <description>&lt;p&gt;前几天貌似怠惰了呢，今天做了几道水题，（bin tree的），放上来。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;前几天貌似怠惰了呢，今天做了几道水题，（bin tree的），放上来。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -107,9 +90,7 @@
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-python5/</guid>
-      <description>&lt;p&gt;没有介绍&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;没有介绍&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -119,10 +100,7 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-python3/</guid>
       <description>&lt;p&gt;2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。&lt;/p&gt;
-
-&lt;p&gt;2018.8.3 更新 solution破百咯，立个flag：明天problem破百&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;2018.8.3 更新 solution破百咯，立个flag：明天problem破百&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -132,10 +110,7 @@
       
       <guid>https://ngc7292.github.io/posts/leetcode-python2/</guid>
       <description>&lt;p&gt;记录一下，今天已经74题了。&lt;/p&gt;
-
-&lt;p&gt;今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -144,9 +119,7 @@
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
-      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;</description>
     </item>
     
   </channel>

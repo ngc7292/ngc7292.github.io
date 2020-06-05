@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>leetcode n ary tree · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -82,104 +82,98 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#429-n-ary-tree-level-order-traversal">429. N-ary Tree Level Order Traversal</a></li>
 <li><a href="#590-n-ary-tree-postorder-traversal">590. N-ary Tree Postorder Traversal</a></li>
 <li><a href="#589-n-ary-tree-preorder-traversal">589. N-ary Tree Preorder Traversal</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。</p>
-<p></p>
 <h2 id="429-n-ary-tree-level-order-traversal">429. N-ary Tree Level Order Traversal</h2>
 <p>Given an n-ary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
 <p>这一个因为是每层一个数组，所以我觉得用循环会比递归要好写一点:思路就是每一层用roots_list来保存，循环遍历每一层的节点，对每一层节点进行运算就可以了。</p>
-<pre><code class="language-python">"""
-# Definition for a Node.
-class Node(object):
-    def __init__(self, val, children):
-        self.val = val
-        self.children = children
-"""
-class Solution(object):
-    def levelOrder(self, root):
-        """
-        :type root: Node
-        :rtype: List[List[int]]
-        """
-        if root == None:
-            return []
-        root_list = [root]
-        res = []
-        while root_list != []:
-            roots_list = []
-            res_list = []
-            for i in root_list:
-                if i.children != None:
-                    roots_list += i.children
-                res_list.append(i.val)
-            root_list = roots_list
-            res.append(res_list)
-        return res
-</code></pre>
-<h2 id="590-n-ary-tree-postorder-traversal">590. N-ary Tree Postorder Traversal</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">"""
+</span><span style="color:#e6db74"># Definition for a Node.
+</span><span style="color:#e6db74">class Node(object):
+</span><span style="color:#e6db74">    def __init__(self, val, children):
+</span><span style="color:#e6db74">        self.val = val
+</span><span style="color:#e6db74">        self.children = children
+</span><span style="color:#e6db74">"""</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">levelOrder</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: Node
+</span><span style="color:#e6db74">        :rtype: List[List[int]]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> []
+        root_list <span style="color:#f92672">=</span> [root]
+        res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">while</span> root_list <span style="color:#f92672">!=</span> []:
+            roots_list <span style="color:#f92672">=</span> []
+            res_list <span style="color:#f92672">=</span> []
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root_list:
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>children <span style="color:#f92672">!=</span> None:
+                    roots_list <span style="color:#f92672">+=</span> i<span style="color:#f92672">.</span>children
+                res_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>val)
+            root_list <span style="color:#f92672">=</span> roots_list
+            res<span style="color:#f92672">.</span>append(res_list)
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="590-n-ary-tree-postorder-traversal">590. N-ary Tree Postorder Traversal</h2>
 <p>Given an n-ary tree, return the postorder traversal of its nodes’ values.</p>
 <p>这个用递归就爽的多。</p>
-<pre><code class="language-python">"""
-# Definition for a Node.
-class Node(object):
-    def __init__(self, val, children):
-        self.val = val
-        self.children = children
-"""
-class Solution(object):
-    def postorder(self, root):
-        """
-        :type root: Node
-        :rtype: List[int]
-        """
-        self.res = []
-        self.get_res(root)
-        return self.res
-    def get_res(self,root):
-        if root == None:
-            return None
-        else:
-            if root.children != None:
-                for i in root.children:
-                    self.get_res(i)
-            self.res.append(root.val)
-</code></pre>
-<h2 id="589-n-ary-tree-preorder-traversal">589. N-ary Tree Preorder Traversal</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">"""
+</span><span style="color:#e6db74"># Definition for a Node.
+</span><span style="color:#e6db74">class Node(object):
+</span><span style="color:#e6db74">    def __init__(self, val, children):
+</span><span style="color:#e6db74">        self.val = val
+</span><span style="color:#e6db74">        self.children = children
+</span><span style="color:#e6db74">"""</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">postorder</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: Node
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> []
+        self<span style="color:#f92672">.</span>get_res(root)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>res
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_res</span>(self,root):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>children <span style="color:#f92672">!=</span> None:
+                <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root<span style="color:#f92672">.</span>children:
+                    self<span style="color:#f92672">.</span>get_res(i)
+            self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>append(root<span style="color:#f92672">.</span>val)
+</code></pre></div><h2 id="589-n-ary-tree-preorder-traversal">589. N-ary Tree Preorder Traversal</h2>
 <p>Given an n-ary tree, return the preorder traversal of its nodes’ values.</p>
-<pre><code class="language-python">"""
-# Definition for a Node.
-class Node(object):
-    def __init__(self, val, children):
-        self.val = val
-        self.children = children
-"""
-class Solution(object):
-    def preorder(self, root):
-        """
-        :type root: Node
-        :rtype: List[int]
-        """
-        self.res = []
-        self.get_res(root)
-        return self.res
-    def get_res(self,root):
-        if root == None:
-            return None
-        else:
-            self.res.append(root.val)
-            if root.children != None:
-                for i in root.children:
-                    self.get_res(i)
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">"""
+</span><span style="color:#e6db74"># Definition for a Node.
+</span><span style="color:#e6db74">class Node(object):
+</span><span style="color:#e6db74">    def __init__(self, val, children):
+</span><span style="color:#e6db74">        self.val = val
+</span><span style="color:#e6db74">        self.children = children
+</span><span style="color:#e6db74">"""</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">preorder</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: Node
+</span><span style="color:#e6db74">        :rtype: List[int]
+</span><span style="color:#e6db74">        """</span>
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> []
+        self<span style="color:#f92672">.</span>get_res(root)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>res
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_res</span>(self,root):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>append(root<span style="color:#f92672">.</span>val)
+            <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>children <span style="color:#f92672">!=</span> None:
+                <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root<span style="color:#f92672">.</span>children:
+                    self<span style="color:#f92672">.</span>get_res(i)
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -220,14 +214,17 @@ class Solution(object):
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

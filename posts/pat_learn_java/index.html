@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>pat learning · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -83,18 +83,14 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#1036-boys-vs-girls-25-分">1036 Boys vs Girls （25 分）</a></li>
 <li><a href="#1036-boys-vs-girls-25-分-1">1036 Boys vs Girls （25 分）</a></li>
 <li><a href="#1035-password-20-分">1035 Password （20 分）</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>JAVA刷pat</p>
-<p></p>
 <h2 id="1036-boys-vs-girls-25-分">1036 Boys vs Girls （25 分）</h2>
 <p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
 <p>Input Specification:</p>
@@ -106,102 +102,97 @@ code.has-jax {
 Joe M Math990112 89
 Mike M CS991301 100
 Mary F EE990830 95
-</code></pre>
-<p>Sample Output 1:</p>
+</code></pre><p>Sample Output 1:</p>
 <pre><code>Mary EE990830
 Joe Math990112
 6
-</code></pre>
-<p>Sample Input 2:</p>
+</code></pre><p>Sample Input 2:</p>
 <pre><code>1
 Jean M AA980920 60
-</code></pre>
-<p>Sample Output 2:</p>
+</code></pre><p>Sample Output 2:</p>
 <pre><code>Absent
 Jean AA980920
 NA
-</code></pre>
-<p>水题，学习下如何使用java，噗～～～</p>
-<pre><code class="language-java">import java.util.*;
+</code></pre><p>水题，学习下如何使用java，噗～～～</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.*<span style="color:#f92672">;</span>
 
-class Stu{
-    String name;
-    String gender;
-    String Id;
-    int grade;
-}
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stu</span><span style="color:#f92672">{</span>
+    String name<span style="color:#f92672">;</span>
+    String gender<span style="color:#f92672">;</span>
+    String Id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> grade<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
 
-public class demo1 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
-        List&lt;Stu&gt; male = new ArrayList&lt;Stu&gt;();
-        List&lt;Stu&gt; female = new ArrayList&lt;Stu&gt;();
-        Stu s[] = new Stu[N];
-        for(int i=0;i&lt;N;i++)
-        {
-            s[i] = new Stu();
-            s[i].name = in.next();
-            s[i].gender = in.next();
-            s[i].Id = in.next();
-            s[i].grade = in.nextInt();
-            if(s[i].gender.equals("F"))
-            {
-                female.add(s[i]);
-            } else if(s[i].gender.equals("M"))
-            {
-                male.add(s[i]);
-            }
-        }
-        in.close();
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo1</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Scanner in <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;</span> male <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;();</span>
+        List<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;</span> female <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;();</span>
+        Stu s<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stu<span style="color:#f92672">[</span>N<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>N<span style="color:#f92672">;</span>i<span style="color:#f92672">++)</span>
+        <span style="color:#f92672">{</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stu<span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">Id</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">"F"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                female<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">"M"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                male<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        in<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
 
-        boolean femaleIsEmpty = true, maleIsEmpty = true;
-        if(!female.isEmpty())
-        {
-            Collections.sort(female, new Comparator&lt;Stu&gt;() {
-                @Override
-                public int compare(Stu o1, Stu o2) {
-                    if(o1.grade &lt; o2.grade)
-                        return 1;
-                    else
-                        return -1;
-                }
-            });
-            femaleIsEmpty = false;
-        }
-        if(!male.isEmpty())
-        {
-            Collections.sort(male, new Comparator&lt;Stu&gt;() {
-                @Override
-                public int compare(Stu o1, Stu o2) {
-                    if(o1.grade &lt; o2.grade)
-                        return -1;
-                    else
-                        return 1;
-                }
-            });
-            maleIsEmpty = false;
-        }
-        if (femaleIsEmpty){
-            System.out.println("Absent");
-        } else {
-            System.out.println(female.get(0).name+" "+female.get(0).Id);
-        }
-        if (maleIsEmpty){
-            System.out.println("Absent");
-        } else {
-            System.out.println(male.get(0).name+" "+male.get(0).Id);
-        }
+        <span style="color:#66d9ef">boolean</span> femaleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> maleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
+        <span style="color:#f92672">{</span>
+            Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>female<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Stu o1<span style="color:#f92672">,</span> Stu o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">&lt;</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">)</span>
+                        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">else</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+            femaleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
+        <span style="color:#f92672">{</span>
+            Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>male<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Stu o1<span style="color:#f92672">,</span> Stu o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">&lt;</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">)</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">else</span>
+                        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+            maleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>femaleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"Absent"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">name</span><span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">Id</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>maleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"Absent"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">name</span><span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">Id</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-        if(maleIsEmpty || femaleIsEmpty){
-            System.out.println("NA");
-        } else {
-            System.out.println(female.get(0).grade - male.get(0).grade);
-        }
-    }
-}
-</code></pre>
-<h2 id="1036-boys-vs-girls-25-分-1">1036 Boys vs Girls （25 分）</h2>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>maleIsEmpty <span style="color:#f92672">||</span> femaleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"NA"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">-</span> male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="1036-boys-vs-girls-25-分-1">1036 Boys vs Girls （25 分）</h2>
 <p>This time you are asked to tell the difference between the lowest grade of all the male students and the highest grade of all the female students.</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case contains a positive integer N, followed by N lines of student information. Each line contains a student’s <code>name</code>, <code>gender</code>, <code>ID</code> and <code>grade</code>, separated by a space, where <code>name</code> and <code>ID</code> are strings of no more than 10 characters with no space, <code>gender</code> is either <code>F</code> (female) or <code>M</code> (male), and <code>grade</code> is an integer between 0 and 100. It is guaranteed that all the grades are distinct.</p>
@@ -212,102 +203,97 @@ public class demo1 {
 Joe M Math990112 89
 Mike M CS991301 100
 Mary F EE990830 95
-</code></pre>
-<p>Sample Output 1:</p>
+</code></pre><p>Sample Output 1:</p>
 <pre><code>Mary EE990830
 Joe Math990112
 6
-</code></pre>
-<p>Sample Input 2:</p>
+</code></pre><p>Sample Input 2:</p>
 <pre><code>1
 Jean M AA980920 60
-</code></pre>
-<p>Sample Output 2:</p>
+</code></pre><p>Sample Output 2:</p>
 <pre><code>Absent
 Jean AA980920
 NA
-</code></pre>
-<p>水题</p>
-<pre><code class="language-java">import java.util.*;
+</code></pre><p>水题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.*<span style="color:#f92672">;</span>
 
-class Stu{
-    String name;
-    String gender;
-    String Id;
-    int grade;
-}
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stu</span><span style="color:#f92672">{</span>
+    String name<span style="color:#f92672">;</span>
+    String gender<span style="color:#f92672">;</span>
+    String Id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> grade<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
-        List&lt;Stu&gt; male = new ArrayList&lt;Stu&gt;();
-        List&lt;Stu&gt; female = new ArrayList&lt;Stu&gt;();
-        Stu s[] = new Stu[N];
-        for(int i=0;i&lt;N;i++)
-        {
-            s[i] = new Stu();
-            s[i].name = in.next();
-            s[i].gender = in.next();
-            s[i].Id = in.next();
-            s[i].grade = in.nextInt();
-            if(s[i].gender.equals("F"))
-            {
-                female.add(s[i]);
-            } else if(s[i].gender.equals("M"))
-            {
-                male.add(s[i]);
-            }
-        }
-        in.close();
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Scanner in <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;</span> male <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;();</span>
+        List<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;</span> female <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;();</span>
+        Stu s<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stu<span style="color:#f92672">[</span>N<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>N<span style="color:#f92672">;</span>i<span style="color:#f92672">++)</span>
+        <span style="color:#f92672">{</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stu<span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">Id</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">"F"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                female<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">gender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">"M"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                male<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        in<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
 
-        boolean femaleIsEmpty = true, maleIsEmpty = true;
-        if(!female.isEmpty())
-        {
-            Collections.sort(female, new Comparator&lt;Stu&gt;() {
-                @Override
-                public int compare(Stu o1, Stu o2) {
-                    if(o1.grade &lt; o2.grade)
-                        return 1;
-                    else
-                        return -1;
-                }
-            });
-            femaleIsEmpty = false;
-        }
-        if(!male.isEmpty())
-        {
-            Collections.sort(male, new Comparator&lt;Stu&gt;() {
-                @Override
-                public int compare(Stu o1, Stu o2) {
-                    if(o1.grade &lt; o2.grade)
-                        return -1;
-                    else
-                        return 1;
-                }
-            });
-            maleIsEmpty = false;
-        }
-        if (femaleIsEmpty){
-            System.out.println("Absent");
-        } else {
-            System.out.println(female.get(0).name+" "+female.get(0).Id);
-        }
-        if (maleIsEmpty){
-            System.out.println("Absent");
-        } else {
-            System.out.println(male.get(0).name+" "+male.get(0).Id);
-        }
+        <span style="color:#66d9ef">boolean</span> femaleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> maleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
+        <span style="color:#f92672">{</span>
+            Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>female<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Stu o1<span style="color:#f92672">,</span> Stu o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">&lt;</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">)</span>
+                        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">else</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+            femaleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span>
+        <span style="color:#f92672">{</span>
+            Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>male<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">&lt;</span>Stu<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Stu o1<span style="color:#f92672">,</span> Stu o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">&lt;</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">)</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">else</span>
+                        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+            maleIsEmpty <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>femaleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"Absent"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">name</span><span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">Id</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>maleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"Absent"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">name</span><span style="color:#f92672">+</span><span style="color:#e6db74">" "</span><span style="color:#f92672">+</span>male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">Id</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-        if(maleIsEmpty || femaleIsEmpty){
-            System.out.println("NA");
-        } else {
-            System.out.println(female.get(0).grade - male.get(0).grade);
-        }
-    }
-}
-</code></pre>
-<h2 id="1035-password-20-分">1035 Password （20 分）</h2>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>maleIsEmpty <span style="color:#f92672">||</span> femaleIsEmpty<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"NA"</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>female<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">grade</span> <span style="color:#f92672">-</span> male<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">grade</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="1035-password-20-分">1035 Password （20 分）</h2>
 <p>To prepare for PAT, the judge sometimes has to generate random passwords for the users. The problem is that there are always some confusing passwords since it is hard to distinguish <code>1</code> (one) from <code>l</code> (<code>L</code> in lowercase), or <code>0</code> (zero) from <code>O</code> (<code>o</code> in uppercase). One solution is to replace <code>1</code> (one) by <code>@</code>, <code>0</code> (zero) by <code>%</code>, <code>l</code> by <code>L</code>, and <code>O</code> by <code>o</code>. Now it is your job to write a program to check the accounts generated by the judge, and to help the juge modify the confusing passwords.</p>
 <p>Input Specification:</p>
 <p>Each input file contains one test case. Each case contains a positive integer N (≤1000), followed by N lines of accounts. Each account consists of a user name and a password, both are strings of no more than 10 characters with no space.</p>
@@ -318,83 +304,77 @@ public class Main {
 Team000002 Rlsp0dfa
 Team000003 perfectpwd
 Team000001 R1spOdfa
-</code></pre>
-<p>Sample Output 1:</p>
+</code></pre><p>Sample Output 1:</p>
 <pre><code>2
 Team000002 RLsp%dfa
 Team000001 R@spodfa
-</code></pre>
-<p>Sample Input 2:</p>
+</code></pre><p>Sample Input 2:</p>
 <pre><code>1
 team110 abcdefg332
-</code></pre>
-<p>Sample Output 2:</p>
+</code></pre><p>Sample Output 2:</p>
 <pre><code>There is 1 account and no account is modified
-</code></pre>
-<p>Sample Input 3:</p>
+</code></pre><p>Sample Input 3:</p>
 <pre><code>2
 team110 abcdefg222
 team220 abcdefg333
-</code></pre>
-<p>Sample Output 3:</p>
+</code></pre><p>Sample Output 3:</p>
 <pre><code>There are 2 accounts and no account is modified
-</code></pre>
-<pre><code class="language-java">import java.util.*;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.*<span style="color:#f92672">;</span>
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        List&lt;String&gt; stuList = new ArrayList&lt;&gt;();
-        int N = in.nextInt();
-        Boolean flag = true;
-        for(int i=0;i&lt;N;i++)
-        {
-            String teamId = in.next();
-            String teamPass = in.next();
-            Boolean teamFlag = false;
-            if(teamPass.contains("1"))
-            {
-                teamPass = teamPass.replace("1","@");
-                teamFlag = true;
-            }
-            if(teamPass.contains("l"))
-            {
-                teamPass = teamPass.replace("l","L");
-                teamFlag = true;
-            }
-            if(teamPass.contains("O")) {
-                teamPass = teamPass.replace("O","o");
-                teamFlag = true;
-            }
-            if(teamPass.contains("0"))
-            {
-                teamPass = teamPass.replace("0","%");
-                teamFlag = true;
-            }
-            if(teamFlag.equals(true)){
-                flag = false;
-                String resStr = teamId + " " + teamPass;
-                stuList.add(resStr);
-            }
-        }
-        in.close();
-        if(flag.equals(true)){
-            if(N == 1)
-            {
-                System.out.println("There is 1 account and no account is modified");
-            }
-            else {
-                System.out.println("There are "+N+" accounts and no account is modified");
-            }
-        } else {
-            System.out.println(stuList.size());
-            for(String resStr : stuList){
-                System.out.println(resStr);
-            }
-        }
-    }
-}
-</code></pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Scanner in <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scanner<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">);</span>
+        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> stuList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">();</span>
+        Boolean flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>N<span style="color:#f92672">;</span>i<span style="color:#f92672">++)</span>
+        <span style="color:#f92672">{</span>
+            String teamId <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            String teamPass <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            Boolean teamFlag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">"1"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                teamPass <span style="color:#f92672">=</span> teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">"1"</span><span style="color:#f92672">,</span><span style="color:#e6db74">"@"</span><span style="color:#f92672">);</span>
+                teamFlag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">"l"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                teamPass <span style="color:#f92672">=</span> teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">"l"</span><span style="color:#f92672">,</span><span style="color:#e6db74">"L"</span><span style="color:#f92672">);</span>
+                teamFlag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">"O"</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                teamPass <span style="color:#f92672">=</span> teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">"O"</span><span style="color:#f92672">,</span><span style="color:#e6db74">"o"</span><span style="color:#f92672">);</span>
+                teamFlag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">"0"</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">{</span>
+                teamPass <span style="color:#f92672">=</span> teamPass<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">"0"</span><span style="color:#f92672">,</span><span style="color:#e6db74">"%"</span><span style="color:#f92672">);</span>
+                teamFlag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>teamFlag<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)){</span>
+                flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+                String resStr <span style="color:#f92672">=</span> teamId <span style="color:#f92672">+</span> <span style="color:#e6db74">" "</span> <span style="color:#f92672">+</span> teamPass<span style="color:#f92672">;</span>
+                stuList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>resStr<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        in<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>flag<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>N <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span>
+            <span style="color:#f92672">{</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"There is 1 account and no account is modified"</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">"There are "</span><span style="color:#f92672">+</span>N<span style="color:#f92672">+</span><span style="color:#e6db74">" accounts and no account is modified"</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>stuList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
+            <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>String resStr <span style="color:#f92672">:</span> stuList<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>resStr<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -435,14 +415,17 @@ public class Main {
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

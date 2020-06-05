@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>leetcode python刷题记录4 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -83,8 +83,6 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#111-minimum-depth-of-binary-tree">111. Minimum Depth of Binary Tree</a></li>
 <li><a href="#112-path-sum">112. Path Sum</a></li>
 <li><a href="#226-invert-binary-tree">226. Invert Binary Tree</a></li>
@@ -94,278 +92,268 @@ code.has-jax {
 <li><a href="#106-construct-binary-tree-from-inorder-and-postorder-traversal">106. Construct Binary Tree from Inorder and Postorder Traversal</a></li>
 <li><a href="#113-path-sum-ii">113. Path Sum II</a></li>
 <li><a href="#114-flatten-binary-tree-to-linked-list">114. Flatten Binary Tree to Linked List</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>前几天貌似怠惰了呢，今天做了几道水题，（bin tree的），放上来。</p>
-<p></p>
 <h2 id="111-minimum-depth-of-binary-tree">111. Minimum Depth of Binary Tree</h2>
 <p>Given a binary tree, find its minimum depth.</p>
 <p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
 <p>Note: A leaf is a node with no children.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root:
-            return 0
-        root_list = [root]
-        res = []
-        depth = 1
-        flag = 0
-        while root_list:
-            node_list = []
-            for i in root_list:
-                if not i.left and not i.right:
-                    flag = 1
-                if i.left:
-                    node_list.append(i.left)
-                if i.right:
-                    node_list.append(i.right)
-            root_list = node_list
-            if flag == 1:
-                return depth
-            depth += 1
-</code></pre>
-<h2 id="112-path-sum">112. Path Sum</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minDepth</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        root_list <span style="color:#f92672">=</span> [root]
+        res <span style="color:#f92672">=</span> []
+        depth <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> root_list:
+            node_list <span style="color:#f92672">=</span> []
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> root_list:
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> i<span style="color:#f92672">.</span>left <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> i<span style="color:#f92672">.</span>right:
+                    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>left:
+                    node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>left)
+                <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>right:
+                    node_list<span style="color:#f92672">.</span>append(i<span style="color:#f92672">.</span>right)
+            root_list <span style="color:#f92672">=</span> node_list
+            <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                <span style="color:#66d9ef">return</span> depth
+            depth <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h2 id="112-path-sum">112. Path Sum</h2>
 <p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
 <p>Note: A leaf is a node with no children.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def hasPathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: bool
-        """
-        if root == None:
-            return False
-        elif root.left == None and root.right == None and root.val == sum:
-            return True
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hasPathSum</span>(self, root, sum):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type sum: int
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> sum:
+            <span style="color:#66d9ef">return</span> True
         
-        return True if self.hasPathSum(root.left,sum - root.val) or self.hasPathSum(root.right,sum - root.val) else False
-</code></pre>
-<h2 id="226-invert-binary-tree">226. Invert Binary Tree</h2>
+        <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>hasPathSum(root<span style="color:#f92672">.</span>left,sum <span style="color:#f92672">-</span> root<span style="color:#f92672">.</span>val) <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>hasPathSum(root<span style="color:#f92672">.</span>right,sum <span style="color:#f92672">-</span> root<span style="color:#f92672">.</span>val) <span style="color:#66d9ef">else</span> False
+</code></pre></div><h2 id="226-invert-binary-tree">226. Invert Binary Tree</h2>
 <p>Invert a binary tree.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def invertTree(self, root):
-        """
-        :type root: TreeNode
-        :rtype: TreeNode
-        """
-        if root == None:
-            return root
-        left = root.left
-        root.left = self.invertTree(root.right)
-        root.right = self.invertTree(left)
-        return root
-</code></pre>
-<h2 id="101-symmetric-tree">101. Symmetric Tree</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertTree</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> root
+        left <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left
+        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>invertTree(root<span style="color:#f92672">.</span>right)
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>invertTree(left)
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="101-symmetric-tree">101. Symmetric Tree</h2>
 <p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def isSymmetric(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        if root == None:
-            return True
-        return self.is_balance(root.left,root.right)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSymmetric</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>is_balance(root<span style="color:#f92672">.</span>left,root<span style="color:#f92672">.</span>right)
     
-    def is_balance(self,left,right):
-        if left == None and right == None:
-            return True
-        elif left != None and right != None:
-            return True if left.val == right.val and self.is_balance(left.right,right.left) and self.is_balance(right.right,left.left) else False
-        else:
-            return False
-</code></pre>
-<h2 id="95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_balance</span>(self,left,right):
+        <span style="color:#66d9ef">if</span> left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> right <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">elif</span> left <span style="color:#f92672">!=</span> None <span style="color:#f92672">and</span> right <span style="color:#f92672">!=</span> None:
+            <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> left<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> right<span style="color:#f92672">.</span>val <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>is_balance(left<span style="color:#f92672">.</span>right,right<span style="color:#f92672">.</span>left) <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>is_balance(right<span style="color:#f92672">.</span>right,left<span style="color:#f92672">.</span>left) <span style="color:#66d9ef">else</span> False
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">return</span> False
+</code></pre></div><h2 id="95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</h2>
 <p>Given an integer n, generate all structurally unique BST’s (binary search trees) that store values 1 … n.</p>
 <p>运用动态规划，每次选取一个节点作为根节点，将树分为左右两个子树，直到该子树为空。</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def generateTrees(self, n):
-        """
-        :type n: int
-        :rtype: List[TreeNode]
-        """
-        if n == 0:
-            return []
-        return self.createTrees(1,n)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateTrees</span>(self, n):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :rtype: List[TreeNode]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            <span style="color:#66d9ef">return</span> []
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>createTrees(<span style="color:#ae81ff">1</span>,n)
     
-    def createTrees(self,start,end):
-        results = []
-        if start &gt; end:
-            results.append(None)
-            return results
-        for k in range(start,end+1):
-            left = self.createTrees(start,k-1)
-            right = self.createTrees(k+1,end)
-            for i in left:
-                for j in right:
-                    root = TreeNode(k)
-                    root.left = i
-                    root.right = j
-                    results.append(root)
-        return results
-</code></pre>
-<h2 id="105-construct-binary-tree-from-preorder-and-inorder-traversal">105. Construct Binary Tree from Preorder and Inorder Traversal</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">createTrees</span>(self,start,end):
+        results <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">if</span> start <span style="color:#f92672">&gt;</span> end:
+            results<span style="color:#f92672">.</span>append(None)
+            <span style="color:#66d9ef">return</span> results
+        <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(start,end<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>createTrees(start,k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>createTrees(k<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,end)
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> left:
+                <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> right:
+                    root <span style="color:#f92672">=</span> TreeNode(k)
+                    root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> i
+                    root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> j
+                    results<span style="color:#f92672">.</span>append(root)
+        <span style="color:#66d9ef">return</span> results
+</code></pre></div><h2 id="105-construct-binary-tree-from-preorder-and-inorder-traversal">105. Construct Binary Tree from Preorder and Inorder Traversal</h2>
 <p>Given preorder and inorder traversal of a tree, construct the binary tree.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def buildTree(self, preorder, inorder):
-        """
-        :type preorder: List[int]
-        :type inorder: List[int]
-        :rtype: TreeNode
-        """
-        return self.build_tree(preorder,0,len(preorder)-1,inorder,0,len(inorder)-1)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">buildTree</span>(self, preorder, inorder):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type preorder: List[int]
+</span><span style="color:#e6db74">        :type inorder: List[int]
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>build_tree(preorder,<span style="color:#ae81ff">0</span>,len(preorder)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,inorder,<span style="color:#ae81ff">0</span>,len(inorder)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
     
-    def build_tree(self,perorder,pleft,pright,inorder,ileft,iright):
-        if pleft &gt; pright or ileft &gt; iright:
-            return None
-        for i in range(ileft,iright+1):
-            if perorder[pleft] == inorder[i]:
-                break
-        root = TreeNode(perorder[pleft])
-        root.left = self.build_tree(perorder,pleft+1,pleft+i-ileft,inorder,ileft,i-1)
-        root.right = self.build_tree(perorder,pleft+i-ileft+1,pright,inorder,i+1,iright)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_tree</span>(self,perorder,pleft,pright,inorder,ileft,iright):
+        <span style="color:#66d9ef">if</span> pleft <span style="color:#f92672">&gt;</span> pright <span style="color:#f92672">or</span> ileft <span style="color:#f92672">&gt;</span> iright:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(ileft,iright<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> perorder[pleft] <span style="color:#f92672">==</span> inorder[i]:
+                <span style="color:#66d9ef">break</span>
+        root <span style="color:#f92672">=</span> TreeNode(perorder[pleft])
+        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>build_tree(perorder,pleft<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,pleft<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>ileft,inorder,ileft,i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>build_tree(perorder,pleft<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>ileft<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,pright,inorder,i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,iright)
         
-        return root
-</code></pre>
-<h2 id="106-construct-binary-tree-from-inorder-and-postorder-traversal">106. Construct Binary Tree from Inorder and Postorder Traversal</h2>
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="106-construct-binary-tree-from-inorder-and-postorder-traversal">106. Construct Binary Tree from Inorder and Postorder Traversal</h2>
 <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def buildTree(self, inorder, postorder):
-        """
-        :type inorder: List[int]
-        :type postorder: List[int]
-        :rtype: TreeNode
-        """
-        return self.built_tree(inorder,0,len(inorder)-1,postorder,0,len(postorder)-1)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">buildTree</span>(self, inorder, postorder):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type inorder: List[int]
+</span><span style="color:#e6db74">        :type postorder: List[int]
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>built_tree(inorder,<span style="color:#ae81ff">0</span>,len(inorder)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,postorder,<span style="color:#ae81ff">0</span>,len(postorder)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
     
-    def built_tree(self,inorder,ileft,iright,postorder,pleft,pright):
-        if ileft &gt; iright or pleft &gt; pright:
-            return None
-        root = TreeNode(postorder[pright])
-        for i in range(ileft,len(inorder)):
-            if inorder[i] == root.val:
-                break
-        root.left = self.built_tree(inorder,ileft,i-1,postorder,pleft,pleft+i-ileft-1)
-        root.right = self.built_tree(inorder,i+1,iright,postorder,pleft+i-ileft,pright-1)
-        return root
-</code></pre>
-<h2 id="113-path-sum-ii">113. Path Sum II</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">built_tree</span>(self,inorder,ileft,iright,postorder,pleft,pright):
+        <span style="color:#66d9ef">if</span> ileft <span style="color:#f92672">&gt;</span> iright <span style="color:#f92672">or</span> pleft <span style="color:#f92672">&gt;</span> pright:
+            <span style="color:#66d9ef">return</span> None
+        root <span style="color:#f92672">=</span> TreeNode(postorder[pright])
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(ileft,len(inorder)):
+            <span style="color:#66d9ef">if</span> inorder[i] <span style="color:#f92672">==</span> root<span style="color:#f92672">.</span>val:
+                <span style="color:#66d9ef">break</span>
+        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>built_tree(inorder,ileft,i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,postorder,pleft,pleft<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>ileft<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>built_tree(inorder,i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,iright,postorder,pleft<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>ileft,pright<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="113-path-sum-ii">113. Path Sum II</h2>
 <p>Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.</p>
 <p>Note: A leaf is a node with no children.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def __init__(self):
-        self.All_list = []
-        self.num_list = []
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>All_list <span style="color:#f92672">=</span> []
+        self<span style="color:#f92672">.</span>num_list <span style="color:#f92672">=</span> []
     
-    def pathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: List[List[int]]
-        """
-        if root == None:
-            return self.All_list
-        self.num_list.append(root.val)
-        sum -= root.val
-        if root.left == None and root.right == None and sum == 0:
-            self.All_list.append(self.num_list.copy())
-        self.pathSum(root.left, sum)
-        self.pathSum(root.right, sum)
-        self.num_list.pop()
-        return self.All_list
-</code></pre>
-<h2 id="114-flatten-binary-tree-to-linked-list">114. Flatten Binary Tree to Linked List</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pathSum</span>(self, root, sum):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type sum: int
+</span><span style="color:#e6db74">        :rtype: List[List[int]]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>All_list
+        self<span style="color:#f92672">.</span>num_list<span style="color:#f92672">.</span>append(root<span style="color:#f92672">.</span>val)
+        sum <span style="color:#f92672">-=</span> root<span style="color:#f92672">.</span>val
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> sum <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            self<span style="color:#f92672">.</span>All_list<span style="color:#f92672">.</span>append(self<span style="color:#f92672">.</span>num_list<span style="color:#f92672">.</span>copy())
+        self<span style="color:#f92672">.</span>pathSum(root<span style="color:#f92672">.</span>left, sum)
+        self<span style="color:#f92672">.</span>pathSum(root<span style="color:#f92672">.</span>right, sum)
+        self<span style="color:#f92672">.</span>num_list<span style="color:#f92672">.</span>pop()
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>All_list
+</code></pre></div><h2 id="114-flatten-binary-tree-to-linked-list">114. Flatten Binary Tree to Linked List</h2>
 <p>Given a binary tree, flatten it to a linked list in-place.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def flatten(self, root):
-        """
-        :type root: TreeNode
-        :rtype: void Do not return anything, modify root in-place instead.
-        """
-        if root == None:
-            return None
-        if root.left != None:
-            self.flatten(root.left)
-        if root.right != None:
-            self.flatten(root.right)
-        temp = root.right
-        root.right = root.left
-        root.left = None
-        while root.right != None:
-            root = root.right
-        root.right = temp
-</code></pre>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flatten</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: void Do not return anything, modify root in-place instead.
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">!=</span> None:
+            self<span style="color:#f92672">.</span>flatten(root<span style="color:#f92672">.</span>left)
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">!=</span> None:
+            self<span style="color:#f92672">.</span>flatten(root<span style="color:#f92672">.</span>right)
+        temp <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left
+        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> None
+        <span style="color:#66d9ef">while</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">!=</span> None:
+            root <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> temp
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -406,14 +394,17 @@ class Solution:
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

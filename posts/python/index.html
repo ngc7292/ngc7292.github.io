@@ -7,13 +7,11 @@
 <meta content="summary" name="twitter:card"/>
 <meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
 <meta content="about python" name="twitter:title"/>
-<meta content="有关python的一些问题汇总
-
-" name="twitter:description"/>
+<meta content="有关python的一些问题汇总" name="twitter:description"/>
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>about python · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -73,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Feb 18, 2020 00:00
-                    · 62 words
+                    · 61 words
                     · 1 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/python">python</a>
@@ -85,60 +83,47 @@ code.has-jax {
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#装饰器">装饰器</a></li>
-<li><a href="#垃圾回收">垃圾回收</a></li>
-<li><a href="#协程">协程</a></li>
-<li><a href="#事件循环">事件循环</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
+<li></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>有关python的一些问题汇总</p>
-<p></p>
 <h4 id="装饰器">装饰器</h4>
 <p>装饰器在开发中应用广泛，其多用于增强函数的行为以及增加复用。</p>
 <p>在flask中，路由可以用装饰器来定义，可以减少开发者使用框架的工作量。</p>
-<pre><code class="language-python">@app.route("/")
-def index():
-  ...
-</code></pre>
-<p>与装饰器有关的几个概念。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">"/"</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+  <span style="color:#f92672">...</span>
+</code></pre></div><p>与装饰器有关的几个概念。</p>
 <p>闭包： 闭包就是能够读取其他函数内部变量的函数。</p>
 <p>eg：</p>
-<pre><code class="language-python">def outer_func():
-    loc_list = []
-    def inner_func(name):
-    	loc_list.append(len(loc_list) + 1)
-			print '%s loc_list = %s' %(name, loc_list)
-      return inner_func
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer_func</span>():
+    loc_list <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner_func</span>(name):
+    	loc_list<span style="color:#f92672">.</span>append(len(loc_list) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+			<span style="color:#66d9ef">print</span> <span style="color:#e6db74">'</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> loc_list = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">'</span> <span style="color:#f92672">%</span>(name, loc_list)
+      <span style="color:#66d9ef">return</span> inner_func
     
-clo_func_0 = outer_func()
-clo_func_0('clo_func_0')
-clo_func_0('clo_func_0')
-clo_func_0('clo_func_0')
-clo_func_1 = outer_func()
-clo_func_1('clo_func_1')
-clo_func_0('clo_func_0')
-clo_func_1('clo_func_1')
-</code></pre>
-<p>上面的loc_list 就是闭包的自由变量，而且每个实例的自由变量不相关。</p>
+clo_func_0 <span style="color:#f92672">=</span> outer_func()
+clo_func_0(<span style="color:#e6db74">'clo_func_0'</span>)
+clo_func_0(<span style="color:#e6db74">'clo_func_0'</span>)
+clo_func_0(<span style="color:#e6db74">'clo_func_0'</span>)
+clo_func_1 <span style="color:#f92672">=</span> outer_func()
+clo_func_1(<span style="color:#e6db74">'clo_func_1'</span>)
+clo_func_0(<span style="color:#e6db74">'clo_func_0'</span>)
+clo_func_1(<span style="color:#e6db74">'clo_func_1'</span>)
+</code></pre></div><p>上面的loc_list 就是闭包的自由变量，而且每个实例的自由变量不相关。</p>
 <p>nonlocal ：python3中刚引入的声明，其作用是将变量标记为自由变量。简单来说，就是将不可变变量比如字符串元组等可以在闭包中更新。</p>
 <p>装饰器就是动态的为对象添加额外的职责。</p>
-<pre><code class="language-python">@decorater
-def func():
-  ...
-</code></pre>
-<p>就相当于</p>
-<pre><code class="language-python">decorater(func)
-</code></pre>
-<p>叠放装饰器，参数化装饰器，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@decorater</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>():
+  <span style="color:#f92672">...</span>
+</code></pre></div><p>就相当于</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">decorater(func)
+</code></pre></div><p>叠放装饰器，参数化装饰器，</p>
 <h4 id="垃圾回收">垃圾回收</h4>
 <p>python的小整数常驻内存，不会被回收</p>
 <p>字符串等会创建对象，并采用引用，当引用计数为0时便销毁对象。</p>
@@ -186,14 +171,17 @@ def func():
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

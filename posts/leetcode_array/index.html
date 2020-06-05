@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>leetcode array · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -82,8 +82,6 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#717-1-bit-and-2-bit-characters">717. 1-bit and 2-bit Characters</a></li>
 <li><a href="#695-max-area-of-island">695. Max Area of Island</a></li>
 <li><a href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee">714. Best Time to Buy and Sell Stock with Transaction Fee</a></li>
@@ -97,361 +95,346 @@ code.has-jax {
 <li><a href="#581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</a></li>
 <li><a href="#39-combination-sum">39. Combination Sum</a></li>
 <li><a href="#769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>leetcode problem of array.</p>
-<p></p>
 <h2 id="717-1-bit-and-2-bit-characters">717. 1-bit and 2-bit Characters</h2>
 <p>We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).</p>
 <p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
-<pre><code class="language-python">class Solution:
-    def isOneBitCharacter(self, bits):
-        """
-        :type bits: List[int]
-        :rtype: bool
-        """
-        i = 0
-        res = [0 for i in bits]
-        while i &lt; len(bits):
-            if res[i] == 1 and i == len(bits)-1:
-                return False
-            elif res[i] == 1:
-                i += 1
-            elif bits[i] == 0:
-                i += 1
-            elif bits[i] == 1:
-                res[i+1] = 1
-                i += 1
-        return True
-</code></pre>
-<h2 id="695-max-area-of-island">695. Max Area of Island</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isOneBitCharacter</span>(self, bits):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type bits: List[int]
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        res <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> bits]
+        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(bits):
+            <span style="color:#66d9ef">if</span> res[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span> i <span style="color:#f92672">==</span> len(bits)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+                <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">elif</span> res[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">elif</span> bits[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">elif</span> bits[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                res[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div><h2 id="695-max-area-of-island">695. Max Area of Island</h2>
 <p>Given a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 <p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
-<pre><code class="language-python">class Solution:
-    def maxAreaOfIsland(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
-        self.grid = grid
-        self.height = len(grid)
-        self.width = len(grid[0])
-        max_area = 0
-        for x in range(self.height):
-            for y in range(self.width):
-                if self.grid[x][y] == 1:
-                    max_area = max(max_area,self.dfs(x,y))
-        return max_area
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxAreaOfIsland</span>(self, grid):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type grid: List[List[int]]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        self<span style="color:#f92672">.</span>grid <span style="color:#f92672">=</span> grid
+        self<span style="color:#f92672">.</span>height <span style="color:#f92672">=</span> len(grid)
+        self<span style="color:#f92672">.</span>width <span style="color:#f92672">=</span> len(grid[<span style="color:#ae81ff">0</span>])
+        max_area <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>height):
+            <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>width):
+                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>grid[x][y] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                    max_area <span style="color:#f92672">=</span> max(max_area,self<span style="color:#f92672">.</span>dfs(x,y))
+        <span style="color:#66d9ef">return</span> max_area
     
-    def dfs(self,x,y):
-        if x &lt; 0 or x &gt;= self.height or y &lt; 0 or y &gt;= self.width or self.grid[x][y] == 0:
-            return 0
-        area = 1
-        self.grid[x][y] = 0
-        area += self.dfs(x-1,y)+self.dfs(x,y-1)+self.dfs(x+1,y)+self.dfs(x,y+1)
-        return area
-</code></pre>
-<h2 id="714-best-time-to-buy-and-sell-stock-with-transaction-fee">714. Best Time to Buy and Sell Stock with Transaction Fee</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfs</span>(self,x,y):
+        <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> x <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>height <span style="color:#f92672">or</span> y <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> y <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>width <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>grid[x][y] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        area <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        self<span style="color:#f92672">.</span>grid[x][y] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        area <span style="color:#f92672">+=</span> self<span style="color:#f92672">.</span>dfs(x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,y)<span style="color:#f92672">+</span>self<span style="color:#f92672">.</span>dfs(x,y<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>self<span style="color:#f92672">.</span>dfs(x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,y)<span style="color:#f92672">+</span>self<span style="color:#f92672">.</span>dfs(x,y<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#66d9ef">return</span> area
+</code></pre></div><h2 id="714-best-time-to-buy-and-sell-stock-with-transaction-fee">714. Best Time to Buy and Sell Stock with Transaction Fee</h2>
 <p>Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.</p>
 <p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
 <p>Return the maximum profit you can make.</p>
-<pre><code class="language-python">class Solution:
-    def maxProfit(self, prices, fee):
-        """
-        :type prices: List[int]
-        :type fee: int
-        :rtype: int
-        """
-        cash = 0
-        hold = -prices[0]
-        for i in prices:
-            cash = max(cash,hold+i-fee)
-            hold = max(hold,cash-i)
-        return cash
-</code></pre>
-<h2 id="713-subarray-product-less-than-k">713. Subarray Product Less Than K</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices, fee):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type prices: List[int]
+</span><span style="color:#e6db74">        :type fee: int
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        cash <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        hold <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>prices[<span style="color:#ae81ff">0</span>]
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> prices:
+            cash <span style="color:#f92672">=</span> max(cash,hold<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>fee)
+            hold <span style="color:#f92672">=</span> max(hold,cash<span style="color:#f92672">-</span>i)
+        <span style="color:#66d9ef">return</span> cash
+</code></pre></div><h2 id="713-subarray-product-less-than-k">713. Subarray Product Less Than K</h2>
 <p>Your are given an array of positive integers nums.</p>
 <p>Count and print the number of (contiguous) subarrays where the product of all the elements in the subarray is less than k.</p>
-<pre><code class="language-python">class Solution:
-    def numSubarrayProductLessThanK(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        if k &lt;= 1:
-            return 0
-        n = len(nums)
-        p = 1
-        i = 0
-        res = 0
-        for j in range(n):
-            p *= nums[j]
-            while p &gt;= k:
-                p /= nums[i]
-                i += 1
-            res += j - i + 1
-        return res
-</code></pre>
-<h2 id="714-best-time-to-buy-and-sell-stock-with-transaction-fee-1">714. Best Time to Buy and Sell Stock with Transaction Fee</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numSubarrayProductLessThanK</span>(self, nums, k):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type nums: List[int]
+</span><span style="color:#e6db74">        :type k: int
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> k <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        n <span style="color:#f92672">=</span> len(nums)
+        p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):
+            p <span style="color:#f92672">*=</span> nums[j]
+            <span style="color:#66d9ef">while</span> p <span style="color:#f92672">&gt;=</span> k:
+                p <span style="color:#f92672">/=</span> nums[i]
+                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            res <span style="color:#f92672">+=</span> j <span style="color:#f92672">-</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="714-best-time-to-buy-and-sell-stock-with-transaction-fee-1">714. Best Time to Buy and Sell Stock with Transaction Fee</h2>
 <p>Your are given an array of integers prices, for which the i-th element is the price of a given stock on day i; and a non-negative integer fee representing a transaction fee.</p>
 <p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
 <p>Return the maximum profit you can make.</p>
-<pre><code class="language-python">class Solution:
-    def maxProfit(self, prices, fee):
-        """
-        :type prices: List[int]
-        :type fee: int
-        :rtype: int
-        """
-        cash = 0
-        hold = -prices[0]
-        for i in prices:
-            cash = max(cash,hold+i-fee)
-            hold = max(hold,cash-i)
-        return cash
-</code></pre>
-<h2 id="565-array-nesting">565. Array Nesting</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices, fee):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type prices: List[int]
+</span><span style="color:#e6db74">        :type fee: int
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        cash <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        hold <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>prices[<span style="color:#ae81ff">0</span>]
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> prices:
+            cash <span style="color:#f92672">=</span> max(cash,hold<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>fee)
+            hold <span style="color:#f92672">=</span> max(hold,cash<span style="color:#f92672">-</span>i)
+        <span style="color:#66d9ef">return</span> cash
+</code></pre></div><h2 id="565-array-nesting">565. Array Nesting</h2>
 <p>A zero-indexed array A of length N contains all integers from 0 to N-1. Find and return the longest length of set S, where S[i] = {A[i], A[A[i]], A[A[A[i]]], … } subjected to the rule below.</p>
 <p>Suppose the first element in S starts with the selection of element A[i] of index = i, the next element in S should be A[A[i]], and then A[A[A[i]]]… By that analogy, we stop adding right before a duplicate element occurs in S.</p>
-<pre><code class="language-python">class Solution:
-    def arrayNesting(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        count = 0
-        res = {i:0 for i in range(len(nums))}
-        for i in range(len(nums)):
-            index = i
-            cnt = 0
-            if res[index] == 1:
-                continue
-            while index &lt; len(nums):
-                if res[index] == 0:
-                    res[index] = 1
-                    index = nums[index]
-                    cnt += 1
-                else:
-                    break
-            count = max(count,cnt)
-        return count
-</code></pre>
-<h2 id="840-magic-squares-in-grid">840. Magic Squares In Grid</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">arrayNesting</span>(self, nums):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type nums: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        res <span style="color:#f92672">=</span> {i:<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums))}
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+            index <span style="color:#f92672">=</span> i
+            cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">if</span> res[index] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                <span style="color:#66d9ef">continue</span>
+            <span style="color:#66d9ef">while</span> index <span style="color:#f92672">&lt;</span> len(nums):
+                <span style="color:#66d9ef">if</span> res[index] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                    res[index] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                    index <span style="color:#f92672">=</span> nums[index]
+                    cnt <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">else</span>:
+                    <span style="color:#66d9ef">break</span>
+            count <span style="color:#f92672">=</span> max(count,cnt)
+        <span style="color:#66d9ef">return</span> count
+</code></pre></div><h2 id="840-magic-squares-in-grid">840. Magic Squares In Grid</h2>
 <p>A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 such that each row, column, and both diagonals all have the same sum.</p>
 <p>Given an grid of integers, how many 3 x 3 “magic square” subgrids are there?  (Each subgrid is contiguous).</p>
-<pre><code class="language-python">class Solution:
-    def numMagicSquaresInside(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
-        height = len(grid)
-        width = len(grid[0]) if height != 0 else 0
-        if height &lt; 3 or width &lt; 3:
-            return 0
-        count = 0
-        for i in range(height-2):
-            for j in range(width-2):
-                flag = 0
-                matirx = []
-                for m in range(i,i+3):
-                    matirx_list = []
-                    for n in range(j,j+3):
-                        if grid[m][n] &gt;= 10 or grid[m][n] &lt;= 0:
-                            flag = 1
-                            break
-                        matirx_list.append(grid[m][n])
-                    matirx.append(matirx_list)
-                    if flag == 1:
-                        break
-                if flag == 1:
-                    continue
-                print(matirx)
-                if self.check(matirx):
-                    count += 1
-        return count
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numMagicSquaresInside</span>(self, grid):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type grid: List[List[int]]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        height <span style="color:#f92672">=</span> len(grid)
+        width <span style="color:#f92672">=</span> len(grid[<span style="color:#ae81ff">0</span>]) <span style="color:#66d9ef">if</span> height <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">if</span> height <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">or</span> width <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(height<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>):
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(width<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>):
+                flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+                matirx <span style="color:#f92672">=</span> []
+                <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(i,i<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>):
+                    matirx_list <span style="color:#f92672">=</span> []
+                    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(j,j<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>):
+                        <span style="color:#66d9ef">if</span> grid[m][n] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">or</span> grid[m][n] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+                            flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+                            <span style="color:#66d9ef">break</span>
+                        matirx_list<span style="color:#f92672">.</span>append(grid[m][n])
+                    matirx<span style="color:#f92672">.</span>append(matirx_list)
+                    <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                        <span style="color:#66d9ef">break</span>
+                <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+                    <span style="color:#66d9ef">continue</span>
+                <span style="color:#66d9ef">print</span>(matirx)
+                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>check(matirx):
+                    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> count
      
-    def check(self,matirx):
-        if matirx[1][1] != 5:
-            return False
-        num_t = sum(matirx[0])
-        num_b = sum(matirx[2])
-        num_m = sum(matirx[1])
-        num_l = sum([matirx[i][0] for i in range(3)])
-        num_r = sum([matirx[i][2] for i in rang
-                     e(3)])
-        if num_t == 15 and num_b == 15 and num_m == 15 and num_l == 15 and num_r == 15:
-            return True
-        else:
-            return False
-'''
-
-## 746. Min Cost Climbing Stairs
-
-On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
-
-Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
-
-```python
-class Solution:
-    def minCostClimbingStairs(self, cost):
-        """
-        :type cost: List[int]
-        :rtype: int
-        """
-        res = [0,0]
-        for i in range(2,len(cost)+1):
-            res.append(min(res[i-1]+cost[i-1],res[i-2]+cost[i-2]))
-        return res[-1]
-</code></pre>
-<h2 id="611-valid-triangle-number">611. Valid Triangle Number</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(self,matirx):
+        <span style="color:#66d9ef">if</span> matirx[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span>:
+            <span style="color:#66d9ef">return</span> False
+        num_t <span style="color:#f92672">=</span> sum(matirx[<span style="color:#ae81ff">0</span>])
+        num_b <span style="color:#f92672">=</span> sum(matirx[<span style="color:#ae81ff">2</span>])
+        num_m <span style="color:#f92672">=</span> sum(matirx[<span style="color:#ae81ff">1</span>])
+        num_l <span style="color:#f92672">=</span> sum([matirx[i][<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>)])
+        num_r <span style="color:#f92672">=</span> sum([matirx[i][<span style="color:#ae81ff">2</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> rang
+                     e(<span style="color:#ae81ff">3</span>)])
+        <span style="color:#66d9ef">if</span> num_t <span style="color:#f92672">==</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">and</span> num_b <span style="color:#f92672">==</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">and</span> num_m <span style="color:#f92672">==</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">and</span> num_l <span style="color:#f92672">==</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">and</span> num_r <span style="color:#f92672">==</span> <span style="color:#ae81ff">15</span>:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">return</span> False
+<span style="color:#e6db74">'''
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">## 746. Min Cost Climbing Stairs
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">```python
+</span><span style="color:#e6db74">class Solution:
+</span><span style="color:#e6db74">    def minCostClimbingStairs(self, cost):
+</span><span style="color:#e6db74">        """
+</span><span style="color:#e6db74">        :type cost: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """
+</span><span style="color:#e6db74">        res = [0,0]
+</span><span style="color:#e6db74">        for i in range(2,len(cost)+1):
+</span><span style="color:#e6db74">            res.append(min(res[i-1]+cost[i-1],res[i-2]+cost[i-2]))
+</span><span style="color:#e6db74">        return res[-1]
+</span></code></pre></div><h2 id="611-valid-triangle-number">611. Valid Triangle Number</h2>
 <p>Given an array consists of non-negative integers, your task is to count the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.</p>
-<pre><code class="language-python">class Solution:
-    def triangleNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        nums.sort()
-        res = 0
-        for i in range(0,len(nums)-2):
-            j = i+1
-            for k in range(i+2,len(nums)):
-                while j&lt;k and nums[i] + nums[j] &lt;= nums[k]:
-                    j += 1
-                res += k-j
-        return res
-</code></pre>
-<h2 id="605-can-place-flowers">605. Can Place Flowers</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">triangleNumber</span>(self, nums):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type nums: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        nums<span style="color:#f92672">.</span>sort()
+        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(nums)<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>):
+            j <span style="color:#f92672">=</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,len(nums)):
+                <span style="color:#66d9ef">while</span> j<span style="color:#f92672">&lt;</span>k <span style="color:#f92672">and</span> nums[i] <span style="color:#f92672">+</span> nums[j] <span style="color:#f92672">&lt;=</span> nums[k]:
+                    j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                res <span style="color:#f92672">+=</span> k<span style="color:#f92672">-</span>j
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><h2 id="605-can-place-flowers">605. Can Place Flowers</h2>
 <p>Suppose you have a long flowerbed in which some of the plots are planted and some are not. However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.</p>
 <p>Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number n, return if n new flowers can be planted in it without violating the no-adjacent-flowers rule.</p>
-<pre><code class="language-python">class Solution:
-    def canPlaceFlowers(self, flowerbed, n):
-        """
-        :type flowerbed: List[int]
-        :type n: int
-        :rtype: bool
-        """
-        count = 1
-        result = 0
-        for i in range(len(flowerbed)):
-            if flowerbed[i] == 0:
-                count += 1
-            else:
-                result += (count-1)//2
-                count = 0
-        if count != 0:
-            result += count/2
-        return result&gt;=n
-</code></pre>
-<h2 id="835-image-overlap">835. Image Overlap</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canPlaceFlowers</span>(self, flowerbed, n):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type flowerbed: List[int]
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(flowerbed)):
+            <span style="color:#66d9ef">if</span> flowerbed[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">else</span>:
+                result <span style="color:#f92672">+=</span> (count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>
+                count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">if</span> count <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+            result <span style="color:#f92672">+=</span> count<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">&gt;=</span>n
+</code></pre></div><h2 id="835-image-overlap">835. Image Overlap</h2>
 <p>Two images A and B are given, represented as binary, square matrices of the same size.  (A binary matrix has only 0s and 1s as values.)</p>
 <p>We translate one image however we choose (sliding it left, right, up, or down any number of units), and place it on top of the other image.  After, the overlap of this translation is the number of positions that have a 1 in both images.</p>
 <p>(Note also that a translation does not include any kind of rotation.)</p>
 <p>What is the largest possible overlap?</p>
-<pre><code class="language-python">class Solution:
-    def largestOverlap(self, A, B):
-        """
-        :type A: List[List[int]]
-        :type B: List[List[int]]
-        :rtype: int
-        """
-        N = len(A)
-        LA = [(i,j) for i in range(N) for j in range(N) if A[i][j]]
-        LB = [(i,j) for i in range(N) for j in range(N) if B[i][j]]
-        res = collections.Counter([(x1-x2,y1-y2) for (x1,y1) in LA for (x2,y2) in LB])
-        return max(res.values() or [0])
-</code></pre>
-<h2 id="581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">largestOverlap</span>(self, A, B):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type A: List[List[int]]
+</span><span style="color:#e6db74">        :type B: List[List[int]]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        N <span style="color:#f92672">=</span> len(A)
+        LA <span style="color:#f92672">=</span> [(i,j) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">if</span> A[i][j]]
+        LB <span style="color:#f92672">=</span> [(i,j) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">if</span> B[i][j]]
+        res <span style="color:#f92672">=</span> collections<span style="color:#f92672">.</span>Counter([(x1<span style="color:#f92672">-</span>x2,y1<span style="color:#f92672">-</span>y2) <span style="color:#66d9ef">for</span> (x1,y1) <span style="color:#f92672">in</span> LA <span style="color:#66d9ef">for</span> (x2,y2) <span style="color:#f92672">in</span> LB])
+        <span style="color:#66d9ef">return</span> max(res<span style="color:#f92672">.</span>values() <span style="color:#f92672">or</span> [<span style="color:#ae81ff">0</span>])
+</code></pre></div><h2 id="581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</h2>
 <p>Given an integer array, you need to find one continuous subarray that if you only sort this subarray in ascending order, then the whole array will be sorted in ascending order, too.</p>
 <p>You need to find the shortest such subarray and output its length.</p>
-<pre><code class="language-python">class Solution:
-    def findUnsortedSubarray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        start = -1
-        end = -1
-        tmp = nums.copy()
-        tmp.sort()
-        for i in range(len(nums)):
-            if nums[i] != tmp[i]:
-                if start == -1:
-                    start = i
-                else:
-                    end = i
-        return end-start+1 if end != start else 0
-</code></pre>
-<h2 id="39-combination-sum">39. Combination Sum</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findUnsortedSubarray</span>(self, nums):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type nums: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        start <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        end <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        tmp <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span>copy()
+        tmp<span style="color:#f92672">.</span>sort()
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+            <span style="color:#66d9ef">if</span> nums[i] <span style="color:#f92672">!=</span> tmp[i]:
+                <span style="color:#66d9ef">if</span> start <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+                    start <span style="color:#f92672">=</span> i
+                <span style="color:#66d9ef">else</span>:
+                    end <span style="color:#f92672">=</span> i
+        <span style="color:#66d9ef">return</span> end<span style="color:#f92672">-</span>start<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">if</span> end <span style="color:#f92672">!=</span> start <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><h2 id="39-combination-sum">39. Combination Sum</h2>
 <p>Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
 <p>The same repeated number may be chosen from candidates unlimited number of times.</p>
-<p>彩笔ngc日常抄代码，<a href="https://blog.csdn.net/happyaaaaaaaaaaa/article/details/50897809">https://blog.csdn.net/happyaaaaaaaaaaa/article/details/50897809</a></p>
+<p>彩笔ngc日常抄代码，https://blog.csdn.net/happyaaaaaaaaaaa/article/details/50897809</p>
 <p>原本是想用回溯法，但是出现了很大的问题，在2，2，2，3之后会陷入无限循环，需要给他一个位来判断是否加过这个值，我就没有再做下去，然后，在csdn发现了这位老哥的做法，真的是超级棒了</p>
-<pre><code class="language-python">class Solution(object):
-    def combinationSum(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        candidates = sorted(candidates)
-        res = [] 
-        stack = [(0,[],target)]
-        length = len(candidates)
-        while stack:
-            i, temp, tar=stack.pop()
-            while i&lt;length and tar&gt;0:
-                if candidates[i]==tar: 
-                    res.append(temp+[candidates[i]])
-                stack += (i, temp+[candidates[i]], tar-candidates[i]),
-                i+=1
-        return res
-</code></pre>
-<p>ps：不过好像效率不是特别的高，还有一个递归版本的，效率高很多</p>
-<pre><code class="language-python">class Solution:
-    def combinationSum(self, candidates, target):
-        """
-        :type candidates: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        candidates.sort()
-        res = []
-        size = len(candidates)
-        def helper(i, left, cur):
-            if left == 0:
-                res.append(cur)
-                return
-            for j in range(i, size):
-                if left &lt; candidates[j]:
-                    break
-                helper(j, left - candidates[j], cur + [candidates[j]])
-        helper(0, target, [])
-        return res
-</code></pre>
-<p>日常学习。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combinationSum</span>(self, candidates, target):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type candidates: List[int]
+</span><span style="color:#e6db74">        :type target: int
+</span><span style="color:#e6db74">        :rtype: List[List[int]]
+</span><span style="color:#e6db74">        """</span>
+        candidates <span style="color:#f92672">=</span> sorted(candidates)
+        res <span style="color:#f92672">=</span> [] 
+        stack <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>,[],target)]
+        length <span style="color:#f92672">=</span> len(candidates)
+        <span style="color:#66d9ef">while</span> stack:
+            i, temp, tar<span style="color:#f92672">=</span>stack<span style="color:#f92672">.</span>pop()
+            <span style="color:#66d9ef">while</span> i<span style="color:#f92672">&lt;</span>length <span style="color:#f92672">and</span> tar<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>:
+                <span style="color:#66d9ef">if</span> candidates[i]<span style="color:#f92672">==</span>tar: 
+                    res<span style="color:#f92672">.</span>append(temp<span style="color:#f92672">+</span>[candidates[i]])
+                stack <span style="color:#f92672">+=</span> (i, temp<span style="color:#f92672">+</span>[candidates[i]], tar<span style="color:#f92672">-</span>candidates[i]),
+                i<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><p>ps：不过好像效率不是特别的高，还有一个递归版本的，效率高很多</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combinationSum</span>(self, candidates, target):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type candidates: List[int]
+</span><span style="color:#e6db74">        :type target: int
+</span><span style="color:#e6db74">        :rtype: List[List[int]]
+</span><span style="color:#e6db74">        """</span>
+        candidates<span style="color:#f92672">.</span>sort()
+        res <span style="color:#f92672">=</span> []
+        size <span style="color:#f92672">=</span> len(candidates)
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">helper</span>(i, left, cur):
+            <span style="color:#66d9ef">if</span> left <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                res<span style="color:#f92672">.</span>append(cur)
+                <span style="color:#66d9ef">return</span>
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i, size):
+                <span style="color:#66d9ef">if</span> left <span style="color:#f92672">&lt;</span> candidates[j]:
+                    <span style="color:#66d9ef">break</span>
+                helper(j, left <span style="color:#f92672">-</span> candidates[j], cur <span style="color:#f92672">+</span> [candidates[j]])
+        helper(<span style="color:#ae81ff">0</span>, target, [])
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div><p>日常学习。</p>
 <h2 id="769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</h2>
 <p>Given an array arr that is a permutation of [0, 1, …, arr.length - 1], we split the array into some number of “chunks” (partitions), and individually sort each chunk.  After concatenating them, the result equals the sorted array.</p>
 <p>What is the most number of chunks we could have made?</p>
-<pre><code class="language-python">class Solution:
-    def maxChunksToSorted(self, arr):
-        """
-        :type arr: List[int]
-        :rtype: int
-        """
-        res = 0
-        max_num = 0
-        for i in range(len(arr)):
-            max_num = max(max_num,arr[i])
-            if max_num == i:
-                res += 1
-        return res
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxChunksToSorted</span>(self, arr):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type arr: List[int]
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        max_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(arr)):
+            max_num <span style="color:#f92672">=</span> max(max_num,arr[i])
+            <span style="color:#66d9ef">if</span> max_num <span style="color:#f92672">==</span> i:
+                res <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> res
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -492,14 +475,17 @@ class Solution:
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

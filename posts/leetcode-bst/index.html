@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>leetcode bst · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Aug 30, 2018 00:00
-                    · 1677 words
+                    · 1680 words
                     · 8 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/python">python</a>
@@ -82,12 +82,10 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#449-serialize-and-deserialize-bst">449. Serialize and Deserialize BST</a></li>
 <li><a href="#700-search-in-a-binary-search-tree">700. Search in a Binary Search Tree</a></li>
 <li><a href="#669-trim-a-binary-search-tree">669. Trim a Binary Search Tree</a></li>
-<li><a href="#653-two-sum-iv-input-is-a-bst">653. Two Sum IV - Input is a BST</a></li>
+<li><a href="#653-two-sum-iv---input-is-a-bst">653. Two Sum IV - Input is a BST</a></li>
 <li><a href="#501-find-mode-in-binary-search-tree">501. Find Mode in Binary Search Tree</a></li>
 <li><a href="#450-delete-node-in-a-bst">450. Delete Node in a BST</a></li>
 <li><a href="#108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</a></li>
@@ -96,160 +94,154 @@ code.has-jax {
 <li><a href="#98-validate-binary-search-tree">98. Validate Binary Search Tree</a></li>
 <li><a href="#173-binary-search-tree-iterator">173. Binary Search Tree Iterator</a></li>
 <li><a href="#95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>这里放一些关于BST的题目。</p>
-<p></p>
 <p>BST: binary search tree 这是一种特殊的二叉树，其左节点 &lt; root &lt; 右节点，根据这个性质很多都可以又一些简单的方法来进行计算。</p>
 <h2 id="449-serialize-and-deserialize-bst">449. Serialize and Deserialize BST</h2>
 <p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
 <p>Design an algorithm to serialize and deserialize a binary search tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary search tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
 <p>The encoded string should be as compact as possible.</p>
 <p>Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode(object):</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Codec:
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Codec</span>:
     
-    def __init__(self):
-        self.res = ""
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> <span style="color:#e6db74">""</span>
         
-    def serialize(self, root):
-        """Encodes a tree to a single string.
-        :type root: TreeNode
-        :rtype: str
-        """
-        self.ser_bst(root)
-        return self.res
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serialize</span>(self, root):
+        <span style="color:#e6db74">"""Encodes a tree to a single string.
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: str
+</span><span style="color:#e6db74">        """</span>
+        self<span style="color:#f92672">.</span>ser_bst(root)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>res
     
-    def ser_bst(self, root):
-        if root == None:
-            self.res += "# "
-        else:
-            self.res += str(root.val)+" "
-            self.ser_bst(root.left)
-            self.ser_bst(root.right)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ser_bst</span>(self, root):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            self<span style="color:#f92672">.</span>res <span style="color:#f92672">+=</span> <span style="color:#e6db74">"# "</span>
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>res <span style="color:#f92672">+=</span> str(root<span style="color:#f92672">.</span>val)<span style="color:#f92672">+</span><span style="color:#e6db74">" "</span>
+            self<span style="color:#f92672">.</span>ser_bst(root<span style="color:#f92672">.</span>left)
+            self<span style="color:#f92672">.</span>ser_bst(root<span style="color:#f92672">.</span>right)
 
-    def deserialize(self, data):
-        """Decodes your encoded data to tree.
-
-        :type data: str
-        :rtype: TreeNode
-        """
-        data = self.res.split(" ")
-        self.res = ' '.join(data[1:])
-        if data[0] == "#":
-            return None
-        else:
-            root = TreeNode(int(data[0]))
-            root.left = self.deserialize(data)
-            root.right = self.deserialize(data)
-            return root
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deserialize</span>(self, data):
+        <span style="color:#e6db74">"""Decodes your encoded data to tree.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        :type data: str
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        data <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>)
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> <span style="color:#e6db74">' '</span><span style="color:#f92672">.</span>join(data[<span style="color:#ae81ff">1</span>:])
+        <span style="color:#66d9ef">if</span> data[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">"#"</span>:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">else</span>:
+            root <span style="color:#f92672">=</span> TreeNode(int(data[<span style="color:#ae81ff">0</span>]))
+            root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>deserialize(data)
+            root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>deserialize(data)
+            <span style="color:#66d9ef">return</span> root
             
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-</code></pre>
-<h2 id="700-search-in-a-binary-search-tree">700. Search in a Binary Search Tree</h2>
+<span style="color:#75715e"># Your Codec object will be instantiated and called as such:</span>
+<span style="color:#75715e"># codec = Codec()</span>
+<span style="color:#75715e"># codec.deserialize(codec.serialize(root))</span>
+</code></pre></div><h2 id="700-search-in-a-binary-search-tree">700. Search in a Binary Search Tree</h2>
 <p>Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node’s value equals the given value. Return the subtree rooted with that node. If such node doesn’t exist, you should return NULL.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def searchBST(self, root, val):
-        """
-        :type root: TreeNode
-        :type val: int
-        :rtype: TreeNode
-        """
-        if root == None:
-            return None
-        if root.val == val:
-            return root
-        else:
-            left = self.searchBST(root.left,val)
-            right = self.searchBST(root.right,val)
-            if left != None:
-                return left
-            elif right != None:
-                return right
-            else:
-                return None
-</code></pre>
-<h2 id="669-trim-a-binary-search-tree">669. Trim a Binary Search Tree</h2>
-<p>Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in <a href="R &gt;= L">L, R</a>. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">searchBST</span>(self, root, val):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type val: int
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> val:
+            <span style="color:#66d9ef">return</span> root
+        <span style="color:#66d9ef">else</span>:
+            left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>searchBST(root<span style="color:#f92672">.</span>left,val)
+            right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>searchBST(root<span style="color:#f92672">.</span>right,val)
+            <span style="color:#66d9ef">if</span> left <span style="color:#f92672">!=</span> None:
+                <span style="color:#66d9ef">return</span> left
+            <span style="color:#66d9ef">elif</span> right <span style="color:#f92672">!=</span> None:
+                <span style="color:#66d9ef">return</span> right
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">return</span> None
+</code></pre></div><h2 id="669-trim-a-binary-search-tree">669. Trim a Binary Search Tree</h2>
+<p>Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in [L, R] (R &gt;= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def trimBST(self, root, L, R):
-        """
-        :type root: TreeNode
-        :type L: int
-        :type R: int
-        :rtype: TreeNode
-        """
-        if root == None:
-            return None
-        if root.val &lt; L:
-            return self.trimBST(root.right,L,R)
-        elif root.val &gt; R:
-            return self.trimBST(root.left,L,R)
-        else:
-            root.left = self.trimBST(root.left,L,R)
-            root.right = self.trimBST(root.right,L,R)
-            return root
-</code></pre>
-<h2 id="653-two-sum-iv-input-is-a-bst">653. Two Sum IV - Input is a BST</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">trimBST</span>(self, root, L, R):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type L: int
+</span><span style="color:#e6db74">        :type R: int
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&lt;</span> L:
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>trimBST(root<span style="color:#f92672">.</span>right,L,R)
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&gt;</span> R:
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>trimBST(root<span style="color:#f92672">.</span>left,L,R)
+        <span style="color:#66d9ef">else</span>:
+            root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>trimBST(root<span style="color:#f92672">.</span>left,L,R)
+            root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>trimBST(root<span style="color:#f92672">.</span>right,L,R)
+            <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="653-two-sum-iv---input-is-a-bst">653. Two Sum IV - Input is a BST</h2>
 <p>Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.</p>
-<pre><code class="language-python">class Solution:
-    def findTarget(self, root, k):
-        """
-        :type root: TreeNode
-        :type k: int
-        :rtype: bool
-        """
-        self.res = []
-        return self.get_tree(root,k)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findTarget</span>(self, root, k):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type k: int
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        self<span style="color:#f92672">.</span>res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get_tree(root,k)
 
         
-    def get_tree(self,root,k):
-        if root == None:
-            return 0
-        else:
-            val = k - root.val
-            if root.val in self.res:
-                return True
-            else:
-                self.res.append(val)
-                if self.get_tree(root.left,k) == True or self.get_tree(root.right,k) == True:
-                    return True
-                else:
-                    return False
-</code></pre>
-<h2 id="501-find-mode-in-binary-search-tree">501. Find Mode in Binary Search Tree</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_tree</span>(self,root,k):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">else</span>:
+            val <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> root<span style="color:#f92672">.</span>val
+            <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>res:
+                <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">else</span>:
+                self<span style="color:#f92672">.</span>res<span style="color:#f92672">.</span>append(val)
+                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>get_tree(root<span style="color:#f92672">.</span>left,k) <span style="color:#f92672">==</span> True <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>get_tree(root<span style="color:#f92672">.</span>right,k) <span style="color:#f92672">==</span> True:
+                    <span style="color:#66d9ef">return</span> True
+                <span style="color:#66d9ef">else</span>:
+                    <span style="color:#66d9ef">return</span> False
+</code></pre></div><h2 id="501-find-mode-in-binary-search-tree">501. Find Mode in Binary Search Tree</h2>
 <p>Given a binary search tree (BST) with duplicates, find all the mode(s) (the most frequently occurred element) in the given BST.</p>
 <p>Assume a BST is defined as follows:</p>
 <p>[] The left subtree of a node contains only nodes with keys less than or equal to the node’s key.
 [] The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.
 [] Both the left and right subtrees must also be binary search trees.</p>
-<pre><code class="language-pythn"># Definition for a binary tree node.
+<pre><code class="language-pythn" data-lang="pythn"># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -285,231 +277,224 @@ class Solution:
         self.inorder_list.append(root.val)
         if root.right != None:
             self.inorder(root.right)
-</code></pre>
-<h2 id="450-delete-node-in-a-bst">450. Delete Node in a BST</h2>
+</code></pre><h2 id="450-delete-node-in-a-bst">450. Delete Node in a BST</h2>
 <p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.</p>
 <p>Basically, the deletion can be divided into two stages:</p>
 <ol>
 <li>Search for a node to remove.</li>
 <li>If the node is found, delete the node.</li>
 </ol>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def deleteNode(self, root, key):
-        """
-        :type root: TreeNode
-        :type key: int
-        :rtype: TreeNode
-        """
-        root = self.find_value(root, key)
-        return root
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deleteNode</span>(self, root, key):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type key: int
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        root <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>find_value(root, key)
+        <span style="color:#66d9ef">return</span> root
     
-    def find_value(self, root, key):
-        if root == None:
-            return None
-        if root.val &gt; key:
-            root.left = self.find_value(root.left, key)
-        elif root.val &lt; key:
-            root.right = self.find_value(root.right, key)
-        elif root.val == key:
-            if root.left == None or root.right == None:
-                root = root.left if root.left != None else root.right
-            else:
-                tmp = root.right
-                while tmp.left:
-                    tmp = tmp.left
-                root.val = tmp.val
-                root.right = self.find_value(root.right, tmp.val)
-        return root
-</code></pre>
-<h2 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_value</span>(self, root, key):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> None
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&gt;</span> key:
+            root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>find_value(root<span style="color:#f92672">.</span>left, key)
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&lt;</span> key:
+            root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>find_value(root<span style="color:#f92672">.</span>right, key)
+        <span style="color:#66d9ef">elif</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> key:
+            <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> None:
+                root <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>left <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">!=</span> None <span style="color:#66d9ef">else</span> root<span style="color:#f92672">.</span>right
+            <span style="color:#66d9ef">else</span>:
+                tmp <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span>right
+                <span style="color:#66d9ef">while</span> tmp<span style="color:#f92672">.</span>left:
+                    tmp <span style="color:#f92672">=</span> tmp<span style="color:#f92672">.</span>left
+                root<span style="color:#f92672">.</span>val <span style="color:#f92672">=</span> tmp<span style="color:#f92672">.</span>val
+                root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>find_value(root<span style="color:#f92672">.</span>right, tmp<span style="color:#f92672">.</span>val)
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="108-convert-sorted-array-to-binary-search-tree">108. Convert Sorted Array to Binary Search Tree</h2>
 <p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode(object):</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution(object):
-    def sortedArrayToBST(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: TreeNode
-        """
-        return self.get_tree(nums)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sortedArrayToBST</span>(self, nums):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type nums: List[int]
+</span><span style="color:#e6db74">        :rtype: TreeNode
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get_tree(nums)
     
-    def get_tree(self,nums):
-        if nums == []:
-            return None
-        length = len(nums)
-        root = TreeNode(nums[length // 2])
-        root.left = self.get_tree(nums[0:length//2])
-        root.right = self.get_tree(nums[length //2+1:])
-        return root
-</code></pre>
-<h2 id="230-kth-smallest-element-in-a-bst">230. Kth Smallest Element in a BST</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_tree</span>(self,nums):
+        <span style="color:#66d9ef">if</span> nums <span style="color:#f92672">==</span> []:
+            <span style="color:#66d9ef">return</span> None
+        length <span style="color:#f92672">=</span> len(nums)
+        root <span style="color:#f92672">=</span> TreeNode(nums[length <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>])
+        root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_tree(nums[<span style="color:#ae81ff">0</span>:length<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>])
+        root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_tree(nums[length <span style="color:#f92672">//</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:])
+        <span style="color:#66d9ef">return</span> root
+</code></pre></div><h2 id="230-kth-smallest-element-in-a-bst">230. Kth Smallest Element in a BST</h2>
 <p>Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode(object):</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution(object):
-    def kthSmallest(self, root, k):
-        """
-        :type root: TreeNode
-        :type k: int
-        :rtype: int
-        """
-        res = self.inorder(root,[])
-        return res[k-1]
-    def inorder(self,root,num_list):
-        if root == None:
-            return num_list
-        if root.left != None:
-            self.inorder(root.left,num_list)
-        num_list.append(root.val)
-        if root.right != None:
-            self.inorder(root.right,num_list)
-        return num_list
-</code></pre>
-<h2 id="96-unique-binary-search-trees">96. Unique Binary Search Trees</h2>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">kthSmallest</span>(self, root, k):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :type k: int
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        res <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>inorder(root,[])
+        <span style="color:#66d9ef">return</span> res[k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inorder</span>(self,root,num_list):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> num_list
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">!=</span> None:
+            self<span style="color:#f92672">.</span>inorder(root<span style="color:#f92672">.</span>left,num_list)
+        num_list<span style="color:#f92672">.</span>append(root<span style="color:#f92672">.</span>val)
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">!=</span> None:
+            self<span style="color:#f92672">.</span>inorder(root<span style="color:#f92672">.</span>right,num_list)
+        <span style="color:#66d9ef">return</span> num_list
+</code></pre></div><h2 id="96-unique-binary-search-trees">96. Unique Binary Search Trees</h2>
 <p>Given n, how many structurally unique BST’s (binary search trees) that store values 1 … n?</p>
-<pre><code class="language-python">class Solution:
-    def numTrees(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        count = [1]
-        for i in range(1, n+1):
-            count_num = 0
-            for j in range(i):
-                count_num += count[j] * count[i - j - 1]
-            count.append(count_num)
-        return count[-1]
-</code></pre>
-<h2 id="98-validate-binary-search-tree">98. Validate Binary Search Tree</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numTrees</span>(self, n):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :rtype: int
+</span><span style="color:#e6db74">        """</span>
+        count <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>]
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            count_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i):
+                count_num <span style="color:#f92672">+=</span> count[j] <span style="color:#f92672">*</span> count[i <span style="color:#f92672">-</span> j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]
+            count<span style="color:#f92672">.</span>append(count_num)
+        <span style="color:#66d9ef">return</span> count[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</code></pre></div><h2 id="98-validate-binary-search-tree">98. Validate Binary Search Tree</h2>
 <p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
 <p>Assume a BST is defined as follows:</p>
 <p>[] The left subtree of a node contains only nodes with keys less than the node’s key.
 [] The right subtree of a node contains only nodes with keys greater than the node’s key.
 [] Both the left and right subtrees must also be binary search trees.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-class Solution:
-    def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        return self.inorder(root,-10000000000000,100000000000000)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isValidBST</span>(self, root):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type root: TreeNode
+</span><span style="color:#e6db74">        :rtype: bool
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>inorder(root,<span style="color:#f92672">-</span><span style="color:#ae81ff">10000000000000</span>,<span style="color:#ae81ff">100000000000000</span>)
     
-    def inorder(self,root,min_num,max_num):
-        if root == None:
-            return True
-        if root.val &lt;= min_num or root.val &gt;= max_num:
-            return False
-        return True if self.inorder(root.left,min_num,root.val) == True and self.inorder(root.right,root.val,max_num) == True else False 
-</code></pre>
-<h2 id="173-binary-search-tree-iterator">173. Binary Search Tree Iterator</h2>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inorder</span>(self,root,min_num,max_num):
+        <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&lt;=</span> min_num <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&gt;=</span> max_num:
+            <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>inorder(root<span style="color:#f92672">.</span>left,min_num,root<span style="color:#f92672">.</span>val) <span style="color:#f92672">==</span> True <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>inorder(root<span style="color:#f92672">.</span>right,root<span style="color:#f92672">.</span>val,max_num) <span style="color:#f92672">==</span> True <span style="color:#66d9ef">else</span> False 
+</code></pre></div><h2 id="173-binary-search-tree-iterator">173. Binary Search Tree Iterator</h2>
 <p>Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.</p>
 <p>Calling next() will return the next smallest number in the BST.</p>
 <p>Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.</p>
-<pre><code class="language-c">/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for binary tree
+</span><span style="color:#75715e"> * struct TreeNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     TreeNode *left;
+</span><span style="color:#75715e"> *     TreeNode *right;
+</span><span style="color:#75715e"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+</span><span style="color:#75715e"> * };
+</span><span style="color:#75715e"> */</span>
 class BSTIterator {
 public:
-    stack&lt;TreeNode *&gt; stk;
+    stack<span style="color:#f92672">&lt;</span>TreeNode <span style="color:#f92672">*&gt;</span> stk;
     
-    BSTIterator(TreeNode *root) {
-        while (root != NULL){
+    BSTIterator(TreeNode <span style="color:#f92672">*</span>root) {
+        <span style="color:#66d9ef">while</span> (root <span style="color:#f92672">!=</span> NULL){
             stk.push(root);
-            root = root-&gt;left;
+            root <span style="color:#f92672">=</span> root<span style="color:#f92672">-&gt;</span>left;
         }    
     }
 
-    /** @return whether we have a next smallest number */
-    bool hasNext() {
-        return !stk.empty();
+    <span style="color:#75715e">/** @return whether we have a next smallest number */</span>
+    <span style="color:#66d9ef">bool</span> hasNext() {
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span>stk.empty();
     }
 
-    /** @return the next smallest number */
-    int next() {
-        TreeNode *tmp = stk.top();
+    <span style="color:#75715e">/** @return the next smallest number */</span>
+    <span style="color:#66d9ef">int</span> next() {
+        TreeNode <span style="color:#f92672">*</span>tmp <span style="color:#f92672">=</span> stk.top();
         stk.pop();
-        int res = tmp-&gt;val;
-        tmp = tmp-&gt;right;
-        while (tmp != NULL){
+        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> tmp<span style="color:#f92672">-&gt;</span>val;
+        tmp <span style="color:#f92672">=</span> tmp<span style="color:#f92672">-&gt;</span>right;
+        <span style="color:#66d9ef">while</span> (tmp <span style="color:#f92672">!=</span> NULL){
             stk.push(tmp);
-            tmp = tmp-&gt;left;
+            tmp <span style="color:#f92672">=</span> tmp<span style="color:#f92672">-&gt;</span>left;
         }
-        return res;
+        <span style="color:#66d9ef">return</span> res;
     }
 };
 
-/**
- * Your BSTIterator will be called like this:
- * BSTIterator i = BSTIterator(root);
- * while (i.hasNext()) cout &lt;&lt; i.next();
- */
-</code></pre>
-<h2 id="95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</h2>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Your BSTIterator will be called like this:
+</span><span style="color:#75715e"> * BSTIterator i = BSTIterator(root);
+</span><span style="color:#75715e"> * while (i.hasNext()) cout &lt;&lt; i.next();
+</span><span style="color:#75715e"> */</span>
+</code></pre></div><h2 id="95-unique-binary-search-trees-ii">95. Unique Binary Search Trees II</h2>
 <p>Given an integer n, generate all structurally unique BST’s (binary search trees) that store values 1 … n.</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
 
-class Solution:
-    def generateTrees(self, n):
-        """
-        :type n: int
-        :rtype: List[TreeNode]
-        """
-        if n == 0:
-            return []
-        return self.createTrees(1,n)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateTrees</span>(self, n):
+        <span style="color:#e6db74">"""
+</span><span style="color:#e6db74">        :type n: int
+</span><span style="color:#e6db74">        :rtype: List[TreeNode]
+</span><span style="color:#e6db74">        """</span>
+        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+            <span style="color:#66d9ef">return</span> []
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>createTrees(<span style="color:#ae81ff">1</span>,n)
     
-    def createTrees(self,start,end):
-        results = []
-        if start &gt; end:
-            results.append(None)
-            return results
-        for k in range(start,end+1):
-            left = self.createTrees(start,k-1)
-            right = self.createTrees(k+1,end)
-            for i in left:
-                for j in right:
-                    root = TreeNode(k)
-                    root.left = i
-                    root.right = j
-                    results.append(root)
-        return results
-</code></pre>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">createTrees</span>(self,start,end):
+        results <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">if</span> start <span style="color:#f92672">&gt;</span> end:
+            results<span style="color:#f92672">.</span>append(None)
+            <span style="color:#66d9ef">return</span> results
+        <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(start,end<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            left <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>createTrees(start,k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            right <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>createTrees(k<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,end)
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> left:
+                <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> right:
+                    root <span style="color:#f92672">=</span> TreeNode(k)
+                    root<span style="color:#f92672">.</span>left <span style="color:#f92672">=</span> i
+                    root<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> j
+                    results<span style="color:#f92672">.</span>append(root)
+        <span style="color:#66d9ef">return</span> results
+</code></pre></div>
 </section>
 </article>
 <div id="disqus_thread"></div>
@@ -550,14 +535,17 @@ class Solution:
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>

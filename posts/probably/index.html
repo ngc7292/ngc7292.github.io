@@ -7,13 +7,11 @@
 <meta content="summary" name="twitter:card"/>
 <meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
 <meta content="概率论复习" name="twitter:title"/>
-<meta content="概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。
-
-" name="twitter:description"/>
+<meta content="概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。" name="twitter:description"/>
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.36.1" name="generator"/>
+<meta content="Hugo 0.72.0" name="generator"/>
 <title>概率论复习 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -83,37 +81,31 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#多随机变量及其分布">多随机变量及其分布</a>
 <ul>
 <li><a href="#分布函数">分布函数</a></li>
 <li><a href="#概率密度">概率密度</a></li>
 <li><a href="#边缘分布">边缘分布</a></li>
 <li><a href="#其他概念">其他概念</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#随机变量的数字特征">随机变量的数字特征</a>
 <ul>
 <li><a href="#数字期望">数字期望</a></li>
-<li><a href="#方差-协方差以及协方差矩阵">方差，协方差以及协方差矩阵</a></li>
-</ul></li>
+<li><a href="#方差协方差以及协方差矩阵">方差，协方差以及协方差矩阵</a></li>
+</ul>
+</li>
 <li><a href="#参数估计的几种方法">参数估计的几种方法</a>
 <ul>
-<li><a href="#点估计">点估计</a>
-<ul>
-<li><a href="#矩估计">矩估计</a></li>
-<li><a href="#最大似然估计">最大似然估计</a></li>
-<li><a href="#区间估计">区间估计</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#点估计">点估计</a></li>
+</ul>
+</li>
 <li><a href="#方差分析与回归分析">方差分析与回归分析</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。</p>
-<p></p>
 <h2 id="多随机变量及其分布">多随机变量及其分布</h2>
 <p>一般多随机变量会有多个变量，变量之间相互独立成为独立变量，其整合之后即为向量，可以投射到更加高维的空间。</p>
 <h3 id="分布函数">分布函数</h3>
@@ -131,7 +123,7 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <p>$ E(x) = \sum_{k=1}^{\infty}x_kp_k $</p>
 <p>对于连续随机变量 期望为做积分，应用在概率密度图像xf(x)的面积。</p>
 <p>相互独立的两个变量数学期望满足 $ E(XY) = E(X)E(Y) ​$</p>
-<h3 id="方差-协方差以及协方差矩阵">方差，协方差以及协方差矩阵</h3>
+<h3 id="方差协方差以及协方差矩阵">方差，协方差以及协方差矩阵</h3>
 <p>这几个特征是用来计算变量对于其均值的便宜程度。</p>
 <p>设X，Y作为随机变量，其相关且不是独立的变量，定义以下概念</p>
 <p>k阶原点矩，简称k阶矩，其几何意义是对于整个空间中样本与原点之间的k阶距离，定义为$ E(x^k) $，很明显，一阶原点矩就是数学期望。</p>
@@ -221,14 +213,17 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'ngc7293', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 </body>
 </html>
