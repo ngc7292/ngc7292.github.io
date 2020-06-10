@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ml on ngc7293&#39;s blog</title>
-    <link>https://ngc7292.github.io/tags/ml/</link>
-    <description>Recent content in ml on ngc7293&#39;s blog</description>
+    <title>nlp on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/nlp/</link>
+    <description>Recent content in nlp on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ngc7292.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ngc7292.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://ngc7292.github.io/posts/tf-idf/</guid>
       <description>&lt;p&gt;文本是离散性非常强的一种数据方式，在处理起来会有很大的缺点，因此我们通过各种方式对于文本的特征进行数字化。这几天在学习nlp_begin的练习，重新实现了相关的两个算法，并且对sklearn的几种算法的实现进行了学习，写一写证明我学过了，哈哈哈！！！！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>概率论复习</title>
-      <link>https://ngc7292.github.io/posts/probably/</link>
-      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/probably/</guid>
-      <description>&lt;p&gt;概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。&lt;/p&gt;</description>
     </item>
     
   </channel>
