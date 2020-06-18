@@ -7,7 +7,7 @@
 <meta content="summary" name="twitter:card"/>
 <meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
 <meta content="谱图与代数图论读书笔记" name="twitter:title"/>
-<meta content="谱图与代数理论（）主要是基于 在耶鲁大学的讲义逐渐形成的一本书，其中主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用。" name="twitter:description"/>
+<meta content="谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。" name="twitter:description"/>
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Jun 16, 2020 00:00
-                    · 303 words
+                    · 404 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -84,9 +84,9 @@ code.has-jax {
 <ul>
 <li>
 <ul>
+<li><a href="#为什么是谱图理论">为什么是谱图理论</a></li>
 <li><a href="#图">图</a></li>
-<li><a href="#图与矩阵">图与矩阵</a></li>
-<li><a href="#谱图理论的相关">谱图理论的相关</a></li>
+<li><a href="#一些相关的概念">一些相关的概念</a></li>
 <li><a href="#常见有关图的机器学习任务">常见有关图的机器学习任务</a></li>
 </ul>
 </li>
@@ -94,7 +94,7 @@ code.has-jax {
 </nav>
 </div>
 <section id="post-body">
-<p>谱图与代数理论（）主要是基于 在耶鲁大学的讲义逐渐形成的一本书，其中主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用。</p>
+<p>谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。</p>
 <p>该书所对应的课程有三个任务：</p>
 <ol>
 <li>了解完善特征向量是如何与图中顶点相对应的。</li>
@@ -102,21 +102,27 @@ code.has-jax {
 <li>通过一些实例图的特征值的推导来奠定该理论的基础</li>
 </ol>
 <p>导论中主要涉及了一些概念型的基础性的知识以及背景简介。</p>
+<h3 id="为什么是谱图理论">为什么是谱图理论</h3>
+<p>一个图可以用很多种方式来表示，其中最常见也是最简单的方式就是邻接矩阵的方式。首先先来复习一些矩阵的性质</p>
+<h4 id="矩阵及其特性">矩阵及其特性</h4>
+<p>​		我们设一个矩阵M为$ \begin{bmatrix} m_{11} \ m_{12} \ … \ m_{1n} \ … \ m_{n1} \ m_{n_2} \ … \ m_{nn} \end{bmatrix}$ ，当我们乘以另一个向量的时候，其可以作为一个线性映射映射，线性变换或者称之为线性函数$f(x)$，所谓对于整个空间的<a href="%5Bhttps://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%5D(https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)">线性变换</a>，就是指在这个transform中，整个空间的向量保持向量加法以及标量乘法的特殊映射，是整个向量空间的同态。在这个线性变换中，存在变换后的向量是没有经过向量加法的，即只是对于该向量线性的标量的相乘，这些向量称为特征向量，这时$ M\alpha = \lambda \alpha $成立，$ \alpha$即特征向量，$ \lambda$ 即为特征值。</p>
+<p>​		特征值以及特征向量具有很多性质，对于一个可对角化的矩阵，矩阵可以分解为特征值组成的矩阵以及特征向量组成的矩阵之积的形式：$ M = Q^T \wedge Q $ ， 另外，也可以表示为：$ M = \lambda_1 \alpha_1 \alpha_1^T + … + \lambda_n \alpha_n \alpha_n^T $</p>
+<p>由于 $ M\alpha_1 = \lambda_1 \alpha_1 $ 上式可以化作$ M = M(\alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T) $</p>
+<p>我们只需要证明后面的等于单位阵即可，对于特征向量来说，每一个特征向量都是线性无关的，因此，$ \alpha_i^T \alpha_j = 0 $ ，对于做了单位化的特征值，$ \alpha_i^T\alpha_i = 1 $ 由此可以设$ \alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T  = X $ ，X为未知变量，我们对两边同乘 $ \alpha^T $ ，$ \alpha = X\alpha $ 连立这些方程，我们得到$ X = I $ 从而证得上面的结论。（我总觉得这个证明好像不太严谨，在找找看吧）</p>
+<p>由于矩阵可以被特征值以及特征向量分解的性质，我们可以类比光谱理论中的名词，在线性代数中，矩阵的谱被定义为特征值的模的最大值。</p>
+<h4 id="谱定理">谱定理</h4>
+<p>如果M是n*n的实对称矩阵，存在$ \lambda_1,\lambda_2,…,\lambda_n $的实数，以及n个相互正交的单位矢量，这些向量就是该矩阵的特征矩阵，$ \lambda $就是该矩阵的特征值。<!-- raw HTML omitted -->我感觉是废话<!-- raw HTML omitted --></p>
+<p>定理：如果一个矩阵是对称的并且其所有的特征值是正的，那么是正定的，如果一个矩阵是对称的并且每一个特征值都是非负的，那么其是半定的。</p>
 <h3 id="图">图</h3>
+<h4 id="图的性质">图的性质</h4>
 <p>图（也称为网络）通常用于表示连接或者关系的一种模型，通过用顶点来表示事物，用边来表示连接或者关系。当一个图中边远远重要于点，那么我们可以只指定边集E从而忽视掉其周围的顶点集。</p>
 <p>通过抽象以及数字化的图来研究图的性质会容易的多：</p>
 <ul>
-<li>
-<p>n个顶点的路径：$ {1,2,…,n} $是n个顶点，$ (i,j) $表示i到j的路径。</p>
-</li>
-<li>
-<p>n个顶点的环：每一个环时路径加上$ (1,n) $的边。</p>
-</li>
-<li>
-<p>一个$ 2^k$个顶点的超立方体，顶点是$ {0,1}^k $上的元素，但是只有在一个维度上的顶点存在边。</p>
-</li>
+<li>n个顶点的路径：$ {1,2,…,n} $是n个顶点，$ (i,j) $表示i到j的路径。</li>
+<li>n个顶点的环：每一个环时路径加上$ (1,n) $的边。</li>
+<li>一个$ 2^k$个顶点的超立方体，顶点是$ {0,1}^k $上的元素，但是只有在一个维度上的顶点存在边。</li>
 </ul>
-<h3 id="图与矩阵">图与矩阵</h3>
+<h4 id="图与矩阵">图与矩阵</h4>
 <p>通过邻接矩阵来表示图是一个通用的做法，我们通过矩阵来做两个事情：</p>
 <ol>
 <li>定义一个$ x $的函数使得从$ x $映射到向量$Mx$来表示矩阵，在这里，我们将$ M $视为一个函数或者是一个操作符</li>
@@ -128,27 +134,36 @@ code.has-jax {
 <p>扩散算子是一个图的最自然的运算，其用于描述在图中顶点的扩散作用，这是一个离散的过程。为了构建这个扩散矩阵，我们构造一个对角矩阵$ D_G $来表示该图的度数，其对角线上为顶点的度，在代数上，我们可以从表达式$ d:=M_G1 $来得到关于该图度的矩阵，度矩阵定义为：</p>
 <p>$$ D_G = diag{metrix \quad degree}$$</p>
 <p>同时，我们设$ W_G = M_G D_G^{-1} $，当然，当图的每一个顶点都有相同的度的时候，$ W_G $ 是$ M_G $的缩放。</p>
-<p>这个矩阵好像对于随机游走十分有用，但是确实没有看懂这一部分，</p>
-<p>+++</p>
-<p>Formally, we use a vector $ p \in \mathbb R^V $ to indicate how much stuff is at each vertex, with p(a) being the amount of stuff at vertex a. After one time step, the distribution of stuff at each vertex will be$ W_Gp $. To see this, first consider the case when p is an elementary unit vector, $δ_a$, where we define $ δ_a $ to be the vector for which $δ_a(a) = 1$, and for every other vertex b, $ δ_a(b) = 0 $. The vector $ D^{−1}_Gδ_a $ has the value $ 1/d(a) $ at vertex a, and is zero everywhere else. So, the vector $ M_GD^{−1}_Gδ_a $  has value $ 1/d(a) $ at every vertex b that is a neighbor of a, and is zero everywhere else. If this is not immediately obvious, think about it until it is.</p>
-<p>++++</p>
-<p>为了更好的研究对于图的性质，引入拉普拉斯矩阵，其定义为$ L_G = D_G - W_G $，我们也可以得到关于laplacian矩阵的二次型</p>
+<p><!-- raw HTML omitted -->这个矩阵好像对于随机游走十分有用，但是确实没有看懂这一部分<!-- raw HTML omitted --></p>
+<p>对于随机游走模型，我们首先来定义全局游走，我们称这个图的矩阵类似于扩散因子，每一个数值代表来在图上的线性变换，我们对于一个点$ x $ ，在全局游走中，我们只需要对$ x’ = Mx $ 即可表示下一个时间节点上$ x $的位置，这本书介绍了一种懒散随机游走（lazy random walk）其定义矩阵$ M $ ：</p>
+<p>$ M’ := I/2 + M/2 $</p>
+<p>表示有几率不会变化而也有几率会变化。</p>
+<p>为了更好的研究谱对于图的性质，引入拉普拉斯矩阵，其定义为$ L_G = D_G - W_G $，拉普拉斯矩阵的物理意义为第i个我们也可以得到关于laplacian矩阵的二次型</p>
 <p>$$ x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2 $$</p>
-<p>该二次型用于测量相关x的平滑度，如果x在边上路径较少，该二次型将会表少，我们通常使用$ x(a) $或者$ x_a $来表示与顶点a相对应的向量x的坐标。</p>
+<p>这个式子的证明：</p>
+<p>+++</p>
+<p>$$ x^TL_Gx = \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix} \begin{bmatrix} l_{11} \ l_{12} \ … \ l_{1n} \ … \ l_{n1} \ l_{n2} \ … l_{nn} \end{bmatrix} \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix}  $$</p>
+<p>我们将整个矩阵乘开</p>
+<p>$$ x^TL_Gx = \sum_{a=1}^n\sum_{b=1}^N L_{ab}x(a)x(b) $$</p>
+<p>由laplacian矩阵的定义，我们可以将式子分为$ a=b $ 以及 $ a \neq b $：</p>
+<p>$$ x^TL_Gx = \sum_i^N L_{ii} x^2(i) + \sum_a\sum_{b(a \neq b)} L_{ab}x(a)x(b)$$</p>
+<p>对于$ a=b $部分，我们可以得到</p>
+<p>$$ L_{ii} = \sum_{j(j\neq i)} w_{ab}$$</p>
+<p>因此，$$ \sum_i^N L_{ii} x^2(i) = \sum_i\sum_{j(i\neq j)} w_{ab} x^2(i) $$</p>
+<p>对于任意一条图上边$ (a,b) $ ， 我们有$ w_{ab}x^2(a) + w_{ab}x^2(b) - 2w_{ab}x(a)x(b) $</p>
+<p>所以，$  x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2  $</p>
+<p>+++</p>
+<p>该二次型可以用于测量相关x的平滑度，如果x在边上路径较少，该二次型将会表少，我们通常使用$ x(a) $或者$ x_a $来表示与顶点a相对应的向量x的坐标。</p>
 <p>特征值以及特征向量：当存在向量$ x $使得$ x^TMx = \lambda $，我们称$ \lambda $为特征值，$ x $为特征向量。</p>
 <pre><code>奇异矩阵是线性代数的概念，就是该矩阵的秩不是满秩。 首先，看这个矩阵是不是方阵（即行数和列数相等的矩阵，若行数和列数不相等，那就谈不上奇异矩阵和非奇异矩阵）。 然后，再看此矩阵的行列式|A|是否等于0，若等于0，称矩阵A为奇异矩阵；若不等于0，称矩阵A为非奇异矩阵。
 </code></pre><p>如果$ \lambda I-M $为奇异矩阵，其特征值就是特征多项式$ det(xI-M) $的解</p>
-<p>图谱定理：如果M是n*n的实对称矩阵，存在$ \lambda_1,\lambda_2,…,\lambda_n $的实数，以及n个相互正交的单位矢量，这些向量就是该矩阵的特征矩阵，$ \lambda $就是该矩阵的特征值。</p>
-<p>定理：如果一个矩阵是对称的并且其所有的特征值是正的，那么是正定的，如果一个矩阵是对称的并且每一个特征值都是非负的，那么其是半定的。</p>
-<p>图的laplacian矩阵是半正定的</p>
-<h3 id="谱图理论的相关">谱图理论的相关</h3>
-<p>谱图理论研究的就是特征值以及特征向量的关系以及其引申性质的学科，有些结论或者说是相当的神奇。</p>
-<p>例如当laplacian矩阵的第二小的特征值等于0的时候，该图为一个非联通图，我们可以对laplacian矩阵进行分割:</p>
-<p>$$ L_G = \begin{pmatrix} L_{G_1} &amp; 0 \\ 0 &amp; L_{G_2} \end{pmatrix} $$</p>
+<h3 id="一些相关的概念">一些相关的概念</h3>
+<p>例如当laplacian矩阵的第二小的特征值等于0的时候（因为l矩阵的最小特征值一定是0），该图为一个非联通图，我们可以对laplacian矩阵进行分割:</p>
+<p>$$ L_G = \begin{pmatrix} L_{G_1} &amp; 0 \ 0 &amp; L_{G_2} \end{pmatrix} $$</p>
 <p>这个值就被称为代数联通度，也被称为费得勒价值，费德勒价值可以作为图的联通程度的一种量度。</p>
 <p>柏拉图立体，指所有面都是全等的正多边形并且每一个顶点所接触的面都是一样的凸多面体，并且只有5种立体。</p>
 <p>正则图：各个顶点都相互相等的无向简单图，强正则图是每对相邻顶点都有相通的度的并且每个非相邻节点都有相同数量的共同邻居。</p>
-<p>设A是G的<a href="https://zh.wikipedia.org/wiki/%E9%84%B0%E6%8E%A5%E7%9F%A9%E9%99%A3">邻接矩阵</a>。{\displaystyle G}<img alt="G" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b"/>是正则图当且仅当$ \begin{bmatrix} 1 \ \vdots \ 1 \end{bmatrix} $是A的<a href="https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F">特征向量</a>.</p>
+<p>设A是G的<a href="https://zh.wikipedia.org/wiki/%E9%84%B0%E6%8E%A5%E7%9F%A9%E9%99%A3">邻接矩阵</a>，<img alt="G" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5f3c8921a3b352de45446a6789b104458c9f90b"/>是正则图当且仅当$ \begin{bmatrix} 1 \ \vdots \ 1 \end{bmatrix} $是A的<a href="https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F">特征向量</a>.</p>
 <p>对于十二面体的高频特征向量，将其绘制入三维中可以发现顶点与其邻居大致相对。</p>
 <p>对于连接特别紧密的图，我们称为拓展器（expanders）对于这种图，其l值是远离0的常数。</p>
 <h3 id="常见有关图的机器学习任务">常见有关图的机器学习任务</h3>
@@ -156,6 +171,15 @@ code.has-jax {
 <li>图分类（预测蛋白质结构，化学物质结构，根据社交网络结构预测用户所属的社区）</li>
 <li>图节点分类问题</li>
 <li>图边预测问题（知识图谱补全，社交网络关系预测，化学物质键长预测）</li>
+<li>NLP中常见的构图trick
+<ol>
+<li>词与词全连，Transformer</li>
+<li>相同的词连边</li>
+<li>通过一些指代消减模型</li>
+<li>句子成分树以及句子依赖树</li>
+<li>通过attention的trick</li>
+</ol>
+</li>
 </ol>
 </section>
 </article>
