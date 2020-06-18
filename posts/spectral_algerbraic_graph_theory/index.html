@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Jun 16, 2020 00:00
-                    · 405 words
+                    · 406 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -130,7 +130,7 @@ code.has-jax {
 </ol>
 <p>下面是一些相关的定义：</p>
 <p>定义图G的邻接矩阵$ M_G $:</p>
-<p>$$ M_G = \begin{cases} 1 \qquad if(a,b)\in E \\ 0 \qquad otherwise \end{cases} $$</p>
+<p>$$ M_G = \begin{cases} 1 \qquad if(a,b) \in E \\ 0 \qquad otherwise \end{cases} $$</p>
 <p>扩散算子是一个图的最自然的运算，其用于描述在图中顶点的扩散作用，这是一个离散的过程。为了构建这个扩散矩阵，我们构造一个对角矩阵$ D_G $来表示该图的度数，其对角线上为顶点的度，在代数上，我们可以从表达式$ d:=M_G1 $来得到关于该图度的矩阵，度矩阵定义为：</p>
 <p>$$ D_G = diag{metrix \quad degree}$$</p>
 <p>同时，我们设$ W_G = M_G D_G^{-1} $，当然，当图的每一个顶点都有相同的度的时候，$ W_G $ 是$ M_G $的缩放。</p>
