@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Jun 16, 2020 00:00
-                    · 403 words
+                    · 404 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -105,7 +105,7 @@ code.has-jax {
 <h3 id="为什么是谱图理论">为什么是谱图理论</h3>
 <p>一个图可以用很多种方式来表示，其中最常见也是最简单的方式就是邻接矩阵的方式。首先先来复习一些矩阵的性质</p>
 <h4 id="矩阵及其特性">矩阵及其特性</h4>
-<p>​		我们设一个矩阵M为$ \begin{bmatrix} m_{11} \ m_{12} \ … \ m_{1n} \ … \ m_{n1} \ m_{n_2} \ … \ m_{nn} \end{bmatrix}$ ，当我们乘以另一个向量的时候，其可以作为一个线性映射映射，线性变换或者称之为线性函数$f(x)$，所谓对于整个空间的<a href="%5Bhttps://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%5D(https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)">线性变换</a>，就是指在这个transform中，整个空间的向量保持向量加法以及标量乘法的特殊映射，是整个向量空间的同态。在这个线性变换中，存在变换后的向量是没有经过向量加法的，即只是对于该向量线性的标量的相乘，这些向量称为特征向量，这时$ M\alpha = \lambda \alpha $成立，$ \alpha$即特征向量，$ \lambda$ 即为特征值。</p>
+<p>​		我们设一个矩阵M为$ \begin{bmatrix} m_{11} \ m_{12} \ … \ m_{1n} \\ … \\ m_{n1} \ m_{n_2} \ … \ m_{nn} \end{bmatrix} $ ，当我们乘以另一个向量的时候，其可以作为一个线性映射映射，线性变换或者称之为线性函数$f(x)$，所谓对于整个空间的<a href="%5Bhttps://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%5D(https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)">线性变换</a>，就是指在这个transform中，整个空间的向量保持向量加法以及标量乘法的特殊映射，是整个向量空间的同态。在这个线性变换中，存在变换后的向量是没有经过向量加法的，即只是对于该向量线性的标量的相乘，这些向量称为特征向量，这时$ M\alpha = \lambda \alpha $成立，$ \alpha$即特征向量，$ \lambda$ 即为特征值。</p>
 <p>​		特征值以及特征向量具有很多性质，对于一个可对角化的矩阵，矩阵可以分解为特征值组成的矩阵以及特征向量组成的矩阵之积的形式：$ M = Q^T \wedge Q $ ， 另外，也可以表示为：$ M = \lambda_1 \alpha_1 \alpha_1^T + … + \lambda_n \alpha_n \alpha_n^T $</p>
 <p>由于 $ M\alpha_1 = \lambda_1 \alpha_1 $ 上式可以化作$ M = M(\alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T) $</p>
 <p>我们只需要证明后面的等于单位阵即可，对于特征向量来说，每一个特征向量都是线性无关的，因此，$ \alpha_i^T \alpha_j = 0 $ ，对于做了单位化的特征值，$ \alpha_i^T\alpha_i = 1 $ 由此可以设$ \alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T  = X $ ，X为未知变量，我们对两边同乘 $ \alpha^T $ ，$ \alpha = X\alpha $ 连立这些方程，我们得到$ X = I $ 从而证得上面的结论。（我总觉得这个证明好像不太严谨，在找找看吧）</p>
