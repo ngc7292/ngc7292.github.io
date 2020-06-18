@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Jun 16, 2020 00:00
-                    · 404 words
+                    · 403 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -141,8 +141,7 @@ code.has-jax {
 <p>为了更好的研究谱对于图的性质，引入拉普拉斯矩阵，其定义为$ L_G = D_G - W_G $，拉普拉斯矩阵的物理意义为第i个我们也可以得到关于laplacian矩阵的二次型</p>
 <p>$$ x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2 $$</p>
 <p>这个式子的证明：</p>
-<p>+++</p>
-<p>$$ x^TL_Gx = \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix} \begin{bmatrix} l_{11} \ l_{12} \ … \ l_{1n} \ … \ l_{n1} \ l_{n2} \ … l_{nn} \end{bmatrix} \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix}  $$</p>
+<p>$$ x^TL_Gx = \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix} \begin{bmatrix} l_{11} \ l_{12} \ … \ l_{1n} \\ … \\ l_{n1} \ l_{n2} \ … l_{nn} \end{bmatrix} \begin{bmatrix}x_1 \\ x_2 \\ … \\ x_n \end{bmatrix}  $$</p>
 <p>我们将整个矩阵乘开</p>
 <p>$$ x^TL_Gx = \sum_{a=1}^n\sum_{b=1}^N L_{ab}x(a)x(b) $$</p>
 <p>由laplacian矩阵的定义，我们可以将式子分为$ a=b $ 以及 $ a \neq b $：</p>
