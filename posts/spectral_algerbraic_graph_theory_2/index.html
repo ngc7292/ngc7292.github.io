@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="谱图与代数图论读书笔记2" name="twitter:title"/>
+<meta content="谱图理论第二章用于描述矩阵作为自然的优化方案存在的，并给出min max theorem，并通过谱定理来证明Courant-Fischer Theorem理论，之后通过该理论证明谱定理。第三章用于描述拉普拉斯矩阵的一些性质以及通过拉普拉斯矩阵的特征值对图进行绘制。" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.72.0" name="generator"/>
+<title>谱图与代数图论读书笔记2 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        谱图与代数图论读书笔记2
+                    </h1>
+<h2 class="headline">
+                    Jun 22, 2020 00:00
+                    · 412 words
+                    · 2 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/graph">graph</a>
+<a href="https://ngc7292.github.io/tags/math">math</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#第二章-特征值以及优化">第二章 特征值以及优化</a></li>
+<li><a href="#第三章-拉普拉斯矩阵以及图像的绘制">第三章 拉普拉斯矩阵以及图像的绘制</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<p>谱图理论第二章用于描述矩阵作为自然的优化方案存在的，并给出<a href="https://en.wikipedia.org/wiki/Min-max_theorem">min max theorem</a>，并通过谱定理来证明Courant-Fischer Theorem理论，之后通过该理论证明谱定理。第三章用于描述拉普拉斯矩阵的一些性质以及通过拉普拉斯矩阵的特征值对图进行绘制。</p>
+<h3 id="第二章-特征值以及优化">第二章 特征值以及优化</h3>
+<h4 id="hermitian-matrix埃尔米特矩阵">Hermitian matrix（埃尔米特矩阵）</h4>
+<p><a href="%5Bhttps://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5%5D(https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5)">Hermitian matrix（埃尔米特矩阵）</a>也被称为自伴随矩阵，矩阵的第<em>i</em>行第<em>j</em>列的元素都与第<em>j</em>行第<em>i</em>列的元素的<a href="https://zh.wikipedia.org/wiki/%E5%85%B1%E8%BD%AD%E5%A4%8D%E6%95%B0">复共轭</a>。</p>
+<p>由于本书并不是讨论线性代数的书，对于图所表示的矩阵，不会出现虚数，因此，我们只探求埃尔米特矩阵的特殊形式实对称矩阵，其具有以下性质：</p>
+<ol>
+<li>实对称矩阵的特征值都是实数，并且不同特征值对应的特征向量相互正交</li>
+<li>如果其特征值都是整数，称这个矩阵是正定的，若为非负，则称为半正定。</li>
+<li>对于一个实对称矩阵，$ A^n $与逆矩阵$ A^T $都是实对称矩阵</li>
+</ol>
+<h4 id="谱定理t-131">谱定理（T 1.3.1)</h4>
+<p>如果矩阵M是一个n*n并且是一个实对称矩阵，那么存在n个特征值，使得其对应的特征向量相互正交。</p>
+<h4 id="courant-fischer-theoremt-201">Courant-Fischer Theorem（T 2.0.1）</h4>
+<p>这里引入一个瑞丽商(Rayleigh quotient)的概念，对于一个向量x，关于M的瑞丽商定义为:</p>
+<p>$$ \dfrac {x^TMx}{x^Tx} $$</p>
+<p>假设$ M\phi = \mu\phi $，很显然，其中的$ \mu $即M的特征值，$ \phi$为特征向量，对于$ x=\phi $我们可以知道</p>
+<p>$$ \dfrac{\phi^TM\phi}{\phi^T\phi}  = \dfrac {\phi^T \mu \phi}{\phi^T\phi} = \mu$$</p>
+<p>CF定理所阐明的是当x是使瑞丽商最大化的向量时，其正好是M最大特征值的特征向量。</p>
+<hr/>
+<p>对于一个实对称矩阵，且其特征值$ \mu_1 \geq \mu_2 \geq …\geq \mu_n $，我们可以得到：</p>
+<p>$$ \mu_k = max_{S \subseteq \mathbb{R}^n &amp; dim(S) = k} min_{x\in S &amp; x \neq 0}  \dfrac {x^TMx}{x^Tx}  $$</p>
+<hr/>
+<p>通过上面的定理我们可以知道，对于一个矩阵的最大特征值$ \mu_n = max  \dfrac {x^TMx}{x^Tx} $ ，该定理在接下来的证明中具有相当重要的作用。</p>
+<h4 id="cf定理的相关证明">CF定理的相关证明</h4>
+<p>首先我们为了证明2.0.1引入一个引理（L 2.1.1）：</p>
+<hr/>
+<p>对于一个实对称矩阵M，具有特征值$ \mu_1,..,\mu_n $，以及一系列相互正交的特征向量$ \phi_1,…,\phi_n $，将x 通过这一组基向量进行表示：</p>
+<p>$$ \textbf{x} = \sum^{n}_{i=1} c_i\phi_i  $$</p>
+<p>这样我们可以将x带入瑞丽商中：</p>
+<p>$$ \begin{aligned} x^TMx = (\sum_ic_i\phi_i)^TM(\sum_ic_i\phi_i) \ = (\sum_ic_i\phi_i)^T(\sum_ic_i \mu_i\phi_i) \ = \sum_{i,j}c_ic_j\mu_j\phi_i^T\phi_j \end{aligned} $$</p>
+<p>由于$ \phi $相互正交，则上式可以化简为: $ x^TMx = \sum_i c_i^2 \mu_i $</p>
+<hr/>
+<p>回到证明2.0.1上来，前置条件如上，设S是该向量空间的一部分，也就是说，对于$ S\subseteq\mathbb{R}^n $并且$ dim(S) = k $，	我们可以扩展X得到：</p>
+<p>$$ \textbf{x} = \sum_{i=1}^{k}c_i\phi_i $$</p>
+<p>带入瑞丽商得到$ x^TMx = \dfrac{\sum_{i=1}^k\mu_ic_i^2}{\sum_{i=1}^kc_i^2} \geq \dfrac{\sum_{i=1}^k\mu_kc_i^2}{\sum_{i=1}^kc_i^2} = \mu_k $</p>
+<p>所以 $ min_{x \in S} \dfrac{x^TMx}{x^Tx} \geq \mu_k $，我们可以得到在一个k维空间中，$ \mu_k $与瑞丽商之间的关系，但是我们很好的思考到，在整个n维空间中的任意k维子空间的关系：</p>
+<p>于是，我们设T为$ \phi_k,…,\phi_n $这一系列的特征向量组成的空间，因此，其维度为$ n-k+1 $对于所有的k维子向量S，很明显，两者之间会有一个维度是重叠的，因此我们尝试比较这两者的关系：</p>
+<p>$$ min_{x \in S}\dfrac{x^TMx}{x^Tx} \leq min_{x\in S \cap T} \dfrac{x^TMx}{x^Tx} \leq max_{x\in T} \dfrac{x^TMx}{x^Tx} $$</p>
+<p>（上式通过类似于上面瑞丽商的展开就可以得到，至于后面这一个max基本同理。）</p>
+<p>又对于$x \in T$上进行求证：</p>
+<p>$$\dfrac{x^TMx}{x^Tx} \leq \mu_k$$</p>
+<p>当S与T只在$ \mu_k $对应的特征向量上相交时，$ min_{x \in S}\dfrac{x^TMx}{x^Tx} = max_{x\in T} \dfrac{x^TMx}{x^Tx}=\mu_k $ 从而我们可以推出：</p>
+<p>$$ \mu_k = max_{S \subseteq \mathbb{R}^n &amp; dim(S) = k} min_{x\in S &amp; x \neq 0}  \dfrac {x^TMx}{x^Tx}  $$</p>
+<h4 id="定理-t-221">定理 T 2.2.1</h4>
+<p>对于一个实对称矩阵M，使得x作为一个非0的向量，并使得瑞丽商可以得到最大，即：</p>
+<p>$$ x = argmax_{x \in \mathbb{R}} \dfrac{x^TMx}{x^Tx} $$</p>
+<p>那么x满足$ Mx = \mu_1x $，其中，$ \mu_1 $是M最大的特征值。相反，瑞丽商最小时对应的是最小的特征值。</p>
+<h4 id="谱定理相关证明">谱定理相关证明</h4>
+<p>首先对2.2.1进行证明：</p>
+<p>为了求得瑞丽商的极值，我们计算其梯度:</p>
+<p>$$ \nabla x^Tx = 2x $$</p>
+<p>$$ \nabla x^TMx  = 2MX$$</p>
+<p>我们通过使$ \nabla f(x) = 0 $得到：</p>
+<p>$$ (x^Tx)Mx  = (x^TMx)x $$</p>
+<p>$$ Mx = \dfrac{x^TMx}{x^Tx}x $$</p>
+<p>当瑞丽商最大时，瑞丽商是M最大的特征值。</p>
+<p>由此，我们可以扩展出定理2.2.2：</p>
+<hr/>
+<p>对于M的特征向量，我们可以得到：</p>
+<p>当$ \mu_1 $的时候，$\phi_1 \in argmax_{||x||=1}x^TMx$（这里是由于x的模为1，那么分母就自然而然的等于1了）</p>
+<p>对于 $ 2\leq \mu_i\leq n $ ，$ \phi_i \in argmax_{||x|| = 1 &amp; x^T\phi_i = 0,for j &gt; i}x^TMx  $</p>
+<hr/>
+<p>对于2.2.2的证明，这里就不赘述了，基本上是通过构造附加的矩阵来计算并且推导关于特征值与瑞丽商的关系。</p>
+<p>更近一步，我们还能得到对于$ x_1,x_2,…,x_n $且满足</p>
+<p>$$ x \in argmax_{||x|| = 1 &amp; x^Tx_j = 0,forj&lt;i} x^TMx$$</p>
+<p>则每一个x都是M的特征向量。</p>
+<h3 id="第三章-拉普拉斯矩阵以及图像的绘制">第三章 拉普拉斯矩阵以及图像的绘制</h3>
+<p>第二章通过对于矩阵的几点定理来推进对于矩阵的理解，第三章开始将图与矩阵相结合，通过矩阵来得到图相关的性质以及相关的应用。</p>
+<h4 id="拉普拉斯矩阵">拉普拉斯矩阵</h4>
+<p>第一章曾经提到过有关拉普拉斯的定义以及证明，在这里我们对于通过二次型进行重新梳理一下，</p>
+<p>对于一个加权图$ G = (E,V,w), w:E\rightarrow\mathbb{R}^+$，定义拉式矩阵的二次型为:</p>
+<p>$$ x^TL_Gx = \sum_{(a,b)\in E}w_{a,b}(x(a)-x(b))^2  $$</p>
+<p>对于上述二次型的展开，我们在第一章已经证明过了，在这里就不要再来一遍了。</p>
+<p>我们接下来引入$ \delta_a $表示元素在方向a上面的基本单位向量，对于两个点的一张图，$ x(a)-x(b)  = (\delta_1^T-\delta_2^T)x $</p>
+<p>$$ \begin{aligned} x^TL_Gx = \sum_{(a,b)\in E}w_{a,b}((\delta_1^T-\delta_2^T)x)^2 \ = \sum_{(a,b)\in E} w_{a,b}x^T(\delta_1-\delta_2)(\delta_1^T-\delta_2^T)x  \end{aligned}$$</p>
+<p>因此，$ L_G = \sum_{(a,b)\in E}w_{a,b}(\delta_a - \delta_b)(\delta_a - \delta_b)^T = \sum_{(a,b) \in E}w_{a,b}L_{G_{a,b}} $</p>
+<p>对于每一个向量x都有$ (L_Gx)(a) = d(a)x(a)-\sum_{(a,b)\in E}w_{a,b}x(b) $</p>
+<p>在sagt书上写的还可以继续往下引申的式子，我认为只有在$ w_{a,b}=1 $时才成立:</p>
+<p>$(L_Gx)(a) = \sum_{(a,b\in E)}w_{a,b}(x(a)-x(b))$</p>
+<h4 id="t-311-拉普拉斯矩阵对于联通图的性质">T 3.1.1 拉普拉斯矩阵对于联通图的性质</h4>
+<p>对于一个图G，其拉普拉斯矩阵的特征值为$ 0=\lambda_1\leq\lambda_2\leq…\leq\lambda_n $，如果第二个特征值不为0，那么图是联通的。</p>
+<p>虽然很显而易见，这里还是做一些说明，对于一个非联通图，我们可以将其拉普拉斯矩阵分为两个部分：</p>
+<p>$$ L = \begin{bmatrix}L_{G_1} \ 0 \ 0 \ L_{G_2} \end{bmatrix} $$</p>
+<p>所以L必定有两个相互正交的特征向量$ \begin{bmatrix} 0 \ 1\end{bmatrix} $ 以及$ \begin{bmatrix} 1 \ 0 \end{bmatrix} $  ，这个1代表的是全1矩阵，于是L一定会有两个特征值都等于0显然上述的特点是有效的。</p>
+<h4 id="关于拉普拉斯矩阵的特征值对于绘图的几点猜测">关于拉普拉斯矩阵的特征值对于绘图的几点猜测</h4>
+<p>拉普拉斯矩阵根据其二次型可以看到，如果将x看作是点，那么$ (x(a) - x(b))^2 $可以看作是在平面上两点之间的距离，为了使距离最短，我们可以对其进行化简，总之最后通过拉普拉斯最小的且不等于0的特征向量所画出的图通常都是比较易得的，另外在图着色问题上，矩阵也是会取得不错的效果，详细的在第四章可以得到证明。</p>
+<p><!-- raw HTML omitted -->我有一个不成熟的猜测，对于一个二维的图，我们可以得到关于其的特征向量以及特征值，对于特征向量，一个全联通图会有n-1个特征向量并且相互正交，我们在第一章可以看到，将整个特征向量绘制会呈现出跳跃式的数据迁移，有没有可能是每一个特征值对应的特征向量都是该矩阵在某个基向量的投影，也就是说当我们画图的时候，我们可以用最小的非零特征值的向量与第二小的来进行绘制，其绘制出的图形是非常易看的。当然这只是一个猜测，并没有进行证明，嘿嘿嘿，别信这里的话哦！！！<!-- raw HTML omitted --></p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>

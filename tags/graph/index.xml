@@ -6,10 +6,19 @@
     <description>Recent content in graph on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>谱图与代数图论读书笔记2</title>
+      <link>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_2/</link>
+      <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_2/</guid>
+      <description>&lt;p&gt;谱图理论第二章用于描述矩阵作为自然的优化方案存在的，并给出&lt;a href=&#34;https://en.wikipedia.org/wiki/Min-max_theorem&#34;&gt;min max theorem&lt;/a&gt;，并通过谱定理来证明Courant-Fischer Theorem理论，之后通过该理论证明谱定理。第三章用于描述拉普拉斯矩阵的一些性质以及通过拉普拉斯矩阵的特征值对图进行绘制。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>谱图与代数图论读书笔记</title>
