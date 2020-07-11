@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="谱图与代数图论读书笔记3" name="twitter:title"/>
+<meta content="第四章对于邻接矩阵以及特征值的一些性质以及一些特性进行了分析，并对Perron-Frobenius 定理进行了给出以及证明。
+第五章主要提出了关于第二大特征值的解法以及对于几种特别的图的例子，并对其加以证明。" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.72.0" name="generator"/>
+<title>谱图与代数图论读书笔记3 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        谱图与代数图论读书笔记3
+                    </h1>
+<h2 class="headline">
+                    Jul 4, 2020 00:00
+                    · 553 words
+                    · 3 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/graph">graph</a>
+<a href="https://ngc7292.github.io/tags/math">math</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#第四章--邻接矩阵相关性质以及引导">第四章  邻接矩阵相关性质以及引导</a></li>
+<li><a href="#第五章-图的比较">第五章 图的比较</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<p>第四章对于邻接矩阵以及特征值的一些性质以及一些特性进行了分析，并对Perron-Frobenius 定理进行了给出以及证明。</p>
+<p>第五章主要提出了关于第二大特征值的解法以及对于几种特别的图的例子，并对其加以证明。</p>
+<h3 id="第四章--邻接矩阵相关性质以及引导">第四章  邻接矩阵相关性质以及引导</h3>
+<p>对于一个可能加权图(possibly weighted graph)?G的邻接矩阵M，将M看作一个运算符，并将M作用在一个向量$ x \in \mathbb{R}^V $上：</p>
+<p>$$  (Mx)(a) = \sum_{(a,b） \in E}w_{a,b}x(b) $$</p>
+<p>即将M看作一个游走矩阵并将M作用在x上进行展开，最后可以得倒上述式子，这很明显想到第三章的3.3式：</p>
+<p>$$ (L_Gx)(a) = \sum_{(a,b)\in E} w_{a,b}(x(a)-x(b)) $$</p>
+<p>$ x(a) $与$ x(b) $分别表示a与b在x上的投影，虽然很明显是因为$ L_G = D-M $，但是这两个式子对于后面的推导会有很大的帮助。</p>
+<p>对于n个顶点的正则图图，设$ \mu_1\geq\mu_2\geq…\geq\mu_n $为M的特征值，由于拉普拉斯矩阵的定义$ L_G = dI-M $，那么$ \lambda_i = d-\mu_i $，由于拉普拉斯矩阵的最小值为0，那么相应的邻接矩阵对应的最大特征值为d。</p>
+<p>接下来看一下对于最大特征值的一些性质以及推导，其中包括了两个引理。</p>
+<h4 id="引理421">引理4.2.1</h4>
+<p>首先给出引理：</p>
+<p>$$ d_{ave} \leq \mu_1 \leq d_{max} $$</p>
+<p>根据CF定理，我们可以得到$ \mu_1 =  max \dfrac{x^TMx}{x^Tx} \geq \dfrac{1^TM1}{1^T1} = \dfrac{\sum_{a,b}M(a,b)}{n} = d_{ave} $</p>
+<p>于是前半部分就简单的证明出来，但是有一个问题是首先该邻接阵是0，1的，如果边上带有权值，那么最后得到的权值的均值。</p>
+<p>对于后半部分，我们可以设一个$\mu_1$的特征向量的$ \phi_1 $，并且在这个特征向量上，a所对应的特征向量的投影最大，即$ \phi_1(a) &gt; \phi_1(b) $，于是我们将特征值打开：</p>
+<p>$$ \mu_1 = \dfrac{(M\phi_1)(a)}{\phi_1(a)} $$</p>
+<p>对于上述式子，我们参考最上面的式子，可以化简成：</p>
+<p>$$ \mu_1 = \dfrac{\sum_{(a,b)\in E}(w_{a,b}\phi_1(b))}{\phi_1(a)} $$</p>
+<p>对于邻接矩阵，相邻节点的$ w_{a,b} $为1，不相邻为0，因此可以继续化简：</p>
+<p>$$ \mu_1 = \dfrac{\sum_{(a,b) \in E} \phi_1(b)}{\phi_1(a)} \geq d(a) = d_{max} $$</p>
+<h4 id="引理422">引理4.2.2</h4>
+<p>对于一个连通图G，并且$ \mu_1 = d_{max} $，那么G是一个$ d_{max} $的正则图。</p>
+<p>根据上面引理的最后一个式子，我们可以知道，如果等号成立，所有的b与a的度是相等的，也就是说，所有的度都是$ d_{max} $，因此G是一个正则图。</p>
+<h4 id="分图特征值的性质">分图特征值的性质</h4>
+<h5 id="t-431-cauchys-interlacing-theorem">T 4.3.1 Cauchy’s Interlacing Theorem</h5>
+<p>对于一个n*n的实对称矩阵，使B成为A的子图，即B是A去掉一个点所得到的，因此我们有：</p>
+<p>$$ \mu_1 \geq \beta_1 \geq \mu_2 \geq \beta_2 \geq … \geq \beta_{n-1} \geq \mu_n $$</p>
+<p>对于A我们有$ \mu_1 = max\dfrac{x^TAx}{x^Tx} $，对于B同样的$ \beta_1 = max\dfrac{x'^TBx’}{x'^Tx’} $</p>
+<p>由于B是A的主子矩阵，那么$ x = \begin{bmatrix} 0 \ x’ \end{bmatrix} $也在x的范围内，我们对后者进行化简，使其更加直观：</p>
+<p>$$  \beta_1 = max\dfrac{x'^TBx’}{x'^Tx’} =  max\dfrac{ \begin{bmatrix} 0 \ x’ \end{bmatrix} ^TA\begin{bmatrix} 0 \ x’ \end{bmatrix}}{\begin{bmatrix} 0 \ x’ \end{bmatrix}^T\begin{bmatrix} 0 \ x’ \end{bmatrix}}$$</p>
+<p>从而我们可以证明出$ \mu_1 \geq \beta_1 $</p>
+<p>当A转化成-A的时候，很明显的B变为-B，特征值也相应的取负，同样的对于最大值相比较，很明显，对于B来讲，最大特征值成为了$ -\beta_{n-1} $而A的为$ -\mu_n $ 且 $ -\mu_n \geq -\beta_{n-1} $</p>
+<p>综上可以证得上述结论。</p>
+<p>根据上述定理以及以及引理4.2.1，我们可以得出另外一个引理：</p>
+<h5 id="lemma-432">Lemma 4.3.2</h5>
+<p>对于所有的$ S \subseteq V $，使得$ d_{dve}(S) $是图$G(S)$的平均度，存在$ d_{ave}(S) \leq \mu_1 $。</p>
+<p>由于S很明显是G的子图，对于G的特征值$ \mu_1 $一定大于图$ G(S) $的特征值，那么根据定理4.2.1我们可以得到上述结论。</p>
+<h5 id="图着色问题wilfs-theorem">图着色问题（Wilf’s Theorem)</h5>
+<p>定义$ \textit{X}(G)=k $ 为至少可以通过k中颜色对图G进行着色，并且将G命名为k-colorable的图。</p>
+<p>对于k我们可以给出上界：</p>
+<p>$$ \textit{X}(G) \leq \lfloor\ mu_1 \rfloor +1 $$</p>
+<p>其证明我觉得并不能理解，所以不放在上面了，以后有机会再放。</p>
+<h3 id="第五章-图的比较">第五章 图的比较</h3>
+<h4 id="洛纳偏序loewnwe-order">洛纳偏序（loewnwe order）</h4>
+<p>对于一个矩阵A我们可以设置：$ 0 \preceq A$为A是半正定的，对该式进行化简，$ 0 \preceq A-0 $。</p>
+<p>对于该关系我们对其进行拓展：$ A \succeq B$，对其定义为A-B是半正定的，并且我们还可以很容易的得到几个关于偏序的性质：</p>
+<p>$$ A \succeq B \ and \ B \succeq C \ implies \ A \succeq C $$</p>
+<p>$$  A \succeq B  \ implies \ A+C \succeq B+C  $$</p>
+<p>将其扩展到图上我们可以定义$ G \succeq H $，当$ L_G \succeq L_H $两图满足偏序。</p>
+<p>例如，设$ G = (V,E),H = (V,F) $，H是G的一个子图，对于两张图的拉普拉斯矩阵的关系我们可以通过其二次型来进行说明：</p>
+<p>对于拉普拉斯矩阵的二次型，前面第一章对其进行了推导：</p>
+<p>$$ x^TL_Gx = \sum_{(u,v \in E)}w_{u,v}(x(u) - x(v))^2 $$</p>
+<p>从这里我们可以看到，只要H对于G来讲，减掉一些边，只能减小二次型的值，那么对于$ L_G-L_H $一定是大于0的，那么对于上面的关系就可以得到说明。</p>
+<p>接下来对于G与$ c \cdot H $之间的关系提出一个引理5.2.1（$ c\cdot H $书上说代表的是对H的每一条边的权重都进行乘c）:</p>
+<p>如果G与H是图且满足$ G \succeq c\cdot H $那么我们可以得到$ \lambda_k(G) \geq c\lambda_k(H) $</p>
+<p>由偏序关系我们可以得到两个图之间的瑞丽商的关系，继而推得特征值之间的关系。</p>
+<p>$$ \lambda_k(G) = min \ max \dfrac{x^TL_Gx}{x^Tx} \geq c \ min \ max \dfrac{x^TL_Hx}{x^Tx} = \lambda_k(H) $$</p>
+<p>同样可以得到推论5.2.2，关于H是G增加边所得到的图，特征值一定大于G。</p>
+<h4 id="图偏序的应用">图偏序的应用</h4>
+<p>图的近似；我们提出一个假设，即如果两个图的拉普拉斯二次型相近的话，这两张图会有一个相当好的近似，例如，我们可以称H为G的c-近似(c-approximation)，如果其满足$ cH \succeq G \succeq H/c $.</p>
+<p>并且在接下来的篇章中也会证明每一个图都可以被稀疏矩阵很好的近似。</p>
+<p>路径图上的应用：</p>
+<p>对于路径图，我们提出引理5.4.1： $ (n-1) \cdot P_n \succeq G_{(1,n)} $G是只有1，n一条边的图，P是路径图。</p>
+<p>对于上式，很自然想到利用二次型来进行转化：</p>
+<p>$$ (n-1)\sum_{a=1}^{n-1}(x(a+1)-x(a))^2 \geq (x(n)-x(1))^2 $$</p>
+<p>为了证明5.4.1 ，我们只需要证明上面的式子即可，那么设$ \Delta(a) = x(a+1)-x(a) $上式可以被化简为：</p>
+<p>$$  (n-1)\sum_{a=1}^{n-1}(\Delta(a))^2 \geq (\sum_{a=1}^{n-1}\Delta(a))^2  $$</p>
+<p>采用数学归纳法证明：</p>
+<p>当n=1时带入得到0=0成立，</p>
+<p>设n=n-1时成立，则$  (n-2)\sum_{a=1}^{n-2}(\Delta(a))^2 \geq (\sum_{a=1}^{n-2}\Delta(a))^2 $</p>
+<p>对于n=n,$ (n-1)\sum_{a=1}^{n-1}(\Delta(a))^2  - \ … \ \geq (\sum_{a=1}^{n-1}\Delta(a))^2 $</p>
+<p>那么对于n来讲一定成立，题目得证。</p>
+<p>采用数学方式推导：</p>
+<p>$$ (\sum_{a=1}^{n-1}\Delta(a))^2 = (1^T_{n-1}\Delta)^2 \leq (||1_{n-1}|| \ ||\Delta||)^2 = (n-1)\sum_{i=1}^{n-1}\Delta(i)^2 $$</p>
+<p>求解路径图的边界</p>
+<p>这里对于求解路径图的边界提出一种方法，并且对接下来的求解有所启发。</p>
+<p>根据5.4.1的推广，我们可以得到关于图与路径图之间的关系，$ G_{a,b} \preceq (b-a)P_{a,b}\preceq (b-1)P_{n} $</p>
+<p>构造一个全连接图$ K_n $ 我们有$ K_n = \sum G_{a,b}  \preceq \sum (b-a)P_n$</p>
+<p>$ \sum(b-a)P_n = \sum_{c=1}^{n-1}c(n-1) = n(n-1)(n+1)/6 $</p>
+<p>因为K的特征值2为n，那么对于P的特征值我们可以得到:</p>
+<p>$$ \lambda_2(P_n) \geq \dfrac{6}{(n-1)(n+1)} $$</p>
+<p>求解完全二叉树的边界，</p>
+<p>对于完全二叉树$ T_d $其深度为d+1，$ n = 2^{d+1}-1 $，其满足$ K_n = \sum_{a&lt;b} G_{a,b} \preceq \sum_{a&lt;b}(2d)T_d^{a,b} \preceq (2log_2n)T_d = C_n^2(2log_2n)T_d $</p>
+<p>继而通过瑞丽商来对$ \lambda_2 $的边界进行计算时就可以采用上述的关系：</p>
+<p>$$ \lambda_2 \leq \dfrac{x^TLx}{x^Tx} = \sum_{a ~ b}(x(a)-x(b))^2/\sum_i x(a)^2 = (x(1) - x(2))^2 + (x(1) - x(3))^2/n-1 = 2/n-1 $$</p>
+<p>$$ \lambda_2(K) = n $$</p>
+<p>所以 $ C_n^2(2log_2n)\lambda_2(T_d) \geq n $</p>
+<p>化简：$ \lambda_2(T_d) \geq 1/(n-1)log_2n $</p>
+<p>求解加权图：</p>
+<p>引理5.6.1</p>
+<p>对于任意一个加权图，我们都有：</p>
+<p>$$ G_{1,n} \preceq (\sum_{i=1}^{n-1}\dfrac{1}{w_a})\sum_{a=1}^{n-1}w_a G_{a,a+1} $$</p>
+<p>因此，我们可以根据上面的方法对其求边界，这里就不赘述，下面对上面引理进行证明。</p>
+<p>与5.4.1类似，我们定义$ \Delta(a) = x(a+1)-x(a) $</p>
+<p>同时，定义$ \gamma(a) = \Delta(a)\sqrt{w_a} $，$ w^{-1/2}(a) = \dfrac{1}{\sqrt{w_a}} $</p>
+<p>根据上面几个定义，我们可以得到$ \sum_a \Delta(a) = \gamma^Tw^{-1/2} $</p>
+<p>$$ ||w^{-1/2}||^2 = \sum_a\dfrac{1}{w_a} $$</p>
+<p>$$ ||\gamma||^2 = \sum_a\Delta(a)^2w_a $$</p>
+<p>所以：</p>
+<p>$$ x^TL_{G_{1,n}}x = (\sum_a \Delta(a))^2 = (\gamma^Tw^{-1/2})^2 \leq (||\gamma|| \ ||w^{-1/2}||)^2 =  (\sum_a\dfrac{1}{w_a})\sum_a\Delta(a)^2w_a = (\sum_a\dfrac{1}{w_a})x^T(\sum_{a=1}^{n-1}w_aL_{G_{a,a+1}})x $$</p>
+<p>题设得证。</p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>

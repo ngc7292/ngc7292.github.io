@@ -6,10 +6,20 @@
     <description>Recent content in math on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>谱图与代数图论读书笔记3</title>
+      <link>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_3/</link>
+      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_3/</guid>
+      <description>&lt;p&gt;第四章对于邻接矩阵以及特征值的一些性质以及一些特性进行了分析，并对Perron-Frobenius 定理进行了给出以及证明。&lt;/p&gt;
+&lt;p&gt;第五章主要提出了关于第二大特征值的解法以及对于几种特别的图的例子，并对其加以证明。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>谱图与代数图论读书笔记2</title>
@@ -17,7 +27,8 @@
       <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_2/</guid>
-      <description>&lt;p&gt;谱图理论第二章用于描述矩阵作为自然的优化方案存在的，并给出&lt;a href=&#34;https://en.wikipedia.org/wiki/Min-max_theorem&#34;&gt;min max theorem&lt;/a&gt;，并通过谱定理来证明Courant-Fischer Theorem理论，之后通过该理论证明谱定理。第三章用于描述拉普拉斯矩阵的一些性质以及通过拉普拉斯矩阵的特征值对图进行绘制。&lt;/p&gt;</description>
+      <description>&lt;p&gt;谱图理论第二章用于描述矩阵作为自然的优化方案存在的，并给出&lt;a href=&#34;https://en.wikipedia.org/wiki/Min-max_theorem&#34;&gt;min max theorem&lt;/a&gt;，并通过谱定理来证明Courant-Fischer Theorem理论，之后通过该理论证明谱定理。&lt;/p&gt;
+&lt;p&gt;第三章用于描述拉普拉斯矩阵的一些性质以及通过拉普拉斯矩阵的特征值对图进行绘制。&lt;/p&gt;</description>
     </item>
     
     <item>
