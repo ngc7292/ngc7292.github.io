@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="谱图与代数图论读书笔记4" name="twitter:title"/>
+<meta content="sagt这本书已经读完第一部分，在这篇文章中对于第一部分的内容进行简单的回顾以及思考，并写下对于第六章的笔记。" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.72.0" name="generator"/>
+<title>谱图与代数图论读书笔记4 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        谱图与代数图论读书笔记4
+                    </h1>
+<h2 class="headline">
+                    Jul 4, 2020 00:00
+                    · 481 words
+                    · 3 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/graph">graph</a>
+<a href="https://ngc7292.github.io/tags/math">math</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#第一部分的回顾">第一部分的回顾</a></li>
+<li><a href="#图谱族">图谱族</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<p>sagt这本书已经读完第一部分，在这篇文章中对于第一部分的内容进行简单的回顾以及思考，并写下对于第六章的笔记。</p>
+<h3 id="第一部分的回顾">第一部分的回顾</h3>
+<pre><code>第一部分简单的概述了有关谱图理论的知识铺垫，谱图理论，就是将图用代数的方式表示出来，由于图这一种组织结构相对来讲较为主观，因此对于图转化为代数形式有几种方式，一种是通过邻接矩阵的方式，继而衍生出拉普拉斯矩阵。
+</code></pre>
+<p>​	通过邻接矩阵计算其瑞丽商，而矩阵的瑞丽商与矩阵的特征值又有着相当密切的关系，这一点在第二章得到证明，即Courant-Fischer 理论，并通过该理论反推谱理论。</p>
+<p>​	第三章研究拉普拉斯矩阵以及其性质，并提出一种通过特征向量来绘制图的方法，并提出第二小的特征值对于连通性会有一些表征。</p>
+<p>​	第四章对于邻接矩阵的特征值以及度的关系进行了说明，并希望借此可以解决图着色的相关问题。</p>
+<p>​	最后一章提出图比较的方法，提出了新的关系：罗娜偏序，并对应该关系证明相关结论，包括图近似，以及近似图的相关关系。</p>
+<h3 id="图谱族">图谱族</h3>
+<p>对于研究的各种图谱，我们首先定义几个概念，用于研究相关性质。</p>
+<h4 id="isoperimetric-ratio等亚比">isoperimetric ratio(等亚比)</h4>
+<p>这一概念将在第20章进行深入理解，在这里介绍其定义：</p>
+<p>对于每一个$ S \subset V $，</p>
+<p>$$ \theta(S) \geq \lambda_2(1-s) $$</p>
+<p>s定义为$ s = |S|/|V| $并且$ \theta(S) = |\partial(S)|/|S| $</p>
+<p>此概念可能是用于评估相关图与完全图之间的关系，并且可以数字化的呈现出来。</p>
+<h4 id="完全图complete-graph">完全图（complete graph）</h4>
+<p>任意一个完全图拥有n个顶点，$ K_n $并有边集$ {(a,b):a\neq b} $</p>
+<p>Lemma 6.1.1 完全图的拉普拉斯矩阵的特征值包括1维0以及n-1维n</p>
+<p>由于比较简单就不进行证明了。</p>
+<p>我们通过完全图来看一下等亚比是怎么样影响特征值。我们使$ S\subset [n] $每一个顶点都有$ n-|S| $条边连接到不是S中的点，因此，$ \theta(S) = \dfrac{|S|(n-|S|)}{|S|} = n-|S| = \lambda_2(L_{K_n})(1-s) $</p>
+<h4 id="星图">星图</h4>
+<p>对于星型图，我们有定义对于n个顶点，我们有边集$ {(1,a):2\leq a \leq n } $</p>
+<p>根据定义，可以知道该图的特征值包括1次的0，n-2次的1以及1次的n</p>
+<h4 id="products-of-graph">products of graph</h4>
+<p>这个我不知道怎么翻译，hhh</p>
+<p>按照惯例，对该图进行定义，我们有$ G = (V,E,v) \ and \ H = (W,F,w) $是两个加权图，那么$ G \times H $有顶点集$ V\times W $ 以及边集:</p>
+<p>$$ ((a,b),(\hat{a},b)) with \ weight \ v_{a,\hat{a}},where (a,\hat{a}) \in E \ and \ ((a,b),(a,\hat{b})) with \ weight \ w_{b,\hat{b}},where (b,\hat{b}) \in F   $$</p>
+<p>设G和H的特征值分别是$ \lambda_1,…,\lambda_n \ \mu_1,…,\mu_m $以及特征向量$ \alpha_1,…,\alpha_n \ \beta_1,…,\beta_m $那么我们可以得到 $ G \times H $相关的特征值$ \lambda_i+\mu_j $ 以及特征向量$ \gamma_{i,j}(a,b) = \alpha_i(a)\beta_j(b) $</p>
+<p>proof：</p>
+<p><img alt="5ED5C91A-2E94-41E7-BC0B-5A6F593210A0" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghsuejzdbzj30if08mq3v.jpg"/></p>
+<h4 id="超立方体hypercube">超立方体(Hypercube)</h4>
+<p>d维的超立方体图，其顶点集为$ {0,1}^d $边集是每一个点之间相差1个bit的图，下图是1到4维的超立方体图</p>
+<p><img alt="5869C39D-D043-4A8C-9BA0-030388A5FBFF" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghsul1ik8nj30ip06vjs1.jpg"/></p>
+<p>对于超立方体图$ H_1 $我们有两个特征值0和2以及其特征向量$ \begin{bmatrix} 1 \ -1 \end{bmatrix} $和 $ \begin{bmatrix} 1 \ 1 \end{bmatrix} $</p>
+<p>那么对于超立方体$ H_d $，若$ \psi $ 是$ H_{d-1}$的关于特征值$ \lambda $的特征向量，那么对于$ H_d $来讲说，$ \begin{bmatrix} \psi \ \psi \end{bmatrix} $以及$ \begin{bmatrix} \psi \ -\psi \end{bmatrix} $是关于$ \lambda $以及$ \lambda+2 $的特征向量。</p>
+<h4 id="测试向量的-lambda_2-的边界">测试向量的$ \lambda_2 $的边界</h4>
+<p>我们根据CF定理可以得到某个图的相应的$ \lambda_2 $的上边界</p>
+<p>$$ \lambda_2 \leq \dfrac{v^TLv}{v^Tv} $$</p>
+<p>通过这里我们可以得到对于一个path graph的$ \lambda_2 $值，我们可以得到：</p>
+<p>$$ \begin{aligned} \lambda_2(P_n) = \dfrac{\sum_{1\leq a &lt; n}(x(a)-x(a+1))^2}{\sum_a x(a)^2}  \ = \dfrac{\sum_{1 \leq a &lt; n}2^2}{\sum_a (n+1-2a)^2} \ =\dfrac{4(n-1)}{(n+1)n(n-1)/3} \ = \dfrac{12}{n(n+1)} \end{aligned}$$</p>
+<p>根据该点定义我们可以得到相应图的第二大特征值的边界，一个拉普拉斯矩阵的第二大特征值在第一章的时候提到过用于检测一个图的连通性，这里可能有那么点意味。</p>
+<h4 id="环图ring-graph">环图（ring graph）</h4>
+<p>对于一个n个顶点的环图，我们可以得到其相应的拉普拉斯矩阵的特征向量：</p>
+<p>$$ x_k(a) = cos(2\pi ka/n) \ and  $$</p>
+<p>$$ y_k(a) = sin(2\pi ka/n) $$</p>
+<p>这里$ 0 \leq k \leq n/2 $并忽略$ y_0 $是0向量的时候，当$ y_0 $是零向量的时候，环图构不成环，我们可以在接下来再进行讨论。</p>
+<p>对于这两个特征向量，我们可以得到特征值$ 2-2cos(2\pi k/n) $。</p>
+<p>很明显，我们可以根据这两个值对图进行绘制，可以得到一个主观上很好的可视化图：</p>
+<p><img alt="DE0A524D-D14D-42D9-8B17-30A78EA85203" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghsv78dxs7j30hh0a4gmh.jpg"/></p>
+<p>对于一个环图，其拉普拉斯矩阵大概为:</p>
+<p>$$ \begin{bmatrix}2 \ -1 \ 0 \ … \ 0 \ -1 \ 2 -1 … 0 \ … \ 0 \ 0 \ 0 \ … \ 2 \end{bmatrix} $$</p>
+<p>那么我们可以得到关于拉普拉斯矩阵与$ x_k(a) $的乘积：</p>
+<p>$$  (L_{R_n}x_k)(a) = 2x_k(a)-x_k(a+1)-x_k(a-1)$$</p>
+<p>由于环图于坐标系中可以得到$ x_k(a) = cos(2\pi ka/n) $我们将其带入上式可以得：</p>
+<p>$$ \begin{aligned} 原式 =  2cos(2\pi ka/n)- cos(2\pi k(a+1)/n) -  cos(2\pi k(a-1)/n) \ = 2 cos(2\pi ka/n) -  cos(2\pi ka/n) cos(2\pi k/n) +  sin(2\pi ka/n) sin(2\pi k/n) \ - cos(2\pi ka/n) cos(2\pi k/n)- sin(2\pi ka/n) sin(2\pi k/n) \ = 2 cos(2\pi ka/n) - 2 cos(2\pi ka/n) cos(2\pi k/n) \ = (2-2 cos(2\pi k/n))x_k(a) \end{aligned}$$</p>
+<p>这样简单的证明了$ x_k(a) $是其特征向量并且其特征值为$ (2-2 cos(2\pi k/n)) $</p>
+<p>至于其忽略条件，我们再次进行简单的分析，对于环图的拉普拉斯矩阵的特征值，我们有全1矩阵必定是其特征矩阵，并且我们知道全0向量是不能作为特征向量的，所以对于y_0来讲，$ sin(0) $一定等于0，因此应该忽略$ y_0 $，同样的道理，对于$ y_{n/2} $来讲，$ sin(ka \pi) $一定是等于0的，因此必须进行忽略，同样的$ x_k $也需要避开这些条件，但是$ cos $函数只有在$ \pi/2 $的时候才会取得0值，对于我们做的题设来讲，k为整数，不会对其有所影响。</p>
+<h4 id="路径图-path-graph">路径图 （Path graph）</h4>
+<p>对于路径图我们可以看作是环图的一半，类似于</p>
+<p><img alt="FA87BC69-C966-4B02-A8F6-0ADC1D8CD7C2" src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghy6ac448zj306b04o74a.jpg"/></p>
+<p>我们可以看到1，2，3，4构成一个路径图，因此类似于环图我们可以提出(Lemma 6.6.1):</p>
+<p>对于一个图$ P_n = (V,E),\ V = {1,2,…,n},\ E = {(a,a+1):1\leq a &lt;n} $我们可以得到关于 $ R_{2n} $有着相同的特征值$ (2-2 cos(2\pi k/n)) $，其特征向量为$ v_k(a) = cos(\pi ka/n - \pi k/2n) $</p>
+<p>通过小学二年级就学过的分块矩阵的方法，我们可以很简单的证明一下这个引理：</p>
+<p>设$ I_n $是n维的单位阵，那么$ 2L_{P_n} = (I_n \ I_n)L_{R_{2n}}(\begin{matrix} In \ In \end{matrix})$，$ \psi $是$ R_{2n} $的关于$\lambda $的特征向量，并且$ \psi(a) = \psi(a+n) $，设$ \phi \in \mathbb{R_n} $且$ \psi(a) = \phi(a),\ for \ 1\leq a \leq n $</p>
+<p>$$ (\begin{matrix}I_n \ I_n \end{matrix})\phi = \psi \ , \ L_{R_{2n}}(\begin{matrix}I_n \ I_n \end{matrix})\phi = \lambda\psi \ and \ (\begin{matrix}I_n \ I_n \end{matrix})L_{R_{2n}}(\begin{matrix}I_n \ I_n \end{matrix})\psi = 2\lambda \phi $$</p>
+<p>定理可得。</p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>
