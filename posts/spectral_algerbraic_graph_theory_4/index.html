@@ -71,7 +71,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Jul 4, 2020 00:00
-                    · 481 words
+                    · 484 words
                     · 3 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -132,7 +132,7 @@ code.has-jax {
 <p>我们根据CF定理可以得到某个图的相应的$ \lambda_2 $的上边界</p>
 <p>$$ \lambda_2 \leq \dfrac{v^TLv}{v^Tv} $$</p>
 <p>通过这里我们可以得到对于一个path graph的$ \lambda_2 $值，我们可以得到：</p>
-<p>$$ \begin{aligned} \lambda_2(P_n) = \dfrac{\sum_{1\leq a &lt; n}(x(a)-x(a+1))^2}{\sum_a x(a)^2}  \ = \dfrac{\sum_{1 \leq a &lt; n}2^2}{\sum_a (n+1-2a)^2} \ =\dfrac{4(n-1)}{(n+1)n(n-1)/3} \ = \dfrac{12}{n(n+1)} \end{aligned}$$</p>
+<p>$$ \begin{aligned} \lambda_2(P_n) = \dfrac{\sum_{1\leq a &lt; n}(x(a)-x(a+1))^2}{\sum_a x(a)^2}  \\ = \dfrac{\sum_{1 \leq a &lt; n}2^2}{\sum_a (n+1-2a)^2} \\ =\dfrac{4(n-1)}{(n+1)n(n-1)/3} \\ = \dfrac{12}{n(n+1)} \end{aligned}$$</p>
 <p>根据该点定义我们可以得到相应图的第二大特征值的边界，一个拉普拉斯矩阵的第二大特征值在第一章的时候提到过用于检测一个图的连通性，这里可能有那么点意味。</p>
 <h4 id="环图ring-graph">环图（ring graph）</h4>
 <p>对于一个n个顶点的环图，我们可以得到其相应的拉普拉斯矩阵的特征向量：</p>
@@ -143,11 +143,11 @@ code.has-jax {
 <p>很明显，我们可以根据这两个值对图进行绘制，可以得到一个主观上很好的可视化图：</p>
 <p><img alt="DE0A524D-D14D-42D9-8B17-30A78EA85203" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghsv78dxs7j30hh0a4gmh.jpg"/></p>
 <p>对于一个环图，其拉普拉斯矩阵大概为:</p>
-<p>$$ \begin{bmatrix}2 \ -1 \ 0 \ … \ 0 \ -1 \ 2 -1 … 0 \ … \ 0 \ 0 \ 0 \ … \ 2 \end{bmatrix} $$</p>
+<p>$$ \begin{bmatrix}2 \ -1 \ 0 \ … \ 0 \\ -1 \ 2 \  -1 \  … \ 0 \\ … \\ 0 \ 0 \ 0 \ … \ 2 \end{bmatrix} $$</p>
 <p>那么我们可以得到关于拉普拉斯矩阵与$ x_k(a) $的乘积：</p>
 <p>$$  (L_{R_n}x_k)(a) = 2x_k(a)-x_k(a+1)-x_k(a-1)$$</p>
 <p>由于环图于坐标系中可以得到$ x_k(a) = cos(2\pi ka/n) $我们将其带入上式可以得：</p>
-<p>$$ \begin{aligned} 原式 =  2cos(2\pi ka/n)- cos(2\pi k(a+1)/n) -  cos(2\pi k(a-1)/n) \ = 2 cos(2\pi ka/n) -  cos(2\pi ka/n) cos(2\pi k/n) +  sin(2\pi ka/n) sin(2\pi k/n) \ - cos(2\pi ka/n) cos(2\pi k/n)- sin(2\pi ka/n) sin(2\pi k/n) \ = 2 cos(2\pi ka/n) - 2 cos(2\pi ka/n) cos(2\pi k/n) \ = (2-2 cos(2\pi k/n))x_k(a) \end{aligned}$$</p>
+<p>$$ \begin{aligned} 原式 =  2cos(2\pi ka/n)- cos(2\pi k(a+1)/n) -  cos(2\pi k(a-1)/n) \\ = 2 cos(2\pi ka/n) -  cos(2\pi ka/n) cos(2\pi k/n) +  sin(2\pi ka/n) sin(2\pi k/n) \\ - cos(2\pi ka/n) cos(2\pi k/n)- sin(2\pi ka/n) sin(2\pi k/n) \\ = 2 cos(2\pi ka/n) - 2 cos(2\pi ka/n) cos(2\pi k/n) \\ = (2-2 cos(2\pi k/n))x_k(a) \end{aligned}$$</p>
 <p>这样简单的证明了$ x_k(a) $是其特征向量并且其特征值为$ (2-2 cos(2\pi k/n)) $</p>
 <p>至于其忽略条件，我们再次进行简单的分析，对于环图的拉普拉斯矩阵的特征值，我们有全1矩阵必定是其特征矩阵，并且我们知道全0向量是不能作为特征向量的，所以对于y_0来讲，$ sin(0) $一定等于0，因此应该忽略$ y_0 $，同样的道理，对于$ y_{n/2} $来讲，$ sin(ka \pi) $一定是等于0的，因此必须进行忽略，同样的$ x_k $也需要避开这些条件，但是$ cos $函数只有在$ \pi/2 $的时候才会取得0值，对于我们做的题设来讲，k为整数，不会对其有所影响。</p>
 <h4 id="路径图-path-graph">路径图 （Path graph）</h4>
@@ -156,8 +156,8 @@ code.has-jax {
 <p>我们可以看到1，2，3，4构成一个路径图，因此类似于环图我们可以提出(Lemma 6.6.1):</p>
 <p>对于一个图$ P_n = (V,E),\ V = {1,2,…,n},\ E = {(a,a+1):1\leq a &lt;n} $我们可以得到关于 $ R_{2n} $有着相同的特征值$ (2-2 cos(2\pi k/n)) $，其特征向量为$ v_k(a) = cos(\pi ka/n - \pi k/2n) $</p>
 <p>通过小学二年级就学过的分块矩阵的方法，我们可以很简单的证明一下这个引理：</p>
-<p>设$ I_n $是n维的单位阵，那么$ 2L_{P_n} = (I_n \ I_n)L_{R_{2n}}(\begin{matrix} In \ In \end{matrix})$，$ \psi $是$ R_{2n} $的关于$\lambda $的特征向量，并且$ \psi(a) = \psi(a+n) $，设$ \phi \in \mathbb{R_n} $且$ \psi(a) = \phi(a),\ for \ 1\leq a \leq n $</p>
-<p>$$ (\begin{matrix}I_n \ I_n \end{matrix})\phi = \psi \ , \ L_{R_{2n}}(\begin{matrix}I_n \ I_n \end{matrix})\phi = \lambda\psi \ and \ (\begin{matrix}I_n \ I_n \end{matrix})L_{R_{2n}}(\begin{matrix}I_n \ I_n \end{matrix})\psi = 2\lambda \phi $$</p>
+<p>设$ I_n $是n维的单位阵，那么$ 2L_{P_n} = (I_n \ I_n)L_{R_{2n}}(\begin{matrix} In \\ In \end{matrix})$，$ \psi $是$ R_{2n} $的关于$\lambda $的特征向量，并且$ \psi(a) = \psi(a+n) $，设$ \phi \in \mathbb{R_n} $且$ \psi(a) = \phi(a),\ for \ 1\leq a \leq n $</p>
+<p>$$ (\begin{matrix}I_n \\ I_n \end{matrix})\phi = \psi \ , \ L_{R_{2n}}(\begin{matrix}I_n \\ I_n \end{matrix})\phi = \lambda\psi \ and \ (\begin{matrix}I_n \ I_n \end{matrix})L_{R_{2n}}(\begin{matrix}I_n \\ I_n \end{matrix})\psi = 2\lambda \phi $$</p>
 <p>定理可得。</p>
 </section>
 </article>
