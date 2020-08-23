@@ -6,10 +6,19 @@
     <description>Recent content in graph on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ngc7292.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>谱图与代数图论读书笔记6</title>
+      <link>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_6/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_6/</guid>
+      <description>&lt;p&gt;这里进入到了该书的第三部分，即 Physical Metaphors ，图的物理意义，第十章是本部分的第一章，也是讲图谱理论与运动的部分结合的开始。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>谱图与代数图论读书笔记5</title>
@@ -18,15 +27,6 @@
       
       <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_5/</guid>
       <description>这三章内容讲述了包括caylay图，强征则图，以及随机游走矩阵的部分性质和特性，我先挖个坑以后再填。</description>
-    </item>
-    
-    <item>
-      <title>谱图与代数图论读书笔记6</title>
-      <link>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_6/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_6/</guid>
-      <description>&lt;p&gt;这里进入到了该书的第三部分，即 Physical Metaphors ，图的物理意义，第十章是本部分的第一章，也是讲图谱理论与运动的部分结合的开始。&lt;/p&gt;</description>
     </item>
     
     <item>
