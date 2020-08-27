@@ -71,8 +71,8 @@ code.has-jax {
                         谱图与代数图论读书笔记7
                     </h1>
 <h2 class="headline">
-                    Aug 3, 2020 00:00
-                    · 451 words
+                    Aug 23, 2020 00:00
+                    · 447 words
                     · 3 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/graph">graph</a>
@@ -104,7 +104,7 @@ code.has-jax {
 <p>这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。</p>
 <h2 id="walkspring-and-resistor-networks">walk，spring and resistor networks</h2>
 <h3 id="调和函数">调和函数</h3>
-<p>对于一个图$ G = (V,E,\omega) $，以及一个边界的点集$ B \sube V $，其他的点组成一个点集$ S = V - B $，同时，假定图为连通图并且B不为空，对于一个函数$ x:V \rightarrow R $并满足$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $即在x(a) 是a的邻居节点的值的加权平均。</p>
+<p>对于一个图$ G = (V,E,\omega) $，以及一个边界的点集$ B \subseteq V $，其他的点组成一个点集$ S = V - B $，同时，假定图为连通图并且B不为空，对于一个函数$ x:V \rightarrow R $并满足$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $即在x(a) 是a的邻居节点的值的加权平均。</p>
 <h3 id="图上的随机游走">图上的随机游走</h3>
 <p>我们对于一个标准的图G以及标准的游走矩阵，每一个点a往其邻居移动的概率为$ w_{a,b}/d_a $ ，设开始节点为a结束节点为s而不经过t那么对于一次游走而言，$ x(s) = 1,x(t) = 0$对于另外的一些节点，我们可以有:</p>
 <p>$$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $$</p>
@@ -118,7 +118,7 @@ code.has-jax {
 <p>对于电阻网络，我们有同样的性质，我们根据欧姆定律$ V = IR $可以得到$ i = V * 1/R $，并且V代表的是电势差，即$ v(a) - v(b) $，于是我们可以得到</p>
 <p>$ i(a,b) = \dfrac{1}{r_{a,b}}(v(a)-v(b)) = w_{a,b}(v(a)-v(b)) $</p>
 <p>由于电流与弹力不同，是有方向的，$ i(b,a) = -i(a,b) $为了将电流表示为矩阵相乘的形式，我们定义带符号边顶点邻接矩阵</p>
-<p>$$ U((a,b),c) = \begin{cases}1 \ \ \ \ \ \ if \ a=c \ -1 \ \ \ if \ b=c \ 0 \ \ \ \ \ \ otherwise \end{cases} $$</p>
+<p>$$ U((a,b),c) = \begin{cases}1 \ \ \ \ \ if \ a=c \\ -1 \ \ \ if \ b=c \\ 0 \ \ \ otherwise \end{cases} $$</p>
 <p>U的每一行有$ U((a,b),:) = \delta_a^T-\delta_b^T $</p>
 <p>定义另一个对角矩阵W为对角矩阵并且其列和行由边以及对角线上的边权重所决定。</p>
 <p>这样我们就有了$ i = WUv $，U的目的主要是向W提供一个符号，而W其作用是表征电阻网络中的各向电阻。</p>
@@ -130,18 +130,10 @@ code.has-jax {
 <h3 id="摩尔彭罗斯广义逆moore-penrose-pseudo-inverse">摩尔·彭罗斯广义逆（<em>moore-penrose pseudo-inverse</em>）</h3>
 <p>对于一个矩阵满足：</p>
 <ol>
-<li>
-<p>AGA = A, AG 不一定是单位矩阵但是一定不会改变A的列向量。</p>
-</li>
-<li>
-<p>GAG=G, G是乘法<a href="https://zh.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4">半群</a>的<a href="https://zh.wikipedia.org/w/index.php?title=%E5%BC%B1%E9%80%86&amp;action=edit&amp;redlink=1">弱逆</a></p>
-</li>
-<li>
-<p>$(AG)^H = AG$，AG是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></p>
-</li>
-<li>
-<p>$ (GA)^H = GA $，GA也是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></p>
-</li>
+<li>AGA = A, AG 不一定是单位矩阵但是一定不会改变A的列向量。</li>
+<li>GAG=G, G是乘法<a href="https://zh.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4">半群</a>的<a href="https://zh.wikipedia.org/w/index.php?title=%E5%BC%B1%E9%80%86&amp;action=edit&amp;redlink=1">弱逆</a></li>
+<li>$(AG)^H = AG$，AG是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></li>
+<li>$ (GA)^H = GA $，GA也是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></li>
 </ol>
 <p>于是称G为摩尔彭罗斯广义逆，将其简称为广义逆，对于逆，我们具有一些性质：</p>
 <ol>
