@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="谱图与代数图论读书笔记7" name="twitter:title"/>
+<meta content="这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.72.0" name="generator"/>
+<title>谱图与代数图论读书笔记7 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        谱图与代数图论读书笔记7
+                    </h1>
+<h2 class="headline">
+                    Aug 3, 2020 00:00
+                    · 451 words
+                    · 3 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/graph">graph</a>
+<a href="https://ngc7292.github.io/tags/math">math</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#walkspring-and-resistor-networks">walk，spring and resistor networks</a>
+<ul>
+<li><a href="#调和函数">调和函数</a></li>
+<li><a href="#图上的随机游走">图上的随机游走</a></li>
+<li><a href="#网络">网络</a></li>
+<li><a href="#摩尔彭罗斯广义逆moore-penrose-pseudo-inverse">摩尔·彭罗斯广义逆（<em>moore-penrose pseudo-inverse</em>）</a></li>
+</ul>
+</li>
+<li><a href="#effective-resistance-and-schur-complement">effective resistance and schur complement</a>
+<ul>
+<li><a href="#有效电流与有效电阻">有效电流与有效电阻</a></li>
+<li><a href="#高斯消元与舒尔补">高斯消元与舒尔补</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<p>这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。</p>
+<h2 id="walkspring-and-resistor-networks">walk，spring and resistor networks</h2>
+<h3 id="调和函数">调和函数</h3>
+<p>对于一个图$ G = (V,E,\omega) $，以及一个边界的点集$ B \sube V $，其他的点组成一个点集$ S = V - B $，同时，假定图为连通图并且B不为空，对于一个函数$ x:V \rightarrow R $并满足$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $即在x(a) 是a的邻居节点的值的加权平均。</p>
+<h3 id="图上的随机游走">图上的随机游走</h3>
+<p>我们对于一个标准的图G以及标准的游走矩阵，每一个点a往其邻居移动的概率为$ w_{a,b}/d_a $ ，设开始节点为a结束节点为s而不经过t那么对于一次游走而言，$ x(s) = 1,x(t) = 0$对于另外的一些节点，我们可以有:</p>
+<p>$$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $$</p>
+<p>很明显，x就是$ V - B $的每一个节点的调和函数，例如在一个path graph中，$ s = n,t = 1 $那么我们有$ x(n) = 1,x(1) = 0 $，那么很简单构造调和函数的一个解$ x(a) = \dfrac{a-1}{n-1} $，这个解意味着对于从1开始的一次游走在n点停止的概率是此解。</p>
+<p>对于懒散随机游走，我们也可以得到这样的一些解，比较简单就不在赘述。</p>
+<h3 id="网络">网络</h3>
+<p>弹性网络以及电阻网络其实都是差不多的网络，所以在这里一起进行说明。</p>
+<p>根据小学二年级教的胡克定律，我们可以得到$ F = xa $，首先假设弹性系数为1，那么我们知道$ x(a)-x(b) $就是各个点所受的力，对于一个网络中间的点来讲，每一个点的受力都是平衡的，于是很简单的列出:</p>
+<p>$$ \sum_{a~b}(x(a) - x(b)) = 0 \Leftrightarrow \sum_{a~b}x(b) = d_ax(a) \ \ \ \  （1） $$</p>
+<p>如果边上的权值不为1即变得弹性系数不是1，那么我们可以得到类似调和函数的式子$  x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $。</p>
+<p>对于电阻网络，我们有同样的性质，我们根据欧姆定律$ V = IR $可以得到$ i = V * 1/R $，并且V代表的是电势差，即$ v(a) - v(b) $，于是我们可以得到</p>
+<p>$ i(a,b) = \dfrac{1}{r_{a,b}}(v(a)-v(b)) = w_{a,b}(v(a)-v(b)) $</p>
+<p>由于电流与弹力不同，是有方向的，$ i(b,a) = -i(a,b) $为了将电流表示为矩阵相乘的形式，我们定义带符号边顶点邻接矩阵</p>
+<p>$$ U((a,b),c) = \begin{cases}1 \ \ \ \ \ \ if \ a=c \ -1 \ \ \ if \ b=c \ 0 \ \ \ \ \ \ otherwise \end{cases} $$</p>
+<p>U的每一行有$ U((a,b),:) = \delta_a^T-\delta_b^T $</p>
+<p>定义另一个对角矩阵W为对角矩阵并且其列和行由边以及对角线上的边权重所决定。</p>
+<p>这样我们就有了$ i = WUv $，U的目的主要是向W提供一个符号，而W其作用是表征电阻网络中的各向电阻。</p>
+<p>使$ i_{ext} = \mathbb{R}^V $作为外部电流，也就是说$ i_{ext}(a) $就是整张图流向a的电流之和，于是就有了$ i_{ext}(a) = \sum_{b~a}i(a,b) $</p>
+<p>用矩阵形式表示，就是$ i_{ext} = U^Ti = U^TWUv $</p>
+<p>根据第三章的内容，我们将拉普拉斯矩阵可以写作$ L = U^TWU $，那么对于任何一个节点，$ i_{ext} = Lv $，对于一个无权图以及一个内部节点a，$ i_{ext}(a) = (\delta_a^TL)v = d_av(a) - \sum_{a~b}v(b) = 0 $,很明显v在a上也是一个调和函数。</p>
+<p>回到弹性网络的体系中，改写（1）式可以得到$ d_ax(a) - \sum_{b\notin B:(a,b)\in E}w_{a,b}x(b) = \sum_{b\in B:(a,b)\in E}w_{a,b}x(b) $</p>
+<p>对于每一个在B中的点，设满足$ f(a) $，那么上式就可以进一步被改写，对于上式左边部分，写成矩阵的形式就是$ L(S,S)x(S) = r $，r被定义为$ M(S,:)f $，$ L(S,S) $代表的是包含在S中的L的一个子图，用矩阵的等式表示为$ L(S,S) = L_{G(S)}+X(S) $，$G(S)$是子图，而$ X(S) $是对角矩阵并且相应的元素是权重的和。对于L的子矩阵，由于L是正定的并且对称的，我们可以知道$ L(S,S) $一定是对称的，另外，也是正定的。</p>
+<h3 id="摩尔彭罗斯广义逆moore-penrose-pseudo-inverse">摩尔·彭罗斯广义逆（<em>moore-penrose pseudo-inverse</em>）</h3>
+<p>对于一个矩阵满足：</p>
+<ol>
+<li>
+<p>AGA = A, AG 不一定是单位矩阵但是一定不会改变A的列向量。</p>
+</li>
+<li>
+<p>GAG=G, G是乘法<a href="https://zh.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4">半群</a>的<a href="https://zh.wikipedia.org/w/index.php?title=%E5%BC%B1%E9%80%86&amp;action=edit&amp;redlink=1">弱逆</a></p>
+</li>
+<li>
+<p>$(AG)^H = AG$，AG是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></p>
+</li>
+<li>
+<p>$ (GA)^H = GA $，GA也是<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%B0%94%E7%B1%B3%E7%89%B9%E7%9F%A9%E9%98%B5">埃尔米特矩阵</a></p>
+</li>
+</ol>
+<p>于是称G为摩尔彭罗斯广义逆，将其简称为广义逆，对于逆，我们具有一些性质：</p>
+<ol>
+<li>$ (A^H)^+ = (A^+)^H $</li>
+<li>$ A^+AA^H = A^HAA^+ = A^H $</li>
+<li>$ AA^H(A^H)^+ = (A^H)^+A^HA = A $</li>
+<li>$ A^+A,AA^+,(I-A^+A) $都是幂等矩阵</li>
+</ol>
+<h2 id="effective-resistance-and-schur-complement">effective resistance and schur complement</h2>
+<h3 id="有效电流与有效电阻">有效电流与有效电阻</h3>
+<p>根据上面有关电压的表述，我们可以得到$v = L^+i_{ext} $当$ i_{ext} $为从a流向b的单位电流，这样可以把该式重新写作：</p>
+<p>$$ v = L^+(\delta_a - \delta_b) $$</p>
+<p>$$ v(c) - v(d) = (\delta_c - \delta_d)^Tv = (\delta_c - \delta_d)^TL^+(\delta_a - \delta_b) $$</p>
+<p>由于$ i(a,b) = \dfrac{v(a)-v(b)}{r_{a,b}} $	并且电流为单位电流，所以我们有：</p>
+<p>$$ R_{eff}(a,b) = (\delta_a - \delta_b)^TL^+(\delta_a-\delta_b) $$</p>
+<p>将$ L^+ $的平方根写作$ L^{+/2} $于是上式可以接着画，从而证明等效阻值是$ L^{+/2} $从a到b的欧式距离的平方：</p>
+<p>$$ (\delta_a - \delta_b)^TL^+(\delta_a-\delta_b) = ((L^{+/2}(\delta_a - \delta_b))^TL^{+/2}(\delta_a-\delta_b)) = ||L^{+/2}(\delta_a-\delta_b)||^2 $$</p>
+<p>在这里设计两个简单的图来说明等效电阻的性质：</p>
+<ol>
+<li>串联（series）通过串联多个电阻，我们可以根据上面的式子得到$ r = r_{1,2}+…+r_{n-1,n} $</li>
+<li>并联（parallel）通过并联电阻，阻值为$ \dfrac{1}{1/r_1+…+1/r_n} $</li>
+</ol>
+<p>等效电阻同时也有很多性质：</p>
+<ol>
+<li>$ \delta(a,a) = 0 $</li>
+<li>$ \delta(a,b) \geq 0 $</li>
+<li>$ \delta(a,b) = \delta(b,a)$</li>
+<li>$ \delta(a,c) \leq \delta(a,b) + \delta(b,c) $</li>
+</ol>
+<h3 id="高斯消元与舒尔补">高斯消元与舒尔补</h3>
+<p>B是一个图上的边界点组成的点集 ，$v(B)$是B上的电压组成的向量，对于矩阵$ L_B $，可以得到$ i_B = L_Bv(B) $。</p>
+<p>$ L_B $事实上是一个拉普拉斯矩阵，并且是经过高斯消元后形成的矩阵，高斯消元是一种通过乘除加减来消去矩阵的值的方法，在这里对其加以证明：</p>
+<p>首先一个图$ G = (V,E,w) $，设$ B = {2,…,n} $那么中间的节点就只有去，那么$ v(1) = \dfrac{1}{d(1)}\sum_{a\in N}w_{1,a}v(a) $ 。</p>
+<p>对于节点b，有$ i_{ext}(b) = d(b)v(b)-\sum_{c~b}w_{b,c}v(c)$，将1提出来，$ i_{ext}(b) = d(b)v(b) - w_{1,b}v(1)-\sum_{c~b,c\neq 1}w_{b,c}v(c) $将上面的$ v(1) $带入这式子，并进行展开:</p>
+<p>$$ i_{ext}(b) = d(b)v(b) - \sum_{a\in N}\dfrac{w_{b,1}w_{a,1}}{d(1)}v(a) - \sum_{c~b,c\neq 1}w_{b,c}v(c) $$</p>
+<p>将第二个小狮子的a=b提出来，这样凑出来了L：</p>
+<p>$$ i_{ext}(b) = d(b)v(b) - (w_{b,1}^2/d(1))v(b) - \sum_{a\in N,a\neq b}\dfrac{w_{b,1}w_{a,1}}{d(1)}v(a) - \sum_{c~b,c\neq 1}w_{b,c}v(c)  $$</p>
+<p>采用矩阵形式来表示我们可以进行推倒，无非是设$ v^TLv = v(B)^TL_Bv(B)$经过计算后得到$ L_B = L(B,B) -\dfrac{L(B,1)L(1,B)}{L(1,1)} $</p>
+<p>矩阵方式比上述方法直观，我们之后就对矩阵进行拓展，移除S的点后，得到$ L(B,B)-L(B,S)L(S,B)L(S,S)^{-1} $这被称为schur complement。</p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>
