@@ -136,7 +136,7 @@ code.has-jax {
 <p>$$ P_{start} = softmax_{each \ row}(E \cdot  T_{start}) \in \mathbb{R}^{n*2} $$</p>
 <p>$$ P_{end} = softmax_{each \ row}(E \cdot  T_{end}) \in \mathbb{R}^{n*2} $$</p>
 <p>$$ \hat{I}_{start} = \{ i|argmax(P^i_{start}) = 1, i=1,…,n \} $$</p>
-<p>$$ \hat{I}<em>{end} = { i|argmax(P^i</em>{end}) = 1, \ i=1,…,n } $$</p>
+<p>$$ \hat{I}<em>{end} = \{ i|argmax(P^i</em>{end}) = 1, \ i=1,…,n \} $$</p>
 <p>$$ P_{i_{start},j_{end}} = sigmoid(m \cdot concat(E_{i_{start}},E_{j_{end}})) $$</p>
 <p>损失函数通过Cross Entropy Error Function计算：</p>
 <p>$$L_{start} = cross \ entropy(P_{start}, Y_{start})$$</p>
