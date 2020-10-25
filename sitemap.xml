@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ngc7292.github.io/posts/python/</loc>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/wenming/</loc>
+    <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory_7/</loc>
     <lastmod>2020-08-23T00:00:00+00:00</lastmod>
   </url>
@@ -68,7 +78,7 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/posts/python/</loc>
+    <loc>https://ngc7292.github.io/posts/graph_intro_and_traditional_approaches/</loc>
     <lastmod>2020-02-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,8 +188,28 @@
   </url>
   
   <url>
+    <loc>https://ngc7292.github.io/tags/graph-representation-learning/</loc>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/</loc>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/posts/</loc>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/tags/</loc>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/tags/graph/</loc>
-    <lastmod>2020-08-23T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -188,17 +218,7 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2020-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2020-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/</loc>
+    <loc>https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy/</loc>
     <lastmod>2020-08-23T00:00:00+00:00</lastmod>
   </url>
   
