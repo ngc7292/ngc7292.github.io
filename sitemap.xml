@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ngc7292.github.io/posts/self-supervise-learning/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ngc7292.github.io/posts/graph/</loc>
     <lastmod>2020-10-24T00:00:00+00:00</lastmod>
   </url>
@@ -193,22 +198,27 @@
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/tags/graph/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
+    <loc>https://ngc7292.github.io/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ngc7292.github.io/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
+    <loc>https://ngc7292.github.io/tags/nlp/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ngc7292.github.io/posts/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ngc7292.github.io/tags/</loc>
+    <lastmod>2020-10-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ngc7292.github.io/tags/graph/</loc>
     <lastmod>2020-10-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -229,11 +239,6 @@
   
   <url>
     <loc>https://ngc7292.github.io/tags/ml/</loc>
-    <lastmod>2020-06-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ngc7292.github.io/tags/nlp/</loc>
     <lastmod>2020-06-09T00:00:00+00:00</lastmod>
   </url>
   

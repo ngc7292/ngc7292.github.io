@@ -6,8 +6,15 @@
 <description>Recent content on ngc7293's blog</description>
 <generator>Hugo -- gohugo.io</generator>
 <language>en</language>
-<lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title/>
+<link>https://ngc7292.github.io/posts/self-supervise-learning/</link>
+<pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+<guid>https://ngc7292.github.io/posts/self-supervise-learning/</guid>
+<description>&lt;p&gt;本文是清华大学的一篇survey &lt;a href="http://arxiv.org/abs/2006.08218"&gt;Liu, X., Zhang, F., Hou, Z., Mian, L., Wang, Z., Zhang, J., Tang, J., &amp;amp; Member, S. (n.d.). &lt;em&gt;Self-supervised Learning : Generative or Contrastive&lt;/em&gt;. 1–23.&lt;/a&gt;  我来学习一下，顺便记录一下可以看的生成方面的论文。&lt;/p&gt;</description>
+</item>
 <item>
 <title>graph embedding and graph in nlp</title>
 <link>https://ngc7292.github.io/posts/graph/</link>
