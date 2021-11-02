@@ -6,11 +6,7 @@
     <description>Recent content in ml on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ngc7292.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>文本特征提取算法学习</title>
       <link>https://ngc7292.github.io/posts/tf-idf/</link>

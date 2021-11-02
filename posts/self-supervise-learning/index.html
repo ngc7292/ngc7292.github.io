@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.72.0" name="generator"/>
+<meta content="Hugo 0.78.1" name="generator"/>
 <title>Self-supervised Learning, Generative or Contrastive · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -72,7 +72,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Oct 31, 2020 00:00
-                    · 164 words
+                    · 184 words
                     · 1 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/nlp">nlp</a>
@@ -102,7 +102,7 @@ code.has-jax {
 <p>在nlp中，embedding分为带文本信息的（contextual）以及不带文本信息的（non-contextual）的方式，后者只会将token映射到一个空间中，对于$ x \in V $来讲，我们对其进行嵌入得到$ e_x \in \mathbb{R}^d $，对于带文本信息的嵌入，我们可以表示为$ [e_1,e_2,..,e_n] = f(x_1,x_2,…,x_n) $， f表示embedding函数。contextual embedding中最早的是mikolov的word2vec，cbow，skip-gram，这种方法将每一个token映射为相同的embedding向量，我觉得对于语句的特征并没有提取多少，更类似与n-gram之类的嵌入方法，之后ELMo（Embedding from Language model）出现，一定程度上解决这些问题，目前，BERT（bidirectional Encoder Representations from Transformers）问世之后，在11个nlp任务中得到了巨大的提升。BERT是一个fine tuned approach， 采用transformer作为encoder，有两个任务，其中一个是随机mask部分词语或者token来进行预测，这应该是表示学习中表现最好的一种模型，其表示的信息足够多，特征也足够大，对于很多任务都是相当大的提升。</p>
 <h3 id="graph-中的表示学习">graph 中的表示学习</h3>
 <p>虽然我们研究的是nlp，但是最近的研究显示，nlp中很多问题都是可以通过graph的结构来进行表示，甚至对于很多问题，graph可以得到的特征以及表示对于普通表示更好一点。</p>
-<p>存在一个图，我们可以表示其为$ G = (V,E,X) $V表示的是点集，E表示的是边集，$ X \in \mathbb{R}^{|V|<em>d} $ 作为原始特征矩阵，通常情况下会设置为正交矩阵或者通过正态分布来进行初始化，在图上的表示学习，问题主要在于如何学习到节点表示：$ Z \in \mathbb{R}^{|V|</em>d_z} $。类似于NetMF，GraRep，HOPE，DeepWalk，LINE， HARP，以及GCN。</p>
+<p>存在一个图，我们可以表示其为$ G = (V,E,X) $V表示的是点集，E表示的是边集，$ X \in \mathbb{R}^{|V|*d} $ 作为原始特征矩阵，通常情况下会设置为正交矩阵或者通过正态分布来进行初始化，在图上的表示学习，问题主要在于如何学习到节点表示：$ Z \in \mathbb{R}^{|V|*d_z} $。类似于NetMF，GraRep，HOPE，DeepWalk，LINE， HARP，以及GCN。</p>
 <h3 id="生成式自监督学习">生成式自监督学习</h3>
 <h4 id="自回归模型auto-regressivear">自回归模型（auto-regressive，AR）</h4>
 <p>自回归模型被看作贝叶斯网络结构，其联合分布可以看作：</p>
@@ -115,9 +115,14 @@ code.has-jax {
 <h4 id="自编码模型">自编码模型</h4>
 <p>自编码模型的目的是通过输入重新构造一部分输入，由于其灵活性，目前应用比较广泛。</p>
 <h5 id="基础自编码模型"><strong>基础自编码模型</strong></h5>
-<p>在自编码模型之前出现过的RBM（Restricted Boltzmann Machine）受限玻尔兹曼机，RBM存在两层，一层是可视化层，另一层是作为隐藏层，RBM的目标就是</p>
+<p>在自编码模型之前出现过的RBM（Restricted Boltzmann Machine）受限玻尔兹曼机，RBM存在两层，一层是可视化层，另一层是作为隐藏层，RBM的目标就是最小化模型的混合分布与数据分布的差距。相反的是，RBM是无向概率图模型，基础自编码模型作为有向概率图模型，并且更容易训练。大体上，自编码器可以看作一个前向神经网络，存在一个encoder $ h = f_{enc}(x) $以及decoder$ x<code> = f_{dec}(h) $其目标是最小化$ x $与$ x</code> $之间的距离，有时自编码器的隐藏层与输入单位相比，可以通过在隐藏单位上施加的系数约束来表示神奇的结构。</p>
 <h5 id="内容预测模型cpm"><strong>内容预测模型(CPM)</strong></h5>
+<p>CPM是基于输入预测上下文信息。在NLP中，类似于word2vec（CBOW，skip-gram）等都是在embedding中最先启动的自监督学习，继承该类结构，fasttext对子词信息也进行了应用。</p>
+<p>在图嵌入方面，deepwalk以及Line都旨在基于最近的点来生成邻居节点。</p>
 <h5 id="去噪自编码模型"><strong>去噪自编码模型</strong></h5>
+<p>去噪自编码模型的最基本的假设是该编码模型是分布对噪声应该带有鲁棒性，因此我们对其中的一些token进行mask，之后根据上下文关系对mask的token进行预测，BERT是其中最具有代表性的工作。但是这个方法的一个缺点是对下游任务的缺少输入的mask token，因此为了解决这个问题，很多不使用mask而是使用原词或者小概率随机词。</p>
+<p>在BERT之后，大家对他的结构进行了各种各样的拓展：Span-bert 选择mask掉随机范围而不是随机token，通过训练范（span）的边界表示来预测被mask的范围，ERINE（baidu）mask掉实体或者短语来学习实体以及短语层次的问题，清华的ERINE模型来使用该方法吧知识应用在语言模型中。</p>
+<p>基于图的去噪自编码模型有GPT-GNN以及OAG</p>
 <h5 id="变分自编码器"><strong>变分自编码器</strong></h5>
 <h4 id="多层生成模型">多层生成模型</h4>
 <h5 id="混合arae模型"><strong>混合AR&amp;AE模型</strong></h5>
@@ -154,7 +159,7 @@ code.has-jax {
 </div>
 <p class="small">
     
-       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+       © Copyright 2021 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
 <p class="small">

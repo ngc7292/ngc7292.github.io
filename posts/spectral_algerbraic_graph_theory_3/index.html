@@ -12,7 +12,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.72.0" name="generator"/>
+<meta content="Hugo 0.78.1" name="generator"/>
 <title>谱图与代数图论读书笔记3 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -123,9 +123,9 @@ code.has-jax {
 <h5 id="t-431-cauchys-interlacing-theorem">T 4.3.1 Cauchy’s Interlacing Theorem</h5>
 <p>对于一个n*n的实对称矩阵，使B成为A的子图，即B是A去掉一个点所得到的，因此我们有：</p>
 <p>$$ \mu_1 \geq \beta_1 \geq \mu_2 \geq \beta_2 \geq … \geq \beta_{n-1} \geq \mu_n $$</p>
-<p>对于A我们有$ \mu_1 = max\dfrac{x^TAx}{x^Tx} $，对于B同样的$ \beta_1 = max\dfrac{x'^TBx’}{x'^Tx’} $</p>
-<p>由于B是A的主子矩阵，那么$ x = \begin{bmatrix} 0 \ x’ \end{bmatrix} $也在x的范围内，我们对后者进行化简，使其更加直观：</p>
-<p>$$  \beta_1 = max\dfrac{x'^TBx’}{x'^Tx’} =  max\dfrac{ \begin{bmatrix} 0 \ x’ \end{bmatrix} ^TA\begin{bmatrix} 0 \ x’ \end{bmatrix}}{\begin{bmatrix} 0 \ x’ \end{bmatrix}^T\begin{bmatrix} 0 \ x’ \end{bmatrix}}$$</p>
+<p>对于A我们有$ \mu_1 = max\dfrac{x^TAx}{x^Tx} $，对于B同样的$ \beta_1 = max\dfrac{x'^TBx'}{x'^Tx'} $</p>
+<p>由于B是A的主子矩阵，那么$ x = \begin{bmatrix} 0 \ x' \end{bmatrix} $也在x的范围内，我们对后者进行化简，使其更加直观：</p>
+<p>$$  \beta_1 = max\dfrac{x'^TBx'}{x'^Tx'} =  max\dfrac{ \begin{bmatrix} 0 \ x' \end{bmatrix} ^TA\begin{bmatrix} 0 \ x' \end{bmatrix}}{\begin{bmatrix} 0 \ x' \end{bmatrix}^T\begin{bmatrix} 0 \ x' \end{bmatrix}}$$</p>
 <p>从而我们可以证明出$ \mu_1 \geq \beta_1 $</p>
 <p>当A转化成-A的时候，很明显的B变为-B，特征值也相应的取负，同样的对于最大值相比较，很明显，对于B来讲，最大特征值成为了$ -\beta_{n-1} $而A的为$ -\mu_n $ 且 $ -\mu_n \geq -\beta_{n-1} $</p>
 <p>综上可以证得上述结论。</p>
@@ -225,7 +225,7 @@ code.has-jax {
 </div>
 <p class="small">
     
-       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+       © Copyright 2021 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
 <p class="small">

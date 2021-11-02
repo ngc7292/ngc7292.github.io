@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.72.0" name="generator"/>
+<meta content="Hugo 0.78.1" name="generator"/>
 <title>谱图与代数图论读书笔记 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -137,8 +137,8 @@ code.has-jax {
 <p>$$ D_G = diag \{metrix \quad degree\}$$</p>
 <p>同时，我们设$ W_G = M_G D_G^{-1} $，当然，当图的每一个顶点都有相同的度的时候，$ W_G $ 是$ M_G $的缩放。</p>
 <p><!-- raw HTML omitted -->这个矩阵好像对于随机游走十分有用，但是确实没有看懂这一部分<!-- raw HTML omitted --></p>
-<p>对于随机游走模型，我们首先来定义全局游走，我们称这个图的矩阵类似于扩散因子，每一个数值代表来在图上的线性变换，我们对于一个点$ x $ ，在全局游走中，我们只需要对$ x’ = Mx $ 即可表示下一个时间节点上$ x $的位置，这本书介绍了一种懒散随机游走（lazy random walk）其定义矩阵$ M $ ：</p>
-<p>$ M’ := I/2 + M/2 $</p>
+<p>对于随机游走模型，我们首先来定义全局游走，我们称这个图的矩阵类似于扩散因子，每一个数值代表来在图上的线性变换，我们对于一个点$ x $ ，在全局游走中，我们只需要对$ x' = Mx $ 即可表示下一个时间节点上$ x $的位置，这本书介绍了一种懒散随机游走（lazy random walk）其定义矩阵$ M $ ：</p>
+<p>$ M' := I/2 + M/2 $</p>
 <p>表示有几率不会变化而也有几率会变化。</p>
 <p>为了更好的研究谱对于图的性质，引入拉普拉斯矩阵，其定义为$ L_G = D_G - W_G $，拉普拉斯矩阵的物理意义为第i个我们也可以得到关于laplacian矩阵的二次型</p>
 <p>$$ x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2 $$</p>
@@ -211,7 +211,7 @@ code.has-jax {
 </div>
 <p class="small">
     
-       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+       © Copyright 2021 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
 <p class="small">

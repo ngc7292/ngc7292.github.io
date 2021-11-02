@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.72.0" name="generator"/>
+<meta content="Hugo 0.78.1" name="generator"/>
 <title>leetcode database刷题记录 · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -250,7 +250,7 @@ For example, after running your query, the above Person table should have the fo
 <p>+—-+——————+</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> Person1 <span style="color:#66d9ef">FROM</span> Person <span style="color:#66d9ef">as</span> Person1,Person <span style="color:#66d9ef">as</span> Person2 <span style="color:#66d9ef">WHERE</span> Person1.Email <span style="color:#f92672">=</span> Person2.Email <span style="color:#66d9ef">and</span> Person1.Id <span style="color:#f92672">&gt;</span> Person2.Id;
 </code></pre></div><h2 id="197-rising-temperature">197. Rising Temperature</h2>
-<p>Given a Weather table, write a SQL query to find all dates’ Ids with higher temperature compared to its previous (yesterday’s) dates.</p>
+<p>Given a Weather table, write a SQL query to find all dates' Ids with higher temperature compared to its previous (yesterday’s) dates.</p>
 <p>+———+————+——————+</p>
 <p>| Id(INT) | Date(DATE) | Temperature(INT) |</p>
 <p>+———+————+——————+</p>
@@ -279,7 +279,7 @@ For example, after running your query, the above Person table should have the fo
 <p>| Angola          | Africa     | 1246700    | 20609294     | 100990000     |</p>
 <p>+—————–+————+————+————–+—————+</p>
 <p>A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million.</p>
-<p>Write a SQL solution to output big countries’ name, population and area.</p>
+<p>Write a SQL solution to output big countries' name, population and area.</p>
 <p>For example, according to the above table, we should output:</p>
 <p>+————–+————-+————–+</p>
 <p>| name         | population  | area         |</p>
@@ -365,7 +365,7 @@ Please write a SQL query to output movies with an odd numbered ID and a descript
 </div>
 <p class="small">
     
-       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+       © Copyright 2021 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
 <p class="small">

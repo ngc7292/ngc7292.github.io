@@ -11,7 +11,7 @@
 <meta content="@ngc7293" name="twitter:site"/>
 <meta content="@ngc7293" name="twitter:creator"/>
 <meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.72.0" name="generator"/>
+<meta content="Hugo 0.78.1" name="generator"/>
 <title>neural network and BP algorithm · ngc7293's blog</title>
 <link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
 <link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
@@ -135,7 +135,7 @@ code.has-jax {
 <p>以$\omega$举例，$\omega$是先影响到$\beta$再影响y继而影响E的，所以我们可以将$\omega$式子转化：</p>
 <p>$$\dfrac {\partial E _{k}} {\partial \omega _{hj}} = \dfrac {\partial E _{k}} {\partial y^k _{j}}* \dfrac {\partial y^k _{j}} {\partial \beta _{j}}* \dfrac {\partial \beta _{j}} {\partial \omega _{hj}}$$</p>
 <p>由于</p>
-<p>$$f’\left( x\right) = f(x)(1-f(x))$$</p>
+<p>$$f'\left( x\right) = f(x)(1-f(x))$$</p>
 <p>设</p>
 <p>$$g_j = -\dfrac {\partial E _{k}} {\partial y^k _{j}}*\dfrac {\partial y^k _{j}} {\partial \beta _{j}} = \widehat{y}^k _j(1-\widehat{y}^k _j)(y^k _j-\widehat{y}^k _j)$$</p>
 <p>所以关于omega的更新公式为</p>
@@ -161,7 +161,7 @@ code.has-jax {
 <p>梯度下降法是最小二乘法的一种，用于求解无约束规划问题，用于获得损失函数或者代价函数的最小化。</p>
 <p>定义一个函数$$ C = f(v_1,…,v_m)$$</p>
 <p>梯度的定义为 $$∇C≡(∂C/∂v_1,…,∂C/∂v_m)^{T}$$</p>
-<p>更新梯度$$ v \rightarrow  v’ = v - \eta \nabla C$$</p>
+<p>更新梯度$$ v \rightarrow  v' = v - \eta \nabla C$$</p>
 <p>直到v到无穷小的时候，我们可以最小化C。</p>
 <p>梯度下降算法有大致三种形式，BGD（批量梯度下降），SGD（随机梯度下降），MBGD（小批量随机梯度下降）</p>
 <p>例如我们对一组数据进行线性回归拟合，其线性函数为</p>
@@ -249,7 +249,7 @@ lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
 </div>
 <p class="small">
     
-       © Copyright 2020 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+       © Copyright 2021 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
 <p class="small">
