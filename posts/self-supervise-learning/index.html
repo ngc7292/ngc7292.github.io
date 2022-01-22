@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="Self-supervised Learning, Generative or Contrastive" name="twitter:title"/>
-<meta content="Self-supervisedLearning: Generativeor Contrastive" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>Self-supervised Learning, Generative or Contrastive · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Self-supervised Learning, Generative or Contrastive"/>
+  <meta name="twitter:description" content="Self-supervisedLearning: Generativeor Contrastive"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>Self-supervised Learning, Generative or Contrastive &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,51 +84,72 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         Self-supervised Learning, Generative or Contrastive
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Oct 31, 2020 00:00
                     · 184 words
                     · 1 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/nlp">nlp</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#自监督学习生成与对比generative-and-contrastive">自监督学习：生成与对比（generative and contrastive）</a>
-<ul>
-<li></li>
-<li><a href="#graph-中的表示学习">graph 中的表示学习</a></li>
-<li><a href="#生成式自监督学习">生成式自监督学习</a></li>
-<li><a href="#对比式自监督学习contastive-self-supervise-learning">对比式自监督学习（contastive self-supervise learning）</a></li>
-<li><a href="#生成对比自监督学习对抗学习">生成对比自监督学习（对抗学习）</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/nlp">nlp</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#自监督学习生成与对比generative-and-contrastive">自监督学习：生成与对比（generative and contrastive）</a>
+      <ul>
+        <li></li>
+        <li><a href="#graph-中的表示学习">graph 中的表示学习</a></li>
+        <li><a href="#生成式自监督学习">生成式自监督学习</a></li>
+        <li><a href="#对比式自监督学习contastive-self-supervise-learning">对比式自监督学习（contastive self-supervise learning）</a></li>
+        <li><a href="#生成对比自监督学习对抗学习">生成对比自监督学习（对抗学习）</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>本文是清华大学的一篇survey <a href="http://arxiv.org/abs/2006.08218">Liu, X., Zhang, F., Hou, Z., Mian, L., Wang, Z., Zhang, J., Tang, J., &amp; Member, S. (n.d.). <em>Self-supervised Learning : Generative or Contrastive</em>. 1–23.</a>  我来学习一下，顺便记录一下可以看的生成方面的论文。</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>本文是清华大学的一篇survey <a href="http://arxiv.org/abs/2006.08218">Liu, X., Zhang, F., Hou, Z., Mian, L., Wang, Z., Zhang, J., Tang, J., &amp; Member, S. (n.d.). <em>Self-supervised Learning : Generative or Contrastive</em>. 1–23.</a>  我来学习一下，顺便记录一下可以看的生成方面的论文。</p>
 <h2 id="自监督学习生成与对比generative-and-contrastive">自监督学习：生成与对比（generative and contrastive）</h2>
 <p>监督学习在很多地方应用都很多，例如CV，nlp，以及graph representation learning。在nlp中，大部分任务都是监督学习，但是监督学习依赖于手动标记的高质量数据集，对于很多任务来说，手动标注的数据集比较珍贵，而且规模受限制，代价昂贵。而无监督学习与自监督学习可以通过少量的标签样本来得到更多的特征，这篇servey就对自监督学习进行简单的介绍以及整合。</p>
 <h4 id="nlp中的表示学习">nlp中的表示学习</h4>
-<p>在nlp中，embedding分为带文本信息的（contextual）以及不带文本信息的（non-contextual）的方式，后者只会将token映射到一个空间中，对于$ x \in V $来讲，我们对其进行嵌入得到$ e_x \in \mathbb{R}^d $，对于带文本信息的嵌入，我们可以表示为$ [e_1,e_2,..,e_n] = f(x_1,x_2,…,x_n) $， f表示embedding函数。contextual embedding中最早的是mikolov的word2vec，cbow，skip-gram，这种方法将每一个token映射为相同的embedding向量，我觉得对于语句的特征并没有提取多少，更类似与n-gram之类的嵌入方法，之后ELMo（Embedding from Language model）出现，一定程度上解决这些问题，目前，BERT（bidirectional Encoder Representations from Transformers）问世之后，在11个nlp任务中得到了巨大的提升。BERT是一个fine tuned approach， 采用transformer作为encoder，有两个任务，其中一个是随机mask部分词语或者token来进行预测，这应该是表示学习中表现最好的一种模型，其表示的信息足够多，特征也足够大，对于很多任务都是相当大的提升。</p>
+<p>在nlp中，embedding分为带文本信息的（contextual）以及不带文本信息的（non-contextual）的方式，后者只会将token映射到一个空间中，对于$ x \in V $来讲，我们对其进行嵌入得到$ e_x \in \mathbb{R}^d $，对于带文本信息的嵌入，我们可以表示为$ [e_1,e_2,..,e_n] = f(x_1,x_2,&hellip;,x_n) $， f表示embedding函数。contextual embedding中最早的是mikolov的word2vec，cbow，skip-gram，这种方法将每一个token映射为相同的embedding向量，我觉得对于语句的特征并没有提取多少，更类似与n-gram之类的嵌入方法，之后ELMo（Embedding from Language model）出现，一定程度上解决这些问题，目前，BERT（bidirectional Encoder Representations from Transformers）问世之后，在11个nlp任务中得到了巨大的提升。BERT是一个fine tuned approach， 采用transformer作为encoder，有两个任务，其中一个是随机mask部分词语或者token来进行预测，这应该是表示学习中表现最好的一种模型，其表示的信息足够多，特征也足够大，对于很多任务都是相当大的提升。</p>
 <h3 id="graph-中的表示学习">graph 中的表示学习</h3>
 <p>虽然我们研究的是nlp，但是最近的研究显示，nlp中很多问题都是可以通过graph的结构来进行表示，甚至对于很多问题，graph可以得到的特征以及表示对于普通表示更好一点。</p>
 <p>存在一个图，我们可以表示其为$ G = (V,E,X) $V表示的是点集，E表示的是边集，$ X \in \mathbb{R}^{|V|*d} $ 作为原始特征矩阵，通常情况下会设置为正交矩阵或者通过正态分布来进行初始化，在图上的表示学习，问题主要在于如何学习到节点表示：$ Z \in \mathbb{R}^{|V|*d_z} $。类似于NetMF，GraRep，HOPE，DeepWalk，LINE， HARP，以及GCN。</p>
@@ -131,9 +181,13 @@ code.has-jax {
 <h4 id="文本实例对比context-instance-contrast">文本实例对比（context-instance contrast）</h4>
 <h4 id="文本相互对比context-context-contrast">文本相互对比（context-context contrast)</h4>
 <h3 id="生成对比自监督学习对抗学习">生成对比自监督学习（对抗学习）</h3>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -145,32 +199,55 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -183,5 +260,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

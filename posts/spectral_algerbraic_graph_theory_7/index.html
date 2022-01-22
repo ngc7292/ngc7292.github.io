@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="谱图与代数图论读书笔记7" name="twitter:title"/>
-<meta content="这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>谱图与代数图论读书笔记7 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="谱图与代数图论读书笔记7"/>
+  <meta name="twitter:description" content="这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>谱图与代数图论读书笔记7 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,54 +84,77 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         谱图与代数图论读书笔记7
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Aug 23, 2020 00:00
                     · 447 words
                     · 3 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/graph">graph</a>
-<a href="https://ngc7292.github.io/tags/math">math</a>
-<a href="https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy">spectral algerbraic graph theroy</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#walkspring-and-resistor-networks">walk，spring and resistor networks</a>
-<ul>
-<li><a href="#调和函数">调和函数</a></li>
-<li><a href="#图上的随机游走">图上的随机游走</a></li>
-<li><a href="#网络">网络</a></li>
-<li><a href="#摩尔彭罗斯广义逆moore-penrose-pseudo-inverse">摩尔·彭罗斯广义逆（<em>moore-penrose pseudo-inverse</em>）</a></li>
-</ul>
-</li>
-<li><a href="#effective-resistance-and-schur-complement">effective resistance and schur complement</a>
-<ul>
-<li><a href="#有效电流与有效电阻">有效电流与有效电阻</a></li>
-<li><a href="#高斯消元与舒尔补">高斯消元与舒尔补</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/graph">graph</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/math">math</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy">spectral algerbraic graph theroy</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#walkspring-and-resistor-networks">walk，spring and resistor networks</a>
+      <ul>
+        <li><a href="#调和函数">调和函数</a></li>
+        <li><a href="#图上的随机游走">图上的随机游走</a></li>
+        <li><a href="#网络">网络</a></li>
+        <li><a href="#摩尔彭罗斯广义逆moore-penrose-pseudo-inverse">摩尔·彭罗斯广义逆（<em>moore-penrose pseudo-inverse</em>）</a></li>
+      </ul>
+    </li>
+    <li><a href="#effective-resistance-and-schur-complement">effective resistance and schur complement</a>
+      <ul>
+        <li><a href="#有效电流与有效电阻">有效电流与有效电阻</a></li>
+        <li><a href="#高斯消元与舒尔补">高斯消元与舒尔补</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>这两章定义了两个物理上的知识，通过定义等效电阻来表征一个电阻网络的性质以及特点。</p>
 <h2 id="walkspring-and-resistor-networks">walk，spring and resistor networks</h2>
 <h3 id="调和函数">调和函数</h3>
 <p>对于一个图$ G = (V,E,\omega) $，以及一个边界的点集$ B \subseteq V $，其他的点组成一个点集$ S = V - B $，同时，假定图为连通图并且B不为空，对于一个函数$ x:V \rightarrow R $并满足$ x(a) = \dfrac{1}{d_a}\sum_{b~a}w_{a,b}x(b) $即在x(a) 是a的邻居节点的值的加权平均。</p>
@@ -154,8 +206,8 @@ code.has-jax {
 <p>$$ (\delta_a - \delta_b)^TL^+(\delta_a-\delta_b) = ((L^{+/2}(\delta_a - \delta_b))^TL^{+/2}(\delta_a-\delta_b)) = ||L^{+/2}(\delta_a-\delta_b)||^2 $$</p>
 <p>在这里设计两个简单的图来说明等效电阻的性质：</p>
 <ol>
-<li>串联（series）通过串联多个电阻，我们可以根据上面的式子得到$ r = r_{1,2}+…+r_{n-1,n} $</li>
-<li>并联（parallel）通过并联电阻，阻值为$ \dfrac{1}{1/r_1+…+1/r_n} $</li>
+<li>串联（series）通过串联多个电阻，我们可以根据上面的式子得到$ r = r_{1,2}+&hellip;+r_{n-1,n} $</li>
+<li>并联（parallel）通过并联电阻，阻值为$ \dfrac{1}{1/r_1+&hellip;+1/r_n} $</li>
 </ol>
 <p>等效电阻同时也有很多性质：</p>
 <ol>
@@ -167,16 +219,20 @@ code.has-jax {
 <h3 id="高斯消元与舒尔补">高斯消元与舒尔补</h3>
 <p>B是一个图上的边界点组成的点集 ，$v(B)$是B上的电压组成的向量，对于矩阵$ L_B $，可以得到$ i_B = L_Bv(B) $。</p>
 <p>$ L_B $事实上是一个拉普拉斯矩阵，并且是经过高斯消元后形成的矩阵，高斯消元是一种通过乘除加减来消去矩阵的值的方法，在这里对其加以证明：</p>
-<p>首先一个图$ G = (V,E,w) $，设$ B = {2,…,n} $那么中间的节点就只有去，那么$ v(1) = \dfrac{1}{d(1)}\sum_{a\in N}w_{1,a}v(a) $ 。</p>
+<p>首先一个图$ G = (V,E,w) $，设$ B = {2,&hellip;,n} $那么中间的节点就只有去，那么$ v(1) = \dfrac{1}{d(1)}\sum_{a\in N}w_{1,a}v(a) $ 。</p>
 <p>对于节点b，有$ i_{ext}(b) = d(b)v(b)-\sum_{c~b}w_{b,c}v(c)$，将1提出来，$ i_{ext}(b) = d(b)v(b) - w_{1,b}v(1)-\sum_{c~b,c\neq 1}w_{b,c}v(c) $将上面的$ v(1) $带入这式子，并进行展开:</p>
 <p>$$ i_{ext}(b) = d(b)v(b) - \sum_{a\in N}\dfrac{w_{b,1}w_{a,1}}{d(1)}v(a) - \sum_{c~b,c\neq 1}w_{b,c}v(c) $$</p>
 <p>将第二个小狮子的a=b提出来，这样凑出来了L：</p>
 <p>$$ i_{ext}(b) = d(b)v(b) - (w_{b,1}^2/d(1))v(b) - \sum_{a\in N,a\neq b}\dfrac{w_{b,1}w_{a,1}}{d(1)}v(a) - \sum_{c~b,c\neq 1}w_{b,c}v(c)  $$</p>
 <p>采用矩阵形式来表示我们可以进行推倒，无非是设$ v^TLv = v(B)^TL_Bv(B)$经过计算后得到$ L_B = L(B,B) -\dfrac{L(B,1)L(1,B)}{L(1,1)} $</p>
 <p>矩阵方式比上述方法直观，我们之后就对矩阵进行拓展，移除S的点后，得到$ L(B,B)-L(B,S)L(S,B)L(S,S)^{-1} $这被称为schur complement。</p>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -188,32 +244,55 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -226,5 +305,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

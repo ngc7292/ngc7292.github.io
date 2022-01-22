@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="谱图与代数图论读书笔记" name="twitter:title"/>
-<meta content="谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>谱图与代数图论读书笔记 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="谱图与代数图论读书笔记"/>
+  <meta name="twitter:description" content="谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>谱图与代数图论读书笔记 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,48 +84,71 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         谱图与代数图论读书笔记
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Jun 16, 2020 00:00
                     · 406 words
                     · 2 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/graph">graph</a>
-<a href="https://ngc7292.github.io/tags/math">math</a>
-<a href="https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy">spectral algerbraic graph theroy</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#为什么是谱图理论">为什么是谱图理论</a></li>
-<li><a href="#图">图</a></li>
-<li><a href="#一些相关的概念">一些相关的概念</a></li>
-<li><a href="#常见有关图的机器学习任务">常见有关图的机器学习任务</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/graph">graph</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/math">math</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy">spectral algerbraic graph theroy</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为什么是谱图理论">为什么是谱图理论</a></li>
+        <li><a href="#图">图</a></li>
+        <li><a href="#一些相关的概念">一些相关的概念</a></li>
+        <li><a href="#常见有关图的机器学习任务">常见有关图的机器学习任务</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。</p>
 <p>该书所对应的课程有三个任务：</p>
 <ol>
 <li>了解完善特征向量是如何与图中顶点相对应的。</li>
@@ -107,20 +159,20 @@ code.has-jax {
 <h3 id="为什么是谱图理论">为什么是谱图理论</h3>
 <p>一个图可以用很多种方式来表示，其中最常见也是最简单的方式就是邻接矩阵的方式。首先先来复习一些矩阵的性质</p>
 <h4 id="矩阵及其特性">矩阵及其特性</h4>
-<p>​		我们设一个矩阵M为$ \begin{bmatrix} m_{11} \ m_{12} \ … \ m_{1n} \\ … \\ m_{n1} \ m_{n_2} \ … \ m_{nn} \end{bmatrix} $ ，当我们乘以另一个向量的时候，其可以作为一个线性映射映射，线性变换或者称之为线性函数$f(x)$，所谓对于整个空间的<a href="%5Bhttps://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%5D(https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)">线性变换</a>，就是指在这个transform中，整个空间的向量保持向量加法以及标量乘法的特殊映射，是整个向量空间的同态。在这个线性变换中，存在变换后的向量是没有经过向量加法的，即只是对于该向量线性的标量的相乘，这些向量称为特征向量，这时$ M\alpha = \lambda \alpha $成立，$ \alpha$即特征向量，$ \lambda$ 即为特征值。</p>
-<p>​		特征值以及特征向量具有很多性质，对于一个可对角化的矩阵，矩阵可以分解为特征值组成的矩阵以及特征向量组成的矩阵之积的形式：$ M = Q^T \wedge Q $ ， 另外，也可以表示为：$ M = \lambda_1 \alpha_1 \alpha_1^T + … + \lambda_n \alpha_n \alpha_n^T $</p>
-<p>由于 $ M\alpha_1 = \lambda_1 \alpha_1 $ 上式可以化作$ M = M(\alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T) $</p>
-<p>我们只需要证明后面的等于单位阵即可，对于特征向量来说，每一个特征向量都是线性无关的，因此，$ \alpha_i^T \alpha_j = 0 $ ，对于做了单位化的特征值，$ \alpha_i^T\alpha_i = 1 $ 由此可以设$ \alpha_1\alpha_1^T + … + \alpha_n \alpha_n^T  = X $ ，X为未知变量，我们对两边同乘 $ \alpha^T $ ，$ \alpha = X\alpha $ 连立这些方程，我们得到$ X = I $ 从而证得上面的结论。（我总觉得这个证明好像不太严谨，在找找看吧）</p>
+<p>​		我们设一个矩阵M为$ \begin{bmatrix} m_{11} \ m_{12} \ &hellip; \ m_{1n} \\ &hellip; \\ m_{n1} \ m_{n_2} \ &hellip; \ m_{nn} \end{bmatrix} $ ，当我们乘以另一个向量的时候，其可以作为一个线性映射映射，线性变换或者称之为线性函数$f(x)$，所谓对于整个空间的<a href="%5Bhttps://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%5D(https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84)">线性变换</a>，就是指在这个transform中，整个空间的向量保持向量加法以及标量乘法的特殊映射，是整个向量空间的同态。在这个线性变换中，存在变换后的向量是没有经过向量加法的，即只是对于该向量线性的标量的相乘，这些向量称为特征向量，这时$ M\alpha = \lambda \alpha $成立，$ \alpha$即特征向量，$ \lambda$ 即为特征值。</p>
+<p>​		特征值以及特征向量具有很多性质，对于一个可对角化的矩阵，矩阵可以分解为特征值组成的矩阵以及特征向量组成的矩阵之积的形式：$ M = Q^T \wedge Q $ ， 另外，也可以表示为：$ M = \lambda_1 \alpha_1 \alpha_1^T + &hellip; + \lambda_n \alpha_n \alpha_n^T $</p>
+<p>由于 $ M\alpha_1 = \lambda_1 \alpha_1 $ 上式可以化作$ M = M(\alpha_1\alpha_1^T + &hellip; + \alpha_n \alpha_n^T) $</p>
+<p>我们只需要证明后面的等于单位阵即可，对于特征向量来说，每一个特征向量都是线性无关的，因此，$ \alpha_i^T \alpha_j = 0 $ ，对于做了单位化的特征值，$ \alpha_i^T\alpha_i = 1 $ 由此可以设$ \alpha_1\alpha_1^T + &hellip; + \alpha_n \alpha_n^T  = X $ ，X为未知变量，我们对两边同乘 $ \alpha^T $ ，$ \alpha = X\alpha $ 连立这些方程，我们得到$ X = I $ 从而证得上面的结论。（我总觉得这个证明好像不太严谨，在找找看吧）</p>
 <p>由于矩阵可以被特征值以及特征向量分解的性质，我们可以类比光谱理论中的名词，在线性代数中，矩阵的谱被定义为特征值的模的最大值。</p>
 <h4 id="谱定理">谱定理</h4>
-<p>如果M是n*n的实对称矩阵，存在$ \lambda_1,\lambda_2,…,\lambda_n $的实数，以及n个相互正交的单位矢量，这些向量就是该矩阵的特征矩阵，$ \lambda $就是该矩阵的特征值。<!-- raw HTML omitted -->我感觉是废话<!-- raw HTML omitted --></p>
+<p>如果M是n*n的实对称矩阵，存在$ \lambda_1,\lambda_2,&hellip;,\lambda_n $的实数，以及n个相互正交的单位矢量，这些向量就是该矩阵的特征矩阵，$ \lambda $就是该矩阵的特征值。<!-- raw HTML omitted -->我感觉是废话<!-- raw HTML omitted --></p>
 <p>定理：如果一个矩阵是对称的并且其所有的特征值是正的，那么是正定的，如果一个矩阵是对称的并且每一个特征值都是非负的，那么其是半定的。</p>
 <h3 id="图">图</h3>
 <h4 id="图的性质">图的性质</h4>
 <p>图（也称为网络）通常用于表示连接或者关系的一种模型，通过用顶点来表示事物，用边来表示连接或者关系。当一个图中边远远重要于点，那么我们可以只指定边集E从而忽视掉其周围的顶点集。</p>
 <p>通过抽象以及数字化的图来研究图的性质会容易的多：</p>
 <ul>
-<li>n个顶点的路径：$ {1,2,…,n} $是n个顶点，$ (i,j) $表示i到j的路径。</li>
+<li>n个顶点的路径：$ {1,2,&hellip;,n} $是n个顶点，$ (i,j) $表示i到j的路径。</li>
 <li>n个顶点的环：每一个环时路径加上$ (1,n) $的边。</li>
 <li>一个$ 2^k$个顶点的超立方体，顶点是$ {0,1}^k $上的元素，但是只有在一个维度上的顶点存在边。</li>
 </ul>
@@ -143,8 +195,8 @@ code.has-jax {
 <p>为了更好的研究谱对于图的性质，引入拉普拉斯矩阵，其定义为$ L_G = D_G - W_G $，拉普拉斯矩阵的物理意义为第i个我们也可以得到关于laplacian矩阵的二次型</p>
 <p>$$ x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2 $$</p>
 <p>这个式子的证明：</p>
-<hr/>
-<p>$$ x^TL_Gx = \begin{bmatrix}x_1 \ x_2 \ … \ x_n \end{bmatrix} \begin{bmatrix} l_{11} \ l_{12} \ … \ l_{1n} \\ … \\ l_{n1} \ l_{n2} \ … l_{nn} \end{bmatrix} \begin{bmatrix}x_1 \\ x_2 \\ … \\ x_n \end{bmatrix}  $$</p>
+<hr>
+<p>$$ x^TL_Gx = \begin{bmatrix}x_1 \ x_2 \ &hellip; \ x_n \end{bmatrix} \begin{bmatrix} l_{11} \ l_{12} \ &hellip; \ l_{1n} \\ &hellip; \\ l_{n1} \ l_{n2} \ &hellip; l_{nn} \end{bmatrix} \begin{bmatrix}x_1 \\ x_2 \\ &hellip; \\ x_n \end{bmatrix}  $$</p>
 <p>我们将整个矩阵乘开</p>
 <p>$$ x^TL_Gx = \sum_{a=1}^n\sum_{b=1}^N L_{ab}x(a)x(b) $$</p>
 <p>由laplacian矩阵的定义，我们可以将式子分为$ a=b $ 以及 $ a \neq b $：</p>
@@ -154,7 +206,7 @@ code.has-jax {
 <p>因此，$$ \sum_i^N L_{ii} x^2(i) = \sum_i\sum_{j(i\neq j)} w_{ab} x^2(i) $$</p>
 <p>对于任意一条图上边$ (a,b) $ ， 我们有$ w_{ab}x^2(a) + w_{ab}x^2(b) - 2w_{ab}x(a)x(b) $</p>
 <p>所以，$  x^TL_Gx = \sum_{(a,b) \in E} w_{a,b} (x(a)-x(b))^2  $</p>
-<hr/>
+<hr>
 <p>该二次型可以用于测量相关x的平滑度，如果x在边上路径较少，该二次型将会表少，我们通常使用$ x(a) $或者$ x_a $来表示与顶点a相对应的向量x的坐标。</p>
 <p>特征值以及特征向量：当存在向量$ x $使得$ x^TMx = \lambda $，我们称$ \lambda $为特征值，$ x $为特征向量。</p>
 <pre><code>奇异矩阵是线性代数的概念，就是该矩阵的秩不是满秩。 首先，看这个矩阵是不是方阵（即行数和列数相等的矩阵，若行数和列数不相等，那就谈不上奇异矩阵和非奇异矩阵）。 然后，再看此矩阵的行列式|A|是否等于0，若等于0，称矩阵A为奇异矩阵；若不等于0，称矩阵A为非奇异矩阵。
@@ -165,7 +217,7 @@ code.has-jax {
 <p>这个值就被称为代数联通度，也被称为费得勒价值，费德勒价值可以作为图的联通程度的一种量度。</p>
 <p>柏拉图立体，指所有面都是全等的正多边形并且每一个顶点所接触的面都是一样的凸多面体，并且只有5种立体。</p>
 <p>正则图：各个顶点都相互相等的无向简单图，强正则图是每对相邻顶点都有相通的度的并且每个非相邻节点都有相同数量的共同邻居。</p>
-<p>设A是G的<a href="https://zh.wikipedia.org/wiki/%E9%84%B0%E6%8E%A5%E7%9F%A9%E9%99%A3">邻接矩阵</a>，G是正则图当且仅当$ \begin{bmatrix} 1 \\ … \\ 1 \end{bmatrix} $是A的<a href="https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F">特征向量</a>.</p>
+<p>设A是G的<a href="https://zh.wikipedia.org/wiki/%E9%84%B0%E6%8E%A5%E7%9F%A9%E9%99%A3">邻接矩阵</a>，G是正则图当且仅当$ \begin{bmatrix} 1 \\ &hellip; \\ 1 \end{bmatrix} $是A的<a href="https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F">特征向量</a>.</p>
 <p>对于十二面体的高频特征向量，将其绘制入三维中可以发现顶点与其邻居大致相对。</p>
 <p>对于连接特别紧密的图，我们称为拓展器（expanders）对于这种图，其l值是远离0的常数。</p>
 <h3 id="常见有关图的机器学习任务">常见有关图的机器学习任务</h3>
@@ -183,9 +235,13 @@ code.has-jax {
 </ol>
 </li>
 </ol>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -197,32 +253,55 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -235,5 +314,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

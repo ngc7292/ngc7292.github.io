@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="evaluation and selection" name="twitter:title"/>
-<meta content="learning by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>evaluation and selection · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="evaluation and selection"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>evaluation and selection &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,58 +84,79 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         evaluation and selection
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Jul 27, 2018 00:00
                     · 142 words
                     · 1 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#模型的评估与选择">模型的评估与选择</a></li>
-<li><a href="#关于模型的评估结果">关于模型的评估结果</a></li>
-<li><a href="#产生测试集的几种方法">产生测试集的几种方法</a>
-<ul>
-<li><a href="#留出法hold-out">留出法（hold-out）</a></li>
-<li><a href="#交叉验证法-cross-validation">交叉验证法 （cross validation）</a></li>
-<li><a href="#自助法-bootstrapping">自助法 (bootstrapping)</a></li>
-<li><a href="#性能度量">性能度量</a></li>
-</ul>
-</li>
-<li><a href="#比较检验">比较检验</a>
-<ul>
-<li><a href="#假设检验">假设检验</a></li>
-</ul>
-</li>
-<li><a href="#偏差与方差">偏差与方差</a></li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#模型的评估与选择">模型的评估与选择</a></li>
+    <li><a href="#关于模型的评估结果">关于模型的评估结果</a></li>
+    <li><a href="#产生测试集的几种方法">产生测试集的几种方法</a>
+      <ul>
+        <li><a href="#留出法hold-out">留出法（hold-out）</a></li>
+        <li><a href="#交叉验证法-cross-validation">交叉验证法 （cross validation）</a></li>
+        <li><a href="#自助法-bootstrapping">自助法 (bootstrapping)</a></li>
+        <li><a href="#性能度量">性能度量</a></li>
+      </ul>
+    </li>
+    <li><a href="#比较检验">比较检验</a>
+      <ul>
+        <li><a href="#假设检验">假设检验</a></li>
+      </ul>
+    </li>
+    <li><a href="#偏差与方差">偏差与方差</a></li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法</p>
 <h2 id="模型的评估与选择">模型的评估与选择</h2>
 <h2 id="关于模型的评估结果">关于模型的评估结果</h2>
 <p>关于评估有两个基本的概念，一个是错误率(error rate)$$ E=a/m $$ ，另外一个是精度（accuracy) $$ A=1-a/m $$ ,我们将分类错误的样本数目称为错误率，把实际预测输出与真实输出称为训练误差(training error)或叫经验误差(empirical error),在新样本的误差叫泛化误差(generalization error).</p>
-<p>“过拟合(overfitting)“与"欠拟合(underfitting)”</p>
+<p>&ldquo;过拟合(overfitting)&ldquo;与&quot;欠拟合(underfitting)&rdquo;</p>
 <h2 id="产生测试集的几种方法">产生测试集的几种方法</h2>
 <h3 id="留出法hold-out">留出法（hold-out）</h3>
 <p>直接将给定训练集的样本比例，直接将数据集划分为两个不同的数据集，在其中一个训练在另一个进行测试。</p>
@@ -162,9 +212,13 @@ $$ R = TP/(TP+FN) $$</p>
 <p>偏差（dias）度量了学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力</p>
 <p>方差（variance）度量了训练集变化给训练结果带来的学习性能的变化，即数据扰动造成的影响</p>
 <p>噪声，表示当前学习算法所能达到的期望泛化误差的下界。</p>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -176,32 +230,55 @@ $$ R = TP/(TP+FN) $$</p>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -214,5 +291,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

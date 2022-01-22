@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="leetcode python刷题记录5" name="twitter:title"/>
-<meta content="leetcode python by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>leetcode python刷题记录5 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录5"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>leetcode python刷题记录5 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,48 +84,71 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         leetcode python刷题记录5
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Aug 7, 2018 00:00
                     · 1029 words
                     · 5 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/python">python</a>
-<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-<a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</a></li>
-<li><a href="#337-house-robber-iii">337. House Robber III</a></li>
-<li><a href="#222-count-complete-tree-nodes">222. Count Complete Tree Nodes</a></li>
-<li><a href="#199-binary-tree-right-side-view">199. Binary Tree Right Side View</a></li>
-<li><a href="#116-populating-next-right-pointers-in-each-node">116. Populating Next Right Pointers in Each Node</a></li>
-<li><a href="#96-unique-binary-search-trees">96. Unique Binary Search Trees</a></li>
-<li><a href="#102-binary-tree-level-order-traversal">102. Binary Tree Level Order Traversal</a></li>
-<li><a href="#257-binary-tree-paths">257. Binary Tree Paths</a></li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</a></li>
+    <li><a href="#337-house-robber-iii">337. House Robber III</a></li>
+    <li><a href="#222-count-complete-tree-nodes">222. Count Complete Tree Nodes</a></li>
+    <li><a href="#199-binary-tree-right-side-view">199. Binary Tree Right Side View</a></li>
+    <li><a href="#116-populating-next-right-pointers-in-each-node">116. Populating Next Right Pointers in Each Node</a></li>
+    <li><a href="#96-unique-binary-search-trees">96. Unique Binary Search Trees</a></li>
+    <li><a href="#102-binary-tree-level-order-traversal">102. Binary Tree Level Order Traversal</a></li>
+    <li><a href="#257-binary-tree-paths">257. Binary Tree Paths</a></li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>没有介绍</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>没有介绍</p>
 <h2 id="235-lowest-common-ancestor-of-a-binary-search-tree">235. Lowest Common Ancestor of a Binary Search Tree</h2>
 <p>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.</p>
 <p>According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”</p>
@@ -110,12 +162,12 @@ code.has-jax {
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lowestCommonAncestor</span>(self, root, p, q):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :type p: TreeNode
 </span><span style="color:#e6db74">        :type q: TreeNode
 </span><span style="color:#e6db74">        :rtype: TreeNode
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> p<span style="color:#f92672">.</span>val <span style="color:#f92672">or</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">==</span> q<span style="color:#f92672">.</span>val:
             <span style="color:#66d9ef">return</span> root
         <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&gt;</span> p<span style="color:#f92672">.</span>val <span style="color:#f92672">and</span> root<span style="color:#f92672">.</span>val <span style="color:#f92672">&gt;</span> q<span style="color:#f92672">.</span>val:
@@ -124,7 +176,7 @@ code.has-jax {
             <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>lowestCommonAncestor(root<span style="color:#f92672">.</span>right,p,q)
         <span style="color:#66d9ef">return</span> root
 </code></pre></div><h2 id="337-house-robber-iii">337. House Robber III</h2>
-<p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &ldquo;root.&rdquo; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &ldquo;all houses in this place forms a binary tree&rdquo;. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
 <p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
 <p>维护一个两元数组，一个保存加上该节点之后的，另一个保存未加该节点的最大值，最后返回两者之间的最大值就好。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Definition for a binary tree node.</span>
@@ -136,10 +188,10 @@ code.has-jax {
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rob</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">return</span> max(self<span style="color:#f92672">.</span>get_rob(root))
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_rob</span>(self,root):
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
@@ -162,10 +214,10 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">countNodes</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         hleft <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         hright <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         pleft <span style="color:#f92672">=</span> root
@@ -191,10 +243,10 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rightSideView</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
             <span style="color:#66d9ef">return</span> []
         root_stk <span style="color:#f92672">=</span> [root]
@@ -252,15 +304,15 @@ In a complete binary tree every level, except possibly the last, is completely f
                     root_list<span style="color:#f92672">.</span>append(roots_list[i]<span style="color:#f92672">.</span>right)
             roots_list <span style="color:#f92672">=</span> root_list
 </code></pre></div><h2 id="96-unique-binary-search-trees">96. Unique Binary Search Trees</h2>
-<p>Given n, how many structurally unique BST’s (binary search trees) that store values 1 … n?</p>
+<p>Given n, how many structurally unique BST&rsquo;s (binary search trees) that store values 1 &hellip; n?</p>
 <p>这个跟II不一样，可以直接使用卡塔兰数</p>
 <p>$$ C_{n+1} = \sum ^{n}_{i=0}C_{i}C_{n-i}  $$</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numTrees</span>(self, n):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type n: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         count <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>]
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
             count_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -280,10 +332,10 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">levelOrder</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: List[List[int]]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
             <span style="color:#66d9ef">return</span> []
         res <span style="color:#f92672">=</span> [[root<span style="color:#f92672">.</span>val]]
@@ -314,26 +366,30 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">binaryTreePaths</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: List[str]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         res <span style="color:#f92672">=</span> []
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
             <span style="color:#66d9ef">return</span> []
-        self<span style="color:#f92672">.</span>get_path(root,<span style="color:#e6db74">""</span>,res)
+        self<span style="color:#f92672">.</span>get_path(root,<span style="color:#e6db74">&#34;&#34;</span>,res)
         <span style="color:#66d9ef">return</span> res
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_path</span>(self,root,string,res):
         <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">==</span> None:
             res<span style="color:#f92672">.</span>append(string<span style="color:#f92672">+</span>str(root<span style="color:#f92672">.</span>val))
         <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>left <span style="color:#f92672">!=</span> None:
-            self<span style="color:#f92672">.</span>get_path(root<span style="color:#f92672">.</span>left,string<span style="color:#f92672">+</span>str(root<span style="color:#f92672">.</span>val)<span style="color:#f92672">+</span><span style="color:#e6db74">"-&gt;"</span>,res)
+            self<span style="color:#f92672">.</span>get_path(root<span style="color:#f92672">.</span>left,string<span style="color:#f92672">+</span>str(root<span style="color:#f92672">.</span>val)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&gt;&#34;</span>,res)
         <span style="color:#66d9ef">if</span> root<span style="color:#f92672">.</span>right <span style="color:#f92672">!=</span> None:
-            self<span style="color:#f92672">.</span>get_path(root<span style="color:#f92672">.</span>right,string<span style="color:#f92672">+</span>str(root<span style="color:#f92672">.</span>val)<span style="color:#f92672">+</span><span style="color:#e6db74">"-&gt;"</span>,res)
+            self<span style="color:#f92672">.</span>get_path(root<span style="color:#f92672">.</span>right,string<span style="color:#f92672">+</span>str(root<span style="color:#f92672">.</span>val)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&gt;&#34;</span>,res)
 </code></pre></div>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -345,32 +401,55 @@ In a complete binary tree every level, except possibly the last, is completely f
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -383,5 +462,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="文本特征提取算法学习" name="twitter:title"/>
-<meta content="文本特征提取算法" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>文本特征提取算法学习 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="文本特征提取算法学习"/>
+  <meta name="twitter:description" content="文本特征提取算法"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>文本特征提取算法学习 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,47 +84,69 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         文本特征提取算法学习
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Jun 9, 2020 00:00
                     · 206 words
                     · 1 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/nlp">nlp</a>
-<a href="https://ngc7292.github.io/tags/ml">ml</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#one-hot编码">one hot编码</a></li>
-<li><a href="#bag-of-word">bag of word</a></li>
-<li><a href="#tf-idf">tf-idf</a></li>
-<li><a href="#n-gram">n-gram</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/nlp">nlp</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/ml">ml</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#one-hot编码">one hot编码</a></li>
+        <li><a href="#bag-of-word">bag of word</a></li>
+        <li><a href="#tf-idf">tf-idf</a></li>
+        <li><a href="#n-gram">n-gram</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>文本是离散性非常强的一种数据方式，在处理起来会有很大的缺点，因此我们通过各种方式对于文本的特征进行数字化。这几天在学习nlp_begin的练习，重新实现了相关的两个算法，并且对sklearn的几种算法的实现进行了学习，写一写证明我学过了，哈哈哈！！！！</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>文本是离散性非常强的一种数据方式，在处理起来会有很大的缺点，因此我们通过各种方式对于文本的特征进行数字化。这几天在学习nlp_begin的练习，重新实现了相关的两个算法，并且对sklearn的几种算法的实现进行了学习，写一写证明我学过了，哈哈哈！！！！</p>
 <h3 id="one-hot编码">one hot编码</h3>
 <p>one hot是一种非常简单的编码方式，其将每一个出现在词汇整理并且排序，并形成一个完整的词向量，对于每一个句子来说，one-hot编码不关注词的相关性，而只保留是否存在这种单一的特征，其优点是简单易用，但是缺点也很明显，其不会保存任何相关信息，唯一保留的信息就是该词在该文本中是否存在这一特征。</p>
 <h3 id="bag-of-word">bag of word</h3>
@@ -119,11 +170,11 @@ code.has-jax {
         self<span style="color:#f92672">.</span>word_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fit</span>(self, f_data: np<span style="color:#f92672">.</span>array):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :param f_data:
 </span><span style="color:#e6db74">        :return:
-</span><span style="color:#e6db74">        """</span>
-        sentence_map <span style="color:#f92672">=</span> map(<span style="color:#66d9ef">lambda</span> x: str(x)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>), f_data)
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        sentence_map <span style="color:#f92672">=</span> map(<span style="color:#66d9ef">lambda</span> x: str(x)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>), f_data)
         self<span style="color:#f92672">.</span>word_set <span style="color:#f92672">=</span> set()
         self<span style="color:#f92672">.</span>words_num <span style="color:#f92672">=</span> dict()
         <span style="color:#66d9ef">for</span> sentence <span style="color:#f92672">in</span> sentence_map:
@@ -145,7 +196,7 @@ code.has-jax {
         cols <span style="color:#f92672">=</span> []
         data_len <span style="color:#f92672">=</span> len(t_data)
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(data_len):
-            <span style="color:#66d9ef">for</span> word <span style="color:#f92672">in</span> t_data[i]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">" "</span>):
+            <span style="color:#66d9ef">for</span> word <span style="color:#f92672">in</span> t_data[i]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>):
                 <span style="color:#66d9ef">if</span> len(word) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
                     <span style="color:#66d9ef">continue</span>
                 rows<span style="color:#f92672">.</span>append(i)
@@ -161,7 +212,7 @@ code.has-jax {
         <span style="color:#75715e"># sentence_word_num_list = np.count_nonzero(csr_matrix,axis=0)</span>
         sentence_word_num_list <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>bincount(csr_matrix<span style="color:#f92672">.</span>indices)
         sentences_num <span style="color:#f92672">=</span> len(t_data)
-        idf <span style="color:#f92672">=</span> sparse<span style="color:#f92672">.</span>diags(np<span style="color:#f92672">.</span>log((sentences_num<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span>(sentence_word_num_list<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,offsets<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,shape<span style="color:#f92672">=</span>(self<span style="color:#f92672">.</span>words_num,self<span style="color:#f92672">.</span>words_num),format<span style="color:#f92672">=</span><span style="color:#e6db74">'csr'</span>)
+        idf <span style="color:#f92672">=</span> sparse<span style="color:#f92672">.</span>diags(np<span style="color:#f92672">.</span>log((sentences_num<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span>(sentence_word_num_list<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>))<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,offsets<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,shape<span style="color:#f92672">=</span>(self<span style="color:#f92672">.</span>words_num,self<span style="color:#f92672">.</span>words_num),format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;csr&#39;</span>)
 
         return_data <span style="color:#f92672">=</span> tf<span style="color:#f92672">*</span>idf
         <span style="color:#66d9ef">return</span> normalize(return_data)
@@ -171,9 +222,13 @@ code.has-jax {
         <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>transform(data)
 </code></pre></div><p>为了提高运算效率，可以采用sparse.csr_matrix稀疏矩阵来进行求解，如果使用narray来求解，对于<a href="https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews">Classify the sentiment of sentences from the Rotten Tomatoes dataset</a>数据集运行时间为100+s，而通过稀疏矩阵求解，对应时间可以缩短近100倍。同时由于使用稀疏矩阵来求解，tf作为稀疏矩阵可以直接拿过来用，但是idf矩阵需要转化为对角矩阵，同时对idf进行平滑，得到相应的idf矩阵从而得到相应的tf-idf矩阵，以上优化方法借鉴sklearn(<a href="https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/feature_extraction/text.py">https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/feature_extraction/text.py</a>)</p>
 <h3 id="n-gram">n-gram</h3>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -185,32 +240,55 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -223,5 +301,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="Chinese Poetry Generation with Recurrent Neural Networks" name="twitter:title"/>
-<meta content="Xingxing Zhang and Mirella Lapata’s paper" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>Chinese Poetry Generation with Recurrent Neural Networks · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Chinese Poetry Generation with Recurrent Neural Networks"/>
+  <meta name="twitter:description" content="Xingxing Zhang and Mirella Lapata&rsquo;s paper"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>Chinese Poetry Generation with Recurrent Neural Networks &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,48 +84,69 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         Chinese Poetry Generation with Recurrent Neural Networks
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Feb 18, 2020 00:00
                     · 525 words
                     · 3 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#related-work">Related work</a></li>
-<li><a href="#the-poem-generator">The Poem Generator</a></li>
-<li><a href="#result">result</a></li>
-<li><a href="#原文">原文</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87">论文</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#related-work">Related work</a></li>
+        <li><a href="#the-poem-generator">The Poem Generator</a></li>
+        <li><a href="#result">result</a></li>
+        <li><a href="#原文">原文</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>Xingxing Zhang and Mirella Lapata’s paper</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>Xingxing Zhang and Mirella Lapata&rsquo;s paper</p>
 <h3 id="abstract">Abstract</h3>
 <p>我们的目的是基于rnn循环神经网络创建一个中国诗词生成器，其生成的诗词不仅仅在内容上合适，在形式上也很相似，我们的诗歌通过学习具有代表性的单个字符以及他们共同限制以及约束形成的一行或者多行来形成内容选择（说什么）以及表现形式（怎么说）。诗句是通过思考整个编辑历史来形成而不是按照每一个单个的单词或者多个词汇的词法等来生成，实验结果证明我们的模型表现出的复杂中国诗词生成器系统相比于自动以及手动价值评估的方法具有明显的竞争力。</p>
 <h3 id="introduction">Introduction</h3>
@@ -156,12 +206,16 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
 <h4 id="decoding">decoding</h4>
 <p>我们的解码器是类似于Koehn等人的堆栈解码器。 （2003）。此外，它可以生成格式良好的绝句的必要的音调模式和押韵约束。一旦生成一首诗的第一行，就确定了它的音调模式。在解码期间，违反该模式的短语将被忽略。如第1节所述，第二行和第四行的最后一个字符必须押韵。因此，我们在解码过程中删除了第四行，其最终字符与第二行不押韵。最后，我们使用MERT（Och，2003年）来学习解码器的特征权重。</p>
 <h3 id="result">result</h3>
-<p><img alt="result" src="https://tva1.sinaimg.cn/large/00831rSTgy1gd8alh0gd3j30ek067dgs.jpg"/></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd8alh0gd3j30ek067dgs.jpg" alt="result"></p>
 <h3 id="原文">原文</h3>
 <p><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.683.7817&amp;rep=rep1&amp;type=pdf">Chinese Poetry Generation with Recurrent Neural Networks</a></p>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -173,32 +227,55 @@ $$ P(w_{j+1}|w_{i:j},S_{1:i}) = RGM(w_{1:j+1},u^{1:j}_i) ​$$</p>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -211,5 +288,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

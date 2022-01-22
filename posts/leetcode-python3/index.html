@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="leetcode python刷题记录3" name="twitter:title"/>
-<meta content="leetcode python by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>leetcode python刷题记录3 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode python刷题记录3"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>leetcode python刷题记录3 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,68 +84,91 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         leetcode python刷题记录3
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Aug 1, 2018 00:00
                     · 1939 words
                     · 10 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/python">python</a>
-<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-<a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#636-exclusive-time-of-functions">636. Exclusive Time of Functions</a></li>
-<li><a href="#binary-tree-postorder-traversal">Binary Tree Postorder Traversal</a></li>
-<li><a href="#853-car-fleet">853. Car Fleet</a></li>
-<li><a href="#minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</a></li>
-<li><a href="#balanced-binary-tree">Balanced Binary Tree</a>
-<ul>
-<li><a href="#a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</a></li>
-</ul>
-</li>
-<li><a href="#binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</a></li>
-<li><a href="#same-tree">Same Tree</a></li>
-<li><a href="#daily-temperatures">Daily Temperatures</a></li>
-<li><a href="#exclusive-time-of-functions">Exclusive Time of Functions</a></li>
-<li><a href="#asteroid-collision">Asteroid Collision</a></li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithms">algorithms</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#636-exclusive-time-of-functions">636. Exclusive Time of Functions</a></li>
+    <li><a href="#binary-tree-postorder-traversal">Binary Tree Postorder Traversal</a></li>
+    <li><a href="#853-car-fleet">853. Car Fleet</a></li>
+    <li><a href="#minimum-depth-of-binary-tree">Minimum Depth of Binary Tree</a></li>
+    <li><a href="#balanced-binary-tree">Balanced Binary Tree</a>
+      <ul>
+        <li><a href="#a-binary-tree-in-which-the-depth-of-the-two-subtrees-of-every-node-never-differ-by-more-than-1">a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</a></li>
+      </ul>
+    </li>
+    <li><a href="#binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</a></li>
+    <li><a href="#same-tree">Same Tree</a></li>
+    <li><a href="#daily-temperatures">Daily Temperatures</a></li>
+    <li><a href="#exclusive-time-of-functions">Exclusive Time of Functions</a></li>
+    <li><a href="#asteroid-collision">Asteroid Collision</a></li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。</p>
 <p>2018.8.3 更新 solution破百咯，立个flag：明天problem破百</p>
 <h2 id="636-exclusive-time-of-functions">636. Exclusive Time of Functions</h2>
 <p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
 <p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
-<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, “0:start:0” means function 0 starts from the very beginning of time 0. “0:end:0” means function 0 ends to the very end of time 0.</p>
-<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function’s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
+<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, &ldquo;0:start:0&rdquo; means function 0 starts from the very beginning of time 0. &ldquo;0:end:0&rdquo; means function 0 ends to the very end of time 0.</p>
+<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function&rsquo;s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
 <pre><code>Example 1:
 Input:
 n = 2
 logs = 
-["0:start:0",
- "1:start:2",
- "1:end:5",
- "0:end:6"]
+[&quot;0:start:0&quot;,
+ &quot;1:start:2&quot;,
+ &quot;1:end:5&quot;,
+ &quot;0:end:6&quot;]
 Output:[3, 4]
 Explanation:
 Function 0 starts at time 0, then it executes 2 units of time and reaches the end of time 1. 
@@ -127,27 +179,27 @@ So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally ex
 <ol>
 <li>Input logs will be sorted by timestamp, NOT log id.</li>
 <li>Your output should be sorted by function id, which means the 0th element of your output corresponds to the exclusive time of function 0.</li>
-<li>Two functions won’t start or end at the same time.</li>
+<li>Two functions won&rsquo;t start or end at the same time.</li>
 <li>Functions could be called recursively, and will always end.</li>
 <li>1 &lt;= n &lt;= 100</li>
 </ol>
 <p>不得不说，python真实一个好language，大致思路便是先把log都一个个分开，然后维护一个hash表，与一个stack，hash表来存储每个进程的时间，stk来存储所有开始的进程，遍历整个logs，在start的时候结束上个进程，在end的时候开始stk最后一个进程，最后把p_dict取出来就好了。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exclusiveTime</span>(self, n, logs):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type n: int
 </span><span style="color:#e6db74">        :type logs: List[str]
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         p_dict <span style="color:#f92672">=</span> {}
         stk <span style="color:#f92672">=</span> []
         on_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">for</span> log <span style="color:#f92672">in</span> logs:
-            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>)
             p_id <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">0</span>]
             opt <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">1</span>]
             time <span style="color:#f92672">=</span> int(log[<span style="color:#ae81ff">2</span>])
-            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">"start"</span>:
+            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;start&#34;</span>:
                 <span style="color:#66d9ef">if</span> stk <span style="color:#f92672">!=</span> []:
                     p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> (time <span style="color:#f92672">-</span> on_time) <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
                         stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
@@ -173,10 +225,10 @@ So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally ex
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">postorderTraversal</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> root <span style="color:#f92672">==</span> None:
             <span style="color:#66d9ef">return</span> []
         stk <span style="color:#f92672">=</span> [root]
@@ -213,12 +265,12 @@ The cars starting at 5 and 3 become a fleet, meeting each other at 6.
 Note that no other cars meet these fleets before the destination, so the answer is 3.
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">carFleet</span>(self, target, position, speed):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type target: int
 </span><span style="color:#e6db74">        :type position: List[int]
 </span><span style="color:#e6db74">        :type speed: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         status <span style="color:#f92672">=</span> [(<span style="color:#f92672">-</span>p,float(target <span style="color:#f92672">-</span> p ) <span style="color:#f92672">/</span>s) <span style="color:#66d9ef">for</span> p,s <span style="color:#f92672">in</span> zip(position,speed)]
         status<span style="color:#f92672">.</span>sort()
         ctime <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -241,10 +293,10 @@ Note that no other cars meet these fleets before the destination, so the answer 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minDepth</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
             <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
         root_list <span style="color:#f92672">=</span> [root]
@@ -277,10 +329,10 @@ Note that no other cars meet these fleets before the destination, so the answer 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isBalanced</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: bool
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">return</span> True <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>check_depth(root) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">else</span> False
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_depth</span>(self,root):
@@ -306,10 +358,10 @@ Note that no other cars meet these fleets before the destination, so the answer 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">levelOrderBottom</span>(self, root):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type root: TreeNode
 </span><span style="color:#e6db74">        :rtype: List[List[int]]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> root:
             <span style="color:#66d9ef">return</span> []
         res <span style="color:#f92672">=</span> [[root<span style="color:#f92672">.</span>val]]
@@ -339,11 +391,11 @@ Note that no other cars meet these fleets before the destination, so the answer 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSameTree</span>(self, p, q):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type p: TreeNode
 </span><span style="color:#e6db74">        :type q: TreeNode
 </span><span style="color:#e6db74">        :rtype: bool
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> p <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> q <span style="color:#f92672">==</span> None:
             <span style="color:#66d9ef">return</span> True
         <span style="color:#66d9ef">if</span> (p <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> q <span style="color:#f92672">==</span> None) <span style="color:#f92672">or</span> p<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> q<span style="color:#f92672">.</span>val:
@@ -355,10 +407,10 @@ Note that no other cars meet these fleets before the destination, so the answer 
 <p>Note: The length of temperatures will be in the range [1, 30000]. Each temperature will be an integer in the range [30, 100].</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dailyTemperatures</span>(self, temperatures):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type temperatures: List[int]
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         res <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> temperatures]
         stk <span style="color:#f92672">=</span> []
         <span style="color:#66d9ef">for</span> tem <span style="color:#f92672">in</span> range(len(temperatures)):
@@ -372,16 +424,16 @@ Note that no other cars meet these fleets before the destination, so the answer 
 </code></pre></div><h2 id="exclusive-time-of-functions">Exclusive Time of Functions</h2>
 <p>Given the running logs of n functions that are executed in a nonpreemptive single threaded CPU, find the exclusive time of these functions.</p>
 <p>Each function has a unique id, start from 0 to n-1. A function may be called recursively or by another function.</p>
-<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, “0:start:0” means function 0 starts from the very beginning of time 0. “0:end:0” means function 0 ends to the very end of time 0.</p>
-<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function’s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
+<p>A log is a string has this format : function_id:start_or_end:timestamp. For example, &ldquo;0:start:0&rdquo; means function 0 starts from the very beginning of time 0. &ldquo;0:end:0&rdquo; means function 0 ends to the very end of time 0.</p>
+<p>Exclusive time of a function is defined as the time spent within this function, the time spent by calling other functions should not be considered as this function&rsquo;s exclusive time. You should return the exclusive time of each function sorted by their function id.</p>
 <p>Example 1:</p>
 <pre><code>Input:
 n = 2
 logs = [   
-    "0:start:0",
-    "1:start:2",
-    "1:end:5",
-    "0:end:6"
+    &quot;0:start:0&quot;,
+    &quot;1:start:2&quot;,
+    &quot;1:end:5&quot;,
+    &quot;0:end:6&quot;
     ]
 Output:[3, 4]
 Explanation:
@@ -391,20 +443,20 @@ Explanation:
     So function 0 totally execute 2 + 1 = 3 units of time, and function 1 totally execute 4 units of time.
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exclusiveTime</span>(self, n, logs):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type n: int
 </span><span style="color:#e6db74">        :type logs: List[str]
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         p_dict <span style="color:#f92672">=</span> {}
         stk <span style="color:#f92672">=</span> []
         on_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">for</span> log <span style="color:#f92672">in</span> logs:
-            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">":"</span>)
+            log <span style="color:#f92672">=</span> log<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>)
             p_id <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">0</span>]
             opt <span style="color:#f92672">=</span> log[<span style="color:#ae81ff">1</span>]
             time <span style="color:#f92672">=</span> int(log[<span style="color:#ae81ff">2</span>])
-            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">"start"</span>:
+            <span style="color:#66d9ef">if</span> opt <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;start&#34;</span>:
                 <span style="color:#66d9ef">if</span> stk <span style="color:#f92672">!=</span> []:
                     p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> (time <span style="color:#f92672">-</span> on_time) <span style="color:#f92672">+</span> p_dict[stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#66d9ef">if</span> on_time <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> time <span style="color:#f92672">+</span> on_time <span style="color:#f92672">+</span> p_dict[
                         stk[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
@@ -430,10 +482,10 @@ Explanation:
     The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
 </code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">asteroidCollision</span>(self, asteroids):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type asteroids: List[int]
 </span><span style="color:#e6db74">        :rtype: List[int]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         res <span style="color:#f92672">=</span> []
         stk <span style="color:#f92672">=</span> []
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> asteroids:
@@ -456,9 +508,13 @@ Explanation:
                 stk<span style="color:#f92672">.</span>append(i)
         <span style="color:#66d9ef">return</span> res <span style="color:#f92672">+</span> stk  
 </code></pre></div>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -470,32 +526,55 @@ Explanation:
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -508,5 +587,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="leetcode dp" name="twitter:title"/>
-<meta content="leetcode python by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>leetcode dp · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode dp"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>leetcode dp &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,88 +84,110 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         leetcode dp
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Mar 8, 2019 00:00
                     · 2565 words
                     · 13 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/python">python</a>
-<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#213house-robber-ii">213. House Robber II</a></li>
-</ul>
-</li>
-<li><a href="#1228日打卡">12.28日打卡</a>
-<ul>
-<li><a href="#188-best-time-to-buy-and-sell-stock-iv">188. Best Time to Buy and Sell Stock IV</a></li>
-<li><a href="#70-climbing-stairs">70. Climbing Stairs</a></li>
-<li><a href="#139-word-break">139. Word Break</a></li>
-</ul>
-</li>
-<li><a href="#1229日打卡">12.29日打卡</a>
-<ul>
-<li><a href="#304-range-sum-query-2d---immutable">304. Range Sum Query 2D - Immutable</a></li>
-<li><a href="#322-coin-change">322. Coin Change</a></li>
-<li><a href="#338-counting-bits">338. Counting Bits</a></li>
-<li><a href="#221-maximal-square">221. Maximal Square</a></li>
-</ul>
-</li>
-<li><a href="#201939">2019.3.9</a>
-<ul>
-<li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
-<li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
-<li><a href="#368-largest-divisible-subset">368. Largest Divisible Subset</a></li>
-</ul>
-</li>
-<li><a href="#310">3.10</a>
-<ul>
-<li><a href="#392-is-subsequence">392. Is Subsequence</a></li>
-<li><a href="#377-combination-sum-iv">377. Combination Sum IV</a></li>
-<li><a href="#416-partition-equal-subset-sum">416. Partition Equal Subset Sum</a></li>
-</ul>
-</li>
-<li><a href="#311">3.11</a>
-<ul>
-<li><a href="#464-can-i-win">464. Can I Win</a></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#213house-robber-ii">213. House Robber II</a></li>
+      </ul>
+    </li>
+    <li><a href="#1228日打卡">12.28日打卡</a>
+      <ul>
+        <li><a href="#188-best-time-to-buy-and-sell-stock-iv">188. Best Time to Buy and Sell Stock IV</a></li>
+        <li><a href="#70-climbing-stairs">70. Climbing Stairs</a></li>
+        <li><a href="#139-word-break">139. Word Break</a></li>
+      </ul>
+    </li>
+    <li><a href="#1229日打卡">12.29日打卡</a>
+      <ul>
+        <li><a href="#304-range-sum-query-2d---immutable">304. Range Sum Query 2D - Immutable</a></li>
+        <li><a href="#322-coin-change">322. Coin Change</a></li>
+        <li><a href="#338-counting-bits">338. Counting Bits</a></li>
+        <li><a href="#221-maximal-square">221. Maximal Square</a></li>
+      </ul>
+    </li>
+    <li><a href="#201939">2019.3.9</a>
+      <ul>
+        <li><a href="#375-guess-number-higher-or-lower-ii">375. Guess Number Higher or Lower II</a></li>
+        <li><a href="#376-wiggle-subsequence">376. Wiggle Subsequence</a></li>
+        <li><a href="#368-largest-divisible-subset">368. Largest Divisible Subset</a></li>
+      </ul>
+    </li>
+    <li><a href="#310">3.10</a>
+      <ul>
+        <li><a href="#392-is-subsequence">392. Is Subsequence</a></li>
+        <li><a href="#377-combination-sum-iv">377. Combination Sum IV</a></li>
+        <li><a href="#416-partition-equal-subset-sum">416. Partition Equal Subset Sum</a></li>
+      </ul>
+    </li>
+    <li><a href="#311">3.11</a>
+      <ul>
+        <li><a href="#464-can-i-win">464. Can I Win</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>关于dp的一些题目汇总</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>关于dp的一些题目汇总</p>
 <p>还是leetcode好啊，pat好辣鸡。</p>
 <h3 id="213house-robber-ii">213. House Robber II</h3>
 <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are **arranged in a circle.**That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</p>
 <p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rob</span>(self, nums):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type nums: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         l <span style="color:#f92672">=</span> len(nums)
         <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
             <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
@@ -166,11 +217,11 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 <p>这道题主要问题在与k值的大小，当k值比整个数组都要大的时候，使用dp其复杂度就远远大于使用直接循环判断了，因为当k很大的时候，你完全可以今天买入，明天高价卖出，当有更高价时再高价卖出，这样就可以实现利润的最大化</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, k, prices):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type k: int
 </span><span style="color:#e6db74">        :type prices: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> k <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
             <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">if</span> prices <span style="color:#f92672">==</span> [] <span style="color:#f92672">and</span> len(prices) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
@@ -196,10 +247,10 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 <p>这是一个eazy，但是不知道我提交过好多越来越慢越来越慢。。。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">climbStairs</span>(self, n):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type n: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         dp <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)]
         dp[<span style="color:#ae81ff">0</span>], dp[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
         
@@ -216,12 +267,12 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 <p>简单的dp</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wordBreak</span>(self, s, wordDict):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type s: str
 </span><span style="color:#e6db74">        :type wordDict: List[str]
 </span><span style="color:#e6db74">        :rtype: bool
-</span><span style="color:#e6db74">        """</span>
-        w <span style="color:#f92672">=</span> [False <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> s<span style="color:#f92672">+</span><span style="color:#e6db74">'0'</span>]
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        w <span style="color:#f92672">=</span> [False <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> s<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;0&#39;</span>]
         w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> True
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,len(s)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
             <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
@@ -233,15 +284,15 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 <p>破三百了233333，将近两个月没有写题，终于吧题数刷到了300</p>
 <h3 id="304-range-sum-query-2d---immutable">304. Range Sum Query 2D - Immutable</h3>
 <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (<em>row</em>1, <em>col</em>1) and lower right corner (<em>row</em>2, <em>col</em>2).</p>
-<p><img alt="Range Sum Query 2D" src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg"/>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjbcnjj3047047glk.jpg" alt="Range Sum Query 2D">
 The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.</p>
 <p>因为会多次调用sum函数，所以我们在初始化的时候不可以直接存入矩阵，而是将矩阵进行一系列处理，其重点就是吧（i，j）处的数据改为（0，0）到（i，j）的所有元素之和，在调用sum的时候只需要对其进行相减就行了，道理是很简单，但是时间判断有毒，我的都很慢，不知道为啥.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NumMatrix</span>(object):
 
     <span style="color:#66d9ef">def</span> __init__(self, matrix):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type matrix: List[List[int]]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> len(matrix) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> len(matrix[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
             self<span style="color:#f92672">.</span>height <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
             self<span style="color:#f92672">.</span>width <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -261,13 +312,13 @@ The above rectangle (with the red border) is defined by (row1, col1) = <strong>(
                 
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sumRegion</span>(self, row1, col1, row2, col2):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type row1: int
 </span><span style="color:#e6db74">        :type col1: int
 </span><span style="color:#e6db74">        :type row2: int
 </span><span style="color:#e6db74">        :type col2: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> row2 <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>height <span style="color:#f92672">or</span> col2 <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>width <span style="color:#f92672">or</span> row1 <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> col2 <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
             <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">else</span>:
@@ -314,7 +365,7 @@ You may assume that you have an infinite number of each kind of coin.</p>
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="338-counting-bits">338. Counting Bits</h3>
 <p>Medium</p>
-<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1’s in their binary representation and return them as an array.</p>
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1&rsquo;s in their binary representation and return them as an array.</p>
 <p><strong>Example 1:</strong></p>
 <pre><code>Input: 2
 Output: [0,1,1]
@@ -339,7 +390,7 @@ Output: [0,1,1,2,1,2]
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="221-maximal-square">221. Maximal Square</h3>
 <p>Medium</p>
-<p>Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area.</p>
+<p>Given a 2D binary matrix filled with 0&rsquo;s and 1&rsquo;s, find the largest square containing only 1&rsquo;s and return its area.</p>
 <p><strong>Example:</strong></p>
 <pre><code>Input: 
 
@@ -362,7 +413,7 @@ Output: 4
         <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> A <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>heighth<span style="color:#f92672">][</span>width<span style="color:#f92672">];</span>
         <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>heighth<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
             <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>j<span style="color:#f92672">&lt;</span>width<span style="color:#f92672">;</span>j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>matrix<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">'0'</span><span style="color:#f92672">)</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>matrix<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span><span style="color:#f92672">)</span>
                     A<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
                 <span style="color:#66d9ef">else</span>
                     A<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
@@ -389,7 +440,7 @@ Output: 4
 <p>Medium</p>
 <p>We are playing the Guess Game. The game is as follows:</p>
 <p>I pick a number from <strong>1</strong> to <strong>n</strong>. You have to guess which number I picked.</p>
-<p>Every time you guess wrong, I’ll tell you whether the number I picked is higher or lower.</p>
+<p>Every time you guess wrong, I&rsquo;ll tell you whether the number I picked is higher or lower.</p>
 <p>However, when you guess a particular number x, and you guess wrong, you pay <strong>$x</strong>. You win the game when you guess the number I picked.</p>
 <p><strong>Example:</strong></p>
 <pre><code>n = 10, I pick 8.
@@ -467,7 +518,7 @@ Output: 2
         <span style="color:#66d9ef">return</span> length<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p><img alt="4EEA5E1EACA217311DEB6C615467D978" src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg"/></p>
+</code></pre></div><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g0z3jjtkikj30fh03i0sp.jpg" alt="4EEA5E1EACA217311DEB6C615467D978"></p>
 <h3 id="368-largest-divisible-subset">368. Largest Divisible Subset</h3>
 <p>Medium</p>
 <p>Given a set of <strong>distinct</strong> positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:</p>
@@ -521,15 +572,15 @@ Output: [1,2,4,8]
 <p>Medium</p>
 <p>Given a string <strong>s</strong> and a string <strong>t</strong>, check if <strong>s</strong> is subsequence of <strong>t</strong>.</p>
 <p>You may assume that there is only lower case English letters in both <strong>s</strong> and <strong>t</strong>. <strong>t</strong> is potentially a very long (length ~= 500,000) string, and <strong>s</strong> is a short string (&lt;=100).</p>
-<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>"ace"</code> is a subsequence of <code>"abcde"</code> while <code>"aec"</code>is not).</p>
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;abcde&quot;</code> while <code>&quot;aec&quot;</code>is not).</p>
 <p><strong>Example 1:</strong>
-<strong>s</strong> = <code>"abc"</code>, <strong>t</strong> = <code>"ahbgdc"</code></p>
+<strong>s</strong> = <code>&quot;abc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
 <p>Return <code>true</code>.</p>
 <p><strong>Example 2:</strong>
-<strong>s</strong> = <code>"axc"</code>, <strong>t</strong> = <code>"ahbgdc"</code></p>
+<strong>s</strong> = <code>&quot;axc&quot;</code>, <strong>t</strong> = <code>&quot;ahbgdc&quot;</code></p>
 <p>Return <code>false</code>.</p>
 <p><strong>Follow up:</strong>
-If there are lots of incoming S, say S1, S2, … , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
+If there are lots of incoming S, say S1, S2, &hellip; , Sk where k &gt;= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
 <p><strong>Credits:</strong>
 Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
 <p>模式匹配，</p>
@@ -649,7 +700,7 @@ Explanation: The array cannot be partitioned into equal sum subsets.
 </code></pre></div><h2 id="311">3.11</h2>
 <h3 id="464-can-i-win">464. Can I Win</h3>
 <p>Medium</p>
-<p>In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
+<p>In the &ldquo;100 game,&rdquo; two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
 <p>What if we change the game so that players cannot re-use integers?</p>
 <p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total &gt;= 100.</p>
 <p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally.</p>
@@ -698,9 +749,13 @@ Same with other integers chosen by the first player, the second player will alwa
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -712,32 +767,55 @@ Same with other integers chosen by the first player, the second player will alwa
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -750,5 +828,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="leetcode array" name="twitter:title"/>
-<meta content="leetcode python by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>leetcode array · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="leetcode array"/>
+  <meta name="twitter:description" content="leetcode python by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>leetcode array &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,61 +84,83 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         leetcode array
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Sep 28, 2018 00:00
                     · 1758 words
                     · 9 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/python">python</a>
-<a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#717-1-bit-and-2-bit-characters">717. 1-bit and 2-bit Characters</a></li>
-<li><a href="#695-max-area-of-island">695. Max Area of Island</a></li>
-<li><a href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee">714. Best Time to Buy and Sell Stock with Transaction Fee</a></li>
-<li><a href="#713-subarray-product-less-than-k">713. Subarray Product Less Than K</a></li>
-<li><a href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee-1">714. Best Time to Buy and Sell Stock with Transaction Fee</a></li>
-<li><a href="#565-array-nesting">565. Array Nesting</a></li>
-<li><a href="#840-magic-squares-in-grid">840. Magic Squares In Grid</a></li>
-<li><a href="#611-valid-triangle-number">611. Valid Triangle Number</a></li>
-<li><a href="#605-can-place-flowers">605. Can Place Flowers</a></li>
-<li><a href="#835-image-overlap">835. Image Overlap</a></li>
-<li><a href="#581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</a></li>
-<li><a href="#39-combination-sum">39. Combination Sum</a></li>
-<li><a href="#769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</a></li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/python">python</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#717-1-bit-and-2-bit-characters">717. 1-bit and 2-bit Characters</a></li>
+    <li><a href="#695-max-area-of-island">695. Max Area of Island</a></li>
+    <li><a href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee">714. Best Time to Buy and Sell Stock with Transaction Fee</a></li>
+    <li><a href="#713-subarray-product-less-than-k">713. Subarray Product Less Than K</a></li>
+    <li><a href="#714-best-time-to-buy-and-sell-stock-with-transaction-fee-1">714. Best Time to Buy and Sell Stock with Transaction Fee</a></li>
+    <li><a href="#565-array-nesting">565. Array Nesting</a></li>
+    <li><a href="#840-magic-squares-in-grid">840. Magic Squares In Grid</a></li>
+    <li><a href="#611-valid-triangle-number">611. Valid Triangle Number</a></li>
+    <li><a href="#605-can-place-flowers">605. Can Place Flowers</a></li>
+    <li><a href="#835-image-overlap">835. Image Overlap</a></li>
+    <li><a href="#581-shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</a></li>
+    <li><a href="#39-combination-sum">39. Combination Sum</a></li>
+    <li><a href="#769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</a></li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>leetcode problem of array.</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>leetcode problem of array.</p>
 <h2 id="717-1-bit-and-2-bit-characters">717. 1-bit and 2-bit Characters</h2>
 <p>We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).</p>
 <p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isOneBitCharacter</span>(self, bits):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type bits: List[int]
 </span><span style="color:#e6db74">        :rtype: bool
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         res <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> bits]
         <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(bits):
@@ -124,14 +175,14 @@ code.has-jax {
                 i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         <span style="color:#66d9ef">return</span> True
 </code></pre></div><h2 id="695-max-area-of-island">695. Max Area of Island</h2>
-<p>Given a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
+<p>Given a non-empty 2D array grid of 0&rsquo;s and 1&rsquo;s, an island is a group of 1&rsquo;s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 <p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxAreaOfIsland</span>(self, grid):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type grid: List[List[int]]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         self<span style="color:#f92672">.</span>grid <span style="color:#f92672">=</span> grid
         self<span style="color:#f92672">.</span>height <span style="color:#f92672">=</span> len(grid)
         self<span style="color:#f92672">.</span>width <span style="color:#f92672">=</span> len(grid[<span style="color:#ae81ff">0</span>])
@@ -155,11 +206,11 @@ code.has-jax {
 <p>Return the maximum profit you can make.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices, fee):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type prices: List[int]
 </span><span style="color:#e6db74">        :type fee: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         cash <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         hold <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>prices[<span style="color:#ae81ff">0</span>]
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> prices:
@@ -171,11 +222,11 @@ code.has-jax {
 <p>Count and print the number of (contiguous) subarrays where the product of all the elements in the subarray is less than k.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numSubarrayProductLessThanK</span>(self, nums, k):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type nums: List[int]
 </span><span style="color:#e6db74">        :type k: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         <span style="color:#66d9ef">if</span> k <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
             <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
         n <span style="color:#f92672">=</span> len(nums)
@@ -195,11 +246,11 @@ code.has-jax {
 <p>Return the maximum profit you can make.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxProfit</span>(self, prices, fee):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type prices: List[int]
 </span><span style="color:#e6db74">        :type fee: int
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         cash <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         hold <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>prices[<span style="color:#ae81ff">0</span>]
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> prices:
@@ -207,14 +258,14 @@ code.has-jax {
             hold <span style="color:#f92672">=</span> max(hold,cash<span style="color:#f92672">-</span>i)
         <span style="color:#66d9ef">return</span> cash
 </code></pre></div><h2 id="565-array-nesting">565. Array Nesting</h2>
-<p>A zero-indexed array A of length N contains all integers from 0 to N-1. Find and return the longest length of set S, where S[i] = {A[i], A[A[i]], A[A[A[i]]], … } subjected to the rule below.</p>
+<p>A zero-indexed array A of length N contains all integers from 0 to N-1. Find and return the longest length of set S, where S[i] = {A[i], A[A[i]], A[A[A[i]]], &hellip; } subjected to the rule below.</p>
 <p>Suppose the first element in S starts with the selection of element A[i] of index = i, the next element in S should be A[A[i]], and then A[A[A[i]]]… By that analogy, we stop adding right before a duplicate element occurs in S.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">arrayNesting</span>(self, nums):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type nums: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         res <span style="color:#f92672">=</span> {i:<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums))}
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
@@ -233,13 +284,13 @@ code.has-jax {
         <span style="color:#66d9ef">return</span> count
 </code></pre></div><h2 id="840-magic-squares-in-grid">840. Magic Squares In Grid</h2>
 <p>A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 such that each row, column, and both diagonals all have the same sum.</p>
-<p>Given an grid of integers, how many 3 x 3 “magic square” subgrids are there?  (Each subgrid is contiguous).</p>
+<p>Given an grid of integers, how many 3 x 3 &ldquo;magic square&rdquo; subgrids are there?  (Each subgrid is contiguous).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">numMagicSquaresInside</span>(self, grid):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type grid: List[List[int]]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         height <span style="color:#f92672">=</span> len(grid)
         width <span style="color:#f92672">=</span> len(grid[<span style="color:#ae81ff">0</span>]) <span style="color:#66d9ef">if</span> height <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">if</span> height <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">or</span> width <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>:
@@ -279,7 +330,7 @@ code.has-jax {
             <span style="color:#66d9ef">return</span> True
         <span style="color:#66d9ef">else</span>:
             <span style="color:#66d9ef">return</span> False
-<span style="color:#e6db74">'''
+<span style="color:#e6db74">&#39;&#39;&#39;
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">## 746. Min Cost Climbing Stairs
 </span><span style="color:#e6db74">
@@ -290,10 +341,10 @@ code.has-jax {
 </span><span style="color:#e6db74">```python
 </span><span style="color:#e6db74">class Solution:
 </span><span style="color:#e6db74">    def minCostClimbingStairs(self, cost):
-</span><span style="color:#e6db74">        """
+</span><span style="color:#e6db74">        &#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type cost: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """
+</span><span style="color:#e6db74">        &#34;&#34;&#34;
 </span><span style="color:#e6db74">        res = [0,0]
 </span><span style="color:#e6db74">        for i in range(2,len(cost)+1):
 </span><span style="color:#e6db74">            res.append(min(res[i-1]+cost[i-1],res[i-2]+cost[i-2]))
@@ -302,10 +353,10 @@ code.has-jax {
 <p>Given an array consists of non-negative integers, your task is to count the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">triangleNumber</span>(self, nums):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type nums: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         nums<span style="color:#f92672">.</span>sort()
         res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(nums)<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>):
@@ -320,11 +371,11 @@ code.has-jax {
 <p>Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number n, return if n new flowers can be planted in it without violating the no-adjacent-flowers rule.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">canPlaceFlowers</span>(self, flowerbed, n):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type flowerbed: List[int]
 </span><span style="color:#e6db74">        :type n: int
 </span><span style="color:#e6db74">        :rtype: bool
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
         result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(flowerbed)):
@@ -343,11 +394,11 @@ code.has-jax {
 <p>What is the largest possible overlap?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">largestOverlap</span>(self, A, B):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type A: List[List[int]]
 </span><span style="color:#e6db74">        :type B: List[List[int]]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         N <span style="color:#f92672">=</span> len(A)
         LA <span style="color:#f92672">=</span> [(i,j) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">if</span> A[i][j]]
         LB <span style="color:#f92672">=</span> [(i,j) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(N) <span style="color:#66d9ef">if</span> B[i][j]]
@@ -358,10 +409,10 @@ code.has-jax {
 <p>You need to find the shortest such subarray and output its length.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findUnsortedSubarray</span>(self, nums):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type nums: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         start <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
         end <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
         tmp <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span>copy()
@@ -380,11 +431,11 @@ code.has-jax {
 <p>原本是想用回溯法，但是出现了很大的问题，在2，2，2，3之后会陷入无限循环，需要给他一个位来判断是否加过这个值，我就没有再做下去，然后，在csdn发现了这位老哥的做法，真的是超级棒了</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>(object):
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combinationSum</span>(self, candidates, target):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type candidates: List[int]
 </span><span style="color:#e6db74">        :type target: int
 </span><span style="color:#e6db74">        :rtype: List[List[int]]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         candidates <span style="color:#f92672">=</span> sorted(candidates)
         res <span style="color:#f92672">=</span> [] 
         stack <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>,[],target)]
@@ -400,11 +451,11 @@ code.has-jax {
 </code></pre></div><p>ps：不过好像效率不是特别的高，还有一个递归版本的，效率高很多</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">combinationSum</span>(self, candidates, target):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type candidates: List[int]
 </span><span style="color:#e6db74">        :type target: int
 </span><span style="color:#e6db74">        :rtype: List[List[int]]
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         candidates<span style="color:#f92672">.</span>sort()
         res <span style="color:#f92672">=</span> []
         size <span style="color:#f92672">=</span> len(candidates)
@@ -420,14 +471,14 @@ code.has-jax {
         <span style="color:#66d9ef">return</span> res
 </code></pre></div><p>日常学习。</p>
 <h2 id="769-max-chunks-to-make-sorted">769. Max Chunks To Make Sorted</h2>
-<p>Given an array arr that is a permutation of [0, 1, …, arr.length - 1], we split the array into some number of “chunks” (partitions), and individually sort each chunk.  After concatenating them, the result equals the sorted array.</p>
+<p>Given an array arr that is a permutation of [0, 1, &hellip;, arr.length - 1], we split the array into some number of &ldquo;chunks&rdquo; (partitions), and individually sort each chunk.  After concatenating them, the result equals the sorted array.</p>
 <p>What is the most number of chunks we could have made?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">maxChunksToSorted</span>(self, arr):
-        <span style="color:#e6db74">"""
+        <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">        :type arr: List[int]
 </span><span style="color:#e6db74">        :rtype: int
-</span><span style="color:#e6db74">        """</span>
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
         res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         max_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
         <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(arr)):
@@ -436,9 +487,13 @@ code.has-jax {
                 res <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         <span style="color:#66d9ef">return</span> res
 </code></pre></div>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -450,32 +505,55 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -488,5 +566,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

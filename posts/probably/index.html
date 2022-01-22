@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="概率论复习" name="twitter:title"/>
-<meta content="概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>概率论复习 · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="概率论复习"/>
+  <meta name="twitter:description" content="概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>概率论复习 &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,58 +84,79 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         概率论复习
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     May 31, 2020 00:00
                     · 263 words
                     · 2 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/ml">ml</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#多随机变量及其分布">多随机变量及其分布</a>
-<ul>
-<li><a href="#分布函数">分布函数</a></li>
-<li><a href="#概率密度">概率密度</a></li>
-<li><a href="#边缘分布">边缘分布</a></li>
-<li><a href="#其他概念">其他概念</a></li>
-</ul>
-</li>
-<li><a href="#随机变量的数字特征">随机变量的数字特征</a>
-<ul>
-<li><a href="#数字期望">数字期望</a></li>
-<li><a href="#方差协方差以及协方差矩阵">方差，协方差以及协方差矩阵</a></li>
-</ul>
-</li>
-<li><a href="#参数估计的几种方法">参数估计的几种方法</a>
-<ul>
-<li><a href="#点估计">点估计</a></li>
-</ul>
-</li>
-<li><a href="#方差分析与回归分析">方差分析与回归分析</a></li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/ml">ml</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#多随机变量及其分布">多随机变量及其分布</a>
+      <ul>
+        <li><a href="#分布函数">分布函数</a></li>
+        <li><a href="#概率密度">概率密度</a></li>
+        <li><a href="#边缘分布">边缘分布</a></li>
+        <li><a href="#其他概念">其他概念</a></li>
+      </ul>
+    </li>
+    <li><a href="#随机变量的数字特征">随机变量的数字特征</a>
+      <ul>
+        <li><a href="#数字期望">数字期望</a></li>
+        <li><a href="#方差协方差以及协方差矩阵">方差，协方差以及协方差矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#参数估计的几种方法">参数估计的几种方法</a>
+      <ul>
+        <li><a href="#点估计">点估计</a></li>
+      </ul>
+    </li>
+    <li><a href="#方差分析与回归分析">方差分析与回归分析</a></li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。</p>
 <h2 id="多随机变量及其分布">多随机变量及其分布</h2>
 <p>一般多随机变量会有多个变量，变量之间相互独立成为独立变量，其整合之后即为向量，可以投射到更加高维的空间。</p>
 <h3 id="分布函数">分布函数</h3>
@@ -120,7 +170,7 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <p>条件分布，独立变量之间的关系，非独立变量之间的关系。。</p>
 <h2 id="随机变量的数字特征">随机变量的数字特征</h2>
 <h3 id="数字期望">数字期望</h3>
-<p>对于离散型随机变量，我们对于$ x ​$，有关于其的分布律$ P{X=x_k} = p_k,k = 1,2… ​$数学期望就是将其按照权值进行相加，简单说就是分布的均值</p>
+<p>对于离散型随机变量，我们对于$ x ​$，有关于其的分布律$ P{X=x_k} = p_k,k = 1,2&hellip; ​$数学期望就是将其按照权值进行相加，简单说就是分布的均值</p>
 <p>$ E(x) = \sum_{k=1}^{\infty}x_kp_k $</p>
 <p>对于连续随机变量 期望为做积分，应用在概率密度图像xf(x)的面积。</p>
 <p>相互独立的两个变量数学期望满足 $ E(XY) = E(X)E(Y) ​$</p>
@@ -174,9 +224,13 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
 <h4 id="区间估计">区间估计</h4>
 <p>区间估计用于估计求得的估计值的误差，包括对于整个函数的可信程度。</p>
 <h2 id="方差分析与回归分析">方差分析与回归分析</h2>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -188,32 +242,55 @@ $$ F(X,Y) = \int_{-\infty}^{y} \int_{-\infty}^{x}f(u,v)dudv $$</p>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -226,5 +303,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>

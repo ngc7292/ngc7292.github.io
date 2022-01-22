@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
-<meta content="neural network and BP algorithm" name="twitter:title"/>
-<meta content="learning by ngc7293" name="twitter:description"/>
-<meta content="@ngc7293" name="twitter:site"/>
-<meta content="@ngc7293" name="twitter:creator"/>
-<meta content="ngc7293" name="author"/>
-<meta content="Hugo 0.78.1" name="generator"/>
-<title>neural network and BP algorithm · ngc7293's blog</title>
-<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
-<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
-<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="neural network and BP algorithm"/>
+  <meta name="twitter:description" content="learning by ngc7293"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>neural network and BP algorithm &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -46,6 +74,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
 <style>
 code.has-jax {
     font: inherit;
@@ -55,66 +84,88 @@ code.has-jax {
     color: #515151;
 }
 </style>
-</head>
-<body>
-<nav class="main-nav">
-<a href="https://ngc7292.github.io/"> <span class="arrow">←</span>Home</a>
-<a href="https://ngc7292.github.io/posts">Archive</a>
-<a href="https://ngc7292.github.io/tags">Tags</a>
-<a href="https://ngc7292.github.io/about">About</a>
-<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
 </nav>
-<section class="post" id="wrapper">
-<article>
-<header>
-<h1>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
                         neural network and BP algorithm
                     </h1>
-<h2 class="headline">
+                    <h2 class="headline">
                     Jan 1, 1970 08:33
                     · 388 words
                     · 2 minute read
                       <span class="tags">
-<a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
-<a href="https://ngc7292.github.io/tags/algorithm">algorithm</a>
-</span>
-</h2>
-</header>
-<div id="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#神经网络简述">神经网络简述</a></li>
-<li><a href="#感知机与多重神经网络">感知机与多重神经网络</a></li>
-<li><a href="#bp误差逆传播算法">BP(误差逆传播算法)</a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href="#迭代优化算法">迭代优化算法</a>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/mechine-learning">mechine learning</a>
+                          
+                              <a href="https://ngc7292.github.io/tags/algorithm">algorithm</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#神经网络简述">神经网络简述</a></li>
+    <li><a href="#感知机与多重神经网络">感知机与多重神经网络</a></li>
+    <li><a href="#bp误差逆传播算法">BP(误差逆传播算法)</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#迭代优化算法">迭代优化算法</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-<section id="post-body">
-<p>西瓜书的笔记</p>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p>西瓜书的笔记</p>
 <h2 id="神经网络简述">神经网络简述</h2>
 <p>神经网络最基本组成成分是神经元，每个神经元输入的信号通过带权连接进入相应的神经元，并将总输入值与阈值进行比较，并通过激活函数进行输出。</p>
 <p>典型的激活函数包括像sigmoid函数或者跃迁函数之类的，sigmoid函数又被称为挤压函数，好像是说把数字都挤压到[0,1]区间上的函数，其数学表示为：</p>
 <p>$$ sigmoid(x) = 1/(1+e^{-x}) $$</p>
 <p>函数图形类似这样：</p>
-<p><img alt="" src="http://ngcimage.tan90.me/image/blog/sigmoid.jpg"/></p>
+<p><img src="http://ngcimage.tan90.me/image/blog/sigmoid.jpg" alt=""></p>
 <p>很多神经元连接于是得到神经网络，从计算机科学的角度，神经网络可以看作一个模型，该模型有许多函数，并且在很多时候可以递归什么的，最后给出一个输出，类似的，实现下列相互嵌套，相互作用的一些函数综合而成的模型，很多都是以数学证明为基础的。</p>
 <p>$$ y_j = f(\Sigma_i w_ix_i - \theta_j)$$</p>
 <h2 id="感知机与多重神经网络">感知机与多重神经网络</h2>
 <p>感知机是我感觉最简单的一种神经网络，其由两层神经元构成的，对于线性可分问题比如关于与，或，非等问题，即存在一个线性超平面可以将所有的输入划分为两个模式那种，对于非线性可分问题，感知机可能会有些问题，比如产生震荡（fluctuation），即一直在两个模块之间跌宕，得不到最后的x的参数。</p>
 <p>当出现这了问题时，我们需要多层神经网络，一般常见的有多层前馈网络，由输入层处理外界信号，由隐层处理数据，由输出层输出，网络的学习过程就是对其中的连接权，以及各个层之间的阈值。</p>
-<p><img alt="" src="http://ngcimage.tan90.me/image/blog/mLP.jpg"/></p>
+<p><img src="http://ngcimage.tan90.me/image/blog/mLP.jpg" alt=""></p>
 <h2 id="bp误差逆传播算法">BP(误差逆传播算法)</h2>
 <p>首先给定一个训练集</p>
-<p>$$ D = {(x_1,y_1),(x_2,y_2),…,(x_m,y_m)} x_i \in R^d y_i \in R^l$$</p>
+<p>$$ D = {(x_1,y_1),(x_2,y_2),&hellip;,(x_m,y_m)} x_i \in R^d y_i \in R^l$$</p>
 <p>表示训练集由d个属性描述，输出l维实值向量</p>
 <p>下面是该算法的一些表示：</p>
 <p>$$ \theta_j 表示输出层第j个神经元阈值$$</p>
@@ -157,9 +208,9 @@ code.has-jax {
 <p>另一种是正则化 基本思想就是在误差目标函数中增加一个描述网络复杂度的部分，例如连接权和阈值的平方。</p>
 <h2 id="迭代优化算法">迭代优化算法</h2>
 <h4 id="梯度下降法">梯度下降法</h4>
-<p>参考文章：<a href="https://www.jianshu.com/p/c7e642877b0e">深入浅出–梯度下降法及其实现</a></p>
+<p>参考文章：<a href="https://www.jianshu.com/p/c7e642877b0e">深入浅出&ndash;梯度下降法及其实现</a></p>
 <p>梯度下降法是最小二乘法的一种，用于求解无约束规划问题，用于获得损失函数或者代价函数的最小化。</p>
-<p>定义一个函数$$ C = f(v_1,…,v_m)$$</p>
+<p>定义一个函数$$ C = f(v_1,&hellip;,v_m)$$</p>
 <p>梯度的定义为 $$∇C≡(∂C/∂v_1,…,∂C/∂v_m)^{T}$$</p>
 <p>更新梯度$$ v \rightarrow  v' = v - \eta \nabla C$$</p>
 <p>直到v到无穷小的时候，我们可以最小化C。</p>
@@ -203,7 +254,7 @@ lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
         index <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         theta <span style="color:#f92672">=</span> theta <span style="color:#f92672">-</span> lr<span style="color:#f92672">*</span>gradient
         gradient <span style="color:#f92672">=</span> gradient_function(theta,x,y)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">"gradient descent finish "</span><span style="color:#f92672">+</span>str(index)<span style="color:#f92672">+</span><span style="color:#e6db74">" traing"</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;gradient descent finish &#34;</span><span style="color:#f92672">+</span>str(index)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; traing&#34;</span>)
     <span style="color:#66d9ef">return</span> theta
 </code></pre></div><p>上述BGD虽然对所有样本进行计算，可以很好的得到全局最优，但是性能并不是很好，由于每次迭代都要计算所有样本，训练过程会很慢。</p>
 <p>SGD，每轮迭代中都只随机优化某一条训练数据的损失，更新速度比较快，但是会更新至局部最优。</p>
@@ -221,9 +272,13 @@ lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
     }
   }
 </code></pre>
-</section>
-</article>
-<div id="disqus_thread"></div>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -235,32 +290,55 @@ lr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<footer id="footer">
-<div id="social">
-<a class="symbol" href="https://www.facebook.com/">
-<i class="fa fa-facebook-square"></i>
-</a>
-<a class="symbol" href="https://www.github.com/ngc7292">
-<i class="fa fa-github-square"></i>
-</a>
-<a class="symbol" href="https://www.twitter.com/">
-<i class="fa fa-twitter-square"></i>
-</a>
 </div>
-<p class="small">
+            
+
+            
+
+            <footer id="footer">
     
-       © Copyright 2022 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2022 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
     
     </p>
-<p class="small">
+    <p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-</p>
+    </p>
 </footer>
-</section>
-<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -273,5 +351,10 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-</body>
+
+
+
+
+
+    </body>
 </html>
