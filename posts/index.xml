@@ -6,41 +6,14 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Self-supervised Learning, Generative or Contrastive</title>
-      <link>https://ngc7292.github.io/posts/self-supervise-learning/</link>
-      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      <title>useful package in python</title>
+      <link>https://ngc7292.github.io/posts/useful_package/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/posts/self-supervise-learning/</guid>
-      <description>&lt;p&gt;本文是清华大学的一篇survey &lt;a href=&#34;http://arxiv.org/abs/2006.08218&#34;&gt;Liu, X., Zhang, F., Hou, Z., Mian, L., Wang, Z., Zhang, J., Tang, J., &amp;amp; Member, S. (n.d.). &lt;em&gt;Self-supervised Learning : Generative or Contrastive&lt;/em&gt;. 1–23.&lt;/a&gt;  我来学习一下，顺便记录一下可以看的生成方面的论文。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>graph embedding and graph in nlp</title>
-      <link>https://ngc7292.github.io/posts/graph/</link>
-      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/graph/</guid>
-      <description>&lt;p&gt;最近看过的论文，写个简单的周报，push一下自己。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>graph intro and background</title>
-      <link>https://ngc7292.github.io/posts/python/</link>
-      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/python/</guid>
-      <description>&lt;p&gt;在开始学习图表示学习之前我们需要对其中的一些概念以及背景知识作出一系列的说明，例如学习的方向，基本的任务，以及该技术的背景，以及在传统领域对于图表示的一些概念的总结。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>文明修改机制</title>
-      <link>https://ngc7292.github.io/posts/wenming/</link>
-      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/wenming/</guid>
-      <description>&lt;p&gt;更新中加入了全新的“自然奇观选择器”，大家可以用它来自定义游戏中出现（或不出现）的自然奇观；另外还加入了“科技与市政随机模式”，它能让科技与市政树的发展完全随机。请阅读本文，了解本次免费游戏更新的完整内容。&lt;/p&gt;</description>
+      <guid>https://ngc7292.github.io/posts/useful_package/</guid>
+      <description>&lt;p&gt;这里汇总一些小众但是常用的python以及其他软件包&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -100,271 +73,21 @@
     </item>
     
     <item>
+      <title></title>
+      <link>https://ngc7292.github.io/posts/how_mlp_and_cnn/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/how_mlp_and_cnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>谱图与代数图论读书笔记</title>
       <link>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory/</link>
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/spectral_algerbraic_graph_theory/</guid>
       <description>&lt;p&gt;谱图与代数理论（spectral and algebraic graph theory）主要是关于图的组合特性以及与关联矩阵相关的一些代数特性以及其应用，这里是第一章的读书笔记。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>文本特征提取算法学习</title>
-      <link>https://ngc7292.github.io/posts/tf-idf/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/tf-idf/</guid>
-      <description>&lt;p&gt;文本是离散性非常强的一种数据方式，在处理起来会有很大的缺点，因此我们通过各种方式对于文本的特征进行数字化。这几天在学习nlp_begin的练习，重新实现了相关的两个算法，并且对sklearn的几种算法的实现进行了学习，写一写证明我学过了，哈哈哈！！！！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>概率论复习</title>
-      <link>https://ngc7292.github.io/posts/probably/</link>
-      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/probably/</guid>
-      <description>&lt;p&gt;概率论相关知识复习,最近在学算法有些基础概念在这里复习一下，未完待续。。。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>图与树的算法复习</title>
-      <link>https://ngc7292.github.io/posts/datastruct/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/datastruct/</guid>
-      <description>&lt;p&gt;部分树与图的算法回顾&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>讲座笔记</title>
-      <link>https://ngc7292.github.io/posts/kg/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/kg/</guid>
-      <description>&lt;p&gt;4.24号知识工厂以及华为云知识图谱讲座笔记（记得有点乱，复试完整理整理）&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>摄影策划</title>
-      <link>https://ngc7292.github.io/posts/road_plan/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/road_plan/</guid>
-      <description>&lt;p&gt;3.21的一点点想法&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chinese Poetry Generation with Recurrent Neural Networks</title>
-      <link>https://ngc7292.github.io/posts/chinese_poem_rnn/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/chinese_poem_rnn/</guid>
-      <description>&lt;p&gt;Xingxing Zhang and Mirella Lapata&amp;rsquo;s paper&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>about python</title>
-      <link>https://ngc7292.github.io/posts/graph_intro_and_traditional_approaches/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/graph_intro_and_traditional_approaches/</guid>
-      <description>&lt;p&gt;有关python的一些问题汇总&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>pat learning</title>
-      <link>https://ngc7292.github.io/posts/pat_2019/</link>
-      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/pat_2019/</guid>
-      <description>&lt;p&gt;2019.12.26 刚考完研 大部分都忘记了GG&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>stego_with_gncnn</title>
-      <link>https://ngc7292.github.io/posts/stego_and_gsgan/</link>
-      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/stego_and_gsgan/</guid>
-      <description>&lt;p&gt;目前的隐写分析研究领域通常将隐写分析看成一个二分类问题，目标是区分正常载体和含密载体。虽然人类感知器官无法进行区分，研究者可以借助机器学习、模式识别等工具，并通过对图像统计特性进行分析来实现有效判别。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>算法学习第四章总结</title>
-      <link>https://ngc7292.github.io/posts/algorithms2/</link>
-      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/algorithms2/</guid>
-      <description>&lt;h1 id=&#34;分治策略&#34;&gt;分治策略&lt;/h1&gt;
-&lt;p&gt;在分治策略中，我们在每层递归应用了如下三个步骤：&lt;/p&gt;
-&lt;p&gt;分解(divide)：将问题划分为一些子问题，形式一样，规模更小&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>算法学习总结</title>
-      <link>https://ngc7292.github.io/posts/algorithms/</link>
-      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/algorithms/</guid>
-      <description>&lt;h1 id=&#34;算法基础&#34;&gt;算法基础&lt;/h1&gt;
-&lt;p&gt;算法导论第二章学习笔记&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode dp</title>
-      <link>https://ngc7292.github.io/posts/leetcode_dp/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_dp/</guid>
-      <description>&lt;p&gt;关于dp的一些题目汇总&lt;/p&gt;
-&lt;p&gt;还是leetcode好啊，pat好辣鸡。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>pat learning</title>
-      <link>https://ngc7292.github.io/posts/pat_learn_java/</link>
-      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/pat_learn_java/</guid>
-      <description>&lt;p&gt;JAVA刷pat&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>pat learning</title>
-      <link>https://ngc7292.github.io/posts/pat_learn/</link>
-      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/pat_learn/</guid>
-      <description>&lt;p&gt;pat刷一些题来做一点点算法，这里大多数是python。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>infomation security</title>
-      <link>https://ngc7292.github.io/posts/network_security/</link>
-      <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/network_security/</guid>
-      <description>&lt;h2 id=&#34;网络安全技术与实践-课程预习我也不知道上的什么东西反正吧所有的都弄下来好了&#34;&gt;网络安全技术与实践 课程预习（我也不知道上的什么东西，反正吧所有的都弄下来好了）&lt;/h2&gt;
-&lt;p&gt;我已经3年没有背过这些没有什么意义的东西了，哎。。。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>data structures</title>
-      <link>https://ngc7292.github.io/posts/data_structures/</link>
-      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/data_structures/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leetcode array</title>
-      <link>https://ngc7292.github.io/posts/leetcode_array/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode_array/</guid>
-      <description>&lt;p&gt;leetcode problem of array.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode bst</title>
-      <link>https://ngc7292.github.io/posts/leetcode-bst/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-bst/</guid>
-      <description>&lt;p&gt;这里放一些关于BST的题目。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode n ary tree</title>
-      <link>https://ngc7292.github.io/posts/leetcode-narytree/</link>
-      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-narytree/</guid>
-      <description>&lt;p&gt;这里放一些我关于n ary tree的一些题目记录。其实我刚开始写递归的时候，也不是很理解，每次写都要用笔推一下公式，逐渐逐渐就会有一些浅显的认识，就不需要每道题用手来推算了。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录4</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python4/</link>
-      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python4/</guid>
-      <description>&lt;p&gt;前几天貌似怠惰了呢，今天做了几道水题，（bin tree的），放上来。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录5</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python5/</link>
-      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python5/</guid>
-      <description>&lt;p&gt;没有介绍&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录3</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python3/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python3/</guid>
-      <description>&lt;p&gt;2018.8.1 更新 电视剧真好看，都没怎么想学习了，看了下别人刷leetcode的时候，鬼鬼，一道题一篇文章，我比较懒，就这样咯。&lt;/p&gt;
-&lt;p&gt;2018.8.3 更新 solution破百咯，立个flag：明天problem破百&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>evaluation and selection</title>
-      <link>https://ngc7292.github.io/posts/learn-evaluating-model/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/learn-evaluating-model/</guid>
-      <description>&lt;p&gt;我们通过对一些方法比如错误率，召回率，ROC等来评价某个模型的优劣，并选择更好的ml算法&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录2</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python2/</link>
-      <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python2/</guid>
-      <description>&lt;p&gt;记录一下，今天已经74题了。&lt;/p&gt;
-&lt;p&gt;今天又个死肥宅给我发小龙虾的图，我才想起来好像北方没有小龙虾哎，好像只有南方有，而且我们当时的胜利河小龙虾计划好像搁置很久了&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode python刷题记录</title>
-      <link>https://ngc7292.github.io/posts/leetcode-python/</link>
-      <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-python/</guid>
-      <description>&lt;p&gt;这里是ngc在leetcode关于algorithms的刷题记录，大概都会用python吧，有些可能会用c++，不得不吐槽一句，很多我在本地跑一个结果，在远程为啥是另外一个结果呢？&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>hgame_week4</title>
-      <link>https://ngc7292.github.io/posts/misc/</link>
-      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/misc/</guid>
-      <description>&lt;p&gt;首先，抱歉各位大佬，前几天感冒，在学校里养病。。。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>leetcode database刷题记录</title>
-      <link>https://ngc7292.github.io/posts/leetcode-database/</link>
-      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/leetcode-database/</guid>
-      <description>&lt;p&gt;这里会放一些我刷leetcode数据库部分的刷题记录，而且会持续更新&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>neural network and BP algorithm</title>
-      <link>https://ngc7292.github.io/posts/neural_networks/</link>
-      <pubDate>Thu, 01 Jan 1970 08:33:40 +0800</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/neural_networks/</guid>
-      <description>&lt;p&gt;西瓜书的笔记&lt;/p&gt;</description>
     </item>
     
   </channel>

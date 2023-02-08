@@ -6,31 +6,22 @@
     <description>Recent content in Tags on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>nlp</title>
-      <link>https://ngc7292.github.io/tags/nlp/</link>
-      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      <title>python</title>
+      <link>https://ngc7292.github.io/tags/python/</link>
+      <pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/tags/nlp/</guid>
+      <guid>https://ngc7292.github.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>graph</title>
       <link>https://ngc7292.github.io/tags/graph/</link>
-      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/tags/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graph representation learning</title>
-      <link>https://ngc7292.github.io/tags/graph-representation-learning/</link>
-      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/graph-representation-learning/</guid>
       <description></description>
     </item>
     
@@ -53,137 +44,11 @@
     </item>
     
     <item>
-      <title>ml</title>
-      <link>https://ngc7292.github.io/tags/ml/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <title>VLP</title>
+      <link>https://ngc7292.github.io/tags/vlp/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/tags/ml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>knowledge graph</title>
-      <link>https://ngc7292.github.io/tags/knowledge-graph/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/knowledge-graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hobby</title>
-      <link>https://ngc7292.github.io/tags/hobby/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/hobby/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://ngc7292.github.io/tags/python/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>论文</title>
-      <link>https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/%E8%AE%BA%E6%96%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithms</title>
-      <link>https://ngc7292.github.io/tags/algorithms/</link>
-      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/algorithms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>数据结构</title>
-      <link>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>stage</title>
-      <link>https://ngc7292.github.io/tags/stage/</link>
-      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/stage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://ngc7292.github.io/tags/java/</link>
-      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>infomation security</title>
-      <link>https://ngc7292.github.io/tags/infomation-security/</link>
-      <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/infomation-security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data structures</title>
-      <link>https://ngc7292.github.io/tags/data-structures/</link>
-      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/data-structures/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mechine learning</title>
-      <link>https://ngc7292.github.io/tags/mechine-learning/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/mechine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ctf</title>
-      <link>https://ngc7292.github.io/tags/ctf/</link>
-      <pubDate>Fri, 09 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>database</title>
-      <link>https://ngc7292.github.io/tags/database/</link>
-      <pubDate>Tue, 13 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://ngc7292.github.io/tags/algorithm/</link>
-      <pubDate>Thu, 01 Jan 1970 08:33:40 +0800</pubDate>
-      
-      <guid>https://ngc7292.github.io/tags/algorithm/</guid>
+      <guid>https://ngc7292.github.io/tags/vlp/</guid>
       <description></description>
     </item>
     
