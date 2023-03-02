@@ -1,53 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="Data view for LLM pre-training"/>
-  <meta name="twitter:description" content="In this blog, we aims to provide a data&rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily."/>
-  
-    <meta name="twitter:site" content="@ngc7293"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@ngc7293"/>
-  
-
-
-
-		
-		<meta name="author" content="ngc7293">
-		
-		<meta name="generator" content="Hugo 0.78.1" />
-		<title>Data view for LLM pre-training &middot; ngc7293&#39;s blog</title>
-		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
-		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
-
-		
-		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
-		
-
-		
-		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
-		
-
-		
-
-		<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="Data view for LLM pre-training" name="twitter:title"/>
+<meta content="In this blog, we aims to provide a data’s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily." name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.78.1" name="generator"/>
+<title>Data view for LLM pre-training · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
   MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
@@ -74,7 +46,6 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
 <style>
 code.has-jax {
     font: inherit;
@@ -84,66 +55,45 @@ code.has-jax {
     color: #515151;
 }
 </style>
-	</head>
-
-    <body>
-       <nav class="main-nav">
-	
-	
-		<a href='https://ngc7292.github.io/'>Home</a>
-	
-	<a href='https://ngc7292.github.io/posts'>Archive</a>
-	<a href='https://ngc7292.github.io/tags'>Tags</a>
-	<a href='https://ngc7292.github.io/about'>About</a>
-
-	
-
-	
-	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
-	
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/">Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
 </nav>
-
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
                         Data view for LLM pre-training
                     </h1>
-                    <h2 class="headline">
+<h2 class="headline">
                     Mar 1, 2023 00:00
                     · 309 words
                     · 2 minute read
                       <span class="tags">
-                      
-                      
-                          
-                              <a href="https://ngc7292.github.io/tags/llm">LLM</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#fundational-model-pretraining-data">Fundational model pretraining data</a></li>
-    <li><a href="#instruction-tuning-data">Instruction tuning data</a></li>
-    <li><a href="#model-architecture">Model architecture</a></li>
-    <li><a href="#heading"></a></li>
-    <li><a href="#how-to-train-a-better-foundational-model">How to train a better foundational model</a></li>
-    <li><a href="#refenrence">Refenrence</a></li>
-  </ul>
+<a href="https://ngc7292.github.io/tags/llm">LLM</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#fundational-model-pretraining-data">Fundational model pretraining data</a></li>
+<li><a href="#instruction-tuning-data">Instruction tuning data</a></li>
+<li><a href="#model-architecture">Model architecture</a></li>
+<li><a href="#heading"></a></li>
+<li><a href="#how-to-train-a-better-foundational-model">How to train a better foundational model</a></li>
+<li><a href="#refenrence">Refenrence</a></li>
+</ul>
 </nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    <p>In this blog, we aims to provide a data&rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.</p>
-<p>Large language model have a most powerful to solve the nature language tasks, not only summerization or text classification. Recent research show the LLM have much emergence ability when the model&rsquo;s size arrive a trade-off line. However, the LLM shown us the emergence model like GPT-3 and PaLM does&rsquo;t release public, the reproduce of NLP community like OPT, GLM and BLOOM even have the similar size have a long way to reach these.In this post, we aims to get a data&rsquo;s view to anylisis the reproductions' shortage and provide a good way to reproduce these model so clearly.</p>
+</div>
+<section id="post-body">
+<p>In this blog, we aims to provide a data’s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.</p>
+<p>Large language model have a most powerful to solve the nature language tasks, not only summerization or text classification. Recent research show the LLM have much emergence ability when the model’s size arrive a trade-off line. However, the LLM shown us the emergence model like GPT-3 and PaLM does’t release public, the reproduce of NLP community like OPT, GLM and BLOOM even have the similar size have a long way to reach these.In this post, we aims to get a data’s view to anylisis the reproductions' shortage and provide a good way to reproduce these model so clearly.</p>
 <p><!-- raw HTML omitted --> In this post, we aims at two tasks/abilities, the knowledge and reasoning. The below figure show us that some reasoning benchmark for instructed model or pretrained model, we can see instructGPT will achieve a best scores in all the tasks. In the remianing llm, maybe <!-- raw HTML omitted --></p>
 <p>![截屏2023-03-01 下午5.04.52](/Users/ngc/Desktop/截屏2023-03-01 下午5.04.52.png)</p>
 <p>Some knowledge task and reasoning task comparing the released llm and limited llm.</p>
@@ -192,9 +142,9 @@ code.has-jax {
 <p>From GPT-3</p>
 <ol>
 <li>CC data is dirty but useful, which affects the quantity of fundamental model training.</li>
-<li>Most downstream tasks weren&rsquo;t affected  by the overlap in the training data.
+<li>Most downstream tasks weren’t affected  by the overlap in the training data.
 <ol>
-<li><img src="https://a1jkiq3cpx.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Y1NTBmYTlhNDgzNTAzNGM3MGRhYzJkNGQ5NjJmMjhfNkNBclBlamt4VmNRYjNWN2NFT1BtY1RzNGRuUjBvSEVfVG9rZW46Ym94Y25CYnpQdmFyYTYzQmh6OXFSS2VXcjFDXzE2Nzc2NDY0MTk6MTY3NzY1MDAxOV9WNA" alt="img"></li>
+<li><img alt="img" src="https://a1jkiq3cpx.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Y1NTBmYTlhNDgzNTAzNGM3MGRhYzJkNGQ5NjJmMjhfNkNBclBlamt4VmNRYjNWN2NFT1BtY1RzNGRuUjBvSEVfVG9rZW46Ym94Y25CYnpQdmFyYTYzQmh6OXFSS2VXcjFDXzE2Nzc2NDY0MTk6MTY3NzY1MDAxOV9WNA"/></li>
 </ol>
 </li>
 </ol>
@@ -208,13 +158,9 @@ code.has-jax {
 <h2 id="heading"></h2>
 <h2 id="how-to-train-a-better-foundational-model">How to train a better foundational model</h2>
 <h2 id="refenrence">Refenrence</h2>
-                </section>
-            </article>
-
-            
-
-            
-                <div id="disqus_thread"></div>
+</section>
+</article>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ngc7293s-blog'; 
 
@@ -226,55 +172,32 @@ code.has-jax {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
 </div>
-            
-
-            
-
-            <footer id="footer">
+<p class="small">
     
-        <div id="social">
-
-	
-	
-    <a class="symbol" href="https://www.facebook.com/">
-        <i class="fa fa-facebook-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.github.com/ngc7292">
-        <i class="fa fa-github-square"></i>
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/">
-        <i class="fa fa-twitter-square"></i>
-    </a>
-    
-
-
-</div>
-
-    
-    <p class="small">
-    
-       © Copyright 2023 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+       © Copyright 2023 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
     
     </p>
-    <p class="small">
+<p class="small">
         Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
-    </p>
+</p>
 </footer>
-
-        </section>
-
-        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
 <script src="https://ngc7292.github.io/js/main.js"></script>
 <script src="https://ngc7292.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -287,10 +210,5 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
-
-
-
-
-    </body>
+</body>
 </html>
