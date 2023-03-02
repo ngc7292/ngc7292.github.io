@@ -6,7 +6,27 @@
     <description>Recent content on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data view for LLM pre-training</title>
+      <link>https://ngc7292.github.io/posts/data_for_llm/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/data_for_llm/</guid>
+      <description>&lt;p&gt;In this blog, we aims to provide a data&amp;rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The paper list of fundational model, Model, Data and Eval.</title>
+      <link>https://ngc7292.github.io/posts/fundational_model_paper_list/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ngc7292.github.io/posts/fundational_model_paper_list/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://img.shields.io/badge/ModelPaperNumber-15-brightgreen&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In this blog/repo, we collect some paper about fundational model&amp;rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful GPT-3.&lt;/p&gt;
+&lt;p&gt;(This repo is constantly updated.)&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>useful package in python</title>
       <link>https://ngc7292.github.io/posts/useful_package/</link>
@@ -78,7 +98,7 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ngc7292.github.io/posts/how_mlp_and_cnn/</guid>
-      <description></description>
+      <description>÷</description>
     </item>
     
     <item>

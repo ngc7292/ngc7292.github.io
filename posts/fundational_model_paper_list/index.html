@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://ngc7292.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="The paper list of fundational model, Model, Data and Eval."/>
+  <meta name="twitter:description" content="
+In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful GPT-3.
+(This repo is constantly updated.)"/>
+  
+    <meta name="twitter:site" content="@ngc7293"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@ngc7293"/>
+  
+
+
+
+		
+		<meta name="author" content="ngc7293">
+		
+		<meta name="generator" content="Hugo 0.78.1" />
+		<title>The paper list of fundational model, Model, Data and Eval. &middot; ngc7293&#39;s blog</title>
+		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
+		<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+
+		
+		<link rel="stylesheet" href="https://ngc7292.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://ngc7292.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ngc7293&#39;s blog" />
+		
+
+		
+
+		<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ngc7292.github.io/'>Home</a>
+	
+	<a href='https://ngc7292.github.io/posts'>Archive</a>
+	<a href='https://ngc7292.github.io/tags'>Tags</a>
+	<a href='https://ngc7292.github.io/about'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        The paper list of fundational model, Model, Data and Eval.
+                    </h1>
+                    <h2 class="headline">
+                    Mar 1, 2023 00:00
+                    · 346 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://ngc7292.github.io/tags/llm">LLM</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fundational-models">fundational models</a></li>
+    <li><a href="#pre-training-dataset">Pre-training Dataset</a></li>
+    <li><a href="#evaluation">Evaluation</a></li>
+  </ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <p><img src="https://img.shields.io/badge/ModelPaperNumber-15-brightgreen" alt=""></p>
+<p>In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful GPT-3.</p>
+<p>(This repo is constantly updated.)</p>
+<h2 id="fundational-models">fundational models</h2>
+<ol>
+<li>
+<p>**Language Models are Few-Shot Learners **</p>
+<p><em>Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah etc.</em>  from <em>Openai</em>  2020.15</p>
+<p>[<a href="https://arxiv.org/pdf/2005.14165.pdf">pdf</a>] GPT-3</p>
+</li>
+<li>
+<p><strong>A General Language Assistant as a Laboratory for Alignment</strong></p>
+<p><em>Amanda Askell, Yuntao Bai, Anna Chen,  Dawn Drain,  Deep Ganguli etc.</em> from <em>Anthropic</em>  2021.12</p>
+<p>[<a href="https://arxiv.org/pdf/2112.00861.pdf">pdf</a>] Anthropic-LM</p>
+</li>
+<li>
+<p>**Improving language models by retrieving from trillions of tokens **</p>
+<p><em>Sebastian Borgeaud ,  Arthur Mensch,  Jordan Hoffmann etc.</em>  from <em>deepmind</em>  2021.12</p>
+<p>[<a href="https://arxiv.org/pdf/2112.04426.pdf">pdf</a>]  RETRO</p>
+</li>
+<li>
+<p><strong>Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher</strong></p>
+<p><em>deepmind</em> 2021.12</p>
+<p>[<a href="https://arxiv.org/pdf/2112.11446.pdf">pdf</a>] Gopher</p>
+</li>
+<li>
+<p><strong>JURASSIC-1: TECHNICAL DETAILS AND EVALUATION</strong></p>
+<p><em>Opher Lieber, Or Sharir, Barak Lenz, Yoav Shoham</em> from <em>AI21 Labs</em> 2021</p>
+<p>[<a href="https://uploads-ssl.webflow.com/60fd4503684b466578c0d307/61138924626a6981ee09caf6_jurassic_tech_paper.pdf">pdf</a>] J1-Jumbo</p>
+</li>
+<li>
+<p><strong>LaMDA: Language Models for Dialog Applications</strong></p>
+<p><em>google</em> 2022.1</p>
+<p>[<a href="https://arxiv.org/pdf/2201.08239.pdf">pdf</a>] LaMDA</p>
+</li>
+<li>
+<p><strong>Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model</strong></p>
+<p><em>Shaden Smith , Mostofa Patwary etc.</em> from <em>Microsoft and Nvidia</em> 2022.1</p>
+<p>[<a href="https://arxiv.org/pdf/2201.11990.pdf">pdf</a>] MT-NLG</p>
+</li>
+<li>
+<p><strong>Training Compute-Optimal Large Language Models</strong></p>
+<p><em>Jordan Hoffmann,  Sebastian Borgeaud,  Arthur Mensch etc.</em> from <em>deepmind</em> 2022.3</p>
+<p>[<a href="https://arxiv.org/pdf/2203.15556.pdf">pdf</a>] Chinchilla</p>
+</li>
+<li>
+<p><strong>PaLM: Scaling Language Modeling with Pathways</strong></p>
+<p><em>google</em> 2022.4</p>
+<p>[<a href="https://arxiv.org/pdf/2204.02311.pdf">pdf</a>] PaLM</p>
+</li>
+<li>
+<p><strong>GPT-NeoX-20B: An Open-Source Autoregressive Language Model</strong></p>
+<p><em>Sid Black, Stella Biderman, Eric Hallahan</em> in <em>EleutherAI</em> 2022.4</p>
+<p>[<a href="https://arxiv.org/pdf/2204.06745.pdf">pdf</a>] GPT-NeoX-20B</p>
+</li>
+<li>
+<p><strong>SUPER-NATURALINSTRUCTIONS: Generalization via Declarative Instructions on 1600+ NLP Tasks</strong></p>
+<p><em>Yizhong Wang, Swaroop Mishra</em> in <em>Allen AI and Univ of Washington</em> 2022.4</p>
+<p>[<a href="https://arxiv.org/pdf/2204.07705.pdf">pdf</a>] Tk-INSTRUCT</p>
+</li>
+<li>
+<p><strong>OPT: Open Pre-trained Transformer Language Models</strong></p>
+<p><em>Susan Zhang, Stephen Roller, Naman Goyal</em> in <em>Meta AI</em> 2022.5</p>
+<p>[<a href="https://arxiv.org/pdf/2205.01068.pdf">pdf</a>] OPT</p>
+</li>
+<li>
+<p><strong>Scaling Instruction-Finetuned Language Models</strong></p>
+<p><em>Hyung Won Chung, Le Hou, Shayne Longpre etc.</em> in <em>Google</em> 2022.10</p>
+<p>[<a href="https://arxiv.org/pdf/2210.11416.pdf">pdf</a>] Flan-T5</p>
+</li>
+<li>
+<p><strong>LLaMA: Open and Efficient Foundation Language Models</strong></p>
+<p><em>Hugo Touvron, Thibaut Lavril, Gautier Izacard</em> in <em>MetaAI</em> 2023.2</p>
+<p>[<a href="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.8562-6/333078981_693988129081760_4712707815225756708_n.pdf?_nc_cat=108&amp;ccb=1-7&amp;_nc_sid=ad8a9d&amp;_nc_ohc=0JlbsRuMCfYAX9WpBiC&amp;_nc_ht=scontent-hkg4-1.xx&amp;oh=00_AfD6f_1ziFoK1HhZiIJ3dE9ECxyipnNjguzEqAWQoVzh9g&amp;oe=63FDD562">pdf</a>] LLaMA</p>
+</li>
+</ol>
+<h2 id="pre-training-dataset">Pre-training Dataset</h2>
+<ol>
+<li>
+<p><strong>The Pile: An 800GB Dataset of Diverse Text for Language Modeling</strong></p>
+<p><em>EleutherAI</em></p>
+<p>[<a href="https://arxiv.org/pdf/2101.00027.pdf">pdf</a>]</p>
+</li>
+<li>
+<p>**WuDaoCorpora: A super large-scale Chinese corpora for pre-training language models **</p>
+<p><em>Beijing Academy of Artificial Intelligence, China</em></p>
+<p>[<a href="https://pdf.sciencedirectassets.com/777606/1-s2.0-S2666651021X00022/1-s2.0-S2666651021000152/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgx948NzjCEOiNRb0ic5RDKecuYPFuIA2k14p6MephTAIgBzAyOUeXFjUTAJwXr0EuJex0y2EmmA5huGVbBh%2BjF6QqswUIcxAFGgwwNTkwMDM1NDY4NjUiDJ%2F04s%2FyM2axraYodyqQBY6g2XBilWfl3rP4%2F%2Bx9L5ESb83ruzT8y1FW6zP3har5tKU2zZ9xEkvNWiRgTwT1vVBLzl9LJkS029kLczFXO9HHBAdWclWAB4yh%2FpvyOy4MlMdtG8Lj1xDnH24buJGm19GIlOmtLMJg3vckk7nX7uYhMjb4m1forGdSIBHqAaBK%2B6g2Gqzoo4cr2NazBpadPLS6OOe1AyVntH1z1v5Kf8vBwEWyObSjuqhC36dSAA3m7JedhUb1OudzL27pFrD%2FDw1%2ForEJKfA4%2FL4sRLBYmZwK4vPUb6NhJmSpcwJ6cR1iyhYNxsgTUq6JHqqj6pTHIy%2FKKfHT4BWwhrieC1GpdOW2aqAC3ca2FYCpgmexomTPMjuZ%2F%2BHeK4afLVQqV5HFLS2Fi%2FvY6T%2FIT1t1NXEYa7KcQt7G1VUzg761Af%2FNqgyKPA8i6ENcLJQMcs7y8yeEuEcZIqluRmqwYDcMedjNOmwoqXyTOW42KglhqL8RKeVJJ3QjQ1YOlCbbgxOXP5C6ccvo6CNDar8PqCXe8FKGcFWJj6kvjmRkH0Fif60FFKPqkzVi9hndMhoez6lFZH1drPjiNUutUFYRYRMwA9FFSyr7qnBgL49FDfdin3zhXRDCIqcG6ahIC5%2Bllt7I%2BWOo%2BVlfbIqf%2BV0WVCoAtng8AmsRIZIgX8qAIO4g%2Bqmv39lHpCdvdrVLgWL5Pk%2FG%2FmB5K5r5xAvGwx6RsGLno8XfrOJTmXepcqNkqVyQ%2Brwuee5ZwZcuwnIEOuReBSTYveECdBTwNXyYib1BDD2Yx8p0XeFnsq%2BHEqNUqsHKw2%2FFx%2FS8G%2BiC5uaJI7ps53bOmv9haxwy3Vbm%2BIVMjHp86%2BJhXHZaLN0ZT3mxTDkWgps%2FdyMQMPul958GOrEB%2FKu1f1Syjnn5gWWnECMxbPphU%2BheIkA7hCzHYDQWSXstdRz1zO8LxtWaNJhgTuLigKoePByi3dn9bPJ3mHqwFl3cPaPcO1ImQbqVFcVu8eWSO3V8t3ysOlwKTORDKlL%2F01bJDY2lqS%2FF3n9QbDBDXROmkgFGE8jBMu9HZApuvMu%2BEU4H%2FUzqE7xZJGtOF6ias2BAOV4QhHfN%2BR7SwTwsLQfoaY8qPxDQgibDLrgfg70Y&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230228T105054Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTY75K4KAHI%2F20230228%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=2923a94fc59500d2c0f34e42336b82710ce8ad6faea2c447b30cd244816590cd&amp;hash=e7f51ffa1321f139fbf6580a8b56287946f16c1e2eca595f3529b9a662d819a1&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=S2666651021000152&amp;tid=spdf-dd2690a4-0155-471f-94ea-ad665435b9af&amp;sid=c9927fc84b2ae148b91878c34025033816d0gxrqa&amp;type=client&amp;tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&amp;ua=19085707535d57025e075d&amp;rr=7a089a1a9ed90fc0&amp;cc=cn">pdf</a>]</p>
+</li>
+<li>
+<p><strong>CCNet: Extracting High Quality Monolingual Datasets from Web Crawl Data</strong></p>
+<p><em>Facebook AI</em></p>
+<p>[<a href="https://aclanthology.org/2020.lrec-1.494.pdf">pdf</a>] [<a href="https://github.com/facebookresearch/cc_net">project</a>]</p>
+</li>
+</ol>
+<h2 id="evaluation">Evaluation</h2>
+                </section>
+            </article>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/ngc7292">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2023 <i class="fa fa-heart" aria-hidden="true"></i> ngc7293
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+    </body>
+</html>

@@ -13,8 +13,8 @@
     
   
   
-  <meta name="twitter:title" content=""/>
-  <meta name="twitter:description" content="÷"/>
+  <meta name="twitter:title" content="Data view for LLM pre-training"/>
+  <meta name="twitter:description" content="In this blog, we aims to provide a data&rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily."/>
   
     <meta name="twitter:site" content="@ngc7293"/>
   
@@ -30,7 +30,7 @@
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.78.1" />
-		<title> &middot; ngc7293&#39;s blog</title>
+		<title>Data view for LLM pre-training &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
@@ -108,17 +108,17 @@ code.has-jax {
             <article>
                 <header>
                     <h1>
-                        
+                        Data view for LLM pre-training
                     </h1>
                     <h2 class="headline">
-                    Jun 16, 2020 00:00
-                    · 1 word
-                    · 1 minute read
+                    Mar 1, 2023 00:00
+                    · 309 words
+                    · 2 minute read
                       <span class="tags">
                       
                       
                           
-                              <a href="https://ngc7292.github.io/tags/vlp">VLP</a>
+                              <a href="https://ngc7292.github.io/tags/llm">LLM</a>
                           
                       
                       
@@ -128,13 +128,86 @@ code.has-jax {
                 
                   
                     <div id="toc">
-                      <nav id="TableOfContents"></nav>
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fundational-model-pretraining-data">Fundational model pretraining data</a></li>
+    <li><a href="#instruction-tuning-data">Instruction tuning data</a></li>
+    <li><a href="#model-architecture">Model architecture</a></li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#how-to-train-a-better-foundational-model">How to train a better foundational model</a></li>
+    <li><a href="#refenrence">Refenrence</a></li>
+  </ul>
+</nav>
                     </div>
                   
                 
                 <section id="post-body">
-                    <p>÷</p>
-
+                    <p>In this blog, we aims to provide a data&rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.</p>
+<p>Large language model have a most powerful to solve the nature language tasks, not only summerization or text classification. Recent research show the LLM have much emergence ability when the model&rsquo;s size arrive a trade-off line. However, the LLM shown us the emergence model like GPT-3 and PaLM does&rsquo;t release public, the reproduce of NLP community like OPT, GLM and BLOOM even have the similar size have a long way to reach these.In this post, we aims to get a data&rsquo;s view to anylisis the reproductions' shortage and provide a good way to reproduce these model so clearly.</p>
+<p><!-- raw HTML omitted --> In this post, we aims at two tasks/abilities, the knowledge and reasoning. The below figure show us that some reasoning benchmark for instructed model or pretrained model, we can see instructGPT will achieve a best scores in all the tasks. In the remianing llm, maybe <!-- raw HTML omitted --></p>
+<p>![截屏2023-03-01 下午5.04.52](/Users/ngc/Desktop/截屏2023-03-01 下午5.04.52.png)</p>
+<p>Some knowledge task and reasoning task comparing the released llm and limited llm.</p>
+<p>![some knowledge task evaluation in HELM](/Users/ngc/Library/Application Support/typora-user-images/截屏2023-03-01 下午4.25.23.png)</p>
+<h2 id="fundational-model-pretraining-data">Fundational model pretraining data</h2>
+<ol>
+<li>Origin information
+<ol>
+<li>General data process method
+<ol>
+<li>Collection methods</li>
+<li>Quality filtering</li>
+<li>Deduplication methods</li>
+<li>Data weighting</li>
+</ol>
+</li>
+<li>Special data process method</li>
+<li>Data source</li>
+</ol>
+</li>
+<li>High level information
+<ol>
+<li>Data diversity
+<ol>
+<li>Data topic</li>
+<li>Data rescource</li>
+<li>Data format</li>
+</ol>
+</li>
+<li>Data qulity
+<ol>
+<li>Resource and process method</li>
+<li>Pile loss</li>
+</ol>
+</li>
+<li>Data quantity
+<ol>
+<li>Data size</li>
+<li>Collection data time stemp</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>High light</p>
+<p>From GPT-3</p>
+<ol>
+<li>CC data is dirty but useful, which affects the quantity of fundamental model training.</li>
+<li>Most downstream tasks weren&rsquo;t affected  by the overlap in the training data.
+<ol>
+<li><img src="https://a1jkiq3cpx.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Y1NTBmYTlhNDgzNTAzNGM3MGRhYzJkNGQ5NjJmMjhfNkNBclBlamt4VmNRYjNWN2NFT1BtY1RzNGRuUjBvSEVfVG9rZW46Ym94Y25CYnpQdmFyYTYzQmh6OXFSS2VXcjFDXzE2Nzc2NDY0MTk6MTY3NzY1MDAxOV9WNA" alt="img"></li>
+</ol>
+</li>
+</ol>
+<h2 id="instruction-tuning-data">Instruction tuning data</h2>
+<ol>
+<li>Prompt task instruction data</li>
+<li>Human labeler instruction data(SFT data)</li>
+<li>Human in the loop (HFRL data)</li>
+</ol>
+<h2 id="model-architecture">Model architecture</h2>
+<h2 id="heading"></h2>
+<h2 id="how-to-train-a-better-foundational-model">How to train a better foundational model</h2>
+<h2 id="refenrence">Refenrence</h2>
                 </section>
             </article>
 
