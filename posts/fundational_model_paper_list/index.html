@@ -13,9 +13,9 @@
     
   
   
-  <meta name="twitter:title" content="The paper list of fundational model, Model, Data and Eval."/>
-  <meta name="twitter:description" content="
-In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful GPT-3.
+  <meta name="twitter:title" content="New AI World&#39;s fundamental: Model, Data and Eval."/>
+  <meta name="twitter:description" content="25-paper
+In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful large language model!
 (This repo is constantly updated.)"/>
   
     <meta name="twitter:site" content="@ngc7293"/>
@@ -32,7 +32,7 @@ In this blog/repo, we collect some paper about fundational model&rsquo;s trainin
 		<meta name="author" content="ngc7293">
 		
 		<meta name="generator" content="Hugo 0.78.1" />
-		<title>The paper list of fundational model, Model, Data and Eval. &middot; ngc7293&#39;s blog</title>
+		<title>New AI World&#39;s fundamental: Model, Data and Eval. &middot; ngc7293&#39;s blog</title>
 		<link rel="shortcut icon" href="https://ngc7292.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/style.css">
 		<link rel="stylesheet" href="https://ngc7292.github.io/css/highlight.css">
@@ -110,12 +110,12 @@ code.has-jax {
             <article>
                 <header>
                     <h1>
-                        The paper list of fundational model, Model, Data and Eval.
+                        New AI World&#39;s fundamental: Model, Data and Eval.
                     </h1>
                     <h2 class="headline">
                     Mar 1, 2023 00:00
-                    · 346 words
-                    · 2 minute read
+                    · 517 words
+                    · 3 minute read
                       <span class="tags">
                       
                       
@@ -132,8 +132,9 @@ code.has-jax {
                     <div id="toc">
                       <nav id="TableOfContents">
   <ul>
-    <li><a href="#fundational-models">fundational models</a></li>
+    <li><a href="#pre-training-large-language-models">Pre-training large language models</a></li>
     <li><a href="#pre-training-dataset">Pre-training Dataset</a></li>
+    <li><a href="#towards-aigc">Towards AIGC</a></li>
     <li><a href="#evaluation">Evaluation</a></li>
   </ul>
 </nav>
@@ -141,10 +142,11 @@ code.has-jax {
                   
                 
                 <section id="post-body">
-                    <p><img src="https://img.shields.io/badge/ModelPaperNumber-15-brightgreen" alt=""></p>
-<p>In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful GPT-3.</p>
+                    <p><a href="https://img.shields.io/badge/ModelPaperNumber-25-brightgreen">25-paper</a></p>
+<p>In this blog/repo, we collect some paper about fundational model&rsquo;s training methods, architecture, evaluation and training data processing, to find some key point to reproduce the more intelligent and more openful large language model!</p>
 <p>(This repo is constantly updated.)</p>
-<h2 id="fundational-models">fundational models</h2>
+<h2 id="pre-training-large-language-models">Pre-training large language models</h2>
+<p>This part maintains the paper about how to train a fundational models.</p>
 <ol>
 <li>
 <p>**Language Models are Few-Shot Learners **</p>
@@ -192,7 +194,7 @@ code.has-jax {
 <p>[<a href="https://arxiv.org/pdf/2204.02311.pdf">pdf</a>] PaLM</p>
 </li>
 <li>
-<p><strong>GPT-NeoX-20B: An Open-Source Autoregressive Language Model</strong></p>
+<p><em>GPT-NeoX-20B: An Open-Source Autoregressive Language Model</em></p>
 <p><em>Sid Black, Stella Biderman, Eric Hallahan</em> in <em>EleutherAI</em> 2022.4</p>
 <p>[<a href="https://arxiv.org/pdf/2204.06745.pdf">pdf</a>] GPT-NeoX-20B</p>
 </li>
@@ -216,6 +218,11 @@ code.has-jax {
 <p><em>Hugo Touvron, Thibaut Lavril, Gautier Izacard</em> in <em>MetaAI</em> 2023.2</p>
 <p>[<a href="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.8562-6/333078981_693988129081760_4712707815225756708_n.pdf?_nc_cat=108&amp;ccb=1-7&amp;_nc_sid=ad8a9d&amp;_nc_ohc=0JlbsRuMCfYAX9WpBiC&amp;_nc_ht=scontent-hkg4-1.xx&amp;oh=00_AfD6f_1ziFoK1HhZiIJ3dE9ECxyipnNjguzEqAWQoVzh9g&amp;oe=63FDD562">pdf</a>] LLaMA</p>
 </li>
+<li>
+<p><strong>OPT-IML: Scaling Language Model Instruction Meta Learning through the Lens of Generalization</strong></p>
+<p><em>Srinivasan Iyer, Xi Victoria Lin, Ramakanth Pasunuru etc.</em> in <em>2022.12</em></p>
+<p>[<a href="https://arxiv.org/pdf/2212.12017.pdf">pdf</a>] OPT-IML</p>
+</li>
 </ol>
 <h2 id="pre-training-dataset">Pre-training Dataset</h2>
 <ol>
@@ -235,7 +242,48 @@ code.has-jax {
 <p>[<a href="https://aclanthology.org/2020.lrec-1.494.pdf">pdf</a>] [<a href="https://github.com/facebookresearch/cc_net">project</a>]</p>
 </li>
 </ol>
+<h2 id="towards-aigc">Towards AIGC</h2>
+<p>This filed will contains the paper of RLHF and other possible way to achieve AIGC.</p>
+<ol>
+<li>
+<p><strong>Training language models to follow instructions with human feedback</strong></p>
+<p><em>Open AI</em> 2022.3</p>
+<p>[<a href="https://arxiv.org/pdf/2203.02155.pdf">pdf</a>] instruct-GPT</p>
+</li>
+<li>
+<p><strong>Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback</strong></p>
+<p><em>Anthropic</em> 2022.4</p>
+<p>[<a href="https://arxiv.org/pdf/2204.05862.pdf">pdf</a>]</p>
+</li>
+<li>
+<p><strong>Training Language Models with Language Feedback</strong></p>
+<p><em>1New York University, 2University of the Basque Country, 3Genentech, 4CIFAR LMB</em> 2022.4</p>
+<p>[<a href="https://arxiv.org/pdf/2204.14146.pdf">pdf</a>]</p>
+</li>
+</ol>
 <h2 id="evaluation">Evaluation</h2>
+<ol>
+<li>
+<p><strong>Holistic Evaluation of Language Models</strong></p>
+<p><em>Stanford University</em></p>
+<p>[<a href="https://arxiv.org/pdf/2211.09110.pdf">pdf</a>]</p>
+</li>
+<li>
+<p><strong>A Multitask, Multilingual, Multimodal Evaluation of ChatGPT on Reasoning, Hallucination, and Interactivity</strong></p>
+<p><em>Centre for Artificial Intelligence Research</em></p>
+<p>[<a href="https://arxiv.org/pdf/2302.04023.pdf">pdf</a>]</p>
+</li>
+<li>
+<p><strong>On the Robustness of ChatGPT: An Adversarial and Out-of-distribution Perspective</strong></p>
+<p><em>1Microsoft Research, 2City University of Hong Kong etc.</em></p>
+<p>[<a href="https://arxiv.org/pdf/2302.12095v1.pdf">pdf</a>]</p>
+</li>
+<li>
+<p><strong>ON THE PLANNING ABILITIES OF LARGE LANGUAGE MODELS (A CRITICAL INVESTIGATION WITH A PROPOSED BENCHMARK)</strong></p>
+<p><em>Arizona State University, Tempe.</em></p>
+<p>[<a href="https://arxiv.org/pdf/2302.06706v1.pdf">pdf</a>]</p>
+</li>
+</ol>
                 </section>
             </article>
 
