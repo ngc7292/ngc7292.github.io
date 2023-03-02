@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="谱图与代数图论读书笔记6" name="twitter:title"/>
+<meta content="这里进入到了该书的第三部分，即 Physical Metaphors ，图的物理意义，第十章是本部分的第一章，也是讲图谱理论与运动的部分结合的开始。" name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.78.1" name="generator"/>
+<title>谱图与代数图论读书笔记6 · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/">Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        谱图与代数图论读书笔记6
+                    </h1>
+<h2 class="headline">
+                    Aug 3, 2020 00:00
+                    · 156 words
+                    · 1 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/graph">graph</a>
+<a href="https://ngc7292.github.io/tags/math">math</a>
+<a href="https://ngc7292.github.io/tags/spectral-algerbraic-graph-theroy">spectral algerbraic graph theroy</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#图上的随机游走">图上的随机游走</a>
+<ul>
+<li><a href="#随机游走">随机游走</a></li>
+<li><a href="#随机游走矩阵的空间与稳定分布">随机游走矩阵的空间与稳定分布</a></li>
+<li><a href="#收敛的比率the-rate-of-convergence">收敛的比率（The rate of convergence）</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<p>这里进入到了该书的第三部分，即 Physical Metaphors ，图的物理意义，第十章是本部分的第一章，也是讲图谱理论与运动的部分结合的开始。</p>
+<h2 id="图上的随机游走">图上的随机游走</h2>
+<p>本章要研究的主要是图的特征值如何控制随机游走矩阵的收敛。</p>
+<h3 id="随机游走">随机游走</h3>
+<p>通过邻接矩阵以及拉普拉斯矩阵的性质，我们也就很自然的想到，通过矩阵来表示一个点在图上的游走概率，并将其定义为一个有权无向图，表示为$ G = (V,E,w) $。一个随机游走开始于某点，在每一个时间步会到达另一个点，如果图没有权重，那么点随机到达他临近的带你，如果有权重，那么根据权重，根据权重的概率到达其临接点。</p>
+<p>定义一个$ p_t = \mathbb{R}^V $作为在时间步t上的概率分布的向量，对于所有 $a \in V$，使$ \sum_a p(a) = 1$，初识分布我们设为 $ p_0$，那么对于开始节点a有$ p_0(a) = 1 $，也就是说，该向量是一个onehot向量，此次walk开始于a。为了得到在时间t下的分布，我们可以考虑这样一个问题，t时间的概率分布主要来源于t-1时刻，而以此类推我们可以得到一个递推公式：</p>
+<p>$$ p_{t+1}(a) = \sum_{b:(a,b)\in E}\dfrac{w(a,b)}{d(b)} p_t(b) $$</p>
+<p>前半部分其实就是b到a的概率，对每一个b具有一个概率在这里被计算，而后面的$ p_t(b)$是在时间步t上进入b的概率，很明显，对于之前提到过的懒散随机游走（lazy random walk ）同样有:</p>
+<p>$$ p_{t+1}(a) = (1/2)p_t(a) + (1/2)\sum_{b:(a,b)\in E}\dfrac{w(a,b)}{d(b)} p_t(b)  $$</p>
+<p>我们将$ \sum_{b:(a,b)\in E}\dfrac{w(a,b)}{d(b)} $拿出来并成一个矩阵称之为随机游走矩阵：$ W = MD^{-1} $</p>
+<p>即$ p_{t+1} = Wp_t $</p>
+<h3 id="随机游走矩阵的空间与稳定分布">随机游走矩阵的空间与稳定分布</h3>
+<p>根据随机游走矩阵的定义，其不一定是对称矩阵，我们对其归一化得到新的对称矩阵：</p>
+<p>$$ A = D^{-1/2}WD^{1/2} = D^{-1/2}MD^{-1/2}$$</p>
+<p>根据之前的知识可以一眼看出，如果$ D^{1/2}\psi $是W关于$w$的特征向量，那么对于A来说$\psi$是其关于w的特征向量。</p>
+<p>根据CF定理，我们可以看到关于W的特征值的取值范围为-1到1，对于懒散W是0到1。</p>
+<p>我们继续观察，还可以看到d是W关于1的特征向量，由于1是最大的特征值，即谱半径，d又称为Perron vector，针对A得到$ \psi = \dfrac{d^{1/2}}{||d^{1/2}||} $</p>
+<p>当vector继续游走，在某个时间步可以产生一个稳定状态，类似于马尔科夫的稳态，我们定义其为$ \pi = d/(1^Td) $</p>
+<p>使$ \psi_1,…,\psi_n $为A的关于$ 2\omega_1-1,…,2\omega_n-1 $的特征向量，也是$ \hat{W} $的关于$ \omega_1,…,\omega_n $的特征向量，对于初始分布$ p_0 $写作$ D^{-1/2}p_0 = \sum_ic_i\psi_i , \ where \ c_i = \psi_i^TD^{-1/2}p_0$</p>
+<p>于是$ p_t $可以写作$ D^{1/2}c_1\psi_1 + D^{1/2}\sum_{i\geq2}\omega_i^tc_i\psi_i $，其前半段就是$ \pi $即稳定分布</p>
+<h3 id="收敛的比率the-rate-of-convergence">收敛的比率（The rate of convergence）</h3>
+<p>虽然我们没有办法直接推出熟练的概率，但是我们根据观察可以看到对于一个懒散随机游走矩阵，到一个稳定结构的速率与$ \omega_2 $相关，其值越小，收敛的越快。对此我们可以假设本次walk从a点出发，到达b点的概率是$ p_t(b) $，稳定状态下$ \pi(b) $与时间点t之间的差值为:</p>
+<p>$$ |p_t(b)-\pi(b)| = \sqrt{\dfrac{d(b)}{d(a)}}\omega_2^t $$</p>
+<p>证明：</p>
+<p>对于b点，$p_t(b) = \delta_b^Tp_t = \pi(b) + \delta_b^TD^{1/2}\sum_{i\geq2}\omega_i^tc_i\psi_i$，将$c_i = \psi_i^TD^{-1/2}\delta_a = \dfrac{1}{\sqrt{d(a)}}\psi_i^T\delta_a $带入可以得到：</p>
+<p>$$ \delta_b^TD^{1/2}\sum_{i \geq 2}\omega_i^tc_i\psi_i = \sqrt{\dfrac{d(b)}{d(a)}}\delta_b^TD^{1/2}\sum_{i \geq 2}\omega_i^t\psi_i\psi_i^T\delta_a$$</p>
+<p>经过两次放缩</p>
+<p><img alt="452F96AB-B882-450F-AE5F-96B633CA2656" src="https://tva1.sinaimg.cn/large/007S8ZIlly1gi0kpt7f5tj30ty0q0diw.jpg"/></p>
+<p>得到原式。</p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2023 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>
