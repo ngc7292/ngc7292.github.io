@@ -72,7 +72,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Mar 1, 2023 00:00
-                    · 292 words
+                    · 411 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/llm">LLM</a>
@@ -110,10 +110,36 @@ code.has-jax {
 </li>
 <li>
 <p>数据处理</p>
-<p>数据处理通常情况下分为两种，一种是针对从common crawl中爬取的数据进行的通用文本数据抽取，另一部分是针对特殊文本</p>
+<p>数据处理方面主要存在两个分解的问题：数据处理方法以及数据处理流程，之前的工作说明了其对于大规模预训练语料的处理流程，整体都可以分为三个模块，对于网络信息的抽取与转换，对于数据的评估与清洗，对于数据的去重。</p>
+<p>由于网页中的信息一般采用html语言并经过浏览器的解析被人们所看到，也就是说，一般来说，被我们直接爬取的信息以html的形式保存在原始数据汇总（在Common crawl中以warc的形式存储在数据库中），html语言对于人类语言来说存在非常多用于排版的tag从而带来较多的信息冗余。基于这个原因，一部分工作采用wet格式【一种common crawl 从网页中抽取文本组成的格式】来进行进一步的预处理，例如GPT-3<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" role="doc-noteref">4</a></sup>的原始版本训练时采用WET格式，后续对其进行了文档级别的筛选，T5<sup id="fnref:10"><a class="footnote-ref" href="#fn:10" role="doc-noteref">10</a></sup>采用WET格式预处理的方式比较严格，其采用了一系列启发性的操作，例如关键字匹配，关键语法匹配等。CC Net 同样采用WET格式进行文档级别的筛选，但是该类问题的处理方式丢失了数据的格式，仅仅保留了文本。因此，另外一部分工作采用WARC格式来进行下一部分的与处理。Pile<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>认为，采用WET格式数据将会造成文档内模版数据无法删除，即便采用去重算法以及关键字匹配算法，处理后的数据质量仍然较低。其实验了几种提取工具，由于其准确丢弃率较高，因此采用jusText<sup id="fnref:11"><a class="footnote-ref" href="#fn:11" role="doc-noteref">11</a></sup>用以处理WARC格式内部的模版文件，并提取网页模版内部的文本数据。MT-NLG<sup id="fnref:7"><a class="footnote-ref" href="#fn:7" role="doc-noteref">7</a></sup> 也延续了这一操作。</p>
+<p>对于特殊高质量语料的转换处理，该部分存在几种情况，一种是挑选出的高质量网站爬取的数据，由于该部分网站模式单一，可以采用固定的几种提取方式将正文直接提取出来，对于非html格式组织的数据，例如pile<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>中所引入的arxiv的Tex 格式与Pubmed Central中按照JATS格式组织的论文将通过pandoc<sup id="fnref:12"><a class="footnote-ref" href="#fn:12" role="doc-noteref">12</a></sup>进行处理为markdown形式，该格式保留了文本的原始结构特征，其数据的表达能力有所提升的同时防止大量无关标签的引入导致数据的质量下降。类似于zhihu或者 Stack Exchange网站中的带有明显「问题，答案」结构的数据可以对其进行结构化处理，例如加入Q：\n\n A:\n\n来将其转化为带有QA结构的数据。对于已经预处理好的数据，或者存在开源版本特定算法的数据，例如wiki ，大部分工作认为可以直接将其引入到预训练语料当中，这一部分数据其质量是最高的，所蕴含的知识相对于其他语料也较多，因此，该部分语料在训练过程中通常需要上采样，以增加模型学习高质量语料的比例。</p>
 </li>
 <li>
-<p>数据去重</p>
+<p>数据清洗</p>
+<ol>
+<li>
+<p>通用数据筛选</p>
+</li>
+<li>
+<p>数据质量筛选</p>
+</li>
+<li>
+<p>数据安全性筛选</p>
+</li>
+<li>
+<p>数据重复性筛选</p>
+</li>
+</ol>
+</li>
+<li>
+<p>数据质量评价</p>
+<p>对预处理数据的评价标准是十分难以鉴别的，在没有训练，测评之前，我们并不知道一个真正优质的，鲁棒的，无偏差的，高知识的模型需要何种数据。而理论上高质量且多样的数据将会训练出一个更好的模型。目前的大规模语言模型通常情况下采用T级别的语料进行训练，LLama<sup id="fnref:13"><a class="footnote-ref" href="#fn:13" role="doc-noteref">13</a></sup>等工作表明，更多的数据有利于模型对于语言的学习。T5，FLAN等工作表示引入部分下游任务有利于模型性能的提升，而很多的已知的工作表示，更多的来源以及更精细化的处理可能会给语言模型带来更好的性能。因此，对于前期数据质量的评定在一定程度上也可以反映出训练后模型的性能。当前，研究人员主要集中在数据的多样性与基于模型的数据质量对于预训练的数据进行评价。</p>
+<p>对于数据的多样性，其主要表现为数据来源的多样，语言的多样，主题的多样以及表达方式的多样， 大部分工作都选择采用多来源的数据集进行训练，一方面，多来源的数据可以收集尽可能多的数据，补充数据的数量，另一方面，多个来源的数据往往会有不同的主题或者表达方式，往往其多样性也可以得到保证。为了衡量或者评估数据集的多样性，部分工作采用topic model的方式，希望判断数据集主题的多样性来对数据集进行分析，PaLM<sup id="fnref:14"><a class="footnote-ref" href="#fn:14" role="doc-noteref">14</a></sup>采用Hierarchical topic modeling的方式，对数据集进行评估，Pile在Pilecc中训练了一个16gram的topic model 作为基准，以此衡量各个子数据集的多样性。</p>
+<p><img alt="PaLM的多层主题检测" src="https://s2.loli.net/2023/03/06/e6vYmWtpOybqfZN.png"/></p>
+<p><img alt="pile的数据集多样性验证" src="https://s2.loli.net/2023/03/06/ZAbBk6iXfTtWj7s.png"/></p>
+<p>对于数据集的质量，目前并没有较好的解决方案。大部分的工作采用另一个语言模型来计算在该数据集上的困惑度。例如，pile在其论文中针对GPT-2与GPT-3对pile数据集的困惑度，后续的部分工作为了证明模型的效果，同样的在pile数据集中验证困惑度，一方面通过GPT-3证明其数据具有较为优质的质量【符合模型生成或者训练的需要】，另一方面模型通过数据也可以验证其效果，但是该方法存在弊端，即无法证明数据与模型是否最优以及如何达到最优。另外，根据【引用】所实验，困惑度相对于中文可能并不是一个很优质的指标，需要寻找另外的一个指标来对中文的质量进行分类。</p>
+<p>另外，pile<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>同样的对于各个子数据进行了13-gram的同一性检测，大部分的13-gram重复为格式文件，html符号，网站的评论或者正文模版信息。这些信息不仅仅对于数据质量存在影响，可能需要后续工作提出更好的数据预处理方案。</p>
+<p>另外，更多的验证包含数据的偏见，毒性等可以采用采用计算协同性质的方法来进行评估<sup id="fnref:14"><a class="footnote-ref" href="#fn:14" role="doc-noteref">14</a></sup>。</p>
 </li>
 </ol>
 <h2 id="refenrence">Refenrence</h2>
@@ -127,7 +153,8 @@ code.has-jax {
 <p><a href="https://commoncrawl.org/">https://commoncrawl.org/</a> <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></li>
+<p>A. Askell等, 《A General Language Assistant as a Laboratory for Alignment》. arXiv, 2021年12月9日. 见于: 2023年3月6日. [在线]. 载于: <a href="http://arxiv.org/abs/2112.00861">http://arxiv.org/abs/2112.00861</a> <a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></p>
+</li>
 <li id="fn:4" role="doc-endnote">
 <p>T. B. Brown等, 《Language Models are Few-Shot Learners》. arXiv, 2020年7月22日. [在线]. 载于: <a href="http://arxiv.org/abs/2005.14165">http://arxiv.org/abs/2005.14165</a> <a class="footnote-backref" href="#fnref:4" role="doc-backlink">↩︎</a></p>
 </li>
@@ -145,6 +172,21 @@ code.has-jax {
 </li>
 <li id="fn:9" role="doc-endnote">
 <p>S. Zhang等, 《OPT: Open Pre-trained Transformer Language Models》. arXiv, 2022年6月21日. 见于: 2023年3月4日. [在线]. 载于: <a href="http://arxiv.org/abs/2205.01068">http://arxiv.org/abs/2205.01068</a> <a class="footnote-backref" href="#fnref:9" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p>C. Raffel等, 《Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer》. arXiv, 2020年7月28日. 见于: 2023年3月6日. [在线]. 载于: <a href="http://arxiv.org/abs/1910.10683%5D">http://arxiv.org/abs/1910.10683]</a> <a class="footnote-backref" href="#fnref:10" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p>I. Endrédy和A. Novák, 《More Effective Boilerplate Removal-the GoldMiner Algorithm》, <em>Polibits</em>, 期 48, 页 79–83, 12月 2013. <a class="footnote-backref" href="#fnref:11" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:12" role="doc-endnote">
+<p><a href="https://pandoc.org/">https://pandoc.org/</a> <a class="footnote-backref" href="#fnref:12" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:13" role="doc-endnote">
+<p>R. Thoppilan等, 《LaMDA: Language Models for Dialog Applications》. arXiv, 2022年2月10日. 见于: 2023年3月6日. [在线]. 载于: <a href="http://arxiv.org/abs/2201.08239">http://arxiv.org/abs/2201.08239</a> <a class="footnote-backref" href="#fnref:13" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:14" role="doc-endnote">
+<p>A. Chowdhery等, 《PaLM: Scaling Language Modeling with Pathways》. arXiv, 2022年10月5日. 见于: 2023年3月6日. [在线]. 载于: <a href="http://arxiv.org/abs/2204.02311">http://arxiv.org/abs/2204.02311</a> <a class="footnote-backref" href="#fnref:14" role="doc-backlink">↩︎</a></p>
 </li>
 </ol>
 </section>
