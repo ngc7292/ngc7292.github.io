@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>algorithm on ngc7293&#39;s blog</title>
-    <link>https://ngc7292.github.io/tags/algorithm/</link>
-    <description>Recent content in algorithm on ngc7293&#39;s blog</description>
+    <title>exam on ngc7293&#39;s blog</title>
+    <link>https://ngc7292.github.io/tags/exam/</link>
+    <description>Recent content in exam on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/exam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Review of the base algorithm, nndl and advanced network for doc examination.</title>
       <link>https://ngc7292.github.io/posts/review_doc_exam/</link>

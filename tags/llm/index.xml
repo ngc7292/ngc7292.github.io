@@ -8,15 +8,6 @@
     <language>en</language>
     <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Data view for LLM pre-training</title>
-      <link>https://ngc7292.github.io/posts/data_for_llm/</link>
-      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ngc7292.github.io/posts/data_for_llm/</guid>
-      <description>&lt;p&gt;In this blog, we aims to provide a data&amp;rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>New AI World&#39;s fundamental: Model, Data and Eval.</title>
       <link>https://ngc7292.github.io/posts/fundational_model_paper_list/</link>
       <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>

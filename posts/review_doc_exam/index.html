@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://ngc7292.github.io/images/avatar.png" name="twitter:image"/>
+<meta content="Review of the base algorithm, nndl and advanced network for doc examination." name="twitter:title"/>
+<meta content='内存数据组织 数组(连续存储方式下的一维、二维、三维数组地址计算) 一般来说，内存中数据的组织格式包括按行存取以及按列存取，其地址起始位置包含0或者1，此类题目需要具体问题具体分析。
+顺序表(查找算法、插入算法和删除算法;性能评估) 顺序表查找较为简单，一般为从第一个遍历到最后一个即可完成，插入算法以及删除算法同理，对于python等语言，对于顺序表的实现不对用户所展示，而对于类似C这种高级语言，程序员需要对其进行定义。
+ 顺序表的特点： ①、随机访问，既可以在O(1)时间内找到第i个元素。 ②、存储密度高，每个节点只存储数据元素。 ③、扩展容量不方便（即便采用动态分配的方式实现，扩展长度的时间复杂度也比较高）。 ④、插入、删除操作不方便，需要移动大量元素。
+ 静态存储实现方式：
+#define MaxSize 10 typedef struct{ ElemType data[MaxSize]; int length; }SqList; 如果不进行初始化，将会出现默认数据【即脏数据】
+动态分配存储实现方式：
+#define MaxSize 10 typedef struct{ ElemType *data; int MaxSize; int length; }SqList; // For C++ L.data = new ElemType[MaxSize] // For C L.data = (ElemType *)malloc(sizeof(ElemType)*MaxSize) 当顺序表存满时可以采用malloc或者new继续申请内存，同时增加MaxSize数量。
+对于插入算法，当遍历到该点时将后续点进行后移操作，删除需要将后面的进行前移。
+查找的时间复杂度平均为 $O(n)$ 。
+栈（顺序栈、多栈共享一段连续存储空间） 顺序栈，意为顺序表实现的栈结构，即只需要从0地址开始存取。
+#include &lt;stdio.h&gt;//元素elem进栈 int push(int* a, int top, int elem) { a[++top] = elem; return top; } //数据元素出栈 int pop(int* a, int top) { if (top == -1) { printf("空栈"); return -1; } printf("弹栈元素：%d\n", a[top]); top--; return top; } 但是需要判断插入与删除时是否越界。' name="twitter:description"/>
+<meta content="@ngc7293" name="twitter:site"/>
+<meta content="@ngc7293" name="twitter:creator"/>
+<meta content="ngc7293" name="author"/>
+<meta content="Hugo 0.78.1" name="generator"/>
+<title>Review of the base algorithm, nndl and advanced network for doc examination. · ngc7293's blog</title>
+<link href="https://ngc7292.github.io/images/favicon.ico" rel="shortcut icon"/>
+<link href="https://ngc7292.github.io/css/style.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/css/highlight.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/gh/ngc7292/live2d-widget@latest/autoload.js"></script>
+<link href="https://ngc7292.github.io/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://ngc7292.github.io/index.xml" rel="alternate" title="ngc7293's blog" type="application/rss+xml"/>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<a href="https://ngc7292.github.io/">Home</a>
+<a href="https://ngc7292.github.io/posts">Archive</a>
+<a href="https://ngc7292.github.io/tags">Tags</a>
+<a href="https://ngc7292.github.io/about">About</a>
+<a class="cta" href="https://ngc7292.github.io/index.xml">Subscribe</a>
+</nav>
+<section class="post" id="wrapper">
+<article>
+<header>
+<h1>
+                        Review of the base algorithm, nndl and advanced network for doc examination.
+                    </h1>
+<h2 class="headline">
+                    Mar 2, 2023 00:00
+                    · 332 words
+                    · 2 minute read
+                      <span class="tags">
+<a href="https://ngc7292.github.io/tags/exam">exam</a>
+<a href="https://ngc7292.github.io/tags/algorithm">algorithm</a>
+</span>
+</h2>
+</header>
+<div id="toc">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#内存数据组织">内存数据组织</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<section id="post-body">
+<h3 id="内存数据组织">内存数据组织</h3>
+<h4 id="数组连续存储方式下的一维二维三维数组地址计算">数组(连续存储方式下的一维、二维、三维数组地址计算)</h4>
+<p>一般来说，内存中数据的组织格式包括按行存取以及按列存取，其地址起始位置包含0或者1，此类题目需要具体问题具体分析。</p>
+<h4 id="顺序表查找算法插入算法和删除算法性能评估">顺序表(查找算法、插入算法和删除算法;性能评估)</h4>
+<p>顺序表查找较为简单，一般为从第一个遍历到最后一个即可完成，插入算法以及删除算法同理，对于python等语言，对于顺序表的实现不对用户所展示，而对于类似C这种高级语言，程序员需要对其进行定义。</p>
+<blockquote>
+<p>顺序表的特点：
+①、随机访问，既可以在O(1)时间内找到第i个元素。
+②、存储密度高，每个节点只存储数据元素。
+③、扩展容量不方便（即便采用动态分配的方式实现，扩展长度的时间复杂度也比较高）。
+④、插入、删除操作不方便，需要移动大量元素。</p>
+</blockquote>
+<p>静态存储实现方式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#define MaxSize 10
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
+  ElemType data[MaxSize];
+  <span style="color:#66d9ef">int</span> length;
+}SqList;
+</code></pre></div><p>如果不进行初始化，将会出现默认数据【即脏数据】</p>
+<p>动态分配存储实现方式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define MaxSize 10
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span>{
+  ElemType <span style="color:#f92672">*</span>data;
+  <span style="color:#66d9ef">int</span> MaxSize;
+  <span style="color:#66d9ef">int</span> length;
+}SqList;
+
+<span style="color:#75715e">// For C++
+</span><span style="color:#75715e"></span>L.data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ElemType[MaxSize]
+  
+<span style="color:#75715e">// For C
+</span><span style="color:#75715e"></span>L.data <span style="color:#f92672">=</span> (ElemType <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(ElemType)<span style="color:#f92672">*</span>MaxSize)
+</code></pre></div><p>当顺序表存满时可以采用malloc或者new继续申请内存，同时增加MaxSize数量。</p>
+<p>对于插入算法，当遍历到该点时将后续点进行后移操作，删除需要将后面的进行前移。</p>
+<p>查找的时间复杂度平均为 $O(n)$ 。</p>
+<h4 id="栈顺序栈多栈共享一段连续存储空间">栈（顺序栈、多栈共享一段连续存储空间）</h4>
+<p>顺序栈，意为顺序表实现的栈结构，即只需要从0地址开始存取。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//元素elem进栈
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> a, <span style="color:#66d9ef">int</span> top, <span style="color:#66d9ef">int</span> elem) {
+    a[<span style="color:#f92672">++</span>top] <span style="color:#f92672">=</span> elem;
+    <span style="color:#66d9ef">return</span> top;
+}
+
+<span style="color:#75715e">//数据元素出栈
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> a, <span style="color:#66d9ef">int</span> top) {
+    <span style="color:#66d9ef">if</span> (top <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+        printf(<span style="color:#e6db74">"空栈"</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    }
+    printf(<span style="color:#e6db74">"弹栈元素：%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">"</span>, a[top]);
+    top<span style="color:#f92672">--</span>;
+    <span style="color:#66d9ef">return</span> top;
+}
+</code></pre></div><p>但是需要判断插入与删除时是否越界。</p>
+<p>多栈共享一段连续存储空间，需要保存每一个栈顶以及栈底，防止数组越界。</p>
+<h4 id="栈链式栈进栈算法出栈算法取栈顶算法和栈空栈满判定">栈（链式栈;进栈算法、出栈算法、取栈顶算法和栈空栈满判定)</h4>
+<p>对于链式栈，在存储时加入指针指向下一个元素，对于该种算法，只需要保留栈顶元素，即可寻到整个链式栈。对于进栈算法，只需要在保留元素的基础上将地址保存在当前元素的指针种，理论上，该栈可以动态分配内存。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SNode</span>
+{
+    <span style="color:#66d9ef">int</span> element;
+    SNode <span style="color:#f92672">*</span> next;
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stack</span>
+{
+	  SNode headNode;
+    <span style="color:#66d9ef">int</span> size;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">int</span> e)
+{
+  SNode<span style="color:#f92672">*</span> new_node <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SNode(e,<span style="color:#ae81ff">0</span>);
+
+  new_node<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> headNode.next; 
+  headNode.next <span style="color:#f92672">=</span> new_node;
+
+  size<span style="color:#f92672">++</span>;
+
+  <span style="color:#66d9ef">return</span> true;       
+}
+
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">pop</span>()
+{
+  SNode<span style="color:#f92672">*</span> del_node <span style="color:#f92672">=</span> headNode.next;   <span style="color:#75715e">//取出待删结点（也就是链表的首结点）
+</span><span style="color:#75715e"></span>
+  <span style="color:#66d9ef">if</span>(del_node <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> false;    <span style="color:#75715e">//栈为空
+</span><span style="color:#75715e"></span>
+  headNode.next <span style="color:#f92672">=</span> del_node<span style="color:#f92672">-&gt;</span>next;
+  <span style="color:#66d9ef">delete</span> del_node;
+  size<span style="color:#f92672">--</span>;
+
+  <span style="color:#66d9ef">return</span> true;
+}
+</code></pre></div><h4 id="队列循环队列进队算法出队算法取队头算法和队空队满判定">队列(循环队列进队算法、出队算法、取队头算法和队空队满判定)</h4>
+<p>队列是插入位置和删除位置受限制的线性表，它只能在一端进行插入元素，另一端进行元素删除操作，其只允许插入的一端称为队尾，只允许删除的一端称为队首。</p>
+<p>由于队列中的元素在插入与删除时，两端的都要变化，所以需要两个指针，一个是front指向队首元素，另一个是rear指向队尾的下一个地址。有的课本上是front指针指向前一个地址，rear指向队尾元素,这都是为了算法的方便而设定的。</p>
+<p>队列的两个特点：先进先出和有序性。</p>
+<p>队列有两种存储表示：可用链表和顺序表来存储队列。</p>
+<p>队列按存储结构分为两种：顺序队列（循环队列）和链式队列。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">InsertQueue</span>(sqQueue <span style="color:#f92672">&amp;</span>qu,<span style="color:#66d9ef">int</span> x)
+{
+  <span style="color:#66d9ef">if</span>((qu.rear<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">%</span>maxSize<span style="color:#f92672">==</span>qu.front)
+  	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  qu.rear<span style="color:#f92672">=</span>(qu.rear<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">%</span>maxSieze;
+  qu.data[qu.rear]<span style="color:#f92672">=</span>x;
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">deleteQueue</span>(sqQueue <span style="color:#f92672">&amp;</span>qu,<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x)
+{
+  <span style="color:#66d9ef">if</span>(qu.front<span style="color:#f92672">==</span>qu.rear)
+  	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  x<span style="color:#f92672">=</span>qu.data[qu.front]; <span style="color:#75715e">//先保存队头元素
+</span><span style="color:#75715e"></span>  qu.front<span style="color:#f92672">=</span>(qu.front<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">%</span>maxSize;
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><h4 id="递归递归算法设计与实现渐进时间复杂性评估">递归(递归算法设计与实现;渐进时间复杂性评估)</h4>
+<ul>
+<li><strong>法则1—FOR循环：</strong></li>
+<li>一次for循环的运行时间至多是该for循环内语句(包括测试)的运行时间乘以迭代的次数。</li>
+<li><strong>法则2—嵌套的FOR循环：</strong></li>
+<li>从里向外分析这些循环。在一组嵌套循环内部的一条语句总的运行时间为该语句的运行时间乘以该组所有的for循环的大小的乘积。</li>
+</ul>
+<p>作为一个例子，下列程序片段为O(N3):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+   <span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">j</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>)
+     <span style="color:#a6e22e">k</span><span style="color:#f92672">++</span>;
+</code></pre></div><ul>
+<li><strong>法则3—顺序语句：</strong></li>
+<li>将各个语句的运行时间求和即可(这意味着，其中的最大值就是所得的运行时间)。</li>
+</ul>
+<p>作为一个例子，下面的程序片段先用去O(N) ，再花费O(N2) ，总的开销也是O(N2) 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">for</span>( <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> )
+   <span style="color:#a6e22e">A</span>[ <span style="color:#a6e22e">i</span> ] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">N</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+   <span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">j</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>)
+      <span style="color:#a6e22e">A</span>[ <span style="color:#a6e22e">i</span> ] <span style="color:#f92672">+=</span> <span style="color:#a6e22e">A</span>[<span style="color:#a6e22e">j</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">j</span>;
+</code></pre></div><ul>
+<li><strong>法则4—IF/ELSE语句：</strong></li>
+<li>一个if/else语句的运行时间从不超过判断再加上S1和S2中运行时间长着的总的运行时间。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span>( <span style="color:#a6e22e">Condition</span>)
+   <span style="color:#a6e22e">S1</span>
+<span style="color:#66d9ef">else</span>
+   <span style="color:#a6e22e">S2</span>
+</code></pre></div><ul>
+<li><strong>法则5—递归：</strong></li>
+<li>一般转换求解递推公式的范围。</li>
+</ul>
+<p>其他法则是显然的，但是，分析的基本策略是从内部(或最深层部分)向外展开的。如果只有函数调用，那么这些调用首先要分析。如果有递归过程，那么存在几种选择。若递归实际上只是被薄棉纱遮住的for循环，则分析通常是很简单的。例如，下面的函数实际上就是一个简单的for循环，从而其他运行时间为O(N) 。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span>
+<span style="color:#a6e22e">Factorial</span>( <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">N</span> )
+{
+   <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">N</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
+     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+   <span style="color:#66d9ef">else</span>
+     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">N</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">Factorial</span>(<span style="color:#a6e22e">N</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+}
+</code></pre></div><p>这个例子中对递归的使用实际上并不好。当递归被正常使用时，将其转换成一个简单的循环结构是相当困难的。在这种情况下，分析将涉及求求解一个递推关系。为了观察到这种可能发生的情形，考虑下列例子，实际上它对递归使用的效率低得令人惊讶。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span>
+<span style="color:#a6e22e">Fib</span>( <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">N</span> )
+{
+   <span style="color:#66d9ef">if</span>( <span style="color:#a6e22e">N</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> )
+      <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+   <span style="color:#66d9ef">else</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Fib</span>(<span style="color:#a6e22e">N</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">Fib</span>(<span style="color:#a6e22e">N</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>);
+}
+</code></pre></div><p>初看起来这个程序似乎对递归使用非常聪明。可是，如果将程序编码并且赋予N大约30的值并运行，那么这个程序让人感到效率低得吓人。分析十分简单，令T(N) 为函数Fib(N) 的运行时间。如果N=0 或N=1 ，则运行时间是某个常数值，即第4行上做做判断以及返回所用时间。因为常数不重要，所以我们可以说T(0)=T(1)=1 。对于N的其他值的运行时间则相对基准情形的运行时间来度量。若N&gt;2 ，则就执行该函数的时间是第4行上的常数工作加上第7行上的工作。第7行由于一次加法和两次函数调用是Fib(N−1) ，从而按照T的定义，它需要T(N−1) 个时间单元。类似的论证指出，第二次函数调用需要T(N−2) 个时间单元。此时总的时间需求为T(N−1)+T(N−2)+2 ，其中“2”指的是第4行上的工作加上第7行上的加法。于是对于N⩾2</p>
+<p>有下列关于Fib(N) 的运行时间公式：</p>
+<p>​                                                        T(N)=T(N−1)+T(N−2)+2</p>
+<p>由于Fib(N)=Fib(N−1)+Fib(N−2) ，因此由归纳算法容易证明T(N)⩾Fib(N) 。利用已知结论，对于斐波那契数列有结论，对于N⩾4 有Fib(N)⩾(3/2)N ，可见，这个程序的运行时间以指数的速度增长。</p>
+<h4 id="非递归递归算法到非递归算法的变换渐进时间复杂性评估">非递归(递归算法到非递归算法的变换;渐进时间复杂性评估)</h4>
+<p>树(二叉树性质、二叉树遍历算法、二叉树计数求解;堆、调整算法、插入算法和删除算法)、</p>
+<p>图(
+图邻接矩阵、邻接表存储;
+图深度优先搜索遍历算法、
+广度优先搜索遍历算法;
+最小生成树构建、
+基于克鲁斯卡尔算法的构建实现、
+基于普利姆算法的构建实现;
+迪克斯特拉单源非负最短路径求解算法;
+拓扑排序算法;
+关键路径求解)、</p>
+<p>搜索结构(
+无序表和有序表顺序搜索算法;
+折半搜索递归和非递归算法;
+搜索性能评估;
+二叉搜索树构建算法、插入算法和删除算法;
+AVL 树四种平衡化旋转方式、AVL 树构建)、</p>
+<p>内排序(
+直接插入排序算法;
+冒泡排序算法;
+直接选择排序算法;
+快速排序算法;
+归并排序算法;
+基数排序算法;
+各类内排序方法性能比较与分析)等结构的有关性质及相关算法</p>
+</section>
+</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'ngc7293s-blog'; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://ngc7293s-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<footer id="footer">
+<div id="social">
+<a class="symbol" href="https://www.facebook.com/">
+<i class="fa fa-facebook-square"></i>
+</a>
+<a class="symbol" href="https://www.github.com/ngc7292">
+<i class="fa fa-github-square"></i>
+</a>
+<a class="symbol" href="https://www.twitter.com/">
+<i class="fa fa-twitter-square"></i>
+</a>
+</div>
+<p class="small">
+    
+       © Copyright 2023 <i aria-hidden="true" class="fa fa-heart"></i> ngc7293
+    
+    </p>
+<p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+</p>
+</footer>
+</section>
+<script src="https://ngc7292.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://ngc7292.github.io/js/main.js"></script>
+<script src="https://ngc7292.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'ngc7293', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+</body>
+</html>

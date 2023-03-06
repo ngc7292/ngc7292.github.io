@@ -6,14 +6,24 @@
     <description>Recent content in Posts on ngc7293&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ngc7292.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Data view for LLM pre-training</title>
-      <link>https://ngc7292.github.io/posts/data_for_llm/</link>
-      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      <title>Review of the base algorithm, nndl and advanced network for doc examination.</title>
+      <link>https://ngc7292.github.io/posts/review_doc_exam/</link>
+      <pubDate>Thu, 02 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ngc7292.github.io/posts/data_for_llm/</guid>
-      <description>&lt;p&gt;In this blog, we aims to provide a data&amp;rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.&lt;/p&gt;</description>
+      <guid>https://ngc7292.github.io/posts/review_doc_exam/</guid>
+      <description>内存数据组织 数组(连续存储方式下的一维、二维、三维数组地址计算) 一般来说，内存中数据的组织格式包括按行存取以及按列存取，其地址起始位置包含0或者1，此类题目需要具体问题具体分析。
+顺序表(查找算法、插入算法和删除算法;性能评估) 顺序表查找较为简单，一般为从第一个遍历到最后一个即可完成，插入算法以及删除算法同理，对于python等语言，对于顺序表的实现不对用户所展示，而对于类似C这种高级语言，程序员需要对其进行定义。
+ 顺序表的特点： ①、随机访问，既可以在O(1)时间内找到第i个元素。 ②、存储密度高，每个节点只存储数据元素。 ③、扩展容量不方便（即便采用动态分配的方式实现，扩展长度的时间复杂度也比较高）。 ④、插入、删除操作不方便，需要移动大量元素。
+ 静态存储实现方式：
+#define MaxSize 10 typedef struct{ ElemType data[MaxSize]; int length; }SqList; 如果不进行初始化，将会出现默认数据【即脏数据】
+动态分配存储实现方式：
+#define MaxSize 10 typedef struct{ ElemType *data; int MaxSize; int length; }SqList; // For C++ L.data = new ElemType[MaxSize] // For C L.data = (ElemType *)malloc(sizeof(ElemType)*MaxSize) 当顺序表存满时可以采用malloc或者new继续申请内存，同时增加MaxSize数量。
+对于插入算法，当遍历到该点时将后续点进行后移操作，删除需要将后面的进行前移。
+查找的时间复杂度平均为 $O(n)$ 。
+栈（顺序栈、多栈共享一段连续存储空间） 顺序栈，意为顺序表实现的栈结构，即只需要从0地址开始存取。
+#include &amp;lt;stdio.h&amp;gt;//元素elem进栈 int push(int* a, int top, int elem) { a[++top] = elem; return top; } //数据元素出栈 int pop(int* a, int top) { if (top == -1) { printf(&amp;#34;空栈&amp;#34;); return -1; } printf(&amp;#34;弹栈元素：%d\n&amp;#34;, a[top]); top--; return top; } 但是需要判断插入与删除时是否越界。</description>
     </item>
     
     <item>
