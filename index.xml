@@ -25,6 +25,13 @@
 #include &amp;lt;stdio.h&amp;gt;//元素elem进栈 int push(int* a, int top, int elem) { a[++top] = elem; return top; } //数据元素出栈 int pop(int* a, int top) { if (top == -1) { printf(&amp;#34;空栈&amp;#34;); return -1; } printf(&amp;#34;弹栈元素：%d\n&amp;#34;, a[top]); top--; return top; } 但是需要判断插入与删除时是否越界。</description>
 </item>
 <item>
+<title>Data view for LLM pre-training</title>
+<link>https://ngc7292.github.io/posts/data_for_llm/</link>
+<pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+<guid>https://ngc7292.github.io/posts/data_for_llm/</guid>
+<description>&lt;p&gt;In this blog, we aims to provide a data&amp;rsquo;s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.&lt;/p&gt;</description>
+</item>
+<item>
 <title>New AI World's fundamental: Model, Data and Eval.</title>
 <link>https://ngc7292.github.io/posts/fundational_model_paper_list/</link>
 <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>

@@ -72,7 +72,7 @@ code.has-jax {
                     </h1>
 <h2 class="headline">
                     Mar 1, 2023 00:00
-                    · 309 words
+                    · 292 words
                     · 2 minute read
                       <span class="tags">
 <a href="https://ngc7292.github.io/tags/llm">LLM</a>
@@ -82,82 +82,72 @@ code.has-jax {
 <div id="toc">
 <nav id="TableOfContents">
 <ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#instruction">Instruction</a></li>
 <li><a href="#fundational-model-pretraining-data">Fundational model pretraining data</a></li>
-<li><a href="#instruction-tuning-data">Instruction tuning data</a></li>
-<li><a href="#model-architecture">Model architecture</a></li>
-<li><a href="#heading"></a></li>
-<li><a href="#how-to-train-a-better-foundational-model">How to train a better foundational model</a></li>
 <li><a href="#refenrence">Refenrence</a></li>
 </ul>
 </nav>
 </div>
 <section id="post-body">
 <p>In this blog, we aims to provide a data’s view to research the emergence ability of large language model(LLM),  and provide some point for NLP community to reproduce the GPT-3 or PaLM easily.</p>
-<p>Large language model have a most powerful to solve the nature language tasks, not only summerization or text classification. Recent research show the LLM have much emergence ability when the model’s size arrive a trade-off line. However, the LLM shown us the emergence model like GPT-3 and PaLM does’t release public, the reproduce of NLP community like OPT, GLM and BLOOM even have the similar size have a long way to reach these.In this post, we aims to get a data’s view to anylisis the reproductions' shortage and provide a good way to reproduce these model so clearly.</p>
-<p><!-- raw HTML omitted --> In this post, we aims at two tasks/abilities, the knowledge and reasoning. The below figure show us that some reasoning benchmark for instructed model or pretrained model, we can see instructGPT will achieve a best scores in all the tasks. In the remianing llm, maybe <!-- raw HTML omitted --></p>
-<p>![截屏2023-03-01 下午5.04.52](/Users/ngc/Desktop/截屏2023-03-01 下午5.04.52.png)</p>
-<p>Some knowledge task and reasoning task comparing the released llm and limited llm.</p>
-<p>![some knowledge task evaluation in HELM](/Users/ngc/Library/Application Support/typora-user-images/截屏2023-03-01 下午4.25.23.png)</p>
+<h2 id="abstract">Abstract</h2>
+<p>Large language model have a most powerful to solve the nature language tasks, not only summerization or text classification. Recent research show the LLM have much emergence ability when the model’s size arrive a trade-off line. However, the LLM shown us the emergence model like GPT-3 and PaLM does’t release public, the reproduce of NLP community like OPT, GLM and BLOOM even have the similar size have a long way to reach these.In this post, we aims to get a survey for this fundamental model producing methods to anylisis the reproductions' shortage and provide a good way to reproduce these model so clearly.</p>
+<p>大型语言模型具有最强大的解决自然语言任务的能力，而不仅仅是求和或文本分类。最近的研究表明，当模型的大小到达折衷线时，LLM 具有很强的涌现能力。然而，LLM 向我们展示了像 GPT-3 和 PaLM 这样的涌现模型并没有公开发布，像 OPT、GLM 和 BLOOM 这样的 NLP 社区的复制即使有类似的规模也有很长的路要走。在这篇文章中，我们旨在对这种基本的模型制作方法进行调查，以解决复制品的不足，并提供一种将这些模型如此清晰地复制的好方法。</p>
+<h2 id="instruction">Instruction</h2>
+<p>通用人工智能一直以来都是研究人员的研究热点，并有着前赴后继的研究人员投入到这类研究中。在2022年的时间点中，人工智能已经可以辅助人类进行诸如订票，写文章，作为客服回答顾客的问题等简单的工作，但是通俗意义下，人们认为其距离通用人工智能仍然有一定程度的距离（即便在此期间，openai以及谷歌的研究人员发现极大的自回归语言模型可能会存在推理【COT相关论文】以及自我意识【推特】的行为，但是都没有引起当时研究界的重视）。在2022年ChatGPT发布之后，为研究人员实现强人工智能（通用人工智能）提供了一条可以实现的道路。</p>
+<p>ChatGPt是由OpenAI所开发的InstructGPT继续开发的聊天机器人，其在刚刚发布的一个月内就获得了超过一百万的用户数量。人们惊异于chatgpt对于人类语言的理解能力以及对语言的组织能力，对于任意的问题，chatgpt可以精确的识别用户的意图并给出相对较为准确的答案，其强大一图识别能力是之前的人工智能所不具备的。虽然chatgpt具体的细节并未给出，但是从openai给出的信息中我们可以得到几个关键的信息，即大规模预训练语言模型，自微调学习以及人在回路学习。目前一个简单的共识为，针对预训练任务的训练（GPT 系列采用的是自回归语言建模任务）不仅使模型学习了相当多的知识， 同时还学习到了相对基础的推理能力，自微调算法以及人在回路学习方法使模型学会如何识别用户的意图以及如何释放之前学习到的知识。因此，构建该类通用人工智能的技术中，基础模型的构建与后期学习同样重要。</p>
+<p>如前所述，大规模预训练语言模型模型是构建此类通用人工智能的基础与前提，但是构建高效高质量的大规模预训练语言模型需要海量的数据，高额的计算量以及充分的技术储备。虽然目前通用人工智能的训练相当火爆，但是并没有文章系统性的调查目前NLP社区中的大规模预训练语言模型的研究现状与进展。因此，本文从数据，架构，以及评测等多个角度较为系统的调查了较为流行的几个大规模预训练语言模型，来汇总目前大规模预训练语言模型相关的从数据预处理，模型架构选择以及最终的大模型的部分性能对比，以分析大规模预训练模型后续的能力初期来源。</p>
 <h2 id="fundational-model-pretraining-data">Fundational model pretraining data</h2>
+<p>数据是知识的载体，也是是大规模预训练模型训练的基础。数据的质量一定程度上决定大规模预训练模型的效果以及未来将会释放出的突显能力。一个供给给大规模预训练语言模型所使用的语料通常要包含几种基础的属性，包括数量，多样性与高质量。图x中包含几种大规模预训练语言模型所采用的预训练语料的来源，数量，以及所公布的在pile数据集中的困惑度（在一定程度上代表语料质量的高低，但是不绝对）。</p>
 <ol>
-<li>Origin information
-<ol>
-<li>General data process method
-<ol>
-<li>Collection methods</li>
-<li>Quality filtering</li>
-<li>Deduplication methods</li>
-<li>Data weighting</li>
-</ol>
+<li>
+<p>数据来源</p>
+<p>为了保证数据高质量以及多样性，大部分的预训练语言模型的预训练语料都选择了从互联网中获取相对应的文本数据，根据谷歌公司CEO Eric Schmidt 预计，整个互联网数据数量高达5000 PB<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup>，然而如何获取这一份数据是一项巨大的挑战。受益于互联网爬虫计划common crawl<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" role="doc-noteref">2</a></sup>的开展，研究人员可以更加便利的收集网络中的数据，并将精力集中于数据处理阶段。common crawl是一项开放网络爬虫的数据存储库的开源项目，其爬取并保存了自2013年以来从开放互联网中爬取的各种数据。其主要包括两类，一类是保存的原始数据（warc格式）另一类是简单将html格式中的文本进行抽取出来的文本数据（wet格式）。一般认为，warc格式的数据中保留了网站原本的结构与布局，其内容较为丰富与完善，但是缺点是冗余信息较多，抽取与处理较为复杂，而wet格式是经过简单文本抽取的文本数据，丢失了较多的信息，但是处理起来较为简单，另外xx等人<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" role="doc-noteref">3</a></sup>认为，wet文本可能会讲框架或者布局中的数据掺杂在正文中，这将破坏正文的连贯性与一致性，从而影响模型对于语言建模任务的学习。</p>
+<p>虽然common crawl中包含了大量的数据，但是由于其数据量大并且其质量不对等导致对于大规模预训练语言模型的训练具有不可控的影响，因此，之前的几份工作都表示引入了更多的预处理数据，或者针对指定的网站的数据进行定向收集。例如，在Tom etc.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" role="doc-noteref">4</a></sup>提到，除了预处理common crawl的数据外，他们同样添加了高质量图书数据集Books1，Books2以及维基百科等作为高质量数据的补充，同时也作为其训练质量分类器的训练数据。Pile<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>除了common crawl收集的数据外，还收集了将近21个站点的数据，其中包括学术论文网站pubmud，arxiv，代码共享平台github，编程交流平台stack exchange，预处理图书数据集BookCorpus 2、Books3、OpenWebText2，以及其他相关高质量数据集等。悟道<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" role="doc-noteref">6</a></sup>同样的采用了大量的网络语料，与前面不同的是，其主要筛选中文语料，并对中文字符少于10个的网页进行了丢弃。</p>
+<p>另外，经过我们的调查发现，Pile<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>作为处理质量较高的数据集在开源后被广泛使用，后续的一系列工作<sup id="fnref:7"><a class="footnote-ref" href="#fn:7" role="doc-noteref">7</a></sup><sup id="fnref:8"><a class="footnote-ref" href="#fn:8" role="doc-noteref">8</a></sup><sup id="fnref:9"><a class="footnote-ref" href="#fn:9" role="doc-noteref">9</a></sup>倾向于在与训练语料中加入Pile或者Pile CC，以节省数据处理的时间，同时加入部分更新时间戳下的Common Crwal语料，以保证模型的质量与时效性。</p>
+<p><img alt="数据来源汇总_page-0001" src="/Users/ngc/Desktop/blog/resources/_gen/images/data_for_llm/%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB_page-0001.jpg"/></p>
 </li>
-<li>Special data process method</li>
-<li>Data source</li>
-</ol>
+<li>
+<p>数据处理</p>
+<p>数据处理通常情况下分为两种，一种是针对从common crawl中爬取的数据进行的通用文本数据抽取，另一部分是针对特殊文本</p>
 </li>
-<li>High level information
-<ol>
-<li>Data diversity
-<ol>
-<li>Data topic</li>
-<li>Data rescource</li>
-<li>Data format</li>
-</ol>
-</li>
-<li>Data qulity
-<ol>
-<li>Resource and process method</li>
-<li>Pile loss</li>
-</ol>
-</li>
-<li>Data quantity
-<ol>
-<li>Data size</li>
-<li>Collection data time stemp</li>
-</ol>
+<li>
+<p>数据去重</p>
 </li>
 </ol>
-</li>
-</ol>
-<p>High light</p>
-<p>From GPT-3</p>
-<ol>
-<li>CC data is dirty but useful, which affects the quantity of fundamental model training.</li>
-<li>Most downstream tasks weren’t affected  by the overlap in the training data.
-<ol>
-<li><img alt="img" src="https://a1jkiq3cpx.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Y1NTBmYTlhNDgzNTAzNGM3MGRhYzJkNGQ5NjJmMjhfNkNBclBlamt4VmNRYjNWN2NFT1BtY1RzNGRuUjBvSEVfVG9rZW46Ym94Y25CYnpQdmFyYTYzQmh6OXFSS2VXcjFDXzE2Nzc2NDY0MTk6MTY3NzY1MDAxOV9WNA"/></li>
-</ol>
-</li>
-</ol>
-<h2 id="instruction-tuning-data">Instruction tuning data</h2>
-<ol>
-<li>Prompt task instruction data</li>
-<li>Human labeler instruction data(SFT data)</li>
-<li>Human in the loop (HFRL data)</li>
-</ol>
-<h2 id="model-architecture">Model architecture</h2>
-<h2 id="heading"></h2>
-<h2 id="how-to-train-a-better-foundational-model">How to train a better foundational model</h2>
 <h2 id="refenrence">Refenrence</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://www.easytechjunkie.com/how-big-is-the-internet.htm#:~:text=That's%20over%205%20billion%20gigabytes%20of%20data%2C%20or%205%20trillion%20megabytes">https://www.easytechjunkie.com/how-big-is-the-internet.htm#:~:text=That's%20over%205%20billion%20gigabytes%20of%20data%2C%20or%205%20trillion%20megabytes</a>. <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://commoncrawl.org/">https://commoncrawl.org/</a> <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></li>
+<li id="fn:4" role="doc-endnote">
+<p>T. B. Brown等, 《Language Models are Few-Shot Learners》. arXiv, 2020年7月22日. [在线]. 载于: <a href="http://arxiv.org/abs/2005.14165">http://arxiv.org/abs/2005.14165</a> <a class="footnote-backref" href="#fnref:4" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>L. Gao等, 《The Pile: An 800GB Dataset of Diverse Text for Language Modeling》. arXiv, 2020年12月31日. [在线]. 载于: <a href="http://arxiv.org/abs/2101.00027">http://arxiv.org/abs/2101.00027</a> <a class="footnote-backref" href="#fnref:5" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>《WuDaoCorpora: A super large-scale Chinese corpora for pre-training language models - ScienceDirect》. <a href="https://www.sciencedirect.com/science/article/pii/S2666651021000152?ref=pdf_download&amp;fr=RR-2&amp;rr=7a29c845ab86f963">https://www.sciencedirect.com/science/article/pii/S2666651021000152?ref=pdf_download&amp;fr=RR-2&amp;rr=7a29c845ab86f963</a> <a class="footnote-backref" href="#fnref:6" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p>S. Smith等, 《Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model》. arXiv, 2022年2月4日. 见于: 2023年3月4日. [在线]. 载于: <a href="http://arxiv.org/abs/2201.11990">http://arxiv.org/abs/2201.11990</a> <a class="footnote-backref" href="#fnref:7" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p>S. Black等, 《GPT-NeoX-20B: An Open-Source Autoregressive Language Model》. arXiv, 2022年4月14日. 见于: 2023年3月4日. [在线]. 载于: <a href="http://arxiv.org/abs/2204.06745">http://arxiv.org/abs/2204.06745</a> <a class="footnote-backref" href="#fnref:8" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p>S. Zhang等, 《OPT: Open Pre-trained Transformer Language Models》. arXiv, 2022年6月21日. 见于: 2023年3月4日. [在线]. 载于: <a href="http://arxiv.org/abs/2205.01068">http://arxiv.org/abs/2205.01068</a> <a class="footnote-backref" href="#fnref:9" role="doc-backlink">↩︎</a></p>
+</li>
+</ol>
+</section>
 </section>
 </article>
 <div id="disqus_thread"></div>
