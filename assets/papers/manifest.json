@@ -1,0 +1,569 @@
+[
+  {
+    "file": "moss-audio-method.jpg",
+    "title": "MOSS-Audio Technical Report",
+    "paper_url": "https://arxiv.org/abs/2606.01802",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "2.1 Overview (pp.3–4)",
+      "2.2 MOSS Audio Encoder (p.4)",
+      "2.3 DeepStack Cross-Layer Feature Injection (pp.4–5)",
+      "2.4 Time-aware Modeling (p.5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage. Match the supplied original paper figure, not a popular-science illustration. White background, thin black or dark-gray outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, large readable module names, disciplined alignment. Preserve the stated data flow and distinctions between inference paths and training-only losses. No decorative people, ears, brains, isometric art, mascots, invented modules, benchmark numbers, performance claims, or explanatory paragraphs. Do not copy the full original caption. Simplify repetitive blocks and secondary notation while retaining the exact method. Redraw a faithful compact simplification of Figure 2. Main path: input waveform -> Audio Encoder -> Audio Adapter -> interleaved input sequence -> MOSS-Audio Decoder -> text output. The input sequence visibly mixes gray Text Tokens, pale-blue Audio Embeddings and a few yellow Time Markers, with a small three-swatch legend. Add an inset or parallel side path labeled DeepStack: intermediate encoder features from Layer 7, Layer 15 and Layer 23 -> adapter projections -> additive injection into early LLM Blocks 0, 1 and 2. Preserve the main final-layer adapter separately from the DeepStack adapters. Audio input may be labeled Speech / Music / Sound as plain text, not icons. Use enough space for this actual cross-layer path; do not collapse DeepStack into an undifferentiated processing sphere. Omit mascot, hidden-dimension counts and repeated layers."
+  },
+  {
+    "file": "mova-method.jpg",
+    "title": "MOVA: Towards Scalable and Synchronized Video-Audio Generation",
+    "paper_url": "https://arxiv.org/abs/2602.08794",
+    "source_figure": 2,
+    "source_page": 3,
+    "sections_read": [
+      "2.1 Preliminaries (pp.3–4)",
+      "2.2 Dual-Tower Diffusion Transformer (p.4)",
+      "Bridge Module and Aligned RoPE (p.4)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage. Match the supplied original paper figure, not a popular-science illustration. White background, thin black or dark-gray outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, large readable module names, disciplined alignment. Preserve the stated data flow. No decorative people, ears, brains, isometric art, mascots, invented modules, benchmark numbers, performance claims, or explanatory paragraphs. Do not copy the full original caption. Simplify repetitive blocks and secondary notation while retaining the exact method. Redraw Figure 2 as two parallel vertical towers, Video DiT and Audio DiT. Inputs at the top: Video Noise + First Frame into Video DiT; Audio Noise into Audio DiT; Prompt -> UMT5 feeding Text CrossAttn in both towers. Inside each tower preserve stacked boxes Self-Attention, Text CrossAttn, Bridge CrossAttn, FFN. Between the two Bridge CrossAttn boxes draw two separate arrows labeled V->A and A->V to make bidirectional exchange explicit. Below the coupled portion, the video path continues through a small Additional Video DiT box, as in the source. Outputs are separate Video Tokens -> Video VAE -> Video and Audio Tokens -> Audio VAE -> Audio, finally joined under Synchronized Video-Audio. Do not draw a single shared DiT or a sequential video-then-audio cascade. Omit parameter counts, repetition counts, noise-threshold formula and rendered video examples for legibility; these are simplifications, not changes to connectivity.\nScientific accuracy constraint: add NO unrequested module, edge, label, frozen marker or training-only annotation. In particular never label an inference pathway as training only."
+  },
+  {
+    "file": "moss-audio-tokenizer-method.jpg",
+    "title": "MOSS-Audio-Tokenizer: Scaling Audio Tokenizers for Future Audio Foundation Models",
+    "paper_url": "https://arxiv.org/abs/2602.10934",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "3.1 Homogeneous Architecture for Scalable Audio Tokenization (p.4)",
+      "3.2 Unified Audio Modeling (pp.5–6)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "moss-voicegenerator-method.jpg",
+    "title": "MOSS-VoiceGenerator: Create Realistic Voices with Natural Language Descriptions",
+    "paper_url": "https://arxiv.org/abs/2603.28086",
+    "source_figure": 1,
+    "source_page": 3,
+    "sections_read": [
+      "2.1 Model Architecture (p.2)",
+      "2.3 Training Strategy (p.5)",
+      "Figure 1 inference and caption (p.3)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. Faithfully simplify Figure 1 into: Voice Description + Synthesis Text -> Text Tokenizer -> Autoregressive Model -> delayed RVQ token streams -> inverse delay alignment -> MOSS-Audio-Tokenizer Decoder -> waveform. Make the defining delay pattern explicit with three visible rows of squares, each successive RVQ row shifted one position, plus an ellipsis for omitted rows; show aligned rows before waveform decoding. Input text tokens, speech tokens and padding should have distinct pale colors. Do not include a reference-audio input, because this model generates timbre from the instruction. Remove the cartoon character from the source and shorten the prompt example to Voice Description / Synthesis Text.\nScientific accuracy constraint: add NO unrequested module, edge, label, frozen marker or training-only annotation. In particular never label an inference pathway as training only."
+  },
+  {
+    "file": "moss-tts-method.jpg",
+    "title": "MOSS-TTS Technical Report",
+    "paper_url": "https://arxiv.org/abs/2603.18090",
+    "source_figure": 2,
+    "source_page": 8,
+    "sections_read": [
+      "4 Architecture (p.7)",
+      "4.1 Delay Pattern (pp.8–9)",
+      "4.2 Local Transformer (p.9)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "moss-speech-method.jpg",
+    "title": "Towards True Speech-to-Speech Models Without Text Guidance",
+    "paper_url": "https://openreview.net/forum?id=zjaV5zmlkl",
+    "source_figure": 3,
+    "source_page": 4,
+    "sections_read": [
+      "2 Model Architecture (p.2)",
+      "2.1 Modality-based Layer Split (pp.2–3)",
+      "2.2 Speech Tokenization (pp.3–4)",
+      "3.1.2 Two-stage Pre-training (p.5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. Redraw the original two training-stage panels. Each panel has Text Embedding and Speech Embedding feeding Shared Transformer Layers, followed by two separate top branches Text Layers -> Text LM Head and Speech Layers -> Speech LM Head. In Stage I mark Text Embedding, Shared Transformer Layers, Text Layers and Text LM Head as Frozen; mark Speech Embedding, Speech Layers and Speech LM Head as Trainable. In Stage II mark all these components Trainable, reflecting the default joint-training configuration described in the text. Use a tiny plain Frozen / Trainable legend rather than emoji. Preserve the split-then-specialize architecture, not a speech->text->speech cascade. No layer counts or scores.\nScientific accuracy constraint: add NO unrequested module, edge, label, frozen marker or training-only annotation. In particular never label an inference pathway as training only."
+  },
+  {
+    "file": "moss-transcribe-diarize-method.jpg",
+    "title": "MOSS Transcribe Diarize Technical Report",
+    "paper_url": "https://arxiv.org/abs/2601.01554",
+    "source_figure": 2,
+    "source_page": 3,
+    "sections_read": [
+      "2 Model Architecture (pp.3–4)",
+      "Figure 2 overall architecture and output example (p.3)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "moss-ttsd-method.jpg",
+    "title": "MOSS-TTSD: Text to Spoken Dialogue Generation",
+    "paper_url": "https://arxiv.org/abs/2603.19739",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "4.1 Architecture (p.4)",
+      "4.2 Curriculum Learning (p.5)",
+      "4.3 Inference (p.5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. Redraw the reference-plus-continuation inference in Figure 2. Arrange a central MOSS-TTSD block, with three clearly labeled conditioning groups feeding it: Per-speaker Reference Audio [S1] / [S2], Speaker-tagged Prompt + Target Text, and Prompt Audio for Continuation. Represent reference voices and corresponding audio tokens with two consistent colors; text tokens use a separate neutral shape. At output show a discrete speech-token sequence continuing after the prompt-audio prefix, then MOSS-Audio-Tokenizer Decoder -> generated dialogue waveform. Clearly distinguish prompt prefix from newly generated continuation. A small Delay Pattern label can sit beside a staggered token grid, consistent with the architecture. Do not turn the model into separate independent TTS systems for each speaker.\nScientific accuracy constraint: add NO unrequested module, edge, label, frozen marker or training-only annotation. In particular never label an inference pathway as training only."
+  },
+  {
+    "file": "omnivae-method.jpg",
+    "title": "OmniVAE: An Audio-Video VAE with Cross-Modal Alignment for Joint Generation",
+    "paper_url": "https://arxiv.org/abs/2607.23855",
+    "source_figure": 1,
+    "source_page": 3,
+    "sections_read": [
+      "3.1 Overview (p.4)",
+      "3.2 Segment-Level Audio-Video Alignment (pp.4–5)",
+      "3.3 Modality-Specific Semantic Distillation (p.5)",
+      "Figure 1 and full caption (p.3)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "scaling-audio-tokenization-method.jpg",
+    "title": "Scaling Transformers for End-to-End Discrete Audio Tokenization",
+    "paper_url": "https://proceedings.mlr.press/v306/gong26c.html",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "3.1 Homogeneous Architecture for Scalable Audio Tokenization (pp.3–4)",
+      "3.2 Unified Audio Modeling (pp.4–5)",
+      "Figure 2 (p.4)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "wesr-method.jpg",
+    "title": "WESR: A Benchmark and Strong Baseline for Word-level Event-Speech Recognition",
+    "paper_url": "https://aclanthology.org/2026.findings-acl.153/",
+    "source_figure": 3,
+    "source_page": 6,
+    "sections_read": [
+      "3 Task Formulation (pp.3–4)",
+      "4.4 Evaluation Protocol (pp.5–6)",
+      "Figure 1 task overview (p.1)",
+      "Figure 3 position-aware evaluation (p.6)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. Use Figure 3 as the primary source for a compact academic evaluation diagram, with the real three-step protocol from Section 4.4. Top: Reference and Prediction transcripts with a discrete [laughter] tag and continuous <whisper> span. Arrow through Event-Preserving Alignment -> Map Events to Positions. Below, draw two aligned token rows on the same short word sequence. Discrete events occupy gaps between words; continuous event spans cover word positions. End with a small box labeled TP / FP / FN and Position-aware F1, without numeric scores. Make the gap-versus-span distinction the visual center. Use tiny sample fragments only, not full prose, and do not add neural-network modules since this is the task/evaluation protocol.\nStrict scientific accuracy: no extra modules, arrows, labels or training-only/frozen annotations beyond the specification. Prefer clean flat fills and no shadows or gradients. This is a small academic paper overview, with concise method labels rather than a promotional poster."
+  },
+  {
+    "file": "xy-tokenizer-method.jpg",
+    "title": "XY-Tokenizer: Mitigating the Semantic-Acoustic Conflict in Low-Bitrate Speech Codecs",
+    "paper_url": "https://aclanthology.org/2026.acl-long.423/",
+    "source_figure": 2,
+    "source_page": 3,
+    "sections_read": [
+      "2.1 XY-Tokenizer (pp.2–3)",
+      "2.2.1 Pre-Training Stage (p.3)",
+      "2.2.2 Post-Training Stage (p.4)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "codecbench-method.jpg",
+    "title": "CodecBench: A Comprehensive Benchmark for Acoustic and Semantic Evaluation",
+    "paper_url": "https://arxiv.org/abs/2508.20660",
+    "source_figure": 1,
+    "source_page": 2,
+    "sections_read": [
+      "3 CodecBench (p.3)",
+      "3.1 Datasets (pp.3–4)",
+      "3.2.1 Acoustic Metrics (pp.4–5)",
+      "3.2.2 Semantic Metrics (pp.4–5)",
+      "Figure 1 dataset overview (p.2)"
+    ],
+    "source_kind": "conceptual_framework_from_methods; reference_figure_is_dataset_distribution",
+    "generation": "Built-in image generation, conceptual framework based on verified method text",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. This is a CONCEPTUAL EVALUATION FRAMEWORK derived from Sections 3.1–3.2, because the paper does not provide a method architecture figure. Do not reproduce the reference pie-chart percentages. Left: dataset categories Speech / Music / Sound / General Audio -> Frozen Codec Encoder + Quantizer. Split the quantized representation into two true evaluation paths. Top Acoustic Evaluation: Codec Decoder -> Reconstructed Audio compared with Original Audio -> Reconstruction / Perceptual Metrics. Bottom Semantic Evaluation: Quantized Embeddings -> ASR Probe (BiLSTM + CTC) and Classification Probes. Both probe boxes connect to a compact Semantic Evaluation output. Show the codec frozen and probes trainable. Crucially, the semantic path uses codec embeddings directly, not reconstructed audio fed into an unrelated recognition model. Add small footer Conceptual framework. No performance bars, result numbers or invented dataset proportions.\nStrict scientific accuracy: no extra modules, arrows, labels or training-only/frozen annotations beyond the specification. Prefer clean flat fills and no shadows or gradients. This is a small academic paper overview, with concise method labels rather than a promotional poster."
+  },
+  {
+    "file": "instructttseval-method.jpg",
+    "title": "InstructTTSEval: Benchmarking Complex Natural-Language Instruction Following in Text-to-Speech Systems",
+    "paper_url": "https://arxiv.org/abs/2506.16381",
+    "source_figure": 2,
+    "source_page": 5,
+    "sections_read": [
+      "3.1 Tasks (p.4)",
+      "3.2.1 Data Preprocessing (p.4)",
+      "3.2.2 Speech Caption (p.5)",
+      "3.2.3 Instruction Generation (p.5)",
+      "3.3 Metrics (p.5)",
+      "4.1 Consistency (p.6)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 landscape academic method-overview figure for a research homepage, grounded in the supplied paper figure and the exact specification below. White background, thin dark outlines and arrows, flat pale blue/teal/lavender module fills, clean conference-paper typography, disciplined alignment. Favor accurate module boxes, token sequences and task flows over illustrations. Use larger labels and fewer repeated blocks so the central structure is recognizable at thumbnail size. Do not add decorative characters, ears, brains, 3D renderings, generic science icons, benchmark numbers, performance claims, invented modules or long explanatory prose. Only include training-only or frozen labels where explicitly required below. Redraw Figure 2 as an academic four-stage pipeline: Data Preprocessing -> Speech Caption -> Instruction Generation -> Evaluation. Data Preprocessing contains Raw Audio -> Cleaning / Filtering -> Expressive Segments. Speech Caption uses Gemini to produce Acoustic-feature Captions, which directly supply APS. Instruction Generation uses GPT-4o to derive DSD and RP from those captions. Route APS / DSD / RP instructions and synthesis text into TTS Synthesis, then pair generated audio with its instruction for Gemini Judge; show Human Consistency Check as a small validation branch alongside the judge, not a claim that every output was human rated. Final output is Instruction Adherence, without accuracy figures or grade symbols. Use exact task acronyms APS, DSD and RP, with short full-name sublabels only if legible.\nStrict scientific accuracy: no extra modules, arrows, labels or training-only/frozen annotations beyond the specification. Prefer clean flat fills and no shadows or gradients. This is a small academic paper overview, with concise method labels rather than a promotional poster."
+  },
+  {
+    "file": "roboomni-method.jpg",
+    "title": "RoboOmni: Proactive Robot Manipulation in Omni-modal Context",
+    "paper_url": "https://arxiv.org/abs/2510.23763",
+    "source_figure": 4,
+    "source_page": 5,
+    "sections_read": [
+      "4 Methods (pp. 5-6)",
+      "4.1 Architecture Components (pp. 5-6)",
+      "4.2 Dual-Mode Generation (p. 6)",
+      "4.3 Training Paradigms (p. 6)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 conference-paper method diagram on a pure white background, faithfully re-expressing the attached source figure. Use aligned rectangular modules, thin dark arrows, small token or tensor strips, crisp typography and restrained pale blue/gray fills with one muted accent for an important branch. Preserve a precise computational or task-construction flow. It must remain understandable as a 210 px thumbnail while readable when enlarged. No decorative hero illustration, mascot, large robot cartoon, metaphorical scenery, trophy, fake chart or invented result. Use the necessary actual module labels rather than generic slogans; omit paragraph text, citation and paper title. Focus on the central architecture of source Figure 4 and omit the dataset statistics and illustrative conversation. Bottom row: image and audio inputs enter separate boxes Vision Encoder and Audio Encoder inside a dashed Perceiver boundary, with Text tokens joining the resulting interleaved token strip. A broad Thinker block consumes that unified strip. Split its output into two explicit branches: high-level representations plus text tokens enter Talker, producing a waveform; discrete Action tokens enter Executor, producing 7D action labeled delta x, delta theta, delta grip. A small FAST+ label may sit beside the action-token decoder. Show that Talker and Executor are alternative output branches of the same Thinker, not a serial chain. Do not add a separate intention-classifier module or invented modules.\nStrict scientific accuracy: no extra modules, arrows, labels or training-only/frozen annotations beyond the specification. Prefer clean flat fills and no shadows or gradients. This is a small academic paper overview, with concise method labels rather than a promotional poster."
+  },
+  {
+    "file": "libero-plus-method.jpg",
+    "title": "LIBERO-Plus: A Progressive Robustness Benchmark for Visual-Language-Action Models",
+    "paper_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Fei_LIBERO-Plus_A_Progressive_Robustness_Benchmark_for_Visual-Language-Action_Models_CVPR_2026_paper.html",
+    "source_figure": 1,
+    "source_page": 2,
+    "sections_read": [
+      "3 LIBERO-Plus (p. 3)",
+      "3.1 Benchmark Construction (p. 3)",
+      "3.2 Benchmark Statistics (pp. 3-4)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a compact 16:10 conference-paper method diagram on a pure white background, faithfully re-expressing the attached source figure. Use aligned rectangular modules, thin dark arrows, small token or tensor strips, crisp typography and restrained pale blue/gray fills with one muted accent for an important branch. Preserve a precise computational or task-construction flow. It must remain understandable as a 210 px thumbnail while readable when enlarged. No decorative hero illustration, mascot, large robot cartoon, metaphorical scenery, trophy, fake chart or invented result. Use the necessary actual module labels rather than generic slogans; omit paragraph text, citation and paper title. Re-express source Figure 1 as an exact benchmark construction diagram, rather than a pictorial collage. A left block Original LIBERO fans out into seven thin parallel parameterized-perturbation boxes labeled Camera, Robot init, Language, Light, Background, Noise, Layout. Rejoin them in an Automated task generation box, then an arrow to Difficulty stratification with the real ordinal labels L1, L2, L3, L4, L5. At the far right, show a compact VLA evaluation block. Preserve seven dimensions exactly. The only task imagery should be one tiny gripper/tabletop observation thumbnail to establish the domain. No scores, percentages, task counts, fabricated plot or success claims. Difficulty levels are dataset strata, not model performance bars.\nStrict scientific accuracy: no extra modules, arrows, labels or training-only/frozen annotations beyond the specification. Prefer clean flat fills and no shadows or gradients. This is a small academic paper overview, with concise method labels rather than a promotional poster."
+  },
+  {
+    "file": "base-model-data-architecture-method.jpg",
+    "title": "Data and Model Architecture in Base Model Training",
+    "paper_url": "https://aclanthology.org/2023.ccl-2.1/",
+    "source_figure": 2,
+    "source_page": 3,
+    "sections_read": [
+      "2.1 Pretraining data sources (pp. 2-3)",
+      "2.2 Pretraining data processing (p. 3)",
+      "2.2.1 Quality filtering (p. 3)",
+      "2.2.2 Deduplication (pp. 3-4)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "coarse-to-fine-nlu-method.jpg",
+    "title": "Coarse-to-Fine: Hierarchical Multi-task Learning for Natural Language Understanding",
+    "paper_url": "https://aclanthology.org/2022.coling-1.439/",
+    "source_figure": 1,
+    "source_page": 2,
+    "sections_read": [
+      "3.1 Overview (p. 3)",
+      "3.2 Task Relevance Analysis (pp. 3-4)",
+      "3.3 HMNet (p. 5)",
+      "3.4 Optimization (p. 5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "hime-method.jpg",
+    "title": "HiMe: Hierarchical Embodied Memory for Long-Horizon Vision-Language-Action Control",
+    "paper_url": "https://arxiv.org/abs/2607.03449",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "3.1 Overview (pp. 4-5)",
+      "3.2 Hierarchical Embodied Memory (pp. 5-6)",
+      "3.3 Hierarchical Policy Decomposition (pp. 6-7)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "omniact-method.jpg",
+    "title": "Advancing Omnimodal Embodied Agents from Isolated Skills to Everyday Physical Autonomy",
+    "paper_url": "https://arxiv.org/abs/2606.27251",
+    "source_figure": 2,
+    "source_page": 4,
+    "sections_read": [
+      "3.1 Problem Formulation (p. 4)",
+      "3.2 Multimodal Semantic Planner (p. 4)",
+      "3.3 Closed-Loop Execution with Asynchronous Visual Preemption (p. 5)",
+      "3.4 Adaptive Hierarchical Memory (p. 5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "world-action-models-method.jpg",
+    "title": "World Action Models: The Next Frontier in Embodied AI",
+    "paper_url": "https://arxiv.org/abs/2605.12090",
+    "source_figure": 3,
+    "source_page": 5,
+    "sections_read": [
+      "2.1 Foundational Paradigms (core formulation on p. 5)",
+      "2.2 Disambiguation: WAM vs. Related Concepts (p. 6 context)",
+      "4.1 Cascaded World-Action-Model (pp. 14-15)",
+      "4.2 Joint World-Action-Model (p. 18)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "embodied-planner-r1-method.jpg",
+    "title": "Unleashing Embodied Task Planning Ability in LLMs via Reinforcement Learning",
+    "paper_url": "https://arxiv.org/abs/2506.23127",
+    "source_figure": 2,
+    "source_page": 3,
+    "sections_read": [
+      "2 Preliminaries (pp. 2-3)",
+      "3.1 Overview (pp. 3-4)",
+      "3.2 ReAct Paradigm (p. 4)",
+      "3.3 Group Rollout with In-Environment Interaction (pp. 4-5)",
+      "3.4 Completion-driven Reward (p. 5)",
+      "3.5 Interactive Policy Optimization (p. 5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "wanjuan-cc-method.jpg",
+    "title": "WanJuan-CC: A Safe and High-Quality Open-sourced English Webtext Dataset",
+    "paper_url": "https://arxiv.org/abs/2402.19282",
+    "source_figure": 1,
+    "source_page": 4,
+    "sections_read": [
+      "3.1 Processing Pipeline (p. 5)",
+      "3.2 Data Extraction (p. 5)",
+      "3.3 Heuristic Rule Filtering (p. 5)",
+      "3.4 Deduplication with MinHash-LSH (p. 5)",
+      "3.5 Safety Filtering and PII masking (pp. 5-6)",
+      "3.6 Data Quality Filtering (p. 6)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "internlm2-method.jpg",
+    "title": "InternLM2 Technical Report",
+    "paper_url": "https://arxiv.org/abs/2403.17297",
+    "source_figure": "8(b)",
+    "source_page": 16,
+    "sections_read": [
+      {
+        "section": "3.1.1 Text Data and Figure 3",
+        "pages": [
+          7,
+          8
+        ]
+      },
+      {
+        "section": "3.3 Pre-training Phases",
+        "pages": [
+          13,
+          14
+        ]
+      },
+      {
+        "section": "4.1 Supervised Fine-Tuning",
+        "pages": [
+          15
+        ]
+      },
+      {
+        "section": "4.2.1 Conditional Reward Model",
+        "pages": [
+          16,
+          17
+        ]
+      },
+      {
+        "section": "4.2.2 Online RLHF",
+        "pages": [
+          17,
+          18
+        ]
+      },
+      {
+        "section": "4.2.3 PPO Training Details and Figure 10",
+        "pages": [
+          18,
+          19
+        ]
+      }
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "internlm-math-method.jpg",
+    "title": "InternLM-Math: Open math large language models toward verifiable reasoning",
+    "paper_url": "https://arxiv.org/pdf/2402.06332",
+    "source_figure": "2",
+    "source_page": 5,
+    "sections_read": [
+      {
+        "section": "3 Pre-training; 3.1 Pretrain data composition; 3.2 Data post-processing; 3.3 Training strategy",
+        "pages": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "section": "4 Supervised Fine-tuning, including Chain-of-thought, Reward Modeling, Formal Math Reasoning and Augmentation helper",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "section": "Figure 2 query/response formats and two use pipelines",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "retrieve-from-cc-method.jpg",
+    "title": "Unearthing Large Scale Domain-Specific Knowledge from Public Corpora",
+    "paper_url": "https://arxiv.org/pdf/2401.14624",
+    "source_figure": "2",
+    "source_page": 3,
+    "sections_read": [
+      {
+        "section": "Introduction, Figure 1 comparison",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "section": "Figure 2 overview",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "section": "3 Retrieve-from-CC; 3.1 Overview; 3.2 Query Expanding; 3.3 Data Retrieval",
+        "pages": [
+          4,
+          5
+        ]
+      }
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "progressive-hyperlink-prediction-method.jpg",
+    "title": "Pre-training for Information Retrieval: Are Hyperlinks Fully Explored?",
+    "paper_url": "https://arxiv.org/pdf/2209.06583",
+    "source_figure": 2,
+    "source_page": 2,
+    "sections_read": [
+      "3 Methodology (p. 3)",
+      "3.1 Hyperlink Relationships (p. 4)",
+      "3.2.1 Self-supervision Signal (p. 4)",
+      "3.2.2 Three-stage Pre-training Objectives (p. 4)",
+      "3.2.3 Mask Strategy for Anchor Text (pp. 4-5)"
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "sam-sparse-routing-method.jpg",
+    "title": "Towards More Effective and Economic Sparsely-Activated Model",
+    "paper_url": "https://arxiv.org/abs/2110.07431",
+    "source_figure": "4",
+    "source_page": 4,
+    "sections_read": [
+      {
+        "section": "2.1 Sparsely Activated Models; 2.2 Expert Parallel; 2.3 Rethinking Sparsity and Beyond",
+        "pages": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "section": "3 Switch and Mixture Routing; 3.1 Hierarchical Routing; 3.1.1 Shared Router; 3.1.2 Non-shared Router; 3.2 Alignment Loss; 3.3 Load Balance",
+        "pages": [
+          4,
+          5
+        ]
+      },
+      {
+        "section": "Figure 4 SAM layer architecture",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Original paper figure crop",
+    "prompt": null
+  },
+  {
+    "file": "internlm-method.jpg",
+    "title": "InternLM: A multilingual language model with progressively enhanced capabilities",
+    "paper_url": "https://raw.githubusercontent.com/InternLM/InternLM-techreport/main/InternLM.pdf",
+    "source_figure": null,
+    "source_page": 4,
+    "sections_read": [
+      {
+        "section": "2 Model Development; 2.1 Training Dataset",
+        "pages": [
+          2,
+          3
+        ]
+      },
+      {
+        "section": "2.2 Training System; 2.3 Model Design",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "section": "2.4 Multi-phase Progressive Pretraining; 2.5 Alignment",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "section": "Figure 1 AGIEval comparison and Figure 2 C-Eval category results, inspected only to rule out a method diagram",
+        "pages": [
+          7
+        ]
+      }
+    ],
+    "source_kind": "paper_figure",
+    "generation": "Built-in image generation, redrawn from the source paper figure and method description",
+    "prompt": "Create a 16:10 landscape conference-paper method diagram on a pure white background. Use precise rectangular module boxes, thin navy outlines, clear directional arrows, restrained pale blue fills and one muted teal accent. Use generous spacing and large readable English module labels. The image must read as a research architecture figure, not a popular-science illustration: no mascot, robot character, decorative icons, photorealism, 3D effects, gradients, performance plots, fabricated measurements, badges, or author names. Simplify layout while preserving the actual computational or training relationships. Compose a text-grounded training schematic from Sections 2.1-2.5, clearly labelled Training Pipeline. Main horizontal flow: Multilingual Data -> Data Preparation -> Progressive Pretraining -> SFT -> PPO / RLHF -> InternLM. Under Data Preparation, use one small line of labels: Language Filter, Quality Filter, Deduplication. Represent Progressive Pretraining as one enclosing rectangle containing Phase t -> Evaluate -> Phase t+1, with a short feedback arrow from Evaluate to a label Data Mix + Hyperparameters. This denotes adaptable phases and must not imply a fixed count of pretraining stages. Below the SFT stage, draw a branch SFT -> Reward Model, with Human Preferences feeding Reward Model; Reward Model then sends a Reward arrow upward into PPO / RLHF, while the main SFT arrow initializes the policy. The Reward Model is trained from the SFT checkpoint. Keep this clearly a conceptual reconstruction from method text, not a numbered figure from the paper. Do not invent a special memory module, long-context mechanism, model size, training metric or fixed three-stage pretraining schedule."
+  }
+]

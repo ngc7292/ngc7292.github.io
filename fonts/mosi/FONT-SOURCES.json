@@ -1,0 +1,67 @@
+{
+  "retrieved_at": "2026-10-04",
+  "subset": "latin",
+  "font_display": "swap",
+  "fonts": [
+    {
+      "family": "Sora",
+      "weight": "400 700",
+      "filename": "sora-latin-variable.woff2",
+      "source": "https://fonts.gstatic.com/s/sora/v17/xMQ9uFFYT72X5wkB_18qmnndmSdSnh2BAfO5mnuyOo1lfiQwV6-xo6eeIw.woff2",
+      "css_source": "https://fonts.googleapis.com/css2?family=Sora:wght@400..700&display=swap",
+      "license_file": "sora-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/google/fonts/main/ofl/sora/OFL.txt",
+      "bytes": 25240,
+      "sha256": "3902474d3ece89c8580d5ef3325cf58753e6e45a86f9957b4dacc4fce2e7fde1",
+      "variable": true
+    },
+    {
+      "family": "Geist Mono",
+      "weight": "400 600",
+      "filename": "geist-mono-latin-variable.woff2",
+      "source": "https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmhHkjko.woff2",
+      "css_source": "https://fonts.googleapis.com/css2?family=Geist%20Mono:wght@400..600&display=swap",
+      "license_file": "geist-mono-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/google/fonts/main/ofl/geistmono/OFL.txt",
+      "bytes": 23108,
+      "sha256": "5f3d6ad60f29d6cb708414ec6887163d63bf197377ef5417d2483ff31ace6c3b",
+      "variable": true
+    },
+    {
+      "family": "Source Sans Pro",
+      "weight": "400",
+      "filename": "source-sans-pro-latin-400.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2",
+      "css_source": "https://fonts.googleapis.com/css2?family=Source%20Sans%20Pro:wght@400;600;700&display=swap",
+      "license_file": "source-sans-pro-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/adobe-fonts/source-sans/release/LICENSE.md",
+      "bytes": 14812,
+      "sha256": "fb7b366bd65fb747ebc7d6e2af9d8a25b056c27c4551db320fe68799ca43dc91",
+      "variable": false
+    },
+    {
+      "family": "Source Sans Pro",
+      "weight": "600",
+      "filename": "source-sans-pro-latin-600.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu3cOWxw.woff2",
+      "css_source": "https://fonts.googleapis.com/css2?family=Source%20Sans%20Pro:wght@400;600;700&display=swap",
+      "license_file": "source-sans-pro-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/adobe-fonts/source-sans/release/LICENSE.md",
+      "bytes": 14772,
+      "sha256": "a2fe82406659ad9ab5fc997e99f26dc63614f3f6fc474a1a8a2483e5248b8800",
+      "variable": false
+    },
+    {
+      "family": "Source Sans Pro",
+      "weight": "700",
+      "filename": "source-sans-pro-latin-700.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu3cOWxw.woff2",
+      "css_source": "https://fonts.googleapis.com/css2?family=Source%20Sans%20Pro:wght@400;600;700&display=swap",
+      "license_file": "source-sans-pro-OFL.txt",
+      "license_source": "https://raw.githubusercontent.com/adobe-fonts/source-sans/release/LICENSE.md",
+      "bytes": 14628,
+      "sha256": "45c6a51457cd1a536fcbf11d51ecdc225daf9635073cf6bc95381f57e87f6f46",
+      "variable": false
+    }
+  ]
+}
